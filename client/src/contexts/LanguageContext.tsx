@@ -1,0 +1,743 @@
+import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+
+export type Language = 'en' | 'fr' | 'de';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const translations: Record<Language, Record<string, string>> = {
+  en: {
+    // Navigation
+    'nav.home': 'Home',
+    'nav.coverage': 'Coverage',
+    'nav.pricing': 'Pricing',
+    'nav.faq': 'FAQ',
+    'nav.contact': 'Contact',
+    'nav.calculate': 'Calculate Now',
+    
+    // Hero Section
+    'hero.title': 'Cyber Assistance',
+    'hero.subtitle': 'Protect your business against cyber risks',
+    'hero.description': 'Secure your business against the consequences of cyberattacks, fines, and losses. Strengthen your cybersecurity with the most comprehensive coverage on the market.',
+    'hero.price': 'No deductible from',
+    'hero.priceValue': '€2/user/month',
+    'hero.cta': 'Calculate your Cyber Assistance',
+    'hero.ctaSecondary': 'Learn more',
+    
+    // What is Section
+    'what.title': 'What is Cyber Assistance?',
+    'what.description': 'Cyber Assistance is the essential product to protect businesses. It is also the indispensable complement to your company\'s cybersecurity strategy.',
+    'what.description2': 'We provide you with cybersecurity experts and specialized lawyers who will advise and assist you in legal and regulatory procedures as a result of a cyber incident. We will also handle the drafting of notifications to any governmental, regulatory, police, professional or legal body as appropriate.',
+    'what.protect': 'Protect against:',
+    'what.attacks': 'Attacks',
+    'what.fines': 'Fines',
+    'what.losses': 'Losses',
+    
+    // Benefits
+    'benefits.title': 'Why choose Cyber Assistance?',
+    'benefits.coverage.title': 'All essential coverages',
+    'benefits.coverage.description': 'The only insurance that includes fraud protection coverage in its basic policy',
+    'benefits.nodeductible.title': 'No deductible, no questionnaire',
+    'benefits.nodeductible.description': 'If you contract automatically online, you will have no deductible or prior questionnaire',
+    'benefits.limits.title': 'Independent limits for your coverages',
+    'benefits.limits.description': 'The flexibility of our cyber insurance allows you to set the limit you want to insure',
+    
+    // Statistics
+    'stats.title': 'Cyberattacks in our region: The numbers speak for themselves',
+    'stats.luxembourg': 'Luxembourg',
+    'stats.germany': 'Germany',
+    'stats.france': 'France',
+    'stats.belgium': 'Belgium',
+    'stats.lu.stat': '1,862 attacks per organization per week',
+    'stats.de.stat': '73% of SMEs experienced at least one cyberattack',
+    'stats.fr.stat': '1 in 2 cyberattacks targets an SME',
+    'stats.be.stat': '1,275 attacks per organization per week',
+    'stats.source': 'Source',
+    'stats.bottomline': '1 in 4 European SMEs fears a cyberattack could force them to close.',
+    
+    // Coverage Accordions
+    'coverage.title': 'What is covered?',
+    'coverage.viewDetails': 'View coverage details',
+    'coverage.hideDetails': 'Hide details',
+    
+    'coverage.tech.title': 'Technical Emergency Response',
+    'coverage.tech.subtitle': 'We get you back online',
+    'coverage.tech.description': 'We provide you with IT and cybersecurity services to deal with the consequences of a cyber incident, guaranteeing immediate assistance and expert support at every stage of the process.',
+    'coverage.tech.item1': '24/7 cyber incident assistance hotline',
+    'coverage.tech.item2': 'Incident response team on-site within 60 minutes',
+    'coverage.tech.item3': 'Email and phone restoration',
+    'coverage.tech.item4': 'Cloud access recovery',
+    'coverage.tech.item5': 'IT forensic security service',
+    'coverage.tech.item6': 'Crisis communication management',
+    'coverage.tech.example': 'Monday morning, 7:30 AM: Your employees can\'t log in. You call our hotline. Within 60 minutes, our team is with you and restores access. By noon, your business is back online.',
+    
+    'coverage.legal.title': 'Legal & Regulatory Support',
+    'coverage.legal.subtitle': 'GDPR and CNPD compliance assistance',
+    'coverage.legal.description': 'We cover the financial losses arising from claims and penalties for cyber incidents or privacy breaches, including those imposed by data protection authorities and as a result of NIS2 and DORA regulations.',
+    'coverage.legal.item1': 'Third-party claims as a result of cyber incident',
+    'coverage.legal.item2': 'Management liability for senior executives',
+    'coverage.legal.item3': 'Administrative sanctions (CNPD, CNIL, etc.)',
+    'coverage.legal.item4': 'Defamation coverage',
+    'coverage.legal.item5': 'Intellectual property rights violation',
+    'coverage.legal.example': 'You receive a malicious email (phishing) and, by mistake, download a program that exposes your company\'s and clients\' data. A mandatory report to the CNPD is required. Cyber Assistance provides you with a legal team that drafts the necessary notices to clients and represents you before the CNPD.',
+    
+    'coverage.business.title': 'Business Interruption & System Damage',
+    'coverage.business.subtitle': 'We help you recover quickly',
+    'coverage.business.description': 'Reimbursement of extraordinary costs incurred to repair and restore data and applications of your IT systems, including our team of experts, as well as financial losses suffered from an interruption of your systems and loss of customers.',
+    'coverage.business.item1': 'System damage and rectification costs',
+    'coverage.business.item2': 'Business interruption coverage',
+    'coverage.business.item3': 'Consequential reputational damage',
+    'coverage.business.item4': 'Cryptojacking protection',
+    'coverage.business.item5': 'Hardware coverage (Bricking)',
+    'coverage.business.item6': 'Claims adjustment expenses',
+    'coverage.business.example': 'After the attack, the assessment shows: 3 days of business interruption, €15,000 in lost revenue. The insurance reimburses the lost profit within 14 days.',
+    
+    'coverage.extortion.title': 'Cyber Extortion',
+    'coverage.extortion.subtitle': 'Compensation for attacks and cyber extortion',
+    'coverage.extortion.description': 'We cover the costs arising from cyber extortion, including reimbursement of payments in cash or digital currency demanded to stop the threat, as well as the intervention of experts in negotiation, management and recovery of compromised information.',
+    'coverage.extortion.item1': 'Cyber extortion compensation',
+    'coverage.extortion.item2': 'Ransom payment coverage (where legally permitted)',
+    'coverage.extortion.item3': 'Negotiation expert services',
+    'coverage.extortion.item4': 'Data recovery assistance',
+    'coverage.extortion.example': 'Your systems are encrypted by ransomware. The attackers demand €50,000 in Bitcoin. Our negotiation experts engage with the attackers while our technical team works on recovery. The insurance covers the negotiation costs and, if necessary, the ransom payment.',
+    
+    'coverage.fraud.title': 'Cybercrime & Fraud',
+    'coverage.fraud.subtitle': 'Fund transfer fraud and digital identity theft',
+    'coverage.fraud.description': 'Covers damages arising from unauthorized transfers, digital identity theft or computer manipulation of documentation.',
+    'coverage.fraud.item1': 'Fund transfer fraud with and without system access',
+    'coverage.fraud.item2': 'Digital identity theft',
+    'coverage.fraud.item3': 'Social engineering protection',
+    'coverage.fraud.item4': 'Invoice manipulation coverage',
+    'coverage.fraud.example': 'A fraudster impersonates your CEO via email and instructs your accountant to transfer €25,000 to a "new supplier." The money is gone before anyone notices. The insurance covers the lost funds.',
+    
+    'coverage.prevention.title': 'Prevention & Training',
+    'coverage.prevention.subtitle': 'So it doesn\'t happen in the first place',
+    'coverage.prevention.description': 'We continue to support you after the cyber incident, including one year of employee training with a preventive approach on an online platform to avoid future cyber incidents.',
+    'coverage.prevention.item1': 'Fit4Cybersecurity assessment integration',
+    'coverage.prevention.item2': '1 year employee training platform access',
+    'coverage.prevention.item3': 'Security recommendations',
+    'coverage.prevention.item4': 'Vulnerability analysis',
+    'coverage.prevention.item5': 'Ongoing security monitoring',
+    'coverage.prevention.example': 'Your Fit4Cyber score shows: MFA is missing on 3 systems. We help you fix this in 2 weeks – and you qualify for better insurance conditions.',
+    
+    // Calculator
+    'calc.title': 'Calculate your Cyber Assistance',
+    'calc.step1': 'Check',
+    'calc.step2': 'Choose',
+    'calc.step3': 'Start',
+    'calc.step1.title': 'Check your eligibility in 60 seconds',
+    'calc.step2.title': 'Choose your protection package',
+    'calc.step3.title': 'Almost done! Just your details.',
+    
+    'calc.q1': 'What is your Fit4Cybersecurity score?',
+    'calc.q1.opt1': '80% or higher',
+    'calc.q1.opt2': '60-79%',
+    'calc.q1.opt3': 'Below 60%',
+    'calc.q1.opt4': 'I don\'t have one',
+    'calc.q1.help': 'The official Luxembourg standard for assessing your cybersecurity. Free at fit4cybersecurity.nc3.lu',
+    
+    'calc.q2': 'How many employees does your company have?',
+    'calc.q2.opt1': '1-10',
+    'calc.q2.opt2': '11-25',
+    'calc.q2.opt3': '26-50',
+    'calc.q2.opt4': '51-100',
+    'calc.q2.opt5': '100+',
+    'calc.q2.help': 'Including all full and part-time employees. This helps us determine the service scope.',
+    
+    'calc.q3': 'Are you already a Mixvoip customer?',
+    'calc.q3.yes': 'Yes',
+    'calc.q3.no': 'No',
+    'calc.q3.help': 'As a Mixvoip customer, you benefit from exclusive advantages and faster onboarding.',
+    
+    'calc.q4': 'Has your company experienced a cyberattack in the last 3 years?',
+    'calc.q4.yes': 'Yes',
+    'calc.q4.no': 'No',
+    'calc.q4.help': 'Your honest answer helps us assess the risk fairly. Previous incidents are not an exclusion criterion.',
+    
+    'calc.check': 'Check my eligibility',
+    'calc.continue': 'Continue to checkout',
+    'calc.back': 'Back',
+    
+    'calc.result.eligible': 'Great news! You qualify for Cyber Assistance.',
+    'calc.result.upgrade': 'You need to improve your security score first.',
+    'calc.result.noscore': 'Get your free Fit4Cyber assessment first.',
+    'calc.result.getAssessment': 'Get Fit4Cyber Assessment',
+    
+    // Packages
+    'package.basic': 'Basic',
+    'package.pro': 'Pro',
+    'package.enterprise': 'Enterprise',
+    'package.recommended': 'Recommended',
+    'package.free': 'FREE',
+    'package.perUser': '/user/month',
+    'package.custom': 'Custom pricing',
+    'package.basic.feature1': 'Best effort response',
+    'package.basic.feature2': 'Core user recovery',
+    'package.basic.feature3': 'Business hours support',
+    'package.basic.note': '*For Mixvoip customers with Fit4Cyber score ≥60%',
+    'package.pro.feature1': '24/7, 1h guaranteed response',
+    'package.pro.feature2': 'Full system recovery',
+    'package.pro.feature3': 'Round-the-clock support',
+    'package.pro.feature4': 'Insurance INCLUDED',
+    'package.enterprise.feature1': 'Dedicated team',
+    'package.enterprise.feature2': 'Full custom solution',
+    'package.enterprise.feature3': 'Priority support',
+    'package.enterprise.feature4': 'Custom insurance limits',
+    'package.select': 'Select',
+    'package.contact': 'Contact us',
+    
+    'package.insurance.title': 'Add insurance coverage',
+    'package.insurance.description': 'Add financial protection. Protect yourself not only technically, but also against the financial consequences of an attack.',
+    'package.insurance.option1': '€50,000',
+    'package.insurance.option2': '€100,000',
+    'package.insurance.option3': '€250,000',
+    
+    // Checkout Form
+    'form.company': 'Company name',
+    'form.vat': 'VAT number',
+    'form.contact': 'Contact person',
+    'form.email': 'Email',
+    'form.phone': 'Phone',
+    'form.terms1': 'I accept the Terms and Conditions of Mixvoip Cyber Assistance',
+    'form.terms2': 'I accept the insurance terms of our Luxembourg insurance partner',
+    'form.terms3': 'I confirm that my information, particularly the Fit4Cyber score, is correct',
+    'form.submit': 'Order now & activate protection',
+    'form.success.title': 'Welcome aboard!',
+    'form.success.subtitle': 'You are now protected.',
+    'form.success.message': 'Your emergency hotline is now active. Our team will contact you within 24 hours for onboarding.',
+    
+    // FAQ
+    'faq.title': 'Frequently Asked Questions',
+    'faq.q1': 'Where can I call if I have questions during the Cyber Assistance subscription?',
+    'faq.a1': 'Contact us at +352 20 33 33 00 or email support@mixvoip.com',
+    'faq.q2': 'What should I do if I have an incident?',
+    'faq.a2': 'Call our 24/7 emergency hotline immediately. Our team will guide you through the process.',
+    'faq.q3': 'What advantages does Cyber Assistance offer me?',
+    'faq.a3': 'Complete protection: technical response + insurance coverage + legal support + prevention training.',
+    'faq.q4': 'If my laptop is stolen with all my client data, am I covered?',
+    'faq.a4': 'Yes, Cyber Assistance covers data breaches including those resulting from device theft.',
+    'faq.q5': 'My computer has been hijacked, what do I do?',
+    'faq.a5': 'Call our emergency hotline immediately. Do not pay any ransom without consulting our experts first.',
+    'faq.q6': 'What is the price and how do I pay?',
+    'faq.a6': 'Basic is free for Mixvoip customers. Pro starts at €2/user/month, billed monthly.',
+    'faq.q7': 'What is the deductible?',
+    'faq.a7': 'With online subscription, there is no deductible.',
+    'faq.q8': 'How is Cyber Assistance renewed?',
+    'faq.a8': 'The contract renews automatically annually. You can cancel at any time with 30 days notice.',
+    
+    // Footer
+    'footer.disclaimer': 'Insurance coverage is provided by a licensed Luxembourg insurance company. Mixvoip SA acts as an intermediary and is not the insurer. Terms and conditions apply.',
+    'footer.legal': 'Legal Notice',
+    'footer.privacy': 'Privacy Policy',
+    'footer.gdpr': 'GDPR',
+    'footer.terms': 'Terms & Conditions',
+    'footer.contact': 'Contact',
+    'footer.address': '70, rue des Prés, L-7333 Steinsel',
+    'footer.copyright': '© 2025 Mixvoip SA. All rights reserved.',
+  },
+  fr: {
+    // Navigation
+    'nav.home': 'Accueil',
+    'nav.coverage': 'Couvertures',
+    'nav.pricing': 'Tarifs',
+    'nav.faq': 'FAQ',
+    'nav.contact': 'Contact',
+    'nav.calculate': 'Calculer maintenant',
+    
+    // Hero Section
+    'hero.title': 'Cyber Assistance',
+    'hero.subtitle': 'Protégez votre entreprise contre les cyber-risques',
+    'hero.description': 'Protégez votre entreprise contre les conséquences des cyberattaques, amendes et pertes. Renforcez votre cybersécurité avec la couverture la plus complète du marché.',
+    'hero.price': 'Sans franchise à partir de',
+    'hero.priceValue': '2€/utilisateur/mois',
+    'hero.cta': 'Calculez votre Cyber Assistance',
+    'hero.ctaSecondary': 'En savoir plus',
+    
+    // What is Section
+    'what.title': 'Qu\'est-ce que Cyber Assistance ?',
+    'what.description': 'Cyber Assistance est le produit essentiel pour protéger les entreprises. C\'est aussi le complément indispensable à la stratégie de cybersécurité de votre entreprise.',
+    'what.description2': 'Nous mettons à votre disposition des experts en cybersécurité et des avocats spécialisés qui vous conseilleront et vous assisteront dans les procédures juridiques et réglementaires suite à un cyber-incident. Nous nous chargerons également de la rédaction des notifications à tout organisme gouvernemental, réglementaire, policier, professionnel ou juridique concerné.',
+    'what.protect': 'Protégez-vous contre :',
+    'what.attacks': 'Attaques',
+    'what.fines': 'Amendes',
+    'what.losses': 'Pertes',
+    
+    // Benefits
+    'benefits.title': 'Pourquoi choisir Cyber Assistance ?',
+    'benefits.coverage.title': 'Toutes les couvertures essentielles',
+    'benefits.coverage.description': 'La seule assurance qui inclut la protection contre la fraude dans sa police de base',
+    'benefits.nodeductible.title': 'Sans franchise, sans questionnaire',
+    'benefits.nodeductible.description': 'Si vous souscrivez automatiquement en ligne, vous n\'aurez ni franchise ni questionnaire préalable',
+    'benefits.limits.title': 'Limites indépendantes pour vos couvertures',
+    'benefits.limits.description': 'La flexibilité de notre cyber-assurance vous permet de fixer le plafond que vous souhaitez assurer',
+    
+    // Statistics
+    'stats.title': 'Cyberattaques dans notre région : Les chiffres parlent d\'eux-mêmes',
+    'stats.luxembourg': 'Luxembourg',
+    'stats.germany': 'Allemagne',
+    'stats.france': 'France',
+    'stats.belgium': 'Belgique',
+    'stats.lu.stat': '1 862 attaques par organisation par semaine',
+    'stats.de.stat': '73% des PME ont subi au moins une cyberattaque',
+    'stats.fr.stat': '1 cyberattaque sur 2 cible une PME',
+    'stats.be.stat': '1 275 attaques par organisation par semaine',
+    'stats.source': 'Source',
+    'stats.bottomline': '1 PME européenne sur 4 craint qu\'une cyberattaque puisse la contraindre à fermer.',
+    
+    // Coverage Accordions
+    'coverage.title': 'Qu\'est-ce qui est couvert ?',
+    'coverage.viewDetails': 'Voir les détails de couverture',
+    'coverage.hideDetails': 'Masquer les détails',
+    
+    'coverage.tech.title': 'Intervention Technique d\'Urgence',
+    'coverage.tech.subtitle': 'Nous vous remettons en ligne',
+    'coverage.tech.description': 'Nous mettons à votre disposition des services informatiques et de cybersécurité pour faire face aux conséquences d\'un cyber-incident, garantissant une assistance immédiate et un soutien expert à chaque étape du processus.',
+    'coverage.tech.item1': 'Hotline d\'assistance cyber-incidents 24/7',
+    'coverage.tech.item2': 'Équipe d\'intervention sur site sous 60 minutes',
+    'coverage.tech.item3': 'Restauration email et téléphone',
+    'coverage.tech.item4': 'Récupération d\'accès cloud',
+    'coverage.tech.item5': 'Service de sécurité informatique et forensique',
+    'coverage.tech.item6': 'Gestion de la communication de crise',
+    'coverage.tech.example': 'Lundi matin, 7h30 : Vos employés ne peuvent pas se connecter. Vous appelez notre hotline. En 60 minutes, notre équipe est chez vous et rétablit l\'accès. À midi, votre entreprise est de nouveau en ligne.',
+    
+    'coverage.legal.title': 'Support Juridique & Réglementaire',
+    'coverage.legal.subtitle': 'Assistance conformité RGPD et CNPD',
+    'coverage.legal.description': 'Nous couvrons les pertes financières découlant des réclamations et sanctions pour incidents cyber ou violations de la vie privée, y compris celles imposées par les autorités de protection des données et suite aux réglementations NIS2 et DORA.',
+    'coverage.legal.item1': 'Réclamations de tiers suite à un incident cyber',
+    'coverage.legal.item2': 'Responsabilité de gestion pour les dirigeants',
+    'coverage.legal.item3': 'Sanctions administratives (CNPD, CNIL, etc.)',
+    'coverage.legal.item4': 'Couverture diffamation',
+    'coverage.legal.item5': 'Violation des droits de propriété intellectuelle',
+    'coverage.legal.example': 'Vous recevez un email malveillant (phishing) et, par erreur, téléchargez un programme qui expose les données de votre entreprise et de vos clients. Un rapport obligatoire à la CNPD est requis. Cyber Assistance met à votre disposition une équipe juridique qui rédige les avis nécessaires aux clients et vous représente devant la CNPD.',
+    
+    'coverage.business.title': 'Interruption d\'Activité & Dommages aux Systèmes',
+    'coverage.business.subtitle': 'Nous vous aidons à récupérer rapidement',
+    'coverage.business.description': 'Remboursement des coûts extraordinaires engagés pour réparer et restaurer les données et applications de vos systèmes informatiques, y compris notre équipe d\'experts, ainsi que les pertes financières subies suite à une interruption de vos systèmes et à la perte de clients.',
+    'coverage.business.item1': 'Dommages aux systèmes et coûts de rectification',
+    'coverage.business.item2': 'Couverture interruption d\'activité',
+    'coverage.business.item3': 'Dommages réputationnels consécutifs',
+    'coverage.business.item4': 'Protection contre le cryptojacking',
+    'coverage.business.item5': 'Couverture matériel (Bricking)',
+    'coverage.business.item6': 'Frais d\'ajustement des sinistres',
+    'coverage.business.example': 'Après l\'attaque, le bilan montre : 3 jours d\'interruption d\'activité, 15 000 € de chiffre d\'affaires perdu. L\'assurance rembourse le bénéfice perdu sous 14 jours.',
+    
+    'coverage.extortion.title': 'Cyber-Extorsion',
+    'coverage.extortion.subtitle': 'Indemnisation pour attaques et cyber-extorsion',
+    'coverage.extortion.description': 'Nous couvrons les coûts découlant d\'une cyber-extorsion, y compris le remboursement des paiements en espèces ou en monnaie numérique exigés pour arrêter la menace, ainsi que l\'intervention d\'experts en négociation, gestion et récupération des informations compromises.',
+    'coverage.extortion.item1': 'Indemnisation cyber-extorsion',
+    'coverage.extortion.item2': 'Couverture paiement de rançon (si légalement autorisé)',
+    'coverage.extortion.item3': 'Services d\'experts en négociation',
+    'coverage.extortion.item4': 'Assistance récupération de données',
+    'coverage.extortion.example': 'Vos systèmes sont chiffrés par un ransomware. Les attaquants exigent 50 000 € en Bitcoin. Nos experts en négociation dialoguent avec les attaquants pendant que notre équipe technique travaille à la récupération. L\'assurance couvre les frais de négociation et, si nécessaire, le paiement de la rançon.',
+    
+    'coverage.fraud.title': 'Cybercriminalité & Fraude',
+    'coverage.fraud.subtitle': 'Fraude au virement et vol d\'identité numérique',
+    'coverage.fraud.description': 'Couvre les dommages résultant de transferts non autorisés, de vol d\'identité numérique ou de manipulation informatique de documents.',
+    'coverage.fraud.item1': 'Fraude au virement avec et sans accès aux systèmes',
+    'coverage.fraud.item2': 'Vol d\'identité numérique',
+    'coverage.fraud.item3': 'Protection contre l\'ingénierie sociale',
+    'coverage.fraud.item4': 'Couverture manipulation de factures',
+    'coverage.fraud.example': 'Un fraudeur se fait passer pour votre PDG par email et demande à votre comptable de transférer 25 000 € à un "nouveau fournisseur". L\'argent disparaît avant que quiconque ne s\'en aperçoive. L\'assurance couvre les fonds perdus.',
+    
+    'coverage.prevention.title': 'Prévention & Formation',
+    'coverage.prevention.subtitle': 'Pour que cela n\'arrive pas',
+    'coverage.prevention.description': 'Nous continuons à vous accompagner après l\'incident cyber, y compris un an de formation des employés avec une approche préventive sur une plateforme en ligne pour éviter les futurs incidents cyber.',
+    'coverage.prevention.item1': 'Intégration évaluation Fit4Cybersecurity',
+    'coverage.prevention.item2': '1 an d\'accès à la plateforme de formation',
+    'coverage.prevention.item3': 'Recommandations de sécurité',
+    'coverage.prevention.item4': 'Analyse des vulnérabilités',
+    'coverage.prevention.item5': 'Surveillance continue de la sécurité',
+    'coverage.prevention.example': 'Votre score Fit4Cyber montre : MFA manquant sur 3 systèmes. Nous vous aidons à corriger cela en 2 semaines – et vous bénéficiez de meilleures conditions d\'assurance.',
+    
+    // Calculator
+    'calc.title': 'Calculez votre Cyber Assistance',
+    'calc.step1': 'Vérifier',
+    'calc.step2': 'Choisir',
+    'calc.step3': 'Démarrer',
+    'calc.step1.title': 'Vérifiez votre éligibilité en 60 secondes',
+    'calc.step2.title': 'Choisissez votre forfait de protection',
+    'calc.step3.title': 'Presque terminé ! Juste vos coordonnées.',
+    
+    'calc.q1': 'Quel est votre score Fit4Cybersecurity ?',
+    'calc.q1.opt1': '80% ou plus',
+    'calc.q1.opt2': '60-79%',
+    'calc.q1.opt3': 'Moins de 60%',
+    'calc.q1.opt4': 'Je n\'en ai pas',
+    'calc.q1.help': 'Le standard officiel luxembourgeois pour évaluer votre cybersécurité. Gratuit sur fit4cybersecurity.nc3.lu',
+    
+    'calc.q2': 'Combien d\'employés compte votre entreprise ?',
+    'calc.q2.opt1': '1-10',
+    'calc.q2.opt2': '11-25',
+    'calc.q2.opt3': '26-50',
+    'calc.q2.opt4': '51-100',
+    'calc.q2.opt5': '100+',
+    'calc.q2.help': 'Y compris tous les employés à temps plein et partiel. Cela nous aide à déterminer l\'étendue du service.',
+    
+    'calc.q3': 'Êtes-vous déjà client Mixvoip ?',
+    'calc.q3.yes': 'Oui',
+    'calc.q3.no': 'Non',
+    'calc.q3.help': 'En tant que client Mixvoip, vous bénéficiez d\'avantages exclusifs et d\'un onboarding plus rapide.',
+    
+    'calc.q4': 'Votre entreprise a-t-elle subi une cyberattaque au cours des 3 dernières années ?',
+    'calc.q4.yes': 'Oui',
+    'calc.q4.no': 'Non',
+    'calc.q4.help': 'Votre réponse honnête nous aide à évaluer le risque équitablement. Les incidents passés ne sont pas un critère d\'exclusion.',
+    
+    'calc.check': 'Vérifier mon éligibilité',
+    'calc.continue': 'Continuer vers le paiement',
+    'calc.back': 'Retour',
+    
+    'calc.result.eligible': 'Bonne nouvelle ! Vous êtes éligible à Cyber Assistance.',
+    'calc.result.upgrade': 'Vous devez d\'abord améliorer votre score de sécurité.',
+    'calc.result.noscore': 'Obtenez d\'abord votre évaluation Fit4Cyber gratuite.',
+    'calc.result.getAssessment': 'Obtenir l\'évaluation Fit4Cyber',
+    
+    // Packages
+    'package.basic': 'Basic',
+    'package.pro': 'Pro',
+    'package.enterprise': 'Enterprise',
+    'package.recommended': 'Recommandé',
+    'package.free': 'GRATUIT',
+    'package.perUser': '/utilisateur/mois',
+    'package.custom': 'Tarif personnalisé',
+    'package.basic.feature1': 'Réponse best effort',
+    'package.basic.feature2': 'Récupération utilisateurs clés',
+    'package.basic.feature3': 'Support heures ouvrables',
+    'package.basic.note': '*Pour les clients Mixvoip avec score Fit4Cyber ≥60%',
+    'package.pro.feature1': '24/7, réponse garantie 1h',
+    'package.pro.feature2': 'Récupération système complète',
+    'package.pro.feature3': 'Support 24h/24',
+    'package.pro.feature4': 'Assurance INCLUSE',
+    'package.enterprise.feature1': 'Équipe dédiée',
+    'package.enterprise.feature2': 'Solution personnalisée',
+    'package.enterprise.feature3': 'Support prioritaire',
+    'package.enterprise.feature4': 'Limites d\'assurance personnalisées',
+    'package.select': 'Sélectionner',
+    'package.contact': 'Contactez-nous',
+    
+    'package.insurance.title': 'Ajouter une couverture d\'assurance',
+    'package.insurance.description': 'Ajoutez une protection financière. Protégez-vous non seulement techniquement, mais aussi contre les conséquences financières d\'une attaque.',
+    'package.insurance.option1': '50 000 €',
+    'package.insurance.option2': '100 000 €',
+    'package.insurance.option3': '250 000 €',
+    
+    // Checkout Form
+    'form.company': 'Nom de l\'entreprise',
+    'form.vat': 'Numéro de TVA',
+    'form.contact': 'Personne de contact',
+    'form.email': 'Email',
+    'form.phone': 'Téléphone',
+    'form.terms1': 'J\'accepte les Conditions Générales de Mixvoip Cyber Assistance',
+    'form.terms2': 'J\'accepte les conditions d\'assurance de notre partenaire assureur luxembourgeois',
+    'form.terms3': 'Je confirme que mes informations, notamment le score Fit4Cyber, sont correctes',
+    'form.submit': 'Commander maintenant & activer la protection',
+    'form.success.title': 'Bienvenue à bord !',
+    'form.success.subtitle': 'Vous êtes maintenant protégé.',
+    'form.success.message': 'Votre hotline d\'urgence est désormais active. Notre équipe vous contactera sous 24 heures pour l\'onboarding.',
+    
+    // FAQ
+    'faq.title': 'Questions Fréquentes',
+    'faq.q1': 'Où puis-je appeler si j\'ai des questions pendant l\'abonnement Cyber Assistance ?',
+    'faq.a1': 'Contactez-nous au +352 20 33 33 00 ou par email à support@mixvoip.com',
+    'faq.q2': 'Que dois-je faire si j\'ai un incident ?',
+    'faq.a2': 'Appelez immédiatement notre hotline d\'urgence 24/7. Notre équipe vous guidera tout au long du processus.',
+    'faq.q3': 'Quels avantages Cyber Assistance m\'offre-t-il ?',
+    'faq.a3': 'Protection complète : réponse technique + couverture d\'assurance + support juridique + formation préventive.',
+    'faq.q4': 'Si mon ordinateur portable est volé avec toutes les données de mes clients, suis-je couvert ?',
+    'faq.a4': 'Oui, Cyber Assistance couvre les violations de données, y compris celles résultant du vol d\'appareils.',
+    'faq.q5': 'Mon ordinateur a été piraté, que dois-je faire ?',
+    'faq.a5': 'Appelez immédiatement notre hotline d\'urgence. Ne payez aucune rançon sans consulter d\'abord nos experts.',
+    'faq.q6': 'Quel est le prix et comment puis-je payer ?',
+    'faq.a6': 'Basic est gratuit pour les clients Mixvoip. Pro commence à 2€/utilisateur/mois, facturé mensuellement.',
+    'faq.q7': 'Quelle est la franchise ?',
+    'faq.a7': 'Avec l\'abonnement en ligne, il n\'y a pas de franchise.',
+    'faq.q8': 'Comment Cyber Assistance est-il renouvelé ?',
+    'faq.a8': 'Le contrat se renouvelle automatiquement chaque année. Vous pouvez résilier à tout moment avec un préavis de 30 jours.',
+    
+    // Footer
+    'footer.disclaimer': 'La couverture d\'assurance est fournie par une compagnie d\'assurance luxembourgeoise agréée. Mixvoip SA agit en tant qu\'intermédiaire et n\'est pas l\'assureur. Des conditions générales s\'appliquent.',
+    'footer.legal': 'Mentions légales',
+    'footer.privacy': 'Politique de confidentialité',
+    'footer.gdpr': 'RGPD',
+    'footer.terms': 'Conditions générales',
+    'footer.contact': 'Contact',
+    'footer.address': '70, rue des Prés, L-7333 Steinsel',
+    'footer.copyright': '© 2025 Mixvoip SA. Tous droits réservés.',
+  },
+  de: {
+    // Navigation
+    'nav.home': 'Startseite',
+    'nav.coverage': 'Deckungen',
+    'nav.pricing': 'Preise',
+    'nav.faq': 'FAQ',
+    'nav.contact': 'Kontakt',
+    'nav.calculate': 'Jetzt berechnen',
+    
+    // Hero Section
+    'hero.title': 'Cyber Assistance',
+    'hero.subtitle': 'Schützen Sie Ihr Unternehmen vor Cyber-Risiken',
+    'hero.description': 'Sichern Sie Ihr Unternehmen gegen die Folgen von Cyberangriffen, Bußgeldern und Verlusten ab. Stärken Sie Ihre Cybersicherheit mit dem umfassendsten Schutz auf dem Markt.',
+    'hero.price': 'Ohne Selbstbeteiligung ab',
+    'hero.priceValue': '2€/Nutzer/Monat',
+    'hero.cta': 'Berechnen Sie Ihre Cyber Assistance',
+    'hero.ctaSecondary': 'Mehr erfahren',
+    
+    // What is Section
+    'what.title': 'Was ist Cyber Assistance?',
+    'what.description': 'Cyber Assistance ist das unverzichtbare Produkt zum Schutz von Unternehmen. Es ist auch die unentbehrliche Ergänzung zur Cybersicherheitsstrategie Ihres Unternehmens.',
+    'what.description2': 'Wir stellen Ihnen Cybersicherheitsexperten und spezialisierte Anwälte zur Verfügung, die Sie bei rechtlichen und regulatorischen Verfahren infolge eines Cyber-Vorfalls beraten und unterstützen. Wir übernehmen auch die Erstellung von Meldungen an alle zuständigen behördlichen, regulatorischen, polizeilichen, beruflichen oder rechtlichen Stellen.',
+    'what.protect': 'Schützen Sie sich vor:',
+    'what.attacks': 'Angriffen',
+    'what.fines': 'Bußgeldern',
+    'what.losses': 'Verlusten',
+    
+    // Benefits
+    'benefits.title': 'Warum Cyber Assistance wählen?',
+    'benefits.coverage.title': 'Alle wesentlichen Deckungen',
+    'benefits.coverage.description': 'Die einzige Versicherung, die Betrugsschutz in ihrer Basispolice enthält',
+    'benefits.nodeductible.title': 'Keine Selbstbeteiligung, kein Fragebogen',
+    'benefits.nodeductible.description': 'Bei Online-Abschluss haben Sie keine Selbstbeteiligung und keinen vorherigen Fragebogen',
+    'benefits.limits.title': 'Unabhängige Limits für Ihre Deckungen',
+    'benefits.limits.description': 'Die Flexibilität unserer Cyber-Versicherung ermöglicht es Ihnen, das gewünschte Versicherungslimit festzulegen',
+    
+    // Statistics
+    'stats.title': 'Cyberangriffe in unserer Region: Die Zahlen sprechen für sich',
+    'stats.luxembourg': 'Luxemburg',
+    'stats.germany': 'Deutschland',
+    'stats.france': 'Frankreich',
+    'stats.belgium': 'Belgien',
+    'stats.lu.stat': '1.862 Angriffe pro Organisation pro Woche',
+    'stats.de.stat': '73% der KMU erlebten mindestens einen Cyberangriff',
+    'stats.fr.stat': 'Jeder 2. Cyberangriff zielt auf ein KMU',
+    'stats.be.stat': '1.275 Angriffe pro Organisation pro Woche',
+    'stats.source': 'Quelle',
+    'stats.bottomline': '1 von 4 europäischen KMU befürchtet, dass ein Cyberangriff sie zur Schließung zwingen könnte.',
+    
+    // Coverage Accordions
+    'coverage.title': 'Was ist abgedeckt?',
+    'coverage.viewDetails': 'Deckungsdetails anzeigen',
+    'coverage.hideDetails': 'Details ausblenden',
+    
+    'coverage.tech.title': 'Technische Notfallhilfe',
+    'coverage.tech.subtitle': 'Wir bringen Sie wieder online',
+    'coverage.tech.description': 'Wir stellen Ihnen IT- und Cybersicherheitsdienste zur Verfügung, um die Folgen eines Cyber-Vorfalls zu bewältigen und garantieren sofortige Hilfe und Expertenunterstützung in jeder Phase des Prozesses.',
+    'coverage.tech.item1': '24/7 Cyber-Vorfall-Hotline',
+    'coverage.tech.item2': 'Incident Response Team vor Ort innerhalb von 60 Minuten',
+    'coverage.tech.item3': 'E-Mail- und Telefonwiederherstellung',
+    'coverage.tech.item4': 'Cloud-Zugangswiederherstellung',
+    'coverage.tech.item5': 'IT-Forensik-Sicherheitsdienst',
+    'coverage.tech.item6': 'Krisenkommunikationsmanagement',
+    'coverage.tech.example': 'Montagmorgen, 7:30 Uhr: Ihre Mitarbeiter können sich nicht einloggen. Sie rufen unsere Hotline an. Innerhalb von 60 Minuten ist unser Team bei Ihnen und stellt den Zugang wieder her. Mittags ist Ihr Unternehmen wieder online.',
+    
+    'coverage.legal.title': 'Rechtliche & Regulatorische Unterstützung',
+    'coverage.legal.subtitle': 'DSGVO- und Datenschutz-Compliance-Hilfe',
+    'coverage.legal.description': 'Wir decken die finanziellen Verluste aus Ansprüchen und Strafen für Cyber-Vorfälle oder Datenschutzverletzungen ab, einschließlich der von Datenschutzbehörden verhängten Strafen und infolge der NIS2- und DORA-Vorschriften.',
+    'coverage.legal.item1': 'Ansprüche Dritter infolge eines Cyber-Vorfalls',
+    'coverage.legal.item2': 'Managerhaftung für Führungskräfte',
+    'coverage.legal.item3': 'Verwaltungssanktionen (CNPD, CNIL, BfDI, etc.)',
+    'coverage.legal.item4': 'Verleumdungsschutz',
+    'coverage.legal.item5': 'Verletzung von geistigen Eigentumsrechten',
+    'coverage.legal.example': 'Sie erhalten eine bösartige E-Mail (Phishing) und laden versehentlich ein Programm herunter, das die Daten Ihres Unternehmens und Ihrer Kunden offenlegt. Eine Pflichtmeldung an die Datenschutzbehörde ist erforderlich. Cyber Assistance stellt Ihnen ein Rechtsteam zur Verfügung, das die erforderlichen Mitteilungen an Kunden verfasst und Sie vor der Behörde vertritt.',
+    
+    'coverage.business.title': 'Betriebsunterbrechung & Systemschäden',
+    'coverage.business.subtitle': 'Wir helfen Ihnen bei der schnellen Wiederherstellung',
+    'coverage.business.description': 'Erstattung der außerordentlichen Kosten für die Reparatur und Wiederherstellung von Daten und Anwendungen Ihrer IT-Systeme, einschließlich unseres Expertenteams, sowie der finanziellen Verluste durch Systemunterbrechungen und Kundenverlust.',
+    'coverage.business.item1': 'Systemschäden und Behebungskosten',
+    'coverage.business.item2': 'Betriebsunterbrechungsdeckung',
+    'coverage.business.item3': 'Folge-Reputationsschäden',
+    'coverage.business.item4': 'Cryptojacking-Schutz',
+    'coverage.business.item5': 'Hardware-Deckung (Bricking)',
+    'coverage.business.item6': 'Schadenregulierungskosten',
+    'coverage.business.example': 'Nach dem Angriff zeigt die Bilanz: 3 Tage Betriebsunterbrechung, 15.000 € Umsatzverlust. Die Versicherung erstattet den entgangenen Gewinn innerhalb von 14 Tagen.',
+    
+    'coverage.extortion.title': 'Cyber-Erpressung',
+    'coverage.extortion.subtitle': 'Entschädigung bei Angriffen und Cyber-Erpressung',
+    'coverage.extortion.description': 'Wir decken die Kosten aus Cyber-Erpressung ab, einschließlich der Erstattung von Zahlungen in bar oder digitaler Währung, die zur Beendigung der Bedrohung gefordert werden, sowie den Einsatz von Experten für Verhandlung, Management und Wiederherstellung kompromittierter Informationen.',
+    'coverage.extortion.item1': 'Cyber-Erpressungsentschädigung',
+    'coverage.extortion.item2': 'Lösegeldzahlungsdeckung (wo rechtlich zulässig)',
+    'coverage.extortion.item3': 'Verhandlungsexperten-Services',
+    'coverage.extortion.item4': 'Datenwiederherstellungshilfe',
+    'coverage.extortion.example': 'Ihre Systeme werden durch Ransomware verschlüsselt. Die Angreifer fordern 50.000 € in Bitcoin. Unsere Verhandlungsexperten kommunizieren mit den Angreifern, während unser technisches Team an der Wiederherstellung arbeitet. Die Versicherung deckt die Verhandlungskosten und, falls erforderlich, die Lösegeldzahlung.',
+    
+    'coverage.fraud.title': 'Cyberkriminalität & Betrug',
+    'coverage.fraud.subtitle': 'Überweisungsbetrug und digitaler Identitätsdiebstahl',
+    'coverage.fraud.description': 'Deckt Schäden aus nicht autorisierten Überweisungen, digitalem Identitätsdiebstahl oder Computermanipulation von Dokumenten.',
+    'coverage.fraud.item1': 'Überweisungsbetrug mit und ohne Systemzugang',
+    'coverage.fraud.item2': 'Digitaler Identitätsdiebstahl',
+    'coverage.fraud.item3': 'Social-Engineering-Schutz',
+    'coverage.fraud.item4': 'Rechnungsmanipulationsdeckung',
+    'coverage.fraud.example': 'Ein Betrüger gibt sich per E-Mail als Ihr CEO aus und weist Ihren Buchhalter an, 25.000 € an einen "neuen Lieferanten" zu überweisen. Das Geld ist weg, bevor es jemand bemerkt. Die Versicherung deckt die verlorenen Gelder.',
+    
+    'coverage.prevention.title': 'Prävention & Schulung',
+    'coverage.prevention.subtitle': 'Damit es gar nicht erst passiert',
+    'coverage.prevention.description': 'Wir begleiten Sie auch nach dem Cyber-Vorfall weiter, einschließlich eines Jahres Mitarbeiterschulung mit präventivem Ansatz auf einer Online-Plattform zur Vermeidung zukünftiger Cyber-Vorfälle.',
+    'coverage.prevention.item1': 'Fit4Cybersecurity-Assessment-Integration',
+    'coverage.prevention.item2': '1 Jahr Zugang zur Schulungsplattform',
+    'coverage.prevention.item3': 'Sicherheitsempfehlungen',
+    'coverage.prevention.item4': 'Schwachstellenanalyse',
+    'coverage.prevention.item5': 'Laufende Sicherheitsüberwachung',
+    'coverage.prevention.example': 'Ihr Fit4Cyber-Score zeigt: MFA fehlt auf 3 Systemen. Wir helfen Ihnen, das in 2 Wochen zu beheben – und Sie qualifizieren sich für bessere Versicherungskonditionen.',
+    
+    // Calculator
+    'calc.title': 'Berechnen Sie Ihre Cyber Assistance',
+    'calc.step1': 'Prüfen',
+    'calc.step2': 'Wählen',
+    'calc.step3': 'Starten',
+    'calc.step1.title': 'Prüfen Sie Ihre Berechtigung in 60 Sekunden',
+    'calc.step2.title': 'Wählen Sie Ihr Schutzpaket',
+    'calc.step3.title': 'Fast geschafft! Nur noch Ihre Daten.',
+    
+    'calc.q1': 'Was ist Ihr Fit4Cybersecurity-Score?',
+    'calc.q1.opt1': '80% oder höher',
+    'calc.q1.opt2': '60-79%',
+    'calc.q1.opt3': 'Unter 60%',
+    'calc.q1.opt4': 'Ich habe keinen',
+    'calc.q1.help': 'Der offizielle luxemburgische Standard zur Bewertung Ihrer Cybersicherheit. Kostenlos auf fit4cybersecurity.nc3.lu',
+    
+    'calc.q2': 'Wie viele Mitarbeiter hat Ihr Unternehmen?',
+    'calc.q2.opt1': '1-10',
+    'calc.q2.opt2': '11-25',
+    'calc.q2.opt3': '26-50',
+    'calc.q2.opt4': '51-100',
+    'calc.q2.opt5': '100+',
+    'calc.q2.help': 'Einschließlich aller Voll- und Teilzeitkräfte. Dies hilft uns, den Service-Umfang zu bestimmen.',
+    
+    'calc.q3': 'Sind Sie bereits Mixvoip-Kunde?',
+    'calc.q3.yes': 'Ja',
+    'calc.q3.no': 'Nein',
+    'calc.q3.help': 'Als Mixvoip-Kunde profitieren Sie von exklusiven Vorteilen und schnellerem Onboarding.',
+    
+    'calc.q4': 'Hat Ihr Unternehmen in den letzten 3 Jahren einen Cyberangriff erlebt?',
+    'calc.q4.yes': 'Ja',
+    'calc.q4.no': 'Nein',
+    'calc.q4.help': 'Ihre ehrliche Antwort hilft uns, das Risiko fair einzuschätzen. Frühere Vorfälle sind kein Ausschlusskriterium.',
+    
+    'calc.check': 'Berechtigung prüfen',
+    'calc.continue': 'Weiter zur Kasse',
+    'calc.back': 'Zurück',
+    
+    'calc.result.eligible': 'Gute Nachrichten! Sie qualifizieren sich für Cyber Assistance.',
+    'calc.result.upgrade': 'Sie müssen zuerst Ihren Sicherheits-Score verbessern.',
+    'calc.result.noscore': 'Holen Sie sich zuerst Ihre kostenlose Fit4Cyber-Bewertung.',
+    'calc.result.getAssessment': 'Fit4Cyber-Bewertung erhalten',
+    
+    // Packages
+    'package.basic': 'Basic',
+    'package.pro': 'Pro',
+    'package.enterprise': 'Enterprise',
+    'package.recommended': 'Empfohlen',
+    'package.free': 'KOSTENLOS',
+    'package.perUser': '/Nutzer/Monat',
+    'package.custom': 'Individueller Preis',
+    'package.basic.feature1': 'Best-Effort-Reaktion',
+    'package.basic.feature2': 'Core-User-Wiederherstellung',
+    'package.basic.feature3': 'Support zu Geschäftszeiten',
+    'package.basic.note': '*Für Mixvoip-Kunden mit Fit4Cyber-Score ≥60%',
+    'package.pro.feature1': '24/7, 1h garantierte Reaktion',
+    'package.pro.feature2': 'Vollständige Systemwiederherstellung',
+    'package.pro.feature3': 'Rund-um-die-Uhr-Support',
+    'package.pro.feature4': 'Versicherung INKLUSIVE',
+    'package.enterprise.feature1': 'Dediziertes Team',
+    'package.enterprise.feature2': 'Vollständig individuelle Lösung',
+    'package.enterprise.feature3': 'Prioritäts-Support',
+    'package.enterprise.feature4': 'Individuelle Versicherungslimits',
+    'package.select': 'Auswählen',
+    'package.contact': 'Kontaktieren Sie uns',
+    
+    'package.insurance.title': 'Versicherungsschutz hinzufügen',
+    'package.insurance.description': 'Fügen Sie finanziellen Schutz hinzu. Schützen Sie sich nicht nur technisch, sondern auch vor den finanziellen Folgen eines Angriffs.',
+    'package.insurance.option1': '50.000 €',
+    'package.insurance.option2': '100.000 €',
+    'package.insurance.option3': '250.000 €',
+    
+    // Checkout Form
+    'form.company': 'Firmenname',
+    'form.vat': 'USt-IdNr.',
+    'form.contact': 'Ansprechpartner',
+    'form.email': 'E-Mail',
+    'form.phone': 'Telefon',
+    'form.terms1': 'Ich akzeptiere die AGB von Mixvoip Cyber Assistance',
+    'form.terms2': 'Ich akzeptiere die Versicherungsbedingungen unseres luxemburgischen Versicherungspartners',
+    'form.terms3': 'Ich bestätige, dass meine Angaben, insbesondere der Fit4Cyber-Score, korrekt sind',
+    'form.submit': 'Jetzt bestellen & Schutz aktivieren',
+    'form.success.title': 'Willkommen an Bord!',
+    'form.success.subtitle': 'Sie sind jetzt geschützt.',
+    'form.success.message': 'Ihre Notfall-Hotline ist ab sofort aktiv. Unser Team meldet sich innerhalb von 24 Stunden für das Onboarding.',
+    
+    // FAQ
+    'faq.title': 'Häufig gestellte Fragen',
+    'faq.q1': 'Wo kann ich anrufen, wenn ich während des Cyber Assistance-Abonnements Fragen habe?',
+    'faq.a1': 'Kontaktieren Sie uns unter +352 20 33 33 00 oder per E-Mail an support@mixvoip.com',
+    'faq.q2': 'Was soll ich tun, wenn ich einen Vorfall habe?',
+    'faq.a2': 'Rufen Sie sofort unsere 24/7-Notfall-Hotline an. Unser Team führt Sie durch den Prozess.',
+    'faq.q3': 'Welche Vorteile bietet mir Cyber Assistance?',
+    'faq.a3': 'Vollständiger Schutz: technische Reaktion + Versicherungsschutz + rechtliche Unterstützung + Präventionsschulung.',
+    'faq.q4': 'Wenn mein Laptop mit allen Kundendaten gestohlen wird, bin ich dann abgedeckt?',
+    'faq.a4': 'Ja, Cyber Assistance deckt Datenschutzverletzungen ab, einschließlich solcher, die durch Gerätediebstahl entstehen.',
+    'faq.q5': 'Mein Computer wurde gehackt, was soll ich tun?',
+    'faq.a5': 'Rufen Sie sofort unsere Notfall-Hotline an. Zahlen Sie kein Lösegeld, ohne vorher unsere Experten zu konsultieren.',
+    'faq.q6': 'Was ist der Preis und wie bezahle ich?',
+    'faq.a6': 'Basic ist kostenlos für Mixvoip-Kunden. Pro beginnt bei 2€/Nutzer/Monat, monatlich abgerechnet.',
+    'faq.q7': 'Was ist die Selbstbeteiligung?',
+    'faq.a7': 'Bei Online-Abschluss gibt es keine Selbstbeteiligung.',
+    'faq.q8': 'Wie wird Cyber Assistance verlängert?',
+    'faq.a8': 'Der Vertrag verlängert sich automatisch jährlich. Sie können jederzeit mit 30 Tagen Kündigungsfrist kündigen.',
+    
+    // Footer
+    'footer.disclaimer': 'Der Versicherungsschutz wird von einem lizenzierten luxemburgischen Versicherungsunternehmen bereitgestellt. Mixvoip SA handelt als Vermittler und ist nicht der Versicherer. Es gelten die Allgemeinen Geschäftsbedingungen.',
+    'footer.legal': 'Impressum',
+    'footer.privacy': 'Datenschutz',
+    'footer.gdpr': 'DSGVO',
+    'footer.terms': 'AGB',
+    'footer.contact': 'Kontakt',
+    'footer.address': '70, rue des Prés, L-7333 Steinsel',
+    'footer.copyright': '© 2025 Mixvoip SA. Alle Rechte vorbehalten.',
+  },
+};
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('language') as Language;
+      if (saved && ['en', 'fr', 'de'].includes(saved)) {
+        return saved;
+      }
+      const browserLang = navigator.language.split('-')[0];
+      if (['en', 'fr', 'de'].includes(browserLang)) {
+        return browserLang as Language;
+      }
+    }
+    return 'en';
+  });
+
+  const setLanguage = useCallback((lang: Language) => {
+    setLanguageState(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+    }
+  }, []);
+
+  const t = useCallback((key: string): string => {
+    return translations[language][key] || key;
+  }, [language]);
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+}
