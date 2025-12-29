@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import WhatIs from '@/components/WhatIs';
 import Benefits from '@/components/Benefits';
 import Statistics from '@/components/Statistics';
+import AnimatedPresentation from '@/components/AnimatedPresentation';
 import CoverageAccordion from '@/components/CoverageAccordion';
 import Calculator from '@/components/Calculator';
 import FAQ from '@/components/FAQ';
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <WhatIs />
         <Benefits />
+        <AnimatedPresentation />
         <Statistics />
         <CoverageAccordion />
         <Calculator />

@@ -1,16 +1,47 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Download } from 'lucide-react';
 
 export default function Footer() {
   const { t } = useLanguage();
+
+  const offices = [
+    {
+      country: 'Luxembourg (HQ)',
+      company: 'MIXVOIP SA',
+      address: '70, rue des Prés',
+      city: 'L-7333 Steinsel',
+      phone: '+352 20 33 33 00',
+    },
+    {
+      country: 'Belgium',
+      company: 'MIXVOIP SRL',
+      address: 'Avenue de Finlande 5',
+      city: 'B-1420 Braine l\'Alleud',
+      phone: '+32 2895 02 00',
+    },
+    {
+      country: 'Germany',
+      company: 'MIXVOIP GMBH',
+      address: 'Max-Planck-Straße 22',
+      city: 'D-54296 Trier',
+      phone: '+49 651 9374 88 00',
+    },
+    {
+      country: 'France',
+      company: 'MIXVOIP SAS',
+      address: '4, rue Marconi',
+      city: 'F-57000 Metz',
+      phone: '+33 3 67 39 12 00',
+    },
+  ];
 
   return (
     <footer id="contact" className="bg-slate-900 text-white">
       {/* Main Footer */}
       <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* Logo & Description */}
-          <div className="lg:col-span-2">
+          <div>
             <img
               src="/images/Mixvoip-logo-white-green-slash-RGB.png"
               alt="Mixvoip"
@@ -19,6 +50,15 @@ export default function Footer() {
             <p className="text-slate-400 text-sm leading-relaxed max-w-md mb-6">
               {t('footer.disclaimer')}
             </p>
+            {/* Download Brochure */}
+            <a
+              href="/Mixvoip_Cyber_Assistance_Brochure.pdf"
+              download
+              className="inline-flex items-center gap-2 bg-[#00B050] hover:bg-[#00963f] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+            >
+              <Download className="h-4 w-4" />
+              {t('footer.downloadBrochure')}
+            </a>
           </div>
 
           {/* Contact */}
@@ -27,7 +67,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-[#00B050]" />
-                <a href="tel:+352203333 00" className="hover:text-white transition-colors">
+                <a href="tel:+35220333300" className="hover:text-white transition-colors">
                   +352 20 33 33 00
                 </a>
               </li>
@@ -36,10 +76,6 @@ export default function Footer() {
                 <a href="mailto:support@mixvoip.com" className="hover:text-white transition-colors">
                   support@mixvoip.com
                 </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-[#00B050] mt-0.5" />
-                <span>{t('footer.address')}</span>
               </li>
             </ul>
           </div>
@@ -89,6 +125,29 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Office Locations */}
+        <div className="border-t border-slate-800 pt-8">
+          <h4 className="font-semibold mb-6 text-center">{t('footer.offices')}</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {offices.map((office) => (
+              <div key={office.country} className="text-center">
+                <h5 className="font-medium text-[#00B050] mb-2">{office.country}</h5>
+                <p className="text-slate-400 text-sm">
+                  {office.company}<br />
+                  {office.address}<br />
+                  {office.city}
+                </p>
+                <a
+                  href={`tel:${office.phone.replace(/\s/g, '')}`}
+                  className="text-slate-400 text-sm hover:text-white transition-colors"
+                >
+                  {office.phone}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>
