@@ -109,6 +109,17 @@ const translations = {
     enterpriseFeature3: 'Priority support',
     enterpriseFeature4: 'Custom insurance limits',
     selectPackage: 'Select',
+    step1Title: 'Step 1: Choose Your Package',
+    step2Title: 'Step 2: Choose Insurance Coverage',
+    insuranceCoverage: 'Insurance Coverage',
+    coverage50k: '€50,000',
+    coverage150k: '€150,000',
+    coverageCustom: 'Over €150,000',
+    price50k: '€2',
+    price150k: '€6',
+    priceCustom: 'Custom',
+    continueToInsurance: 'Continue',
+    backToPackages: 'Back to Packages',
   },
   fr: {
     title: 'Évaluation Fit4Cybersecurity',
@@ -175,6 +186,17 @@ const translations = {
     enterpriseFeature3: 'Support prioritaire',
     enterpriseFeature4: 'Limites d\'assurance personnalisées',
     selectPackage: 'Sélectionner',
+    step1Title: 'Étape 1: Choisissez votre forfait',
+    step2Title: 'Étape 2: Choisissez la couverture d\'assurance',
+    insuranceCoverage: 'Couverture d\'assurance',
+    coverage50k: '50 000 €',
+    coverage150k: '150 000 €',
+    coverageCustom: 'Plus de 150 000 €',
+    price50k: '2 €',
+    price150k: '6 €',
+    priceCustom: 'Sur mesure',
+    continueToInsurance: 'Continuer',
+    backToPackages: 'Retour aux forfaits',
   },
   de: {
     title: 'Fit4Cybersecurity Assessment',
@@ -241,6 +263,17 @@ const translations = {
     enterpriseFeature3: 'Prioritäts-Support',
     enterpriseFeature4: 'Individuelle Versicherungslimits',
     selectPackage: 'Auswählen',
+    step1Title: 'Schritt 1: Wählen Sie Ihr Paket',
+    step2Title: 'Schritt 2: Wählen Sie die Versicherungsdeckung',
+    insuranceCoverage: 'Versicherungsdeckung',
+    coverage50k: '50.000 €',
+    coverage150k: '150.000 €',
+    coverageCustom: 'Über 150.000 €',
+    price50k: '2 €',
+    price150k: '6 €',
+    priceCustom: 'Individuell',
+    continueToInsurance: 'Weiter',
+    backToPackages: 'Zurück zu Paketen',
   }
 };
 
@@ -249,7 +282,9 @@ export default function Fit4CyberAssessment() {
   const lang = language as Language;
   const t = translations[lang];
   
-  const [currentStep, setCurrentStep] = useState<'intro' | 'assessment' | 'results' | 'contact' | 'pricing' | 'fasttrack'>('intro');
+  const [currentStep, setCurrentStep] = useState<'intro' | 'assessment' | 'results' | 'contact' | 'pricing' | 'insurance' | 'fasttrack'>('intro');
+  const [selectedPackage, setSelectedPackage] = useState<'basic' | 'pro' | 'enterprise' | null>(null);
+  const [selectedCoverage, setSelectedCoverage] = useState<'50k' | '150k' | 'custom' | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number[]>>({});
   const [contactForm, setContactForm] = useState({
@@ -633,20 +668,34 @@ Gesendet von: Mixvoip Cyber Assistance Website`
     );
   }
 
-  // Pricing Screen
+  // Pricing Screen - Step 1: Package Selection
   if (currentStep === 'pricing') {
+    const handlePackageSelect = (pkg: 'basic' | 'pro' | 'enterprise') => {
+      setSelectedPackage(pkg);
+      if (pkg === 'enterprise') {
+        setSelectedCoverage('custom');
+        setCurrentStep('fasttrack');
+      } else {
+        setCurrentStep('insurance');
+      }
+    };
+
     return (
       <section id="pricing" className="section-padding bg-slate-50">
         <div className="container">
           <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.pricingTitle}</h2>
-              <p className="text-gray-600">{t.pricingSubtitle}</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">{t.pricingTitle}</h2>
+              <p className="text-gray-600 mb-4">{t.pricingSubtitle}</p>
+              <div className="inline-block bg-[#00B050]/10 text-[#00B050] px-4 py-2 rounded-full text-sm font-medium">
+                {t.step1Title}
+              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {/* Basic */}
-              <div className="border border-gray-200 rounded-xl p-6 flex flex-col">
+              <div className={`border rounded-xl p-6 flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedPackage === 'basic' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-gray-200'}`}
+                   onClick={() => handlePackageSelect('basic')}>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t.basic}</h3>
                 <div className="text-3xl font-bold text-[#00B050] mb-1">{t.free}*</div>
                 <p className="text-sm text-gray-500 mb-4">{t.forMixvoipCustomers}</p>
@@ -663,17 +712,11 @@ Gesendet von: Mixvoip Cyber Assistance Website`
                     <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
                     {t.basicFeature3}
                   </div>
-                  <div className="border-t border-gray-100 my-3 pt-3">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Shield className="w-4 h-4 text-[#00B050] flex-shrink-0" />
-                      {t.coverage}: €50,000
-                    </div>
-                  </div>
                 </div>
                 <p className="text-xs text-gray-400 mt-3">{t.basicNote}</p>
                 <Button 
                   variant="outline"
-                  onClick={() => setCurrentStep('fasttrack')}
+                  onClick={(e) => { e.stopPropagation(); handlePackageSelect('basic'); }}
                   className="w-full mt-4 border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5"
                 >
                   {t.selectPackage}
@@ -681,12 +724,13 @@ Gesendet von: Mixvoip Cyber Assistance Website`
               </div>
 
               {/* Pro */}
-              <div className="border-2 border-[#00B050] rounded-xl p-6 relative flex flex-col">
+              <div className={`border rounded-xl p-6 relative flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedPackage === 'pro' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-2 border-[#00B050]'}`}
+                   onClick={() => handlePackageSelect('pro')}>
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00B050] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Popular
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t.pro}</h3>
-                <div className="text-3xl font-bold text-[#00B050] mb-1">€2</div>
+                <div className="text-3xl font-bold text-[#00B050] mb-1">{t.price50k}</div>
                 <p className="text-sm text-gray-500 mb-4">{t.perUserMonth}</p>
                 <div className="space-y-2 text-sm flex-1">
                   <div className="flex items-center gap-2 text-gray-600">
@@ -705,15 +749,9 @@ Gesendet von: Mixvoip Cyber Assistance Website`
                     <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
                     {t.proFeature4}
                   </div>
-                  <div className="border-t border-gray-100 my-3 pt-3">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Shield className="w-4 h-4 text-[#00B050] flex-shrink-0" />
-                      {t.coverage}: €150,000
-                    </div>
-                  </div>
                 </div>
                 <Button 
-                  onClick={() => setCurrentStep('fasttrack')}
+                  onClick={(e) => { e.stopPropagation(); handlePackageSelect('pro'); }}
                   className="w-full mt-4 bg-[#00B050] hover:bg-[#00873D] text-white"
                 >
                   {t.selectPackage}
@@ -721,7 +759,8 @@ Gesendet von: Mixvoip Cyber Assistance Website`
               </div>
 
               {/* Enterprise */}
-              <div className="border border-gray-200 rounded-xl p-6 flex flex-col">
+              <div className={`border rounded-xl p-6 flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedPackage === 'enterprise' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-gray-200'}`}
+                   onClick={() => handlePackageSelect('enterprise')}>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t.enterprise}</h3>
                 <div className="text-3xl font-bold text-[#00B050] mb-1">{t.custom}</div>
                 <p className="text-sm text-gray-500 mb-4">{t.contactSales}</p>
@@ -742,16 +781,10 @@ Gesendet von: Mixvoip Cyber Assistance Website`
                     <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
                     {t.enterpriseFeature4}
                   </div>
-                  <div className="border-t border-gray-100 my-3 pt-3">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Shield className="w-4 h-4 text-[#00B050] flex-shrink-0" />
-                      {t.coverage}: €250,000+
-                    </div>
-                  </div>
                 </div>
                 <Button 
                   variant="outline"
-                  onClick={() => setCurrentStep('fasttrack')}
+                  onClick={(e) => { e.stopPropagation(); handlePackageSelect('enterprise'); }}
                   className="w-full mt-4 border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5"
                 >
                   {t.selectPackage}
@@ -761,21 +794,107 @@ Gesendet von: Mixvoip Cyber Assistance Website`
 
             <p className="text-xs text-gray-500 text-center mb-6">* {t.noDeductible} bei Online-Abschluss</p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex justify-center">
               <Button 
                 variant="outline"
                 onClick={() => setCurrentStep('intro')}
-                className="flex-1"
               >
                 <ChevronLeft className="mr-2 w-4 h-4" />
                 {t.backToAssessment}
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Insurance Coverage Screen - Step 2
+  if (currentStep === 'insurance') {
+    const handleCoverageSelect = (coverage: '50k' | '150k' | 'custom') => {
+      setSelectedCoverage(coverage);
+      setCurrentStep('fasttrack');
+    };
+
+    return (
+      <section id="insurance" className="section-padding bg-slate-50">
+        <div className="container">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">{t.insuranceCoverage}</h2>
+              <p className="text-gray-600 mb-4">
+                {selectedPackage === 'basic' ? t.basic : t.pro} - {t.step2Title}
+              </p>
+              <div className="inline-block bg-[#00B050]/10 text-[#00B050] px-4 py-2 rounded-full text-sm font-medium">
+                {t.step2Title}
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {/* €50,000 Coverage */}
+              <div className={`border rounded-xl p-6 flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedCoverage === '50k' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-gray-200'}`}
+                   onClick={() => handleCoverageSelect('50k')}>
+                <div className="text-center">
+                  <Shield className="w-12 h-12 text-[#00B050] mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t.coverage50k}</h3>
+                  <div className="text-3xl font-bold text-[#00B050] mb-1">{t.price50k}</div>
+                  <p className="text-sm text-gray-500 mb-4">{t.perUserMonth}</p>
+                </div>
+                <Button 
+                  variant="outline"
+                  onClick={(e) => { e.stopPropagation(); handleCoverageSelect('50k'); }}
+                  className="w-full mt-auto border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5"
+                >
+                  {t.selectPackage}
+                </Button>
+              </div>
+
+              {/* €150,000 Coverage */}
+              <div className={`border rounded-xl p-6 flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedCoverage === '150k' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-2 border-[#00B050]'}`}
+                   onClick={() => handleCoverageSelect('150k')}>
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00B050] text-white px-4 py-1 rounded-full text-sm font-medium">
+                  Popular
+                </div>
+                <div className="text-center">
+                  <Shield className="w-12 h-12 text-[#00B050] mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t.coverage150k}</h3>
+                  <div className="text-3xl font-bold text-[#00B050] mb-1">{t.price150k}</div>
+                  <p className="text-sm text-gray-500 mb-4">{t.perUserMonth}</p>
+                </div>
+                <Button 
+                  onClick={(e) => { e.stopPropagation(); handleCoverageSelect('150k'); }}
+                  className="w-full mt-auto bg-[#00B050] hover:bg-[#00873D] text-white"
+                >
+                  {t.selectPackage}
+                </Button>
+              </div>
+
+              {/* Custom Coverage */}
+              <div className={`border rounded-xl p-6 flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedCoverage === 'custom' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-gray-200'}`}
+                   onClick={() => handleCoverageSelect('custom')}>
+                <div className="text-center">
+                  <Shield className="w-12 h-12 text-[#00B050] mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t.coverageCustom}</h3>
+                  <div className="text-3xl font-bold text-[#00B050] mb-1">{t.priceCustom}</div>
+                  <p className="text-sm text-gray-500 mb-4">{t.contactSales}</p>
+                </div>
+                <Button 
+                  variant="outline"
+                  onClick={(e) => { e.stopPropagation(); handleCoverageSelect('custom'); }}
+                  className="w-full mt-auto border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5"
+                >
+                  {t.selectPackage}
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex justify-center">
               <Button 
-                onClick={() => setCurrentStep('fasttrack')}
-                className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+                variant="outline"
+                onClick={() => setCurrentStep('pricing')}
               >
-                {t.requestConsultation}
-                <ChevronRight className="ml-2 w-4 h-4" />
+                <ChevronLeft className="mr-2 w-4 h-4" />
+                {t.backToPackages}
               </Button>
             </div>
           </div>
