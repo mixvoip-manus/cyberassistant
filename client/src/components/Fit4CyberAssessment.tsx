@@ -5,6 +5,8 @@ import { Progress } from './ui/progress';
 import { CheckCircle2, AlertTriangle, ChevronRight, ChevronLeft, ExternalLink, Send, Building2, Mail, Phone, User, Download, Upload, FileText, Euro, Zap, Shield } from 'lucide-react';
 import assessmentData from '../data/assessment.json';
 import productMappingData from '../data/productMapping.json';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 type Language = 'en' | 'fr' | 'de';
 
@@ -276,7 +278,11 @@ export default function Fit4CyberAssessment() {
       const current = prev[questionId] || [];
       
       if (answer.exclusive) {
-        return { ...prev, [questionId]: [answerId] };
+        if (current.includes(answerId)) {
+          return { ...prev, [questionId]: [] };
+        } else {
+          return { ...prev, [questionId]: [answerId] };
+        }
       } else {
         const exclusiveAnswerIds = question.answers.filter(a => a.exclusive).map(a => a.id);
         const filteredCurrent = current.filter(id => !exclusiveAnswerIds.includes(id));
@@ -291,27 +297,65 @@ export default function Fit4CyberAssessment() {
   };
 
   const generatePDFReport = () => {
-    // Create a text-based report that can be printed/saved as PDF
     const reportDate = new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'fr' ? 'fr-FR' : 'en-US');
     
-    let reportContent = `
-MIXVOIP CYBER ASSISTANCE
-Fit4Cybersecurity Assessment Report
-====================================
-Date: ${reportDate}
-Company: ${contactForm.company || 'Not specified'}
-
-OVERALL SCORE
--------------
-Score: ${scorePercentage}%
-Points: ${score} / ${TOTAL_MAX_POINTS}
-Status: ${isEligible ? 'ELIGIBLE for Cyber Assistance' : 'Below 65% threshold - Improvement needed'}
-
-DETAILED RESULTS BY CATEGORY
-----------------------------
-`;
-
-    questions.forEach(question => {
+    // Create PDF document
+    const doc = new jsPDF();
+    
+    // Colors
+    const greenColor: [number, number, number] = [0, 176, 80];
+    const grayColor: [number, number, number] = [100, 100, 100];
+    const darkColor: [number, number, number] = [30, 30, 30];
+    
+    // Header
+    doc.setFillColor(greenColor[0], greenColor[1], greenColor[2]);
+    doc.rect(0, 0, 210, 40, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(24);
+    doc.setFont('helvetica', 'bold');
+    doc.text('MIXVOIP', 20, 20);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Cyber Assistance', 20, 30);
+    
+    // Title
+    doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
+    doc.setFontSize(20);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Fit4Cybersecurity Assessment Report', 20, 55);
+    
+    // Date and Company
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
+    doc.text(`Date: ${reportDate}`, 20, 65);
+    doc.text(`Company: ${contactForm.company || 'Not specified'}`, 20, 72);
+    
+    // Score Box
+    const scoreBoxY = 85;
+    doc.setFillColor(isEligible ? 230 : 255, isEligible ? 255 : 245, isEligible ? 230 : 230);
+    doc.roundedRect(20, scoreBoxY, 170, 35, 3, 3, 'F');
+    
+    doc.setFontSize(32);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(isEligible ? greenColor[0] : 200, isEligible ? greenColor[1] : 150, isEligible ? greenColor[2] : 0);
+    doc.text(`${scorePercentage}%`, 40, scoreBoxY + 22);
+    
+    doc.setFontSize(12);
+    doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
+    doc.text(`${score} / ${TOTAL_MAX_POINTS} Points`, 90, scoreBoxY + 15);
+    doc.setFontSize(10);
+    doc.setTextColor(isEligible ? greenColor[0] : 200, isEligible ? greenColor[1] : 150, isEligible ? greenColor[2] : 0);
+    doc.text(isEligible ? 'ELIGIBLE for Cyber Assistance' : 'Below 65% threshold - Improvement needed', 90, scoreBoxY + 25);
+    
+    // Results Table
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
+    doc.text('Detailed Results by Category', 20, 135);
+    
+    const tableData = questions.map(question => {
       const answers = selectedAnswers[question.id] || [];
       let earnedPoints = 0;
       answers.forEach(answerId => {
@@ -319,37 +363,90 @@ DETAILED RESULTS BY CATEGORY
         if (answer) earnedPoints += answer.score;
       });
       const percentage = Math.round((earnedPoints / question.maxPoints) * 100);
-      reportContent += `\n${question.category}: ${earnedPoints}/${question.maxPoints} points (${percentage}%)`;
+      return [question.category, `${earnedPoints}/${question.maxPoints}`, `${percentage}%`];
     });
-
+    
+    autoTable(doc, {
+      startY: 140,
+      head: [['Category', 'Points', 'Score']],
+      body: tableData,
+      theme: 'striped',
+      headStyles: { fillColor: greenColor, textColor: [255, 255, 255] },
+      styles: { fontSize: 9 },
+      columnStyles: {
+        0: { cellWidth: 100 },
+        1: { cellWidth: 35, halign: 'center' },
+        2: { cellWidth: 35, halign: 'center' }
+      }
+    });
+    
+    // Gaps and Recommendations (new page if needed)
     if (gaps.length > 0) {
-      reportContent += `\n\nIDENTIFIED GAPS & RECOMMENDATIONS\n---------------------------------`;
-      gaps.forEach(gap => {
-        reportContent += `\n\n${gap.question.category} (${gap.earnedPoints}/${gap.question.maxPoints} points)`;
-        reportContent += `\nWeakness: ${gap.mapping.weakness[lang]}`;
-        reportContent += `\nRecommended solutions:`;
+      doc.addPage();
+      
+      doc.setFontSize(16);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
+      doc.text('Identified Gaps & Recommendations', 20, 20);
+      
+      let yPos = 35;
+      
+      gaps.forEach((gap, index) => {
+        if (yPos > 250) {
+          doc.addPage();
+          yPos = 20;
+        }
+        
+        // Gap header
+        doc.setFillColor(255, 245, 230);
+        doc.roundedRect(20, yPos - 5, 170, 12, 2, 2, 'F');
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(200, 150, 0);
+        doc.text(`${gap.question.category} (${gap.earnedPoints}/${gap.question.maxPoints} points)`, 25, yPos + 3);
+        yPos += 15;
+        
+        // Weakness
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
+        const weaknessLines = doc.splitTextToSize(`Weakness: ${gap.mapping.weakness[lang]}`, 160);
+        doc.text(weaknessLines, 25, yPos);
+        yPos += weaknessLines.length * 5 + 5;
+        
+        // Recommended solutions
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(greenColor[0], greenColor[1], greenColor[2]);
+        doc.text('Recommended Solutions:', 25, yPos);
+        yPos += 6;
+        
         gap.mapping.products.forEach(product => {
-          reportContent += `\n  - ${product.name}: ${product.url}`;
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
+          doc.text(`• ${product.name}`, 30, yPos);
+          doc.setTextColor(0, 0, 255);
+          doc.textWithLink(product.url, 30, yPos + 4, { url: product.url });
+          yPos += 12;
         });
+        
+        yPos += 8;
       });
     }
-
-    reportContent += `\n\n====================================
-Generated by Mixvoip Cyber Assistance
-https://www.mixvoip.com/cyber-assistance/
-Contact: pberg@mixvoip.com
-`;
-
-    // Create and download the report
-    const blob = new Blob([reportContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Fit4Cybersecurity_Report_${reportDate.replace(/\//g, '-')}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    
+    // Footer on last page
+    const pageCount = doc.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFontSize(8);
+      doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
+      doc.text('Generated by Mixvoip Cyber Assistance | www.mixvoip.com | pberg@mixvoip.com', 105, 290, { align: 'center' });
+      doc.text(`Page ${i} of ${pageCount}`, 190, 290);
+    }
+    
+    // Save PDF
+    doc.save(`Fit4Cybersecurity_Report_${reportDate.replace(/\//g, '-')}.pdf`);
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -437,324 +534,332 @@ Gesendet von: Mixvoip Cyber Assistance Website`
   // Intro Screen with Fast-Track Options
   if (currentStep === 'intro') {
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Shield className="w-10 h-10 text-[#00B050]" />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.title}</h2>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">{t.subtitle}</p>
-        </div>
+      <section id="assessment" className="section-padding bg-slate-50">
+        <div className="container">
+          <div id="calculator" className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-10 h-10 text-[#00B050]" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.title}</h2>
+              <p className="text-gray-600 text-lg max-w-xl mx-auto">{t.subtitle}</p>
+            </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gray-50 rounded-xl p-6 text-center">
-            <div className="text-3xl font-bold text-[#00B050] mb-2">13</div>
-            <div className="text-gray-600">{t.questions}</div>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 text-center">
-            <div className="text-3xl font-bold text-[#00B050] mb-2">5 min</div>
-            <div className="text-gray-600">{t.duration}</div>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-6 text-center">
-            <div className="text-3xl font-bold text-[#00B050] mb-2">65%</div>
-            <div className="text-gray-600">{t.minScore}</div>
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-gray-50 rounded-xl p-6 text-center">
+                <div className="text-3xl font-bold text-[#00B050] mb-2">13</div>
+                <div className="text-gray-600">{t.questions}</div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 text-center">
+                <div className="text-3xl font-bold text-[#00B050] mb-2">5 min</div>
+                <div className="text-gray-600">{t.duration}</div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 text-center">
+                <div className="text-3xl font-bold text-[#00B050] mb-2">65%</div>
+                <div className="text-gray-600">{t.minScore}</div>
+              </div>
+            </div>
+
+            {/* Main CTA - Start Assessment */}
+            <Button 
+              onClick={() => setCurrentStep('assessment')}
+              className="w-full bg-[#00B050] hover:bg-[#00873D] text-white py-4 text-lg mb-4"
+            >
+              {t.startAssessment}
+              <ChevronRight className="ml-2 w-5 h-5" />
+            </Button>
+
+            {/* Secondary Options */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <Button 
+                variant="outline"
+                onClick={() => setCurrentStep('fasttrack')}
+                className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
+              >
+                <Zap className="mr-2 w-4 h-4" />
+                {t.alreadyHaveScore}
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => setCurrentStep('pricing')}
+                className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 py-3"
+              >
+                <Euro className="mr-2 w-4 h-4" />
+                {t.viewPricing}
+              </Button>
+            </div>
           </div>
         </div>
-
-        {/* Main CTA - Start Assessment */}
-        <Button 
-          onClick={() => setCurrentStep('assessment')}
-          className="w-full bg-[#00B050] hover:bg-[#00873D] text-white py-4 text-lg mb-4"
-        >
-          {t.startAssessment}
-          <ChevronRight className="ml-2 w-5 h-5" />
-        </Button>
-
-        {/* Secondary Options */}
-        <div className="grid md:grid-cols-2 gap-4">
-          <Button 
-            variant="outline"
-            onClick={() => setCurrentStep('fasttrack')}
-            className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
-          >
-            <Zap className="mr-2 w-4 h-4" />
-            {t.alreadyHaveScore}
-          </Button>
-          <Button 
-            variant="outline"
-            onClick={() => setCurrentStep('pricing')}
-            className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 py-3"
-          >
-            <Euro className="mr-2 w-4 h-4" />
-            {t.viewPricing}
-          </Button>
-        </div>
-      </div>
+      </section>
     );
   }
 
   // Pricing Screen
   if (currentStep === 'pricing') {
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.pricingTitle}</h2>
-          <p className="text-gray-600">{t.pricingSubtitle}</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          {/* Basic */}
-          <div className="border-2 border-gray-200 rounded-xl p-6">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{t.basic}</h3>
-              <div className="text-3xl font-bold text-[#00B050]">{t.free}*</div>
-              <p className="text-sm text-gray-500">{t.forMixvoipCustomers}</p>
+      <section id="pricing" className="section-padding bg-slate-50">
+        <div className="container">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.pricingTitle}</h2>
+              <p className="text-gray-600">{t.pricingSubtitle}</p>
             </div>
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-center text-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
-                {t.coverage}: €50,000
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
-                {t.noDeductible}*
-              </li>
-            </ul>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {/* Basic */}
+              <div className="border border-gray-200 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t.basic}</h3>
+                <div className="text-3xl font-bold text-[#00B050] mb-1">{t.free}*</div>
+                <p className="text-sm text-gray-500 mb-4">{t.forMixvoipCustomers}</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
+                    {t.coverage}: €50,000
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
+                    {t.noDeductible}*
+                  </div>
+                </div>
+              </div>
+
+              {/* Pro */}
+              <div className="border-2 border-[#00B050] rounded-xl p-6 relative">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00B050] text-white px-4 py-1 rounded-full text-sm font-medium">
+                  Popular
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t.pro}</h3>
+                <div className="text-3xl font-bold text-[#00B050] mb-1">€2</div>
+                <p className="text-sm text-gray-500 mb-4">{t.perUserMonth}</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
+                    {t.coverage}: €150,000
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
+                    {t.noDeductible}*
+                  </div>
+                </div>
+              </div>
+
+              {/* Enterprise */}
+              <div className="border border-gray-200 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t.enterprise}</h3>
+                <div className="text-3xl font-bold text-[#00B050] mb-1">{t.custom}</div>
+                <p className="text-sm text-gray-500 mb-4">{t.contactSales}</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
+                    {t.coverage}: €250,000+
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
+                    {t.noDeductible}*
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs text-gray-500 text-center mb-6">* {t.noDeductible} bei Online-Abschluss</p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                variant="outline"
+                onClick={() => setCurrentStep('intro')}
+                className="flex-1"
+              >
+                <ChevronLeft className="mr-2 w-4 h-4" />
+                {t.backToAssessment}
+              </Button>
+              <Button 
+                onClick={() => setCurrentStep('fasttrack')}
+                className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+              >
+                {t.requestConsultation}
+                <ChevronRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
           </div>
-
-          {/* Pro */}
-          <div className="border-2 border-[#00B050] rounded-xl p-6 relative">
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00B050] text-white px-4 py-1 rounded-full text-sm font-medium">
-              Popular
-            </div>
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{t.pro}</h3>
-              <div className="text-3xl font-bold text-[#00B050]">€2</div>
-              <p className="text-sm text-gray-500">{t.perUserMonth}</p>
-            </div>
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-center text-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
-                {t.coverage}: €150,000
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
-                {t.noDeductible}*
-              </li>
-            </ul>
-          </div>
-
-          {/* Enterprise */}
-          <div className="border-2 border-gray-200 rounded-xl p-6">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{t.enterprise}</h3>
-              <div className="text-3xl font-bold text-[#00B050]">{t.custom}</div>
-              <p className="text-sm text-gray-500">{t.contactSales}</p>
-            </div>
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-center text-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
-                {t.coverage}: €250,000+
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
-                {t.noDeductible}*
-              </li>
-            </ul>
-          </div>
         </div>
-
-        <p className="text-xs text-gray-500 text-center mb-6">
-          * {lang === 'de' ? 'Keine Selbstbeteiligung bei Online-Abschluss' : lang === 'fr' ? 'Sans franchise pour souscription en ligne' : 'No deductible for online subscription'}
-        </p>
-
-        <div className="flex gap-4">
-          <Button 
-            variant="outline"
-            onClick={() => setCurrentStep('intro')}
-            className="flex-1"
-          >
-            <ChevronLeft className="mr-2 w-4 h-4" />
-            {t.backToAssessment}
-          </Button>
-          <Button 
-            onClick={() => setCurrentStep('fasttrack')}
-            className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
-          >
-            {t.requestConsultation}
-            <ChevronRight className="ml-2 w-4 h-4" />
-          </Button>
-        </div>
-      </div>
+      </section>
     );
   }
 
-  // Fast-Track Screen
+  // Fast-Track Form
   if (currentStep === 'fasttrack') {
     if (submitSuccess) {
       return (
-        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto text-center">
-          <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-10 h-10 text-[#00B050]" />
+        <section id="assessment" className="section-padding bg-slate-50">
+          <div className="container">
+            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto text-center">
+              <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-10 h-10 text-[#00B050]" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t.successTitle}</h2>
+              <p className="text-gray-600 mb-8">{t.successMessage}</p>
+              <Button 
+                onClick={() => {
+                  setSubmitSuccess(false);
+                  setCurrentStep('intro');
+                  setContactForm({ name: '', email: '', phone: '', company: '', isMixvoipCustomer: false, message: '' });
+                  setUploadedFile(null);
+                }}
+                className="bg-[#00B050] hover:bg-[#00873D] text-white"
+              >
+                {t.backToStart}
+              </Button>
+            </div>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t.successTitle}</h2>
-          <p className="text-gray-600 mb-8">{t.successMessage}</p>
-          <Button 
-            onClick={() => {
-              setCurrentStep('intro');
-              setSubmitSuccess(false);
-              setContactForm({ name: '', email: '', phone: '', company: '', isMixvoipCustomer: false, message: '' });
-              setUploadedFile(null);
-            }}
-            className="bg-[#00B050] hover:bg-[#00873D] text-white"
-          >
-            {t.backToStart}
-          </Button>
-        </div>
+        </section>
       );
     }
 
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Zap className="w-8 h-8 text-[#00B050]" />
+      <section id="assessment" className="section-padding bg-slate-50">
+        <div className="container">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-8 h-8 text-[#00B050]" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.fastTrackTitle}</h2>
+              <p className="text-gray-600">{t.fastTrackSubtitle}</p>
+            </div>
+
+            <form onSubmit={(e) => handleSubmitContact(e, true)} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.name} *</label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      required
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.company} *</label>
+                  <div className="relative">
+                    <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      required
+                      value={contactForm.company}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, company: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.email} *</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="email"
+                      required
+                      value={contactForm.email}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.phone}</label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="tel"
+                      value={contactForm.phone}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* PDF Upload */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t.uploadReport}
+                  <span className="text-gray-500 font-normal ml-2">({t.uploadRequired})</span>
+                </label>
+                <div 
+                  onClick={() => fileInputRef.current?.click()}
+                  className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#00B050] transition-colors"
+                >
+                  {uploadedFile ? (
+                    <div className="flex items-center justify-center gap-2 text-[#00B050]">
+                      <FileText className="w-5 h-5" />
+                      <span>{uploadedFile.name}</span>
+                    </div>
+                  ) : (
+                    <div className="text-gray-500">
+                      <Upload className="w-8 h-8 mx-auto mb-2" />
+                      <p>Click to upload PDF</p>
+                    </div>
+                  )}
+                </div>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pdf"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+              </div>
+
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  id="isMixvoipCustomer"
+                  checked={contactForm.isMixvoipCustomer}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, isMixvoipCustomer: e.target.checked }))}
+                  className="w-4 h-4 text-[#00B050] border-gray-300 rounded focus:ring-[#00B050]"
+                />
+                <label htmlFor="isMixvoipCustomer" className="text-sm text-gray-700">{t.existingCustomer}</label>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t.message}</label>
+                <textarea
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+                  rows={3}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  type="button"
+                  variant="outline"
+                  onClick={() => setCurrentStep('intro')}
+                  className="flex-1"
+                >
+                  <ChevronLeft className="mr-2 w-4 h-4" />
+                  {t.back}
+                </Button>
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+                >
+                  {isSubmitting ? t.submitting : t.submit}
+                  <Send className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+            </form>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.fastTrackTitle}</h2>
-          <p className="text-gray-600">{t.fastTrackSubtitle}</p>
         </div>
-
-        <form onSubmit={(e) => handleSubmitContact(e, true)} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.name} *</label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  required
-                  value={contactForm.name}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.company} *</label>
-              <div className="relative">
-                <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  required
-                  value={contactForm.company}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, company: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.email} *</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="email"
-                  required
-                  value={contactForm.email}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.phone}</label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="tel"
-                  value={contactForm.phone}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* File Upload */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t.uploadReport}</label>
-            <p className="text-xs text-gray-500 mb-2">{t.uploadRequired}</p>
-            <div 
-              onClick={() => fileInputRef.current?.click()}
-              className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#00B050] transition-colors"
-            >
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept=".pdf"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
-              {uploadedFile ? (
-                <div className="flex items-center justify-center gap-2 text-[#00B050]">
-                  <FileText className="w-6 h-6" />
-                  <span>{uploadedFile.name}</span>
-                </div>
-              ) : (
-                <div className="text-gray-500">
-                  <Upload className="w-8 h-8 mx-auto mb-2" />
-                  <span>Click to upload PDF</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="isMixvoipCustomer"
-              checked={contactForm.isMixvoipCustomer}
-              onChange={(e) => setContactForm(prev => ({ ...prev, isMixvoipCustomer: e.target.checked }))}
-              className="w-4 h-4 text-[#00B050] border-gray-300 rounded focus:ring-[#00B050]"
-            />
-            <label htmlFor="isMixvoipCustomer" className="ml-2 text-sm text-gray-700">
-              {t.existingCustomer}
-            </label>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t.message}</label>
-            <textarea
-              value={contactForm.message}
-              onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
-              rows={3}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-            />
-          </div>
-
-          <div className="flex gap-4">
-            <Button 
-              type="button"
-              variant="outline"
-              onClick={() => setCurrentStep('intro')}
-              className="flex-1"
-            >
-              <ChevronLeft className="mr-2 w-4 h-4" />
-              {t.back}
-            </Button>
-            <Button 
-              type="submit"
-              disabled={isSubmitting}
-              className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
-            >
-              {isSubmitting ? t.submitting : t.submit}
-              <Send className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </form>
-      </div>
+      </section>
     );
   }
 
@@ -764,172 +869,168 @@ Gesendet von: Mixvoip Cyber Assistance Website`
     const currentAnswers = selectedAnswers[question.id] || [];
 
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
-        <div className="mb-8">
-          <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>{t.question} {currentQuestion + 1} / {questions.length}</span>
-            <span>{question.category}</span>
-          </div>
-          <Progress value={progressPercentage} className="h-2" />
-        </div>
+      <section id="assessment" className="section-padding bg-slate-50">
+        <div className="container">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm text-gray-500">{t.question} {currentQuestion + 1} / {questions.length}</span>
+                <span className="text-sm font-medium text-[#00B050]">{question.category}</span>
+              </div>
+              <Progress value={progressPercentage} className="h-2 mb-6" />
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{question.label[lang]}</h3>
+              <p className="text-sm text-gray-500">{t.selectAll}</p>
+            </div>
 
-        <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">{question.label[lang]}</h3>
-          <p className="text-sm text-gray-500">{t.selectAll}</p>
-        </div>
+            <div className="space-y-3 mb-8">
+              {question.answers.map(answer => {
+                const isSelected = currentAnswers.includes(answer.id);
+                const isExclusive = answer.exclusive;
+                
+                return (
+                  <button
+                    key={answer.id}
+                    onClick={() => handleAnswerSelect(question.id, answer.id)}
+                    className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+                      isSelected 
+                        ? 'border-[#00B050] bg-[#00B050]/5' 
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                        isSelected ? 'border-[#00B050] bg-[#00B050]' : 'border-gray-300'
+                      }`}>
+                        {isSelected && <CheckCircle2 className="w-3 h-3 text-white" />}
+                      </div>
+                      <span className="flex-1">{answer.label[lang]}</span>
+                      {isExclusive && (
+                        <span className="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded">{t.exclusive}</span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
 
-        <div className="space-y-3 mb-8">
-          {question.answers.map((answer) => {
-            const isSelected = currentAnswers.includes(answer.id);
-            const isExclusive = answer.exclusive;
-            
-            return (
-              <button
-                key={answer.id}
-                onClick={() => handleAnswerSelect(question.id, answer.id)}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
-                  isSelected
-                    ? 'border-[#00B050] bg-[#00B050]/5'
-                    : 'border-gray-200 hover:border-gray-300 bg-white'
-                }`}
+            <div className="flex gap-4">
+              <Button
+                variant="outline"
+                onClick={() => currentQuestion > 0 ? setCurrentQuestion(currentQuestion - 1) : setCurrentStep('intro')}
+                className="flex-1"
               >
-                <div className="flex items-start gap-3">
-                  <div className={`w-5 h-5 rounded-full border-2 flex-shrink-0 mt-0.5 flex items-center justify-center ${
-                    isSelected ? 'border-[#00B050] bg-[#00B050]' : 'border-gray-300'
-                  }`}>
-                    {isSelected && <CheckCircle2 className="w-3 h-3 text-white" />}
-                  </div>
-                  <div className="flex-1">
-                    <span className="text-gray-900">{answer.label[lang]}</span>
-                    {isExclusive && (
-                      <span className="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">
-                        {t.exclusive}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </button>
-            );
-          })}
+                <ChevronLeft className="mr-2 w-4 h-4" />
+                {t.back}
+              </Button>
+              <Button
+                onClick={() => {
+                  if (currentQuestion < questions.length - 1) {
+                    setCurrentQuestion(currentQuestion + 1);
+                  } else {
+                    setCurrentStep('results');
+                  }
+                }}
+                className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+              >
+                {currentQuestion < questions.length - 1 ? t.next : t.viewResults}
+                <ChevronRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </div>
         </div>
-
-        <div className="flex gap-4">
-          <Button
-            variant="outline"
-            onClick={() => {
-              if (currentQuestion > 0) {
-                setCurrentQuestion(prev => prev - 1);
-              } else {
-                setCurrentStep('intro');
-              }
-            }}
-            className="flex-1"
-          >
-            <ChevronLeft className="mr-2 w-4 h-4" />
-            {t.back}
-          </Button>
-          <Button
-            onClick={() => {
-              if (currentQuestion < questions.length - 1) {
-                setCurrentQuestion(prev => prev + 1);
-              } else {
-                setCurrentStep('results');
-              }
-            }}
-            className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
-          >
-            {currentQuestion < questions.length - 1 ? t.next : t.viewResults}
-            <ChevronRight className="ml-2 w-4 h-4" />
-          </Button>
-        </div>
-      </div>
+      </section>
     );
   }
 
   // Results Screen
   if (currentStep === 'results') {
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
-        {/* Score Display */}
-        <div className="text-center mb-8">
-          <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4 ${
-            isEligible ? 'bg-[#00B050]/10' : 'bg-amber-100'
-          }`}>
-            <div className="text-center">
-              <div className={`text-4xl font-bold ${isEligible ? 'text-[#00B050]' : 'text-amber-600'}`}>
-                {scorePercentage}%
-              </div>
-            </div>
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.yourScore}</h2>
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
-            isEligible ? 'bg-[#00B050]/10 text-[#00B050]' : 'bg-amber-100 text-amber-700'
-          }`}>
-            {isEligible ? <CheckCircle2 className="w-5 h-5" /> : <AlertTriangle className="w-5 h-5" />}
-            {isEligible ? t.eligible : t.notEligible}
-          </div>
-          <p className="text-gray-500 mt-2">{score} / {TOTAL_MAX_POINTS} {t.points}</p>
-        </div>
-
-        {/* Gaps and Recommendations */}
-        {gaps.length > 0 && (
-          <div className="mb-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.identifiedGaps}</h3>
-            <div className="space-y-4">
-              {gaps.map((gap, index) => (
-                <div key={index} className="border border-gray-200 rounded-xl p-4">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{gap.question.category}</h4>
-                      <p className="text-sm text-gray-600">{gap.mapping.weakness[lang]}</p>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-amber-600 font-semibold">{gap.earnedPoints}/{gap.question.maxPoints}</span>
-                      <p className="text-xs text-gray-500">{t.points}</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    {gap.mapping.products.map((product, pIndex) => (
-                      <a
-                        key={pIndex}
-                        href={product.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between p-3 bg-[#00B050]/5 rounded-lg hover:bg-[#00B050]/10 transition-colors"
-                      >
-                        <div>
-                          <span className="font-medium text-[#00B050]">{product.name}</span>
-                          <p className="text-sm text-gray-600">{product.description[lang]}</p>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-[#00B050] flex-shrink-0" />
-                      </a>
-                    ))}
+      <section id="assessment" className="section-padding bg-slate-50">
+        <div className="container">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+            {/* Score Display */}
+            <div className="text-center mb-8">
+              <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4 ${
+                isEligible ? 'bg-[#00B050]/10' : 'bg-amber-100'
+              }`}>
+                <div className="text-center">
+                  <div className={`text-4xl font-bold ${isEligible ? 'text-[#00B050]' : 'text-amber-600'}`}>
+                    {scorePercentage}%
                   </div>
                 </div>
-              ))}
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.yourScore}</h2>
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
+                isEligible ? 'bg-[#00B050]/10 text-[#00B050]' : 'bg-amber-100 text-amber-700'
+              }`}>
+                {isEligible ? <CheckCircle2 className="w-5 h-5" /> : <AlertTriangle className="w-5 h-5" />}
+                {isEligible ? t.eligible : t.notEligible}
+              </div>
+              <p className="text-gray-500 mt-2">{score} / {TOTAL_MAX_POINTS} {t.points}</p>
+            </div>
+
+            {/* Gaps and Recommendations */}
+            {gaps.length > 0 && (
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{t.identifiedGaps}</h3>
+                <div className="space-y-4">
+                  {gaps.map((gap, index) => (
+                    <div key={index} className="border border-gray-200 rounded-xl p-4">
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h4 className="font-semibold text-gray-900">{gap.question.category}</h4>
+                          <p className="text-sm text-gray-600">{gap.mapping.weakness[lang]}</p>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-amber-600 font-semibold">{gap.earnedPoints}/{gap.question.maxPoints}</span>
+                          <p className="text-xs text-gray-500">{t.points}</p>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        {gap.mapping.products.map((product, pIndex) => (
+                          <a
+                            key={pIndex}
+                            href={product.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between p-3 bg-[#00B050]/5 rounded-lg hover:bg-[#00B050]/10 transition-colors"
+                          >
+                            <div>
+                              <span className="font-medium text-[#00B050]">{product.name}</span>
+                              <p className="text-sm text-gray-600">{product.description[lang]}</p>
+                            </div>
+                            <ExternalLink className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                variant="outline"
+                onClick={generatePDFReport}
+                className="flex-1"
+              >
+                <Download className="mr-2 w-4 h-4" />
+                {t.downloadReport}
+              </Button>
+              <Button
+                onClick={() => setCurrentStep('contact')}
+                className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+              >
+                {t.requestConsultation}
+                <ChevronRight className="ml-2 w-4 h-4" />
+              </Button>
             </div>
           </div>
-        )}
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button
-            variant="outline"
-            onClick={generatePDFReport}
-            className="flex-1"
-          >
-            <Download className="mr-2 w-4 h-4" />
-            {t.downloadReport}
-          </Button>
-          <Button
-            onClick={() => setCurrentStep('contact')}
-            className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
-          >
-            {t.requestConsultation}
-            <ChevronRight className="ml-2 w-4 h-4" />
-          </Button>
         </div>
-      </div>
+      </section>
     );
   }
 
@@ -937,137 +1038,143 @@ Gesendet von: Mixvoip Cyber Assistance Website`
   if (currentStep === 'contact') {
     if (submitSuccess) {
       return (
-        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto text-center">
-          <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-10 h-10 text-[#00B050]" />
+        <section id="assessment" className="section-padding bg-slate-50">
+          <div className="container">
+            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto text-center">
+              <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-10 h-10 text-[#00B050]" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t.successTitle}</h2>
+              <p className="text-gray-600 mb-8">{t.successMessage}</p>
+              <Button 
+                onClick={() => {
+                  setSubmitSuccess(false);
+                  setCurrentStep('intro');
+                  setSelectedAnswers({});
+                  setCurrentQuestion(0);
+                  setContactForm({ name: '', email: '', phone: '', company: '', isMixvoipCustomer: false, message: '' });
+                }}
+                className="bg-[#00B050] hover:bg-[#00873D] text-white"
+              >
+                {t.backToStart}
+              </Button>
+            </div>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t.successTitle}</h2>
-          <p className="text-gray-600 mb-8">{t.successMessage}</p>
-          <Button 
-            onClick={() => {
-              setCurrentStep('intro');
-              setSubmitSuccess(false);
-              setSelectedAnswers({});
-              setCurrentQuestion(0);
-              setContactForm({ name: '', email: '', phone: '', company: '', isMixvoipCustomer: false, message: '' });
-            }}
-            className="bg-[#00B050] hover:bg-[#00873D] text-white"
-          >
-            {t.backToStart}
-          </Button>
-        </div>
+        </section>
       );
     }
 
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.contactForm}</h2>
-          <p className="text-gray-600">Score: {scorePercentage}% ({score}/{TOTAL_MAX_POINTS})</p>
+      <section id="assessment" className="section-padding bg-slate-50">
+        <div className="container">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.contactForm}</h2>
+              <p className="text-gray-600">{t.requestConsultation}</p>
+            </div>
+
+            <form onSubmit={(e) => handleSubmitContact(e, false)} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.name} *</label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      required
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.company} *</label>
+                  <div className="relative">
+                    <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      required
+                      value={contactForm.company}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, company: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.email} *</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="email"
+                      required
+                      value={contactForm.email}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.phone}</label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="tel"
+                      value={contactForm.phone}
+                      onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  id="isMixvoipCustomerContact"
+                  checked={contactForm.isMixvoipCustomer}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, isMixvoipCustomer: e.target.checked }))}
+                  className="w-4 h-4 text-[#00B050] border-gray-300 rounded focus:ring-[#00B050]"
+                />
+                <label htmlFor="isMixvoipCustomerContact" className="text-sm text-gray-700">{t.existingCustomer}</label>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t.message}</label>
+                <textarea
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+                  rows={3}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  type="button"
+                  variant="outline"
+                  onClick={() => setCurrentStep('results')}
+                  className="flex-1"
+                >
+                  <ChevronLeft className="mr-2 w-4 h-4" />
+                  {t.back}
+                </Button>
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+                >
+                  {isSubmitting ? t.submitting : t.submit}
+                  <Send className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <form onSubmit={(e) => handleSubmitContact(e, false)} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.name} *</label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  required
-                  value={contactForm.name}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.company} *</label>
-              <div className="relative">
-                <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  required
-                  value={contactForm.company}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, company: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.email} *</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="email"
-                  required
-                  value={contactForm.email}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">{t.phone}</label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="tel"
-                  value={contactForm.phone}
-                  onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="isMixvoipCustomerContact"
-              checked={contactForm.isMixvoipCustomer}
-              onChange={(e) => setContactForm(prev => ({ ...prev, isMixvoipCustomer: e.target.checked }))}
-              className="w-4 h-4 text-[#00B050] border-gray-300 rounded focus:ring-[#00B050]"
-            />
-            <label htmlFor="isMixvoipCustomerContact" className="ml-2 text-sm text-gray-700">
-              {t.existingCustomer}
-            </label>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t.message}</label>
-            <textarea
-              value={contactForm.message}
-              onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
-              rows={3}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-            />
-          </div>
-
-          <div className="flex gap-4">
-            <Button 
-              type="button"
-              variant="outline"
-              onClick={() => setCurrentStep('results')}
-              className="flex-1"
-            >
-              <ChevronLeft className="mr-2 w-4 h-4" />
-              {t.back}
-            </Button>
-            <Button 
-              type="submit"
-              disabled={isSubmitting}
-              className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
-            >
-              {isSubmitting ? t.submitting : t.submit}
-              <Send className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </form>
-      </div>
+      </section>
     );
   }
 

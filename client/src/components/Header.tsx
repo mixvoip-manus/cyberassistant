@@ -51,7 +51,7 @@ export default function Header() {
               {t('nav.coverage')}
             </button>
             <button
-              onClick={() => scrollToSection('pricing')}
+              onClick={() => scrollToSection('assessment')}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('nav.pricing')}
@@ -97,7 +97,7 @@ export default function Header() {
 
             {/* CTA Button */}
             <Button
-              onClick={() => scrollToSection('calculator')}
+              onClick={() => scrollToSection('assessment')}
               className="hidden sm:flex bg-[#00B050] hover:bg-[#00873D] text-white"
             >
               {t('nav.calculate')}
@@ -126,7 +126,7 @@ export default function Header() {
                 {t('nav.coverage')}
               </button>
               <button
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => scrollToSection('assessment')}
                 className="px-4 py-2 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
               >
                 {t('nav.pricing')}
@@ -144,7 +144,7 @@ export default function Header() {
                 {t('nav.contact')}
               </button>
               <Button
-                onClick={() => scrollToSection('calculator')}
+                onClick={() => scrollToSection('assessment')}
                 className="mt-2 bg-[#00B050] hover:bg-[#00873D] text-white"
               >
                 {t('nav.calculate')}

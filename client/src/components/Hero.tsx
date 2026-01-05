@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   const scrollToCalculator = () => {
-    const element = document.getElementById('calculator');
+    const element = document.getElementById('assessment');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
