@@ -1,0 +1,300 @@
+{
+  "productMapping": [
+    {
+      "questionId": 1,
+      "category": "Rules/Charter",
+      "weakness": {
+        "en": "Missing or inadequate security policies",
+        "fr": "Politiques de sécurité manquantes ou inadéquates",
+        "de": "Fehlende oder unzureichende Sicherheitsrichtlinien"
+      },
+      "products": [
+        {
+          "name": "Managed IT Services",
+          "url": "https://www.mixvoip.com/managed-it/",
+          "description": {
+            "en": "Professional IT management including security policy development",
+            "fr": "Gestion IT professionnelle incluant le développement de politiques de sécurité",
+            "de": "Professionelles IT-Management einschließlich Entwicklung von Sicherheitsrichtlinien"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 2,
+      "category": "GDPR",
+      "weakness": {
+        "en": "GDPR compliance gaps",
+        "fr": "Lacunes de conformité RGPD",
+        "de": "DSGVO-Compliance-Lücken"
+      },
+      "products": [
+        {
+          "name": "IT Consulting",
+          "url": "https://www.mixvoip.com/it-consulting/",
+          "description": {
+            "en": "Expert consulting for GDPR compliance and data protection",
+            "fr": "Conseil expert pour la conformité RGPD et la protection des données",
+            "de": "Expertenberatung für DSGVO-Compliance und Datenschutz"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 3,
+      "category": "Trainings",
+      "weakness": {
+        "en": "Lack of security awareness training",
+        "fr": "Manque de formation à la sensibilisation à la sécurité",
+        "de": "Mangel an Sicherheitsbewusstseinsschulungen"
+      },
+      "products": [
+        {
+          "name": "Cyber Assistance",
+          "url": "https://www.mixvoip.com/cyber-assistance/",
+          "description": {
+            "en": "Includes 1 year of employee security training platform access",
+            "fr": "Inclut 1 an d'accès à la plateforme de formation sécurité pour les employés",
+            "de": "Beinhaltet 1 Jahr Zugang zur Sicherheitsschulungsplattform für Mitarbeiter"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 4,
+      "category": "IT Responsibilities",
+      "weakness": {
+        "en": "Undefined IT security responsibilities",
+        "fr": "Responsabilités de sécurité IT non définies",
+        "de": "Undefinierte IT-Sicherheitsverantwortlichkeiten"
+      },
+      "products": [
+        {
+          "name": "Managed IT Services",
+          "url": "https://www.mixvoip.com/managed-it/",
+          "description": {
+            "en": "Dedicated IT management with clear responsibility assignment",
+            "fr": "Gestion IT dédiée avec attribution claire des responsabilités",
+            "de": "Dediziertes IT-Management mit klarer Verantwortungszuweisung"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 5,
+      "category": "Home Office/Mobility",
+      "weakness": {
+        "en": "Insecure remote work setup",
+        "fr": "Configuration de travail à distance non sécurisée",
+        "de": "Unsichere Remote-Arbeitskonfiguration"
+      },
+      "products": [
+        {
+          "name": "MDM (Miradore)",
+          "url": "https://www.mixvoip.com/mdm/",
+          "description": {
+            "en": "Mobile Device Management for secure device control",
+            "fr": "Gestion des appareils mobiles pour un contrôle sécurisé",
+            "de": "Mobile Device Management für sichere Gerätekontrolle"
+          }
+        },
+        {
+          "name": "SD-WAN",
+          "url": "https://www.mixvoip.com/internet/add-ons/",
+          "description": {
+            "en": "Secure network connectivity for remote locations",
+            "fr": "Connectivité réseau sécurisée pour les sites distants",
+            "de": "Sichere Netzwerkverbindung für entfernte Standorte"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 6,
+      "category": "Contracts",
+      "weakness": {
+        "en": "Missing security clauses in contracts",
+        "fr": "Clauses de sécurité manquantes dans les contrats",
+        "de": "Fehlende Sicherheitsklauseln in Verträgen"
+      },
+      "products": [
+        {
+          "name": "SLA Services",
+          "url": "https://www.mixvoip.com/sla/",
+          "description": {
+            "en": "Professional Service Level Agreements with security guarantees",
+            "fr": "Accords de niveau de service professionnels avec garanties de sécurité",
+            "de": "Professionelle Service Level Agreements mit Sicherheitsgarantien"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 7,
+      "category": "Office Cleaning",
+      "weakness": {
+        "en": "Physical security gaps",
+        "fr": "Lacunes de sécurité physique",
+        "de": "Physische Sicherheitslücken"
+      },
+      "products": [
+        {
+          "name": "Tempus Access Control",
+          "url": "https://www.mixvoip.com/tempus/",
+          "description": {
+            "en": "Access control and time tracking for secure premises",
+            "fr": "Contrôle d'accès et suivi du temps pour des locaux sécurisés",
+            "de": "Zugangskontrolle und Zeiterfassung für sichere Räumlichkeiten"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 8,
+      "category": "Passwords",
+      "weakness": {
+        "en": "Weak password management",
+        "fr": "Gestion des mots de passe faible",
+        "de": "Schwache Passwortverwaltung"
+      },
+      "products": [
+        {
+          "name": "YAPM Password Manager",
+          "url": "https://www.mixvoip.com/yapm/",
+          "description": {
+            "en": "Enterprise password manager for secure credential storage",
+            "fr": "Gestionnaire de mots de passe d'entreprise pour un stockage sécurisé",
+            "de": "Enterprise-Passwort-Manager für sichere Anmeldedatenspeicherung"
+          }
+        },
+        {
+          "name": "Microsoft 365",
+          "url": "https://www.mixvoip.com/microsoft-365/",
+          "description": {
+            "en": "Includes Azure AD with MFA capabilities",
+            "fr": "Inclut Azure AD avec capacités MFA",
+            "de": "Enthält Azure AD mit MFA-Funktionen"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 9,
+      "category": "WiFi",
+      "weakness": {
+        "en": "Insecure wireless network",
+        "fr": "Réseau sans fil non sécurisé",
+        "de": "Unsicheres drahtloses Netzwerk"
+      },
+      "products": [
+        {
+          "name": "Co-managed LAN",
+          "url": "https://www.mixvoip.com/co-managed-lan/",
+          "description": {
+            "en": "Professional network management with secure WiFi setup",
+            "fr": "Gestion de réseau professionnelle avec configuration WiFi sécurisée",
+            "de": "Professionelles Netzwerkmanagement mit sicherer WiFi-Einrichtung"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 10,
+      "category": "Antivirus",
+      "weakness": {
+        "en": "Missing or inadequate endpoint protection",
+        "fr": "Protection des terminaux manquante ou inadéquate",
+        "de": "Fehlender oder unzureichender Endpunktschutz"
+      },
+      "products": [
+        {
+          "name": "Managed IT Services",
+          "url": "https://www.mixvoip.com/managed-it/",
+          "description": {
+            "en": "Includes enterprise antivirus and endpoint protection",
+            "fr": "Inclut antivirus d'entreprise et protection des terminaux",
+            "de": "Enthält Enterprise-Antivirus und Endpunktschutz"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 11,
+      "category": "Workstations/Updates",
+      "weakness": {
+        "en": "Unmanaged or outdated workstations",
+        "fr": "Postes de travail non gérés ou obsolètes",
+        "de": "Nicht verwaltete oder veraltete Arbeitsplätze"
+      },
+      "products": [
+        {
+          "name": "Managed IT Services",
+          "url": "https://www.mixvoip.com/managed-it/",
+          "description": {
+            "en": "Comprehensive workstation management and patch updates",
+            "fr": "Gestion complète des postes de travail et mises à jour",
+            "de": "Umfassende Arbeitsplatzverwaltung und Patch-Updates"
+          }
+        },
+        {
+          "name": "MDM (Miradore)",
+          "url": "https://www.mixvoip.com/mdm/",
+          "description": {
+            "en": "Device management and security policy enforcement",
+            "fr": "Gestion des appareils et application des politiques de sécurité",
+            "de": "Geräteverwaltung und Durchsetzung von Sicherheitsrichtlinien"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 12,
+      "category": "Backups",
+      "weakness": {
+        "en": "Missing or inadequate backup strategy",
+        "fr": "Stratégie de sauvegarde manquante ou inadéquate",
+        "de": "Fehlende oder unzureichende Backup-Strategie"
+      },
+      "products": [
+        {
+          "name": "Data Protection",
+          "url": "https://www.mixvoip.com/data-protection/",
+          "description": {
+            "en": "Enterprise backup solution with Tier IV data center storage",
+            "fr": "Solution de sauvegarde d'entreprise avec stockage en data center Tier IV",
+            "de": "Enterprise-Backup-Lösung mit Tier IV Rechenzentrum-Speicherung"
+          }
+        }
+      ]
+    },
+    {
+      "questionId": 13,
+      "category": "BYOD",
+      "weakness": {
+        "en": "Uncontrolled personal device usage",
+        "fr": "Utilisation non contrôlée des appareils personnels",
+        "de": "Unkontrollierte Nutzung persönlicher Geräte"
+      },
+      "products": [
+        {
+          "name": "MDM (Miradore)",
+          "url": "https://www.mixvoip.com/mdm/",
+          "description": {
+            "en": "Control and secure personal devices in corporate environment",
+            "fr": "Contrôler et sécuriser les appareils personnels en entreprise",
+            "de": "Persönliche Geräte in der Unternehmensumgebung kontrollieren und sichern"
+          }
+        },
+        {
+          "name": "Co-managed LAN",
+          "url": "https://www.mixvoip.com/co-managed-lan/",
+          "description": {
+            "en": "Network access control for authorized devices only",
+            "fr": "Contrôle d'accès réseau uniquement pour les appareils autorisés",
+            "de": "Netzwerkzugangskontrolle nur für autorisierte Geräte"
+          }
+        }
+      ]
+    }
+  ]
+}

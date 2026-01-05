@@ -1,0 +1,254 @@
+{
+  "totalMaxPoints": 430,
+  "threshold": 65,
+  "questions": [
+    {
+      "id": 1,
+      "category": "Rules/Charter",
+      "section": "Awareness and Compliance",
+      "maxPoints": 45,
+      "label": {
+        "en": "In the company, the rules for information security and cybersecurity are",
+        "fr": "Dans l'entreprise, les règles de sécurité de l'information et de cybersécurité sont",
+        "de": "Im Unternehmen sind die Regeln für Informationssicherheit und Cybersicherheit"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "not described", "fr": "non décrites", "de": "nicht beschrieben"}},
+        {"id": 2, "score": 15, "exclusive": false, "label": {"en": "orally given", "fr": "transmises oralement", "de": "mündlich mitgeteilt"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "written and given by mail", "fr": "écrites et transmises par e-mail", "de": "schriftlich und per E-Mail übermittelt"}},
+        {"id": 4, "score": 10, "exclusive": false, "label": {"en": "read and signed by everyone, in a user charter", "fr": "lues et signées par tous, dans une charte utilisateur", "de": "von allen gelesen und unterschrieben, in einer Benutzercharta"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "written and explained with simple words", "fr": "écrites et expliquées avec des mots simples", "de": "schriftlich und mit einfachen Worten erklärt"}},
+        {"id": 6, "score": 0, "exclusive": false, "label": {"en": "quite heavy, but really accurate", "fr": "assez lourdes, mais vraiment précises", "de": "ziemlich umfangreich, aber wirklich genau"}},
+        {"id": 7, "score": 5, "exclusive": false, "label": {"en": "given with advice and best practices", "fr": "accompagnées de conseils et de bonnes pratiques", "de": "mit Ratschlägen und Best Practices versehen"}},
+        {"id": 8, "score": 5, "exclusive": false, "label": {"en": "adapted depending on the role", "fr": "adaptées selon le rôle", "de": "je nach Rolle angepasst"}}
+      ]
+    },
+    {
+      "id": 2,
+      "category": "GDPR",
+      "section": "Awareness and Compliance",
+      "maxPoints": 30,
+      "label": {
+        "en": "In the company, there is/are",
+        "fr": "Dans l'entreprise, il y a",
+        "de": "Im Unternehmen gibt es"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "no personal data or nothing related to GDPR", "fr": "pas de données personnelles ou rien lié au RGPD", "de": "keine personenbezogenen Daten oder nichts im Zusammenhang mit der DSGVO"}},
+        {"id": 2, "score": 10, "exclusive": false, "label": {"en": "someone responsible for personal data", "fr": "quelqu'un responsable des données personnelles", "de": "jemand, der für personenbezogene Daten verantwortlich ist"}},
+        {"id": 3, "score": 10, "exclusive": false, "label": {"en": "a written explanation about the data lifecycle", "fr": "une explication écrite sur le cycle de vie des données", "de": "eine schriftliche Erklärung zum Datenlebenszyklus"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "a procedure to handle data subject requests", "fr": "une procédure pour traiter les demandes des personnes concernées", "de": "ein Verfahren zur Bearbeitung von Betroffenenanfragen"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "a data breach notification procedure", "fr": "une procédure de notification des violations de données", "de": "ein Verfahren zur Meldung von Datenschutzverletzungen"}}
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Trainings",
+      "section": "Awareness and Compliance",
+      "maxPoints": 35,
+      "label": {
+        "en": "Employees are trained for/in",
+        "fr": "Les employés sont formés pour/en",
+        "de": "Die Mitarbeiter werden geschult für/in"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "nothing related to information security", "fr": "rien lié à la sécurité de l'information", "de": "nichts im Zusammenhang mit Informationssicherheit"}},
+        {"id": 2, "score": 10, "exclusive": false, "label": {"en": "general security awareness", "fr": "sensibilisation générale à la sécurité", "de": "allgemeines Sicherheitsbewusstsein"}},
+        {"id": 3, "score": 10, "exclusive": false, "label": {"en": "phishing and social engineering", "fr": "phishing et ingénierie sociale", "de": "Phishing und Social Engineering"}},
+        {"id": 4, "score": 10, "exclusive": false, "label": {"en": "secure password management", "fr": "gestion sécurisée des mots de passe", "de": "sichere Passwortverwaltung"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "incident reporting procedures", "fr": "procédures de signalement des incidents", "de": "Verfahren zur Meldung von Vorfällen"}}
+      ]
+    },
+    {
+      "id": 4,
+      "category": "IT Responsibilities",
+      "section": "Awareness and Compliance",
+      "maxPoints": 15,
+      "label": {
+        "en": "IT and Information Security responsibilities are",
+        "fr": "Les responsabilités IT et sécurité de l'information sont",
+        "de": "Die IT- und Informationssicherheitsverantwortlichkeiten sind"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "not defined", "fr": "non définies", "de": "nicht definiert"}},
+        {"id": 2, "score": 5, "exclusive": false, "label": {"en": "assigned to someone", "fr": "attribuées à quelqu'un", "de": "jemandem zugewiesen"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "documented", "fr": "documentées", "de": "dokumentiert"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "communicated to all employees", "fr": "communiquées à tous les employés", "de": "allen Mitarbeitern mitgeteilt"}},
+        {"id": 5, "score": 0, "exclusive": false, "label": {"en": "regularly reviewed", "fr": "régulièrement révisées", "de": "regelmäßig überprüft"}}
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Home Office/Mobility",
+      "section": "Information System",
+      "maxPoints": 35,
+      "label": {
+        "en": "During any trip outside the company, the employee uses",
+        "fr": "Lors de tout déplacement hors de l'entreprise, l'employé utilise",
+        "de": "Bei jeder Reise außerhalb des Unternehmens nutzt der Mitarbeiter"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "nothing specific for security", "fr": "rien de spécifique pour la sécurité", "de": "nichts Spezifisches für die Sicherheit"}},
+        {"id": 2, "score": 10, "exclusive": false, "label": {"en": "a VPN connection", "fr": "une connexion VPN", "de": "eine VPN-Verbindung"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "encrypted devices", "fr": "des appareils chiffrés", "de": "verschlüsselte Geräte"}},
+        {"id": 4, "score": 10, "exclusive": false, "label": {"en": "multi-factor authentication", "fr": "authentification multi-facteurs", "de": "Multi-Faktor-Authentifizierung"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "company-approved devices only", "fr": "uniquement des appareils approuvés par l'entreprise", "de": "nur vom Unternehmen genehmigte Geräte"}},
+        {"id": 6, "score": 5, "exclusive": false, "label": {"en": "secure file sharing solutions", "fr": "des solutions de partage de fichiers sécurisées", "de": "sichere Dateifreigabelösungen"}}
+      ]
+    },
+    {
+      "id": 6,
+      "category": "Contracts",
+      "section": "Awareness and Compliance",
+      "maxPoints": 15,
+      "label": {
+        "en": "Contracts with third parties",
+        "fr": "Les contrats avec des tiers",
+        "de": "Verträge mit Dritten"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "do not exist or have no security clauses", "fr": "n'existent pas ou n'ont pas de clauses de sécurité", "de": "existieren nicht oder haben keine Sicherheitsklauseln"}},
+        {"id": 2, "score": 5, "exclusive": false, "label": {"en": "include confidentiality agreements (NDA)", "fr": "incluent des accords de confidentialité (NDA)", "de": "enthalten Vertraulichkeitsvereinbarungen (NDA)"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "include service level agreements (SLA)", "fr": "incluent des accords de niveau de service (SLA)", "de": "enthalten Service Level Agreements (SLA)"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "are regularly reviewed", "fr": "sont régulièrement révisés", "de": "werden regelmäßig überprüft"}}
+      ]
+    },
+    {
+      "id": 7,
+      "category": "Office Cleaning",
+      "section": "Information System",
+      "maxPoints": 30,
+      "label": {
+        "en": "The office cleaning is done",
+        "fr": "Le nettoyage des bureaux est effectué",
+        "de": "Die Büroreinigung erfolgt"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "without any security consideration", "fr": "sans aucune considération de sécurité", "de": "ohne jegliche Sicherheitsüberlegungen"}},
+        {"id": 2, "score": 5, "exclusive": false, "label": {"en": "with a clean desk policy", "fr": "avec une politique de bureau propre", "de": "mit einer Clean-Desk-Richtlinie"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "by supervised personnel", "fr": "par du personnel supervisé", "de": "durch beaufsichtigtes Personal"}},
+        {"id": 4, "score": 10, "exclusive": false, "label": {"en": "with locked sensitive areas", "fr": "avec des zones sensibles verrouillées", "de": "mit abgesperrten sensiblen Bereichen"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "with secure document disposal", "fr": "avec une élimination sécurisée des documents", "de": "mit sicherer Dokumentenvernichtung"}},
+        {"id": 6, "score": 5, "exclusive": false, "label": {"en": "during working hours", "fr": "pendant les heures de travail", "de": "während der Arbeitszeiten"}}
+      ]
+    },
+    {
+      "id": 8,
+      "category": "Passwords",
+      "section": "Information System",
+      "maxPoints": 45,
+      "label": {
+        "en": "Passwords in the company are",
+        "fr": "Les mots de passe dans l'entreprise sont",
+        "de": "Die Passwörter im Unternehmen sind"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "not subject to any rules", "fr": "non soumis à des règles", "de": "keinen Regeln unterworfen"}},
+        {"id": 2, "score": 5, "exclusive": false, "label": {"en": "subject to length and complexity rules", "fr": "soumis à des règles de longueur et de complexité", "de": "Längen- und Komplexitätsregeln unterworfen"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "changed regularly", "fr": "changés régulièrement", "de": "regelmäßig geändert"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "never shared between employees", "fr": "jamais partagés entre employés", "de": "nie zwischen Mitarbeitern geteilt"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "never written down", "fr": "jamais notés par écrit", "de": "nie aufgeschrieben"}},
+        {"id": 6, "score": 0, "exclusive": false, "label": {"en": "stored in web browsers", "fr": "stockés dans les navigateurs web", "de": "in Webbrowsern gespeichert"}},
+        {"id": 7, "score": 5, "exclusive": false, "label": {"en": "managed with a password manager", "fr": "gérés avec un gestionnaire de mots de passe", "de": "mit einem Passwort-Manager verwaltet"}},
+        {"id": 8, "score": 5, "exclusive": false, "label": {"en": "different for each service", "fr": "différents pour chaque service", "de": "für jeden Dienst unterschiedlich"}},
+        {"id": 9, "score": 10, "exclusive": false, "label": {"en": "protected by two-factor authentication", "fr": "protégés par une authentification à deux facteurs", "de": "durch Zwei-Faktor-Authentifizierung geschützt"}},
+        {"id": 10, "score": 5, "exclusive": false, "label": {"en": "especially protected for admin accounts", "fr": "particulièrement protégés pour les comptes admin", "de": "besonders geschützt für Admin-Konten"}}
+      ]
+    },
+    {
+      "id": 9,
+      "category": "WiFi",
+      "section": "Information System",
+      "maxPoints": 25,
+      "label": {
+        "en": "Wireless networks",
+        "fr": "Les réseaux sans fil",
+        "de": "Drahtlose Netzwerke"
+      },
+      "answers": [
+        {"id": 1, "score": 25, "exclusive": true, "label": {"en": "are not used", "fr": "ne sont pas utilisés", "de": "werden nicht verwendet"}},
+        {"id": 2, "score": 10, "exclusive": false, "label": {"en": "are encrypted (WPA2/WPA3)", "fr": "sont chiffrés (WPA2/WPA3)", "de": "sind verschlüsselt (WPA2/WPA3)"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "have a separate guest network", "fr": "ont un réseau invité séparé", "de": "haben ein separates Gastnetzwerk"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "have hidden SSIDs for corporate use", "fr": "ont des SSID cachés pour l'usage professionnel", "de": "haben versteckte SSIDs für den Unternehmensgebrauch"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "use enterprise authentication", "fr": "utilisent une authentification d'entreprise", "de": "verwenden Unternehmensauthentifizierung"}}
+      ]
+    },
+    {
+      "id": 10,
+      "category": "Antivirus",
+      "section": "Information System",
+      "maxPoints": 35,
+      "label": {
+        "en": "Antivirus software",
+        "fr": "Les logiciels antivirus",
+        "de": "Antivirensoftware"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "is not installed", "fr": "n'est pas installé", "de": "ist nicht installiert"}},
+        {"id": 2, "score": 10, "exclusive": false, "label": {"en": "is installed on all devices", "fr": "est installé sur tous les appareils", "de": "ist auf allen Geräten installiert"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "is automatically updated", "fr": "est automatiquement mis à jour", "de": "wird automatisch aktualisiert"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "performs regular scans", "fr": "effectue des analyses régulières", "de": "führt regelmäßige Scans durch"}},
+        {"id": 5, "score": 5, "exclusive": false, "label": {"en": "is centrally managed", "fr": "est géré de manière centralisée", "de": "wird zentral verwaltet"}},
+        {"id": 6, "score": 5, "exclusive": false, "label": {"en": "includes real-time protection", "fr": "inclut une protection en temps réel", "de": "enthält Echtzeitschutz"}},
+        {"id": 7, "score": 5, "exclusive": false, "label": {"en": "covers email and web traffic", "fr": "couvre le trafic e-mail et web", "de": "deckt E-Mail- und Webverkehr ab"}}
+      ]
+    },
+    {
+      "id": 11,
+      "category": "Workstations/Updates",
+      "section": "Information System",
+      "maxPoints": 35,
+      "label": {
+        "en": "The user workstations are",
+        "fr": "Les postes de travail des utilisateurs sont",
+        "de": "Die Arbeitsplätze der Benutzer sind"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "not managed or updated", "fr": "non gérés ou mis à jour", "de": "nicht verwaltet oder aktualisiert"}},
+        {"id": 2, "score": 15, "exclusive": false, "label": {"en": "automatically or manually updated", "fr": "automatiquement ou manuellement mis à jour", "de": "automatisch oder manuell aktualisiert"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "controlled by administrators", "fr": "contrôlés par les administrateurs", "de": "von Administratoren kontrolliert"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "subject to software installation rules", "fr": "soumis à des règles d'installation de logiciels", "de": "Softwareinstallationsregeln unterworfen"}},
+        {"id": 5, "score": 10, "exclusive": false, "label": {"en": "locked when user is away", "fr": "verrouillés lorsque l'utilisateur est absent", "de": "gesperrt, wenn der Benutzer abwesend ist"}}
+      ]
+    },
+    {
+      "id": 12,
+      "category": "Backups",
+      "section": "Information System",
+      "maxPoints": 65,
+      "label": {
+        "en": "Backups are",
+        "fr": "Les sauvegardes sont",
+        "de": "Backups sind"
+      },
+      "answers": [
+        {"id": 1, "score": 0, "exclusive": true, "label": {"en": "non existent or not working", "fr": "inexistantes ou ne fonctionnent pas", "de": "nicht vorhanden oder funktionieren nicht"}},
+        {"id": 2, "score": 5, "exclusive": false, "label": {"en": "managed by a third party", "fr": "gérées par un tiers", "de": "von einem Dritten verwaltet"}},
+        {"id": 3, "score": 10, "exclusive": false, "label": {"en": "exhaustive (all data is backed up)", "fr": "exhaustives (toutes les données sont sauvegardées)", "de": "vollständig (alle Daten werden gesichert)"}},
+        {"id": 4, "score": 10, "exclusive": false, "label": {"en": "done at least daily", "fr": "effectuées au moins quotidiennement", "de": "mindestens täglich durchgeführt"}},
+        {"id": 5, "score": 10, "exclusive": false, "label": {"en": "retained for at least one month", "fr": "conservées pendant au moins un mois", "de": "mindestens einen Monat aufbewahrt"}},
+        {"id": 6, "score": 5, "exclusive": false, "label": {"en": "stored at a remote location (3+ km)", "fr": "stockées à distance (3+ km)", "de": "an einem entfernten Ort gespeichert (3+ km)"}},
+        {"id": 7, "score": 10, "exclusive": false, "label": {"en": "disconnected from server after backup", "fr": "déconnectées du serveur après la sauvegarde", "de": "nach dem Backup vom Server getrennt"}},
+        {"id": 8, "score": 10, "exclusive": false, "label": {"en": "regularly tested", "fr": "régulièrement testées", "de": "regelmäßig getestet"}},
+        {"id": 9, "score": 5, "exclusive": false, "label": {"en": "encrypted", "fr": "chiffrées", "de": "verschlüsselt"}}
+      ]
+    },
+    {
+      "id": 13,
+      "category": "BYOD",
+      "section": "Information System",
+      "maxPoints": 20,
+      "label": {
+        "en": "Having personal IT devices in the professional environment",
+        "fr": "Avoir des appareils IT personnels dans l'environnement professionnel",
+        "de": "Persönliche IT-Geräte in der beruflichen Umgebung zu haben"
+      },
+      "answers": [
+        {"id": 1, "score": 20, "exclusive": true, "label": {"en": "is forbidden or impossible", "fr": "est interdit ou impossible", "de": "ist verboten oder unmöglich"}},
+        {"id": 2, "score": 10, "exclusive": false, "label": {"en": "is subject to precise rules", "fr": "est soumis à des règles précises", "de": "unterliegt genauen Regeln"}},
+        {"id": 3, "score": 5, "exclusive": false, "label": {"en": "is under strict antivirus control", "fr": "est sous contrôle antivirus strict", "de": "unterliegt strenger Antiviruskontrolle"}},
+        {"id": 4, "score": 5, "exclusive": false, "label": {"en": "has been explained through training", "fr": "a été expliqué par une formation", "de": "wurde durch Schulung erklärt"}}
+      ]
+    }
+  ]
+}
