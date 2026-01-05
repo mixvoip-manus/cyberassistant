@@ -96,6 +96,19 @@ const translations = {
     backToAssessment: 'Back to Assessment',
     fastTrackTitle: 'Fast-Track Request',
     fastTrackSubtitle: 'You already have a Fit4Cybersecurity score of 65% or higher',
+    basicFeature1: 'Best-effort response',
+    basicFeature2: 'Core user recovery',
+    basicFeature3: 'Business hours support',
+    basicNote: '*For Mixvoip customers with Fit4Cyber score ≥60%',
+    proFeature1: '24/7, 1h guaranteed response',
+    proFeature2: 'Full system recovery',
+    proFeature3: 'Round-the-clock support',
+    proFeature4: 'Insurance INCLUDED',
+    enterpriseFeature1: 'Dedicated team',
+    enterpriseFeature2: 'Fully custom solution',
+    enterpriseFeature3: 'Priority support',
+    enterpriseFeature4: 'Custom insurance limits',
+    selectPackage: 'Select',
   },
   fr: {
     title: 'Évaluation Fit4Cybersecurity',
@@ -149,6 +162,19 @@ const translations = {
     backToAssessment: 'Retour à l\'évaluation',
     fastTrackTitle: 'Demande Fast-Track',
     fastTrackSubtitle: 'Vous avez déjà un score Fit4Cybersecurity de 65% ou plus',
+    basicFeature1: 'Réponse best-effort',
+    basicFeature2: 'Récupération utilisateur principal',
+    basicFeature3: 'Support heures ouvrables',
+    basicNote: '*Pour les clients Mixvoip avec score Fit4Cyber ≥60%',
+    proFeature1: '24/7, réponse garantie 1h',
+    proFeature2: 'Récupération système complète',
+    proFeature3: 'Support 24h/24',
+    proFeature4: 'Assurance INCLUSE',
+    enterpriseFeature1: 'Équipe dédiée',
+    enterpriseFeature2: 'Solution personnalisée',
+    enterpriseFeature3: 'Support prioritaire',
+    enterpriseFeature4: 'Limites d\'assurance personnalisées',
+    selectPackage: 'Sélectionner',
   },
   de: {
     title: 'Fit4Cybersecurity Assessment',
@@ -202,6 +228,19 @@ const translations = {
     backToAssessment: 'Zurück zum Assessment',
     fastTrackTitle: 'Fast-Track Anfrage',
     fastTrackSubtitle: 'Sie haben bereits einen Fit4Cybersecurity Score von 65% oder höher',
+    basicFeature1: 'Best-Effort-Reaktion',
+    basicFeature2: 'Core-User-Wiederherstellung',
+    basicFeature3: 'Support zu Geschäftszeiten',
+    basicNote: '*Für Mixvoip-Kunden mit Fit4Cyber-Score ≥60%',
+    proFeature1: '24/7, 1h garantierte Reaktion',
+    proFeature2: 'Vollständige Systemwiederherstellung',
+    proFeature3: 'Rund-um-die-Uhr-Support',
+    proFeature4: 'Versicherung INKLUSIVE',
+    enterpriseFeature1: 'Dediziertes Team',
+    enterpriseFeature2: 'Vollständig individuelle Lösung',
+    enterpriseFeature3: 'Prioritäts-Support',
+    enterpriseFeature4: 'Individuelle Versicherungslimits',
+    selectPackage: 'Auswählen',
   }
 };
 
@@ -573,7 +612,7 @@ Gesendet von: Mixvoip Cyber Assistance Website`
             <div className="grid md:grid-cols-2 gap-4">
               <Button 
                 variant="outline"
-                onClick={() => setCurrentStep('fasttrack')}
+                onClick={() => setCurrentStep('pricing')}
                 className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
               >
                 <Zap className="mr-2 w-4 h-4" />
@@ -607,57 +646,116 @@ Gesendet von: Mixvoip Cyber Assistance Website`
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {/* Basic */}
-              <div className="border border-gray-200 rounded-xl p-6">
+              <div className="border border-gray-200 rounded-xl p-6 flex flex-col">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t.basic}</h3>
                 <div className="text-3xl font-bold text-[#00B050] mb-1">{t.free}*</div>
                 <p className="text-sm text-gray-500 mb-4">{t.forMixvoipCustomers}</p>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm flex-1">
                   <div className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
-                    {t.coverage}: €50,000
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.basicFeature1}
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
-                    {t.noDeductible}*
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.basicFeature2}
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.basicFeature3}
+                  </div>
+                  <div className="border-t border-gray-100 my-3 pt-3">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Shield className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                      {t.coverage}: €50,000
+                    </div>
                   </div>
                 </div>
+                <p className="text-xs text-gray-400 mt-3">{t.basicNote}</p>
+                <Button 
+                  variant="outline"
+                  onClick={() => setCurrentStep('fasttrack')}
+                  className="w-full mt-4 border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5"
+                >
+                  {t.selectPackage}
+                </Button>
               </div>
 
               {/* Pro */}
-              <div className="border-2 border-[#00B050] rounded-xl p-6 relative">
+              <div className="border-2 border-[#00B050] rounded-xl p-6 relative flex flex-col">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00B050] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Popular
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t.pro}</h3>
                 <div className="text-3xl font-bold text-[#00B050] mb-1">€2</div>
                 <p className="text-sm text-gray-500 mb-4">{t.perUserMonth}</p>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm flex-1">
                   <div className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
-                    {t.coverage}: €150,000
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.proFeature1}
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
-                    {t.noDeductible}*
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.proFeature2}
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.proFeature3}
+                  </div>
+                  <div className="flex items-center gap-2 text-[#00B050] font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.proFeature4}
+                  </div>
+                  <div className="border-t border-gray-100 my-3 pt-3">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Shield className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                      {t.coverage}: €150,000
+                    </div>
                   </div>
                 </div>
+                <Button 
+                  onClick={() => setCurrentStep('fasttrack')}
+                  className="w-full mt-4 bg-[#00B050] hover:bg-[#00873D] text-white"
+                >
+                  {t.selectPackage}
+                </Button>
               </div>
 
               {/* Enterprise */}
-              <div className="border border-gray-200 rounded-xl p-6">
+              <div className="border border-gray-200 rounded-xl p-6 flex flex-col">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t.enterprise}</h3>
                 <div className="text-3xl font-bold text-[#00B050] mb-1">{t.custom}</div>
                 <p className="text-sm text-gray-500 mb-4">{t.contactSales}</p>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm flex-1">
                   <div className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
-                    {t.coverage}: €250,000+
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.enterpriseFeature1}
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-[#00B050]" />
-                    {t.noDeductible}*
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.enterpriseFeature2}
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.enterpriseFeature3}
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.enterpriseFeature4}
+                  </div>
+                  <div className="border-t border-gray-100 my-3 pt-3">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Shield className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                      {t.coverage}: €250,000+
+                    </div>
                   </div>
                 </div>
+                <Button 
+                  variant="outline"
+                  onClick={() => setCurrentStep('fasttrack')}
+                  className="w-full mt-4 border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5"
+                >
+                  {t.selectPackage}
+                </Button>
               </div>
             </div>
 
