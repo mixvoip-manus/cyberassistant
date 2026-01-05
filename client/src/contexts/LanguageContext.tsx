@@ -26,6 +26,12 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.priceValue': '€2/user/month',
     'hero.cta': 'Calculate your Cyber Assistance',
     'hero.ctaSecondary': 'Learn more',
+    'hero.card.title': 'Cyber Assistance',
+    'hero.card.subtitle': 'Complete Protection',
+    'hero.card.response': '24/7 Response',
+    'hero.card.gdpr': 'GDPR Coverage',
+    'hero.card.coverage': 'Up to €250k',
+    'hero.card.insurance': 'Insurance Coverage',
     
     // What is Section
     'what.title': 'What is Cyber Assistance?',
@@ -301,6 +307,12 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.priceValue': '2€/utilisateur/mois',
     'hero.cta': 'Calculez votre Cyber Assistance',
     'hero.ctaSecondary': 'En savoir plus',
+    'hero.card.title': 'Cyber Assistance',
+    'hero.card.subtitle': 'Protection Complète',
+    'hero.card.response': 'Réponse 24/7',
+    'hero.card.gdpr': 'Couverture RGPD',
+    'hero.card.coverage': 'Jusqu\'à 250k€',
+    'hero.card.insurance': 'Couverture d\'Assurance',
     
     // What is Section
     'what.title': 'Qu\'est-ce que Cyber Assistance ?',
@@ -576,6 +588,12 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.priceValue': '2€/Nutzer/Monat',
     'hero.cta': 'Berechnen Sie Ihre Cyber Assistance',
     'hero.ctaSecondary': 'Mehr erfahren',
+    'hero.card.title': 'Cyber Assistance',
+    'hero.card.subtitle': 'Komplettschutz',
+    'hero.card.response': '24/7 Reaktion',
+    'hero.card.gdpr': 'DSGVO-Deckung',
+    'hero.card.coverage': 'Bis zu 250k€',
+    'hero.card.insurance': 'Versicherungsdeckung',
     
     // What is Section
     'what.title': 'Was ist Cyber Assistance?',

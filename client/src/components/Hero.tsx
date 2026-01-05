@@ -90,8 +90,8 @@ export default function Hero() {
                     <Shield className="h-8 w-8 text-[#00B050]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl">Cyber Assistance</h3>
-                    <p className="text-muted-foreground">Complete Protection</p>
+                    <h3 className="font-bold text-xl">{t('hero.card.title')}</h3>
+                    <p className="text-muted-foreground">{t('hero.card.subtitle')}</p>
                   </div>
                 </div>
 
@@ -100,24 +100,24 @@ export default function Hero() {
                   <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
                     <CheckCircle className="h-5 w-5 text-[#00B050]" />
                     <span className="font-medium">{t('what.attacks')}</span>
-                    <span className="ml-auto text-sm text-muted-foreground">24/7 Response</span>
+                    <span className="ml-auto text-sm text-muted-foreground">{t('hero.card.response')}</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
                     <CheckCircle className="h-5 w-5 text-[#00B050]" />
                     <span className="font-medium">{t('what.fines')}</span>
-                    <span className="ml-auto text-sm text-muted-foreground">GDPR Coverage</span>
+                    <span className="ml-auto text-sm text-muted-foreground">{t('hero.card.gdpr')}</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
                     <CheckCircle className="h-5 w-5 text-[#00B050]" />
                     <span className="font-medium">{t('what.losses')}</span>
-                    <span className="ml-auto text-sm text-muted-foreground">Up to €250k</span>
+                    <span className="ml-auto text-sm text-muted-foreground">{t('hero.card.coverage')}</span>
                   </div>
                 </div>
 
                 {/* Coverage Badge */}
                 <div className="mt-6 pt-6 border-t border-border">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Insurance Coverage</span>
+                    <span className="text-sm text-muted-foreground">{t('hero.card.insurance')}</span>
                     <span className="font-bold text-[#00B050]">€50k - €250k</span>
                   </div>
                 </div>
