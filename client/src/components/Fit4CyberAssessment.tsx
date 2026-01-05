@@ -99,6 +99,7 @@ const translations = {
     basicFeature1: 'Best-effort response',
     basicFeature2: 'Core user recovery',
     basicFeature3: 'Business hours support',
+    basicFeature4: 'Insurance selectable',
     basicNote: '*For Mixvoip customers with Fit4Cyber score ≥60%',
     proFeature1: '24/7, 1h guaranteed response',
     proFeature2: 'Full system recovery',
@@ -176,6 +177,7 @@ const translations = {
     basicFeature1: 'Réponse best-effort',
     basicFeature2: 'Récupération utilisateur principal',
     basicFeature3: 'Support heures ouvrables',
+    basicFeature4: 'Assurance au choix',
     basicNote: '*Pour les clients Mixvoip avec score Fit4Cyber ≥60%',
     proFeature1: '24/7, réponse garantie 1h',
     proFeature2: 'Récupération système complète',
@@ -253,6 +255,7 @@ const translations = {
     basicFeature1: 'Best-Effort-Reaktion',
     basicFeature2: 'Core-User-Wiederherstellung',
     basicFeature3: 'Support zu Geschäftszeiten',
+    basicFeature4: 'Versicherung wählbar',
     basicNote: '*Für Mixvoip-Kunden mit Fit4Cyber-Score ≥60%',
     proFeature1: '24/7, 1h garantierte Reaktion',
     proFeature2: 'Vollständige Systemwiederherstellung',
@@ -711,6 +714,10 @@ Gesendet von: Mixvoip Cyber Assistance Website`
                   <div className="flex items-center gap-2 text-gray-600">
                     <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
                     {t.basicFeature3}
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
+                    {t.basicFeature4}
                   </div>
                 </div>
                 <p className="text-xs text-gray-400 mt-3">{t.basicNote}</p>
