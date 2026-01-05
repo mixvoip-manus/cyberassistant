@@ -103,7 +103,7 @@ const translations = {
     proFeature1: '24/7, 1h guaranteed response',
     proFeature2: 'Full system recovery',
     proFeature3: 'Round-the-clock support',
-    proFeature4: 'Insurance INCLUDED',
+    proFeature4: 'Insurance selectable',
     enterpriseFeature1: 'Dedicated team',
     enterpriseFeature2: 'Fully custom solution',
     enterpriseFeature3: 'Priority support',
@@ -180,7 +180,7 @@ const translations = {
     proFeature1: '24/7, réponse garantie 1h',
     proFeature2: 'Récupération système complète',
     proFeature3: 'Support 24h/24',
-    proFeature4: 'Assurance INCLUSE',
+    proFeature4: 'Assurance au choix',
     enterpriseFeature1: 'Équipe dédiée',
     enterpriseFeature2: 'Solution personnalisée',
     enterpriseFeature3: 'Support prioritaire',
@@ -257,7 +257,7 @@ const translations = {
     proFeature1: '24/7, 1h garantierte Reaktion',
     proFeature2: 'Vollständige Systemwiederherstellung',
     proFeature3: 'Rund-um-die-Uhr-Support',
-    proFeature4: 'Versicherung INKLUSIVE',
+    proFeature4: 'Versicherung wählbar',
     enterpriseFeature1: 'Dediziertes Team',
     enterpriseFeature2: 'Vollständig individuelle Lösung',
     enterpriseFeature3: 'Prioritäts-Support',
@@ -745,7 +745,7 @@ Gesendet von: Mixvoip Cyber Assistance Website`
                     <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
                     {t.proFeature3}
                   </div>
-                  <div className="flex items-center gap-2 text-[#00B050] font-medium">
+                  <div className="flex items-center gap-2 text-gray-600">
                     <CheckCircle2 className="w-4 h-4 text-[#00B050] flex-shrink-0" />
                     {t.proFeature4}
                   </div>
