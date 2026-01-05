@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
 import { Progress } from './ui/progress';
-import { CheckCircle2, AlertTriangle, ChevronRight, ChevronLeft, ExternalLink, Send, Building2, Mail, Phone, User } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, ChevronRight, ChevronLeft, ExternalLink, Send, Building2, Mail, Phone, User, Download, Upload, FileText, Euro, Zap, Shield } from 'lucide-react';
 import assessmentData from '../data/assessment.json';
 import productMappingData from '../data/productMapping.json';
 
@@ -40,11 +40,175 @@ const productMapping: ProductMapping[] = productMappingData.productMapping as Pr
 const THRESHOLD = assessmentData.threshold;
 const TOTAL_MAX_POINTS = assessmentData.totalMaxPoints;
 
+// Translations
+const translations = {
+  en: {
+    title: 'Fit4Cybersecurity Assessment',
+    subtitle: 'Assess your company\'s cybersecurity in just 5 minutes. Based on the official NC3 Luxembourg standard.',
+    questions: 'Questions',
+    duration: 'Duration',
+    minScore: 'Minimum Score',
+    startAssessment: 'Start Assessment',
+    alreadyHaveScore: 'I already have a score ≥65%',
+    viewPricing: 'View Pricing First',
+    question: 'Question',
+    selectAll: 'Select all applicable answers',
+    exclusive: 'Exclusive',
+    back: 'Back',
+    next: 'Next',
+    viewResults: 'View Results',
+    yourScore: 'Your Score',
+    eligible: 'Eligible for Cyber Assistance',
+    notEligible: 'Below 65% threshold',
+    identifiedGaps: 'Identified Gaps & Recommended Solutions',
+    points: 'Points',
+    learnMore: 'Learn more',
+    downloadReport: 'Download Report (PDF)',
+    requestConsultation: 'Request Consultation',
+    contactForm: 'Contact Form',
+    name: 'Name',
+    email: 'Email',
+    phone: 'Phone',
+    company: 'Company',
+    existingCustomer: 'I am already a Mixvoip customer',
+    message: 'Message (optional)',
+    uploadReport: 'Upload your Fit4Cybersecurity Report (PDF)',
+    uploadRequired: 'Required for Fast-Track requests',
+    submit: 'Send Request',
+    submitting: 'Sending...',
+    successTitle: 'Request Sent!',
+    successMessage: 'Your email client should open with the pre-filled request. If not, please send an email to pberg@mixvoip.com',
+    backToStart: 'Back to Start',
+    pricingTitle: 'Cyber Assistance Pricing',
+    pricingSubtitle: 'Transparent pricing for comprehensive cyber protection',
+    perUserMonth: 'per user/month',
+    noDeductible: 'No deductible',
+    coverage: 'Coverage',
+    basic: 'Basic',
+    pro: 'Pro',
+    enterprise: 'Enterprise',
+    free: 'Free',
+    forMixvoipCustomers: 'for Mixvoip customers',
+    custom: 'Custom',
+    contactSales: 'Contact Sales',
+    backToAssessment: 'Back to Assessment',
+    fastTrackTitle: 'Fast-Track Request',
+    fastTrackSubtitle: 'You already have a Fit4Cybersecurity score of 65% or higher',
+  },
+  fr: {
+    title: 'Évaluation Fit4Cybersecurity',
+    subtitle: 'Évaluez la cybersécurité de votre entreprise en seulement 5 minutes. Basé sur le standard officiel NC3 Luxembourg.',
+    questions: 'Questions',
+    duration: 'Durée',
+    minScore: 'Score minimum',
+    startAssessment: 'Commencer l\'évaluation',
+    alreadyHaveScore: 'J\'ai déjà un score ≥65%',
+    viewPricing: 'Voir les prix d\'abord',
+    question: 'Question',
+    selectAll: 'Sélectionnez toutes les réponses applicables',
+    exclusive: 'Exclusif',
+    back: 'Retour',
+    next: 'Suivant',
+    viewResults: 'Voir les résultats',
+    yourScore: 'Votre Score',
+    eligible: 'Éligible pour Cyber Assistance',
+    notEligible: 'En dessous du seuil de 65%',
+    identifiedGaps: 'Lacunes identifiées & Solutions recommandées',
+    points: 'Points',
+    learnMore: 'En savoir plus',
+    downloadReport: 'Télécharger le rapport (PDF)',
+    requestConsultation: 'Demander une consultation',
+    contactForm: 'Formulaire de contact',
+    name: 'Nom',
+    email: 'Email',
+    phone: 'Téléphone',
+    company: 'Entreprise',
+    existingCustomer: 'Je suis déjà client Mixvoip',
+    message: 'Message (optionnel)',
+    uploadReport: 'Téléchargez votre rapport Fit4Cybersecurity (PDF)',
+    uploadRequired: 'Requis pour les demandes Fast-Track',
+    submit: 'Envoyer la demande',
+    submitting: 'Envoi en cours...',
+    successTitle: 'Demande envoyée!',
+    successMessage: 'Votre client email devrait s\'ouvrir avec la demande pré-remplie. Sinon, envoyez un email à pberg@mixvoip.com',
+    backToStart: 'Retour au début',
+    pricingTitle: 'Tarifs Cyber Assistance',
+    pricingSubtitle: 'Tarification transparente pour une protection cyber complète',
+    perUserMonth: 'par utilisateur/mois',
+    noDeductible: 'Sans franchise',
+    coverage: 'Couverture',
+    basic: 'Basic',
+    pro: 'Pro',
+    enterprise: 'Enterprise',
+    free: 'Gratuit',
+    forMixvoipCustomers: 'pour les clients Mixvoip',
+    custom: 'Sur mesure',
+    contactSales: 'Contacter les ventes',
+    backToAssessment: 'Retour à l\'évaluation',
+    fastTrackTitle: 'Demande Fast-Track',
+    fastTrackSubtitle: 'Vous avez déjà un score Fit4Cybersecurity de 65% ou plus',
+  },
+  de: {
+    title: 'Fit4Cybersecurity Assessment',
+    subtitle: 'Bewerten Sie die Cybersicherheit Ihres Unternehmens in nur 5 Minuten. Basierend auf dem offiziellen NC3 Luxembourg Standard.',
+    questions: 'Fragen',
+    duration: 'Dauer',
+    minScore: 'Mindest-Score',
+    startAssessment: 'Assessment starten',
+    alreadyHaveScore: 'Ich habe bereits einen Score ≥65%',
+    viewPricing: 'Preise zuerst ansehen',
+    question: 'Frage',
+    selectAll: 'Wählen Sie alle zutreffenden Antworten aus',
+    exclusive: 'Exklusiv',
+    back: 'Zurück',
+    next: 'Weiter',
+    viewResults: 'Ergebnisse anzeigen',
+    yourScore: 'Ihr Score',
+    eligible: 'Berechtigt für Cyber Assistance',
+    notEligible: 'Unter 65% Schwellenwert',
+    identifiedGaps: 'Identifizierte Lücken & Empfohlene Lösungen',
+    points: 'Punkte',
+    learnMore: 'Mehr erfahren',
+    downloadReport: 'Report herunterladen (PDF)',
+    requestConsultation: 'Beratung anfordern',
+    contactForm: 'Kontaktformular',
+    name: 'Name',
+    email: 'E-Mail',
+    phone: 'Telefon',
+    company: 'Firma',
+    existingCustomer: 'Ich bin bereits Mixvoip-Kunde',
+    message: 'Nachricht (optional)',
+    uploadReport: 'Laden Sie Ihren Fit4Cybersecurity Report hoch (PDF)',
+    uploadRequired: 'Erforderlich für Fast-Track-Anfragen',
+    submit: 'Anfrage senden',
+    submitting: 'Wird gesendet...',
+    successTitle: 'Anfrage gesendet!',
+    successMessage: 'Ihr E-Mail-Programm sollte sich mit der vorausgefüllten Anfrage öffnen. Falls nicht, senden Sie bitte eine E-Mail an pberg@mixvoip.com',
+    backToStart: 'Zurück zum Start',
+    pricingTitle: 'Cyber Assistance Preise',
+    pricingSubtitle: 'Transparente Preise für umfassenden Cyber-Schutz',
+    perUserMonth: 'pro Benutzer/Monat',
+    noDeductible: 'Keine Selbstbeteiligung',
+    coverage: 'Deckung',
+    basic: 'Basic',
+    pro: 'Pro',
+    enterprise: 'Enterprise',
+    free: 'Kostenlos',
+    forMixvoipCustomers: 'für Mixvoip-Kunden',
+    custom: 'Individuell',
+    contactSales: 'Vertrieb kontaktieren',
+    backToAssessment: 'Zurück zum Assessment',
+    fastTrackTitle: 'Fast-Track Anfrage',
+    fastTrackSubtitle: 'Sie haben bereits einen Fit4Cybersecurity Score von 65% oder höher',
+  }
+};
+
 export default function Fit4CyberAssessment() {
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
   const lang = language as Language;
+  const t = translations[lang];
   
-  const [currentStep, setCurrentStep] = useState<'intro' | 'assessment' | 'results' | 'contact'>('intro');
+  const [currentStep, setCurrentStep] = useState<'intro' | 'assessment' | 'results' | 'contact' | 'pricing' | 'fasttrack'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number[]>>({});
   const [contactForm, setContactForm] = useState({
@@ -55,8 +219,10 @@ export default function Fit4CyberAssessment() {
     isMixvoipCustomer: false,
     message: ''
   });
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const score = useMemo(() => {
     let total = 0;
@@ -88,7 +254,6 @@ export default function Fit4CyberAssessment() {
         if (answer) earnedPoints += answer.score;
       });
       
-      // If earned less than 50% of max points, it's a gap
       if (earnedPoints < question.maxPoints * 0.5) {
         const mapping = productMapping.find(m => m.questionId === question.id);
         if (mapping) {
@@ -97,7 +262,6 @@ export default function Fit4CyberAssessment() {
       }
     });
     
-    // Sort by impact (maxPoints - earnedPoints)
     return gapList.sort((a, b) => (b.question.maxPoints - b.earnedPoints) - (a.question.maxPoints - a.earnedPoints));
   }, [selectedAnswers]);
 
@@ -112,35 +276,125 @@ export default function Fit4CyberAssessment() {
       const current = prev[questionId] || [];
       
       if (answer.exclusive) {
-        // If selecting exclusive answer, clear others
         return { ...prev, [questionId]: [answerId] };
       } else {
-        // If selecting non-exclusive, remove any exclusive answers
         const exclusiveAnswerIds = question.answers.filter(a => a.exclusive).map(a => a.id);
         const filteredCurrent = current.filter(id => !exclusiveAnswerIds.includes(id));
         
         if (filteredCurrent.includes(answerId)) {
-          // Deselect
           return { ...prev, [questionId]: filteredCurrent.filter(id => id !== answerId) };
         } else {
-          // Select
           return { ...prev, [questionId]: [...filteredCurrent, answerId] };
         }
       }
     });
   };
 
-  const handleSubmitContact = async (e: React.FormEvent) => {
+  const generatePDFReport = () => {
+    // Create a text-based report that can be printed/saved as PDF
+    const reportDate = new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'fr' ? 'fr-FR' : 'en-US');
+    
+    let reportContent = `
+MIXVOIP CYBER ASSISTANCE
+Fit4Cybersecurity Assessment Report
+====================================
+Date: ${reportDate}
+Company: ${contactForm.company || 'Not specified'}
+
+OVERALL SCORE
+-------------
+Score: ${scorePercentage}%
+Points: ${score} / ${TOTAL_MAX_POINTS}
+Status: ${isEligible ? 'ELIGIBLE for Cyber Assistance' : 'Below 65% threshold - Improvement needed'}
+
+DETAILED RESULTS BY CATEGORY
+----------------------------
+`;
+
+    questions.forEach(question => {
+      const answers = selectedAnswers[question.id] || [];
+      let earnedPoints = 0;
+      answers.forEach(answerId => {
+        const answer = question.answers.find(a => a.id === answerId);
+        if (answer) earnedPoints += answer.score;
+      });
+      const percentage = Math.round((earnedPoints / question.maxPoints) * 100);
+      reportContent += `\n${question.category}: ${earnedPoints}/${question.maxPoints} points (${percentage}%)`;
+    });
+
+    if (gaps.length > 0) {
+      reportContent += `\n\nIDENTIFIED GAPS & RECOMMENDATIONS\n---------------------------------`;
+      gaps.forEach(gap => {
+        reportContent += `\n\n${gap.question.category} (${gap.earnedPoints}/${gap.question.maxPoints} points)`;
+        reportContent += `\nWeakness: ${gap.mapping.weakness[lang]}`;
+        reportContent += `\nRecommended solutions:`;
+        gap.mapping.products.forEach(product => {
+          reportContent += `\n  - ${product.name}: ${product.url}`;
+        });
+      });
+    }
+
+    reportContent += `\n\n====================================
+Generated by Mixvoip Cyber Assistance
+https://www.mixvoip.com/cyber-assistance/
+Contact: pberg@mixvoip.com
+`;
+
+    // Create and download the report
+    const blob = new Blob([reportContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Fit4Cybersecurity_Report_${reportDate.replace(/\//g, '-')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && file.type === 'application/pdf') {
+      setUploadedFile(file);
+    }
+  };
+
+  const handleSubmitContact = async (e: React.FormEvent, isFastTrack: boolean = false) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Prepare email content for mailto link
-    const subject = encodeURIComponent(`Cyber Assistance Anfrage - ${contactForm.company}`);
+    const subject = encodeURIComponent(`${isFastTrack ? '[FAST-TRACK] ' : ''}Cyber Assistance Anfrage - ${contactForm.company}`);
     
-    const gapsList = gaps.map(g => `- ${g.question.category}: ${g.earnedPoints}/${g.question.maxPoints} Punkte`).join('%0A');
-    const productsList = gaps.flatMap(g => g.mapping.products.map(p => `- ${p.name}`)).join('%0A');
+    let body = '';
     
-    const body = encodeURIComponent(
+    if (isFastTrack) {
+      body = encodeURIComponent(
+`FAST-TRACK ANFRAGE: Cyber Assistance
+=====================================
+
+Kontaktdaten:
+- Name: ${contactForm.name}
+- Firma: ${contactForm.company}
+- E-Mail: ${contactForm.email}
+- Telefon: ${contactForm.phone || 'Nicht angegeben'}
+- Bereits Mixvoip-Kunde: ${contactForm.isMixvoipCustomer ? 'Ja' : 'Nein'}
+
+Status:
+- Kunde bestätigt Score ≥65%
+- Fit4Cybersecurity Report: ${uploadedFile ? 'Wird separat gesendet' : 'Nicht hochgeladen'}
+
+Nachricht:
+${contactForm.message || '(Keine zusätzliche Nachricht)'}
+
+=====================================
+HINWEIS: Bitte Report-PDF vom Kunden anfordern falls nicht beigefügt.
+Gesendet von: Mixvoip Cyber Assistance Website`
+      );
+    } else {
+      const gapsList = gaps.map(g => `- ${g.question.category}: ${g.earnedPoints}/${g.question.maxPoints} Punkte`).join('\n');
+      const productsList = gaps.flatMap(g => g.mapping.products.map(p => `- ${p.name}: ${p.url}`)).join('\n');
+      
+      body = encodeURIComponent(
 `NEUE ANFRAGE: Cyber Assistance Beratung
 ========================================
 
@@ -156,23 +410,22 @@ Assessment-Ergebnis:
 - Erreichte Punkte: ${score} / ${TOTAL_MAX_POINTS}
 
 Identifizierte Lücken:
-${gaps.map(g => `- ${g.question.category}: ${g.earnedPoints}/${g.question.maxPoints} Punkte`).join('\n')}
+${gapsList || '(Keine signifikanten Lücken)'}
 
 Empfohlene Produkte:
-${gaps.flatMap(g => g.mapping.products.map(p => `- ${p.name}: ${p.url}`)).join('\n')}
+${productsList || '(Keine spezifischen Empfehlungen)'}
 
 Nachricht:
 ${contactForm.message || '(Keine zusätzliche Nachricht)'}
 
 ========================================
 Gesendet von: Mixvoip Cyber Assistance Website`
-    );
+      );
+    }
 
-    // Open mailto link
     const mailtoLink = `mailto:pberg@mixvoip.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
     
-    // Show success after a short delay
     await new Promise(resolve => setTimeout(resolve, 500));
     
     setIsSubmitting(false);
@@ -181,54 +434,326 @@ Gesendet von: Mixvoip Cyber Assistance Website`
 
   const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
 
-  // Intro Screen
+  // Intro Screen with Fast-Track Options
   if (currentStep === 'intro') {
     return (
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-10 h-10 text-[#00B050]" />
+            <Shield className="w-10 h-10 text-[#00B050]" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            {lang === 'de' ? 'Fit4Cybersecurity Assessment' : lang === 'fr' ? 'Évaluation Fit4Cybersecurity' : 'Fit4Cybersecurity Assessment'}
-          </h2>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            {lang === 'de' 
-              ? 'Bewerten Sie die Cybersicherheit Ihres Unternehmens in nur 5 Minuten. Basierend auf dem offiziellen NC3 Luxembourg Standard.'
-              : lang === 'fr'
-              ? 'Évaluez la cybersécurité de votre entreprise en seulement 5 minutes. Basé sur le standard officiel NC3 Luxembourg.'
-              : 'Assess your company\'s cybersecurity in just 5 minutes. Based on the official NC3 Luxembourg standard.'}
-          </p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.title}</h2>
+          <p className="text-gray-600 text-lg max-w-xl mx-auto">{t.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           <div className="bg-gray-50 rounded-xl p-6 text-center">
             <div className="text-3xl font-bold text-[#00B050] mb-2">13</div>
-            <div className="text-gray-600">
-              {lang === 'de' ? 'Fragen' : lang === 'fr' ? 'Questions' : 'Questions'}
-            </div>
+            <div className="text-gray-600">{t.questions}</div>
           </div>
           <div className="bg-gray-50 rounded-xl p-6 text-center">
             <div className="text-3xl font-bold text-[#00B050] mb-2">5 min</div>
-            <div className="text-gray-600">
-              {lang === 'de' ? 'Dauer' : lang === 'fr' ? 'Durée' : 'Duration'}
-            </div>
+            <div className="text-gray-600">{t.duration}</div>
           </div>
           <div className="bg-gray-50 rounded-xl p-6 text-center">
             <div className="text-3xl font-bold text-[#00B050] mb-2">65%</div>
-            <div className="text-gray-600">
-              {lang === 'de' ? 'Mindest-Score' : lang === 'fr' ? 'Score minimum' : 'Minimum Score'}
-            </div>
+            <div className="text-gray-600">{t.minScore}</div>
           </div>
         </div>
 
+        {/* Main CTA - Start Assessment */}
         <Button 
           onClick={() => setCurrentStep('assessment')}
-          className="w-full bg-[#00B050] hover:bg-[#00873D] text-white py-4 text-lg"
+          className="w-full bg-[#00B050] hover:bg-[#00873D] text-white py-4 text-lg mb-4"
         >
-          {lang === 'de' ? 'Assessment starten' : lang === 'fr' ? 'Commencer l\'évaluation' : 'Start Assessment'}
+          {t.startAssessment}
           <ChevronRight className="ml-2 w-5 h-5" />
         </Button>
+
+        {/* Secondary Options */}
+        <div className="grid md:grid-cols-2 gap-4">
+          <Button 
+            variant="outline"
+            onClick={() => setCurrentStep('fasttrack')}
+            className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
+          >
+            <Zap className="mr-2 w-4 h-4" />
+            {t.alreadyHaveScore}
+          </Button>
+          <Button 
+            variant="outline"
+            onClick={() => setCurrentStep('pricing')}
+            className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 py-3"
+          >
+            <Euro className="mr-2 w-4 h-4" />
+            {t.viewPricing}
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Pricing Screen
+  if (currentStep === 'pricing') {
+    return (
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.pricingTitle}</h2>
+          <p className="text-gray-600">{t.pricingSubtitle}</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          {/* Basic */}
+          <div className="border-2 border-gray-200 rounded-xl p-6">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{t.basic}</h3>
+              <div className="text-3xl font-bold text-[#00B050]">{t.free}*</div>
+              <p className="text-sm text-gray-500">{t.forMixvoipCustomers}</p>
+            </div>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-center text-sm">
+                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
+                {t.coverage}: €50,000
+              </li>
+              <li className="flex items-center text-sm">
+                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
+                {t.noDeductible}*
+              </li>
+            </ul>
+          </div>
+
+          {/* Pro */}
+          <div className="border-2 border-[#00B050] rounded-xl p-6 relative">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00B050] text-white px-4 py-1 rounded-full text-sm font-medium">
+              Popular
+            </div>
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{t.pro}</h3>
+              <div className="text-3xl font-bold text-[#00B050]">€2</div>
+              <p className="text-sm text-gray-500">{t.perUserMonth}</p>
+            </div>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-center text-sm">
+                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
+                {t.coverage}: €150,000
+              </li>
+              <li className="flex items-center text-sm">
+                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
+                {t.noDeductible}*
+              </li>
+            </ul>
+          </div>
+
+          {/* Enterprise */}
+          <div className="border-2 border-gray-200 rounded-xl p-6">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{t.enterprise}</h3>
+              <div className="text-3xl font-bold text-[#00B050]">{t.custom}</div>
+              <p className="text-sm text-gray-500">{t.contactSales}</p>
+            </div>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-center text-sm">
+                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
+                {t.coverage}: €250,000+
+              </li>
+              <li className="flex items-center text-sm">
+                <CheckCircle2 className="w-4 h-4 text-[#00B050] mr-2 flex-shrink-0" />
+                {t.noDeductible}*
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p className="text-xs text-gray-500 text-center mb-6">
+          * {lang === 'de' ? 'Keine Selbstbeteiligung bei Online-Abschluss' : lang === 'fr' ? 'Sans franchise pour souscription en ligne' : 'No deductible for online subscription'}
+        </p>
+
+        <div className="flex gap-4">
+          <Button 
+            variant="outline"
+            onClick={() => setCurrentStep('intro')}
+            className="flex-1"
+          >
+            <ChevronLeft className="mr-2 w-4 h-4" />
+            {t.backToAssessment}
+          </Button>
+          <Button 
+            onClick={() => setCurrentStep('fasttrack')}
+            className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+          >
+            {t.requestConsultation}
+            <ChevronRight className="ml-2 w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Fast-Track Screen
+  if (currentStep === 'fasttrack') {
+    if (submitSuccess) {
+      return (
+        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto text-center">
+          <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 className="w-10 h-10 text-[#00B050]" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t.successTitle}</h2>
+          <p className="text-gray-600 mb-8">{t.successMessage}</p>
+          <Button 
+            onClick={() => {
+              setCurrentStep('intro');
+              setSubmitSuccess(false);
+              setContactForm({ name: '', email: '', phone: '', company: '', isMixvoipCustomer: false, message: '' });
+              setUploadedFile(null);
+            }}
+            className="bg-[#00B050] hover:bg-[#00873D] text-white"
+          >
+            {t.backToStart}
+          </Button>
+        </div>
+      );
+    }
+
+    return (
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Zap className="w-8 h-8 text-[#00B050]" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.fastTrackTitle}</h2>
+          <p className="text-gray-600">{t.fastTrackSubtitle}</p>
+        </div>
+
+        <form onSubmit={(e) => handleSubmitContact(e, true)} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.name} *</label>
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  required
+                  value={contactForm.name}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.company} *</label>
+              <div className="relative">
+                <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  required
+                  value={contactForm.company}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, company: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.email} *</label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="email"
+                  required
+                  value={contactForm.email}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.phone}</label>
+              <div className="relative">
+                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="tel"
+                  value={contactForm.phone}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* File Upload */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">{t.uploadReport}</label>
+            <p className="text-xs text-gray-500 mb-2">{t.uploadRequired}</p>
+            <div 
+              onClick={() => fileInputRef.current?.click()}
+              className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#00B050] transition-colors"
+            >
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".pdf"
+                onChange={handleFileUpload}
+                className="hidden"
+              />
+              {uploadedFile ? (
+                <div className="flex items-center justify-center gap-2 text-[#00B050]">
+                  <FileText className="w-6 h-6" />
+                  <span>{uploadedFile.name}</span>
+                </div>
+              ) : (
+                <div className="text-gray-500">
+                  <Upload className="w-8 h-8 mx-auto mb-2" />
+                  <span>Click to upload PDF</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="isMixvoipCustomer"
+              checked={contactForm.isMixvoipCustomer}
+              onChange={(e) => setContactForm(prev => ({ ...prev, isMixvoipCustomer: e.target.checked }))}
+              className="w-4 h-4 text-[#00B050] border-gray-300 rounded focus:ring-[#00B050]"
+            />
+            <label htmlFor="isMixvoipCustomer" className="ml-2 text-sm text-gray-700">
+              {t.existingCustomer}
+            </label>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">{t.message}</label>
+            <textarea
+              value={contactForm.message}
+              onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+              rows={3}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+            />
+          </div>
+
+          <div className="flex gap-4">
+            <Button 
+              type="button"
+              variant="outline"
+              onClick={() => setCurrentStep('intro')}
+              className="flex-1"
+            >
+              <ChevronLeft className="mr-2 w-4 h-4" />
+              {t.back}
+            </Button>
+            <Button 
+              type="submit"
+              disabled={isSubmitting}
+              className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+            >
+              {isSubmitting ? t.submitting : t.submit}
+              <Send className="ml-2 w-4 h-4" />
+            </Button>
+          </div>
+        </form>
       </div>
     );
   }
@@ -240,30 +765,19 @@ Gesendet von: Mixvoip Cyber Assistance Website`
 
     return (
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
-        {/* Progress */}
         <div className="mb-8">
           <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>{lang === 'de' ? 'Frage' : lang === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {questions.length}</span>
+            <span>{t.question} {currentQuestion + 1} / {questions.length}</span>
             <span>{question.category}</span>
           </div>
           <Progress value={progressPercentage} className="h-2" />
         </div>
 
-        {/* Question */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
-            {question.label[lang]}
-          </h3>
-          <p className="text-sm text-gray-500">
-            {lang === 'de' 
-              ? 'Wählen Sie alle zutreffenden Antworten aus'
-              : lang === 'fr'
-              ? 'Sélectionnez toutes les réponses applicables'
-              : 'Select all applicable answers'}
-          </p>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">{question.label[lang]}</h3>
+          <p className="text-sm text-gray-500">{t.selectAll}</p>
         </div>
 
-        {/* Answers */}
         <div className="space-y-3 mb-8">
           {question.answers.map((answer) => {
             const isSelected = currentAnswers.includes(answer.id);
@@ -285,13 +799,11 @@ Gesendet von: Mixvoip Cyber Assistance Website`
                   }`}>
                     {isSelected && <CheckCircle2 className="w-3 h-3 text-white" />}
                   </div>
-                  <div>
-                    <span className={`${isSelected ? 'text-gray-900 font-medium' : 'text-gray-700'}`}>
-                      {answer.label[lang]}
-                    </span>
+                  <div className="flex-1">
+                    <span className="text-gray-900">{answer.label[lang]}</span>
                     {isExclusive && (
-                      <span className="ml-2 text-xs text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
-                        {lang === 'de' ? 'Exklusiv' : lang === 'fr' ? 'Exclusif' : 'Exclusive'}
+                      <span className="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">
+                        {t.exclusive}
                       </span>
                     )}
                   </div>
@@ -301,30 +813,32 @@ Gesendet von: Mixvoip Cyber Assistance Website`
           })}
         </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between">
+        <div className="flex gap-4">
           <Button
             variant="outline"
-            onClick={() => currentQuestion > 0 ? setCurrentQuestion(currentQuestion - 1) : setCurrentStep('intro')}
+            onClick={() => {
+              if (currentQuestion > 0) {
+                setCurrentQuestion(prev => prev - 1);
+              } else {
+                setCurrentStep('intro');
+              }
+            }}
+            className="flex-1"
           >
             <ChevronLeft className="mr-2 w-4 h-4" />
-            {lang === 'de' ? 'Zurück' : lang === 'fr' ? 'Retour' : 'Back'}
+            {t.back}
           </Button>
-          
           <Button
             onClick={() => {
               if (currentQuestion < questions.length - 1) {
-                setCurrentQuestion(currentQuestion + 1);
+                setCurrentQuestion(prev => prev + 1);
               } else {
                 setCurrentStep('results');
               }
             }}
-            className="bg-[#00B050] hover:bg-[#00873D]"
-            disabled={currentAnswers.length === 0}
+            className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
           >
-            {currentQuestion < questions.length - 1 
-              ? (lang === 'de' ? 'Weiter' : lang === 'fr' ? 'Suivant' : 'Next')
-              : (lang === 'de' ? 'Ergebnis anzeigen' : lang === 'fr' ? 'Voir les résultats' : 'View Results')}
+            {currentQuestion < questions.length - 1 ? t.next : t.viewResults}
             <ChevronRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
@@ -335,107 +849,59 @@ Gesendet von: Mixvoip Cyber Assistance Website`
   // Results Screen
   if (currentStep === 'results') {
     return (
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Score Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <div className="text-center mb-8">
-            <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 ${
-              isEligible ? 'bg-[#00B050]/10' : 'bg-orange-100'
-            }`}>
-              <div className="text-center">
-                <div className={`text-4xl font-bold ${isEligible ? 'text-[#00B050]' : 'text-orange-600'}`}>
-                  {scorePercentage}%
-                </div>
-              </div>
-            </div>
-            
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              {isEligible 
-                ? (lang === 'de' ? 'Herzlichen Glückwunsch!' : lang === 'fr' ? 'Félicitations!' : 'Congratulations!')
-                : (lang === 'de' ? 'Verbesserungspotenzial erkannt' : lang === 'fr' ? 'Potentiel d\'amélioration identifié' : 'Improvement Potential Identified')}
-            </h2>
-            
-            <p className="text-gray-600 max-w-lg mx-auto">
-              {isEligible 
-                ? (lang === 'de' 
-                    ? 'Ihr Unternehmen erfüllt die Mindestanforderungen für Cyber Assistance. Kontaktieren Sie uns für ein individuelles Angebot.'
-                    : lang === 'fr'
-                    ? 'Votre entreprise répond aux exigences minimales pour Cyber Assistance. Contactez-nous pour une offre personnalisée.'
-                    : 'Your company meets the minimum requirements for Cyber Assistance. Contact us for a personalized offer.')
-                : (lang === 'de'
-                    ? 'Ihr Score liegt unter 65%. Wir haben Lösungen identifiziert, die Ihnen helfen können, Ihre Cybersicherheit zu verbessern.'
-                    : lang === 'fr'
-                    ? 'Votre score est inférieur à 65%. Nous avons identifié des solutions qui peuvent vous aider à améliorer votre cybersécurité.'
-                    : 'Your score is below 65%. We have identified solutions that can help you improve your cybersecurity.')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4 mb-8">
-            <div className="bg-gray-50 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-gray-900">{score}</div>
-              <div className="text-sm text-gray-600">
-                {lang === 'de' ? 'Erreichte Punkte' : lang === 'fr' ? 'Points obtenus' : 'Points Earned'}
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-gray-900">{TOTAL_MAX_POINTS}</div>
-              <div className="text-sm text-gray-600">
-                {lang === 'de' ? 'Maximale Punkte' : lang === 'fr' ? 'Points maximum' : 'Maximum Points'}
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-gray-900">{gaps.length}</div>
-              <div className="text-sm text-gray-600">
-                {lang === 'de' ? 'Identifizierte Lücken' : lang === 'fr' ? 'Lacunes identifiées' : 'Gaps Identified'}
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+        {/* Score Display */}
+        <div className="text-center mb-8">
+          <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4 ${
+            isEligible ? 'bg-[#00B050]/10' : 'bg-amber-100'
+          }`}>
+            <div className="text-center">
+              <div className={`text-4xl font-bold ${isEligible ? 'text-[#00B050]' : 'text-amber-600'}`}>
+                {scorePercentage}%
               </div>
             </div>
           </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.yourScore}</h2>
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
+            isEligible ? 'bg-[#00B050]/10 text-[#00B050]' : 'bg-amber-100 text-amber-700'
+          }`}>
+            {isEligible ? <CheckCircle2 className="w-5 h-5" /> : <AlertTriangle className="w-5 h-5" />}
+            {isEligible ? t.eligible : t.notEligible}
+          </div>
+          <p className="text-gray-500 mt-2">{score} / {TOTAL_MAX_POINTS} {t.points}</p>
         </div>
 
-        {/* Gaps & Recommendations */}
+        {/* Gaps and Recommendations */}
         {gaps.length > 0 && (
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <AlertTriangle className="w-6 h-6 text-orange-500" />
-              {lang === 'de' ? 'Identifizierte Lücken & Empfohlene Lösungen' : lang === 'fr' ? 'Lacunes identifiées & Solutions recommandées' : 'Identified Gaps & Recommended Solutions'}
-            </h3>
-
-            <div className="space-y-6">
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.identifiedGaps}</h3>
+            <div className="space-y-4">
               {gaps.map((gap, index) => (
-                <div key={index} className="border border-gray-200 rounded-xl p-6">
-                  <div className="flex items-start justify-between mb-4">
+                <div key={index} className="border border-gray-200 rounded-xl p-4">
+                  <div className="flex items-start justify-between mb-3">
                     <div>
                       <h4 className="font-semibold text-gray-900">{gap.question.category}</h4>
                       <p className="text-sm text-gray-600">{gap.mapping.weakness[lang]}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-bold text-orange-600">
-                        {gap.earnedPoints}/{gap.question.maxPoints}
-                      </div>
-                      <div className="text-xs text-gray-500">
-                        {lang === 'de' ? 'Punkte' : lang === 'fr' ? 'Points' : 'Points'}
-                      </div>
+                      <span className="text-amber-600 font-semibold">{gap.earnedPoints}/{gap.question.maxPoints}</span>
+                      <p className="text-xs text-gray-500">{t.points}</p>
                     </div>
                   </div>
-
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {gap.mapping.products.map((product, pIndex) => (
                       <a
                         key={pIndex}
                         href={product.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between p-4 bg-[#00B050]/5 rounded-lg hover:bg-[#00B050]/10 transition-colors group"
+                        className="flex items-center justify-between p-3 bg-[#00B050]/5 rounded-lg hover:bg-[#00B050]/10 transition-colors"
                       >
                         <div>
-                          <div className="font-medium text-gray-900 group-hover:text-[#00B050]">
-                            {product.name}
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            {product.description[lang]}
-                          </div>
+                          <span className="font-medium text-[#00B050]">{product.name}</span>
+                          <p className="text-sm text-gray-600">{product.description[lang]}</p>
                         </div>
-                        <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-[#00B050]" />
+                        <ExternalLink className="w-4 h-4 text-[#00B050] flex-shrink-0" />
                       </a>
                     ))}
                   </div>
@@ -445,186 +911,158 @@ Gesendet von: Mixvoip Cyber Assistance Website`
           </div>
         )}
 
-        {/* CTA */}
-        <div className="bg-gradient-to-r from-[#00B050] to-[#00873D] rounded-2xl shadow-xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">
-            {lang === 'de' 
-              ? 'Bereit für den nächsten Schritt?'
-              : lang === 'fr'
-              ? 'Prêt pour la prochaine étape?'
-              : 'Ready for the next step?'}
-          </h3>
-          <p className="mb-6 opacity-90">
-            {lang === 'de'
-              ? 'Lassen Sie sich von unseren Experten beraten und erhalten Sie ein individuelles Angebot.'
-              : lang === 'fr'
-              ? 'Laissez nos experts vous conseiller et recevez une offre personnalisée.'
-              : 'Let our experts advise you and receive a personalized offer.'}
-          </p>
-          <Button 
-            onClick={() => setCurrentStep('contact')}
-            className="bg-white text-[#00B050] hover:bg-gray-100 px-8 py-3 text-lg"
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Button
+            variant="outline"
+            onClick={generatePDFReport}
+            className="flex-1"
           >
-            {lang === 'de' ? 'Beratung anfordern' : lang === 'fr' ? 'Demander un conseil' : 'Request Consultation'}
-            <Send className="ml-2 w-5 h-5" />
+            <Download className="mr-2 w-4 h-4" />
+            {t.downloadReport}
+          </Button>
+          <Button
+            onClick={() => setCurrentStep('contact')}
+            className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+          >
+            {t.requestConsultation}
+            <ChevronRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
       </div>
     );
   }
 
-  // Contact Form
+  // Contact Form (after assessment)
   if (currentStep === 'contact') {
     if (submitSuccess) {
       return (
-        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto text-center">
+        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto text-center">
           <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-[#00B050]" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            {lang === 'de' ? 'Anfrage erfolgreich gesendet!' : lang === 'fr' ? 'Demande envoyée avec succès!' : 'Request sent successfully!'}
-          </h2>
-          <p className="text-gray-600 mb-8">
-            {lang === 'de'
-              ? 'Unser Team wird sich innerhalb von 24 Stunden bei Ihnen melden.'
-              : lang === 'fr'
-              ? 'Notre équipe vous contactera dans les 24 heures.'
-              : 'Our team will contact you within 24 hours.'}
-          </p>
-          <Button onClick={() => window.location.reload()} variant="outline">
-            {lang === 'de' ? 'Neues Assessment starten' : lang === 'fr' ? 'Commencer une nouvelle évaluation' : 'Start New Assessment'}
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t.successTitle}</h2>
+          <p className="text-gray-600 mb-8">{t.successMessage}</p>
+          <Button 
+            onClick={() => {
+              setCurrentStep('intro');
+              setSubmitSuccess(false);
+              setSelectedAnswers({});
+              setCurrentQuestion(0);
+              setContactForm({ name: '', email: '', phone: '', company: '', isMixvoipCustomer: false, message: '' });
+            }}
+            className="bg-[#00B050] hover:bg-[#00873D] text-white"
+          >
+            {t.backToStart}
           </Button>
         </div>
       );
     }
 
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto">
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            {lang === 'de' ? 'Beratung anfordern' : lang === 'fr' ? 'Demander un conseil' : 'Request Consultation'}
-          </h2>
-          <p className="text-gray-600">
-            {lang === 'de'
-              ? 'Füllen Sie das Formular aus und unser Team wird sich bei Ihnen melden.'
-              : lang === 'fr'
-              ? 'Remplissez le formulaire et notre équipe vous contactera.'
-              : 'Fill out the form and our team will contact you.'}
-          </p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t.contactForm}</h2>
+          <p className="text-gray-600">Score: {scorePercentage}% ({score}/{TOTAL_MAX_POINTS})</p>
         </div>
 
-        <form onSubmit={handleSubmitContact} className="space-y-6">
+        <form onSubmit={(e) => handleSubmitContact(e, false)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                <User className="w-4 h-4 inline mr-1" />
-                {lang === 'de' ? 'Name' : lang === 'fr' ? 'Nom' : 'Name'} *
-              </label>
-              <input
-                type="text"
-                required
-                value={contactForm.name}
-                onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-              />
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.name} *</label>
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  required
+                  value={contactForm.name}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                <Building2 className="w-4 h-4 inline mr-1" />
-                {lang === 'de' ? 'Firma' : lang === 'fr' ? 'Entreprise' : 'Company'} *
-              </label>
-              <input
-                type="text"
-                required
-                value={contactForm.company}
-                onChange={(e) => setContactForm({ ...contactForm, company: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-              />
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.company} *</label>
+              <div className="relative">
+                <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  required
+                  value={contactForm.company}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, company: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                <Mail className="w-4 h-4 inline mr-1" />
-                {lang === 'de' ? 'E-Mail' : lang === 'fr' ? 'E-mail' : 'Email'} *
-              </label>
-              <input
-                type="email"
-                required
-                value={contactForm.email}
-                onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-              />
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.email} *</label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="email"
+                  required
+                  value={contactForm.email}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                <Phone className="w-4 h-4 inline mr-1" />
-                {lang === 'de' ? 'Telefon' : lang === 'fr' ? 'Téléphone' : 'Phone'}
-              </label>
-              <input
-                type="tel"
-                value={contactForm.phone}
-                onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
-              />
+              <label className="block text-sm font-medium text-gray-700 mb-1">{t.phone}</label>
+              <div className="relative">
+                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="tel"
+                  value={contactForm.phone}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             <input
               type="checkbox"
-              id="mixvoipCustomer"
+              id="isMixvoipCustomerContact"
               checked={contactForm.isMixvoipCustomer}
-              onChange={(e) => setContactForm({ ...contactForm, isMixvoipCustomer: e.target.checked })}
-              className="w-5 h-5 text-[#00B050] border-gray-300 rounded focus:ring-[#00B050]"
+              onChange={(e) => setContactForm(prev => ({ ...prev, isMixvoipCustomer: e.target.checked }))}
+              className="w-4 h-4 text-[#00B050] border-gray-300 rounded focus:ring-[#00B050]"
             />
-            <label htmlFor="mixvoipCustomer" className="text-gray-700">
-              {lang === 'de' ? 'Ich bin bereits Mixvoip-Kunde' : lang === 'fr' ? 'Je suis déjà client Mixvoip' : 'I am already a Mixvoip customer'}
+            <label htmlFor="isMixvoipCustomerContact" className="ml-2 text-sm text-gray-700">
+              {t.existingCustomer}
             </label>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              {lang === 'de' ? 'Nachricht (optional)' : lang === 'fr' ? 'Message (optionnel)' : 'Message (optional)'}
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">{t.message}</label>
             <textarea
-              rows={4}
               value={contactForm.message}
-              onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+              onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+              rows={3}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B050] focus:border-transparent"
             />
           </div>
 
-          {/* Summary */}
-          <div className="bg-gray-50 rounded-xl p-4">
-            <h4 className="font-medium text-gray-900 mb-2">
-              {lang === 'de' ? 'Zusammenfassung Ihres Assessments' : lang === 'fr' ? 'Résumé de votre évaluation' : 'Your Assessment Summary'}
-            </h4>
-            <div className="text-sm text-gray-600 space-y-1">
-              <p>Score: <span className="font-semibold">{scorePercentage}%</span></p>
-              <p>{lang === 'de' ? 'Identifizierte Lücken' : lang === 'fr' ? 'Lacunes identifiées' : 'Identified Gaps'}: <span className="font-semibold">{gaps.length}</span></p>
-            </div>
-          </div>
-
           <div className="flex gap-4">
-            <Button
+            <Button 
               type="button"
               variant="outline"
               onClick={() => setCurrentStep('results')}
               className="flex-1"
             >
               <ChevronLeft className="mr-2 w-4 h-4" />
-              {lang === 'de' ? 'Zurück' : lang === 'fr' ? 'Retour' : 'Back'}
+              {t.back}
             </Button>
-            <Button
+            <Button 
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-[#00B050] hover:bg-[#00873D]"
+              className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
             >
-              {isSubmitting 
-                ? (lang === 'de' ? 'Wird gesendet...' : lang === 'fr' ? 'Envoi en cours...' : 'Sending...')
-                : (lang === 'de' ? 'Anfrage senden' : lang === 'fr' ? 'Envoyer la demande' : 'Send Request')}
+              {isSubmitting ? t.submitting : t.submit}
               <Send className="ml-2 w-4 h-4" />
             </Button>
           </div>

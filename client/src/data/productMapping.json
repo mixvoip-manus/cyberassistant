@@ -10,12 +10,12 @@
       },
       "products": [
         {
-          "name": "Managed IT Services",
-          "url": "https://www.mixvoip.com/managed-it/",
+          "name": "IT Services",
+          "url": "https://www.mixvoip.com/it-services/",
           "description": {
-            "en": "Professional IT management including security policy development",
-            "fr": "Gestion IT professionnelle incluant le développement de politiques de sécurité",
-            "de": "Professionelles IT-Management einschließlich Entwicklung von Sicherheitsrichtlinien"
+            "en": "Strategic IT outsourcing solutions",
+            "fr": "Solutions d'externalisation IT stratégiques",
+            "de": "Strategische IT-Outsourcing-Lösungen"
           }
         }
       ]
@@ -31,7 +31,7 @@
       "products": [
         {
           "name": "IT Consulting",
-          "url": "https://www.mixvoip.com/it-consulting/",
+          "url": "https://www.mixvoip.com/it-services/",
           "description": {
             "en": "Expert consulting for GDPR compliance and data protection",
             "fr": "Conseil expert pour la conformité RGPD et la protection des données",
@@ -50,12 +50,12 @@
       },
       "products": [
         {
-          "name": "Cyber Assistance",
-          "url": "https://www.mixvoip.com/cyber-assistance/",
+          "name": "Cybersecurity",
+          "url": "https://www.mixvoip.com/cybersecurity/",
           "description": {
-            "en": "Includes 1 year of employee security training platform access",
-            "fr": "Inclut 1 an d'accès à la plateforme de formation sécurité pour les employés",
-            "de": "Beinhaltet 1 Jahr Zugang zur Sicherheitsschulungsplattform für Mitarbeiter"
+            "en": "Continuous training and compliance",
+            "fr": "Formation continue et conformité",
+            "de": "Kontinuierliche Schulung und Compliance"
           }
         }
       ]
@@ -70,8 +70,8 @@
       },
       "products": [
         {
-          "name": "Managed IT Services",
-          "url": "https://www.mixvoip.com/managed-it/",
+          "name": "IT Services",
+          "url": "https://www.mixvoip.com/it-services/",
           "description": {
             "en": "Dedicated IT management with clear responsibility assignment",
             "fr": "Gestion IT dédiée avec attribution claire des responsabilités",
@@ -119,6 +119,15 @@
       },
       "products": [
         {
+          "name": "IT Services",
+          "url": "https://www.mixvoip.com/it-services/",
+          "description": {
+            "en": "Dedicated IT management with clear responsibility assignment",
+            "fr": "Gestion IT dédiée avec attribution claire des responsabilités",
+            "de": "Dediziertes IT-Management mit klarer Verantwortungszuweisung"
+          }
+        },
+        {
           "name": "SLA Services",
           "url": "https://www.mixvoip.com/sla/",
           "description": {
@@ -162,18 +171,18 @@
           "name": "YAPM Password Manager",
           "url": "https://www.mixvoip.com/yapm/",
           "description": {
-            "en": "Enterprise password manager for secure credential storage",
-            "fr": "Gestionnaire de mots de passe d'entreprise pour un stockage sécurisé",
-            "de": "Enterprise-Passwort-Manager für sichere Anmeldedatenspeicherung"
+            "en": "Yet Another Password Manager - Enterprise password manager",
+            "fr": "Yet Another Password Manager - Gestionnaire de mots de passe d'entreprise",
+            "de": "Yet Another Password Manager - Enterprise-Passwort-Manager"
           }
         },
         {
-          "name": "Microsoft 365",
-          "url": "https://www.mixvoip.com/microsoft-365/",
+          "name": "IT Services",
+          "url": "https://www.mixvoip.com/it-services/",
           "description": {
-            "en": "Includes Azure AD with MFA capabilities",
-            "fr": "Inclut Azure AD avec capacités MFA",
-            "de": "Enthält Azure AD mit MFA-Funktionen"
+            "en": "Microsoft ecosystem integration with MFA capabilities",
+            "fr": "Intégration de l'écosystème Microsoft avec capacités MFA",
+            "de": "Microsoft-Ökosystem-Integration mit MFA-Funktionen"
           }
         }
       ]
@@ -208,12 +217,12 @@
       },
       "products": [
         {
-          "name": "Managed IT Services",
-          "url": "https://www.mixvoip.com/managed-it/",
+          "name": "IT Services",
+          "url": "https://www.mixvoip.com/it-services/",
           "description": {
-            "en": "Includes enterprise antivirus and endpoint protection",
-            "fr": "Inclut antivirus d'entreprise et protection des terminaux",
-            "de": "Enthält Enterprise-Antivirus und Endpunktschutz"
+            "en": "Cybersecurity services including endpoint protection",
+            "fr": "Services de cybersécurité incluant la protection des terminaux",
+            "de": "Cybersecurity-Services einschließlich Endpunktschutz"
           }
         }
       ]
@@ -228,12 +237,12 @@
       },
       "products": [
         {
-          "name": "Managed IT Services",
-          "url": "https://www.mixvoip.com/managed-it/",
+          "name": "IT Services",
+          "url": "https://www.mixvoip.com/it-services/",
           "description": {
-            "en": "Comprehensive workstation management and patch updates",
-            "fr": "Gestion complète des postes de travail et mises à jour",
-            "de": "Umfassende Arbeitsplatzverwaltung und Patch-Updates"
+            "en": "IT support contracts with comprehensive workstation management",
+            "fr": "Contrats de support IT avec gestion complète des postes de travail",
+            "de": "IT-Support-Verträge mit umfassender Arbeitsplatzverwaltung"
           }
         },
         {
@@ -257,12 +266,12 @@
       },
       "products": [
         {
-          "name": "Data Protection",
-          "url": "https://www.mixvoip.com/data-protection/",
+          "name": "IT Services",
+          "url": "https://www.mixvoip.com/it-services/",
           "description": {
-            "en": "Enterprise backup solution with Tier IV data center storage",
-            "fr": "Solution de sauvegarde d'entreprise avec stockage en data center Tier IV",
-            "de": "Enterprise-Backup-Lösung mit Tier IV Rechenzentrum-Speicherung"
+            "en": "Data protection and backup strategies",
+            "fr": "Protection des données et stratégies de sauvegarde",
+            "de": "Datenschutz und Backup-Strategien"
           }
         }
       ]
