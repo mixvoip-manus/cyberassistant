@@ -16,7 +16,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.pricing': 'Pricing',
     'nav.faq': 'FAQ',
     'nav.contact': 'Contact',
-    'nav.calculate': 'Calculate Now',
+    'nav.calculate': 'Calculate your Cyberscore',
     
     // Hero Section
     'hero.title': 'Cyber Assistance',
@@ -333,7 +333,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.pricing': 'Tarifs',
     'nav.faq': 'FAQ',
     'nav.contact': 'Contact',
-    'nav.calculate': 'Calculer maintenant',
+    'nav.calculate': 'Calculez votre Cyberscore',
     
     // Hero Section
     'hero.title': 'Cyber Assistance',
@@ -650,7 +650,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.pricing': 'Preise',
     'nav.faq': 'FAQ',
     'nav.contact': 'Kontakt',
-    'nav.calculate': 'Jetzt berechnen',
+    'nav.calculate': 'Berechnen Sie Ihren Cyberscore',
     
     // Hero Section
     'hero.title': 'Cyber Assistance',

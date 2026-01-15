@@ -1,19 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Shield, ArrowRight } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 export default function Hero() {
   const { t } = useLanguage();
 
-  const scrollToCalculator = () => {
-    const element = document.getElementById('assessment');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30" />
       <div
@@ -35,19 +27,9 @@ export default function Hero() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
             {t('hero.title')}
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
             {t('hero.subtitle')}
           </p>
-
-          {/* CTA */}
-          <Button
-            onClick={scrollToCalculator}
-            size="lg"
-            className="bg-[#00B050] hover:bg-[#00873D] text-white text-lg px-8 py-6"
-          >
-            {t('hero.cta')}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
       </div>
     </section>
