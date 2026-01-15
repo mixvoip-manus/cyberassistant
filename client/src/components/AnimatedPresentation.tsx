@@ -93,15 +93,6 @@ const slides: Slide[] = [
   },
   // Original slides (renumbered)
   {
-    id: 3,
-    type: 'text',
-    titleKey: 'presentation.slide1.title',
-    subtitleKey: 'presentation.slide1.subtitle',
-    contentKeys: ['presentation.slide1.point1', 'presentation.slide1.point2', 'presentation.slide1.point3'],
-    icon: <Shield className="h-16 w-16" />,
-    bgGradient: 'from-slate-900 via-slate-800 to-slate-900',
-  },
-  {
     id: 4,
     type: 'text',
     titleKey: 'presentation.slide2.title',
