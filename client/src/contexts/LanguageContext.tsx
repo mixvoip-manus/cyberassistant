@@ -41,7 +41,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.attacks': 'Attacks',
     'what.attacks.desc': 'Ransomware, phishing, malware, DDoS attacks, and more',
     'what.fines': 'Fines',
-    'what.fines.desc': 'Regulatory compliance support & legal representation',
+    'what.fines.desc': 'Regulatory compliance support & documentation assistance',
     'what.losses': 'Losses',
     'what.losses.desc': 'Business interruption, revenue loss, reputation damage',
     
@@ -325,7 +325,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.attacks': 'Attaques',
     'what.attacks.desc': 'Ransomware, phishing, malware, attaques DDoS, et plus',
     'what.fines': 'Amendes',
-    'what.fines.desc': 'Assistance aux déclarations réglementaires & représentation juridique',
+    'what.fines.desc': 'Assistance aux déclarations réglementaires & documentation',
     'what.losses': 'Pertes',
     'what.losses.desc': 'Interruption d\'activité, perte de revenus, atteinte à la réputation',
     
@@ -609,7 +609,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.attacks': 'Angriffen',
     'what.attacks.desc': 'Ransomware, Phishing, Malware, DDoS-Angriffe und mehr',
     'what.fines': 'Bußgeldern',
-    'what.fines.desc': 'Unterstützung bei behördlichen Meldungen & rechtliche Vertretung',
+    'what.fines.desc': 'Unterstützung bei behördlichen Meldungen & Dokumentation',
     'what.losses': 'Verlusten',
     'what.losses.desc': 'Betriebsunterbrechung, Umsatzverlust, Reputationsschaden',
     
