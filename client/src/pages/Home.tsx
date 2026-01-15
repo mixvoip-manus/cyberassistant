@@ -5,6 +5,7 @@ import WhatIs from '@/components/WhatIs';
 import Benefits from '@/components/Benefits';
 import Statistics from '@/components/Statistics';
 import CoverageAccordion from '@/components/CoverageAccordion';
+import PricingSection from '@/components/PricingSection';
 import Fit4CyberAssessment from '@/components/Fit4CyberAssessment';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
@@ -20,6 +21,7 @@ export default function Home() {
         <Benefits />
         <Statistics />
         <CoverageAccordion />
+        <PricingSection />
         <Fit4CyberAssessment />
         <FAQ />
       </main>

@@ -51,7 +51,7 @@ export default function Header() {
               {t('nav.coverage')}
             </button>
             <button
-              onClick={() => scrollToSection('assessment')}
+              onClick={() => scrollToSection('pricing')}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('nav.pricing')}
@@ -126,7 +126,7 @@ export default function Header() {
                 {t('nav.coverage')}
               </button>
               <button
-                onClick={() => scrollToSection('assessment')}
+                onClick={() => scrollToSection('pricing')}
                 className="px-4 py-2 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
               >
                 {t('nav.pricing')}

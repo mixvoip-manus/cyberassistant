@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
+import OrderFlow from './OrderFlow';
 import { Progress } from './ui/progress';
 import { CheckCircle2, AlertTriangle, ChevronRight, ChevronLeft, ExternalLink, Send, Building2, Mail, Phone, User, Download, Upload, FileText, Euro, Zap, Shield } from 'lucide-react';
 import assessmentData from '../data/assessment.json';
@@ -286,6 +287,7 @@ export default function Fit4CyberAssessment() {
   const t = translations[lang];
   
   const [currentStep, setCurrentStep] = useState<'intro' | 'assessment' | 'results' | 'contact' | 'pricing' | 'insurance' | 'fasttrack'>('intro');
+  const [showOrderFlow, setShowOrderFlow] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<'basic' | 'pro' | 'enterprise' | null>(null);
   const [selectedCoverage, setSelectedCoverage] = useState<'50k' | '150k' | 'custom' | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -611,7 +613,9 @@ Gesendet von: Mixvoip Cyber Assistance Website`
   // Intro Screen with Fast-Track Options
   if (currentStep === 'intro') {
     return (
-      <section id="assessment" className="section-padding bg-slate-50">
+      <>
+        {showOrderFlow && <OrderFlow onClose={() => setShowOrderFlow(false)} />}
+        <section id="assessment" className="section-padding bg-slate-50">
         <div className="container">
           <div id="calculator" className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
             <div className="text-center mb-8">
@@ -650,7 +654,7 @@ Gesendet von: Mixvoip Cyber Assistance Website`
             <div className="grid md:grid-cols-2 gap-4">
               <Button 
                 variant="outline"
-                onClick={() => setCurrentStep('pricing')}
+                onClick={() => setShowOrderFlow(true)}
                 className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
               >
                 <Zap className="mr-2 w-4 h-4" />
@@ -668,6 +672,7 @@ Gesendet von: Mixvoip Cyber Assistance Website`
           </div>
         </div>
       </section>
+      </>
     );
   }
 
@@ -1402,5 +1407,6 @@ Gesendet von: Mixvoip Cyber Assistance Website`
     );
   }
 
+  // This should never be reached - all steps should have their own return
   return null;
 }
