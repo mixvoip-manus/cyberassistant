@@ -650,25 +650,15 @@ Gesendet von: Mixvoip Cyber Assistance Website`
               <ChevronRight className="ml-2 w-5 h-5" />
             </Button>
 
-            {/* Secondary Options */}
-            <div className="grid md:grid-cols-2 gap-4">
-              <Button 
-                variant="outline"
-                onClick={() => setShowOrderFlow(true)}
-                className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
-              >
-                <Zap className="mr-2 w-4 h-4" />
-                {t.alreadyHaveScore}
-              </Button>
-              <Button 
-                variant="outline"
-                onClick={() => setCurrentStep('pricing')}
-                className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 py-3"
-              >
-                <Euro className="mr-2 w-4 h-4" />
-                {t.viewPricing}
-              </Button>
-            </div>
+            {/* Secondary Option - Already have score */}
+            <Button 
+              variant="outline"
+              onClick={() => setShowOrderFlow(true)}
+              className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
+            >
+              <Zap className="mr-2 w-4 h-4" />
+              {t.alreadyHaveScore}
+            </Button>
           </div>
         </div>
       </section>
