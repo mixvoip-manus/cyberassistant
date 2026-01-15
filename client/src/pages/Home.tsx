@@ -20,9 +20,9 @@ export default function Home() {
         <WhatIs />
         <Benefits />
         <Statistics />
-        <CoverageAccordion />
         <PricingSection />
         <Fit4CyberAssessment />
+        <CoverageAccordion />
         <FAQ />
       </main>
       <Footer />

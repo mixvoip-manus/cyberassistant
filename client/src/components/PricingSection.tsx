@@ -291,16 +291,6 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">{t('pricing.cta.text')}</p>
-          <Button 
-            onClick={scrollToAssessment}
-            className="bg-[#00B050] hover:bg-[#00873D] text-white px-8 py-6 text-lg"
-          >
-            {t('pricing.cta.button')}
-          </Button>
-        </div>
       </div>
     </section>
   );
