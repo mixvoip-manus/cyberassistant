@@ -28,7 +28,16 @@ interface ImageSlide {
   emergencyItems: string[];
 }
 
-type Slide = TextSlide | ImageSlide;
+interface SimpleImageSlide {
+  id: number;
+  type: 'simple-image';
+  titleKey: string;
+  subtitleKey: string;
+  imageSrc: string;
+  bgGradient: string;
+}
+
+type Slide = TextSlide | ImageSlide | SimpleImageSlide;
 
 const slides: Slide[] = [
   // Welcome Slide (NEW - Position 1)
@@ -94,17 +103,11 @@ const slides: Slide[] = [
   // NEW Slide 4: Timeline/Flowchart
   {
     id: 4,
-    type: 'image',
+    type: 'simple-image',
     titleKey: 'presentation.slideTimeline.title',
     subtitleKey: 'presentation.slideTimeline.subtitle',
     imageSrc: '/images/cyber_timeline_flowchart.png',
-    footerKey: 'presentation.slideTimeline.footer',
     bgGradient: 'from-slate-50 via-white to-slate-50',
-    legendTitleKey: 'presentation.slideTimeline.legendTitle',
-    prepTitleKey: 'presentation.slideTimeline.prepTitle',
-    prepItems: [],
-    emergencyTitleKey: 'presentation.slideTimeline.emergencyTitle',
-    emergencyItems: [],
   },
   // Original slides (renumbered)
   {
@@ -296,6 +299,35 @@ export default function AnimatedPresentation() {
     </div>
   );
 
+  // Render Simple Image Slide (no legend)
+  const renderSimpleImageSlide = (slide: SimpleImageSlide) => (
+    <div className={`absolute inset-0 flex flex-col bg-gradient-to-br ${slide.bgGradient}`}>
+      {/* Header */}
+      <div className="text-center pt-4 pb-2 px-4">
+        <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-1">
+          {t(slide.titleKey)}
+        </h3>
+        <p className="text-sm text-slate-600">
+          {t(slide.subtitleKey)}
+        </p>
+      </div>
+
+      {/* Image - Full Width */}
+      <div className="flex-1 flex items-center justify-center px-4 pb-4 min-h-0">
+        <img 
+          src={slide.imageSrc} 
+          alt={t(slide.titleKey)}
+          className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
+        />
+      </div>
+
+      {/* Slide Number */}
+      <div className="absolute bottom-4 right-4 text-slate-500 text-sm">
+        {currentSlide + 1} / {slides.length}
+      </div>
+    </div>
+  );
+
   // Render Text Slide
   const renderTextSlide = (slide: TextSlide) => (
     <div className="absolute inset-0 flex flex-col items-center justify-center p-8 md:p-12 text-white">
@@ -342,7 +374,7 @@ export default function AnimatedPresentation() {
         {/* Presentation Container */}
         <div className="max-w-4xl mx-auto">
           <div
-            className={`relative ${slide.type === 'image' ? '' : `bg-gradient-to-br ${slide.bgGradient}`} rounded-2xl overflow-hidden shadow-2xl aspect-video`}
+            className={`relative ${slide.type === 'image' || slide.type === 'simple-image' ? '' : `bg-gradient-to-br ${slide.bgGradient}`} rounded-2xl overflow-hidden shadow-2xl aspect-video`}
           >
             {/* Progress Bar */}
             {isPlaying && (
@@ -357,6 +389,8 @@ export default function AnimatedPresentation() {
             {/* Slide Content */}
             {slide.type === 'image' 
               ? renderImageSlide(slide as ImageSlide)
+              : slide.type === 'simple-image'
+              ? renderSimpleImageSlide(slide as SimpleImageSlide)
               : renderTextSlide(slide as TextSlide)
             }
           </div>
