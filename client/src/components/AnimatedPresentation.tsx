@@ -320,7 +320,7 @@ export default function AnimatedPresentation() {
   );
 
   return (
-    <section className="py-16 md:py-24 bg-slate-100">
+    <section className="py-8 md:py-12 bg-slate-100">
       <div className="container">
 
         {/* Presentation Container */}

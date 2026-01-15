@@ -5,7 +5,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+    <section className="relative pt-24 pb-8 md:pt-32 md:pb-12 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30" />
       <div
