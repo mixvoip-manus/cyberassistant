@@ -1,7 +1,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import WhatIs from '@/components/WhatIs';
 import AnimatedPresentation from '@/components/AnimatedPresentation';
+import WhatIs from '@/components/WhatIs';
 import Benefits from '@/components/Benefits';
 import Statistics from '@/components/Statistics';
 import CoverageAccordion from '@/components/CoverageAccordion';
@@ -15,8 +15,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <WhatIs />
         <AnimatedPresentation />
+        <WhatIs />
         <Benefits />
         <Statistics />
         <CoverageAccordion />

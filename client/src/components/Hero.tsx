@@ -1,19 +1,19 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Shield, ArrowRight, CheckCircle } from 'lucide-react';
+import { Shield, ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const { t } = useLanguage();
 
-  const scrollToCalculator = () => {
-    const element = document.getElementById('assessment');
+  const scrollToPresentation = () => {
+    const element = document.getElementById('presentation');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const scrollToCoverage = () => {
-    const element = document.getElementById('coverage');
+  const scrollToCalculator = () => {
+    const element = document.getElementById('assessment');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -31,102 +31,39 @@ export default function Hero() {
       />
 
       <div className="container relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-center lg:text-left">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#00B050]/10 text-[#00B050] px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Shield className="h-4 w-4" />
-              <span>Powered by Mixvoip + Luxembourg Insurance</span>
-            </div>
-
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
-              {t('hero.title')}
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-6">
-              {t('hero.subtitle')}
-            </p>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              {t('hero.description')}
-            </p>
-
-            {/* Price Badge */}
-            <div className="inline-flex items-center gap-3 bg-white border border-border rounded-xl px-6 py-4 shadow-sm mb-8">
-              <div className="text-left">
-                <p className="text-sm text-muted-foreground">{t('hero.price')}</p>
-                <p className="text-2xl font-bold text-[#00B050]">{t('hero.priceValue')}</p>
-              </div>
-            </div>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                onClick={scrollToCalculator}
-                size="lg"
-                className="bg-[#00B050] hover:bg-[#00873D] text-white text-lg px-8 py-6"
-              >
-                {t('hero.cta')}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                onClick={scrollToCoverage}
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 py-6"
-              >
-                {t('hero.ctaSecondary')}
-              </Button>
-            </div>
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-[#00B050]/10 text-[#00B050] px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Shield className="h-4 w-4" />
+            <span>Powered by Mixvoip + Luxembourg Insurance</span>
           </div>
 
-          {/* Right Content - Visual */}
-          <div className="relative hidden lg:block">
-            <div className="relative">
-              {/* Main Card */}
-              <div className="bg-white rounded-2xl shadow-xl border border-border p-8 relative z-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-[#00B050]/10 rounded-xl flex items-center justify-center">
-                    <Shield className="h-8 w-8 text-[#00B050]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl">{t('hero.card.title')}</h3>
-                    <p className="text-muted-foreground">{t('hero.card.subtitle')}</p>
-                  </div>
-                </div>
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+            {t('hero.title')}
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            {t('hero.subtitle')}
+          </p>
 
-                {/* Protection Items */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
-                    <CheckCircle className="h-5 w-5 text-[#00B050]" />
-                    <span className="font-medium">{t('what.attacks')}</span>
-                    <span className="ml-auto text-sm text-muted-foreground">{t('hero.card.response')}</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
-                    <CheckCircle className="h-5 w-5 text-[#00B050]" />
-                    <span className="font-medium">{t('what.fines')}</span>
-                    <span className="ml-auto text-sm text-muted-foreground">{t('hero.card.gdpr')}</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
-                    <CheckCircle className="h-5 w-5 text-[#00B050]" />
-                    <span className="font-medium">{t('what.losses')}</span>
-                    <span className="ml-auto text-sm text-muted-foreground">{t('hero.card.coverage')}</span>
-                  </div>
-                </div>
-
-                {/* Coverage Badge */}
-                <div className="mt-6 pt-6 border-t border-border">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">{t('hero.card.insurance')}</span>
-                    <span className="font-bold text-[#00B050]">€50k - €250k</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#00B050]/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-emerald-100 rounded-full blur-2xl" />
-            </div>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={scrollToPresentation}
+              size="lg"
+              className="bg-[#00B050] hover:bg-[#00873D] text-white text-lg px-8 py-6"
+            >
+              {t('hero.ctaLearnHow')}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              onClick={scrollToCalculator}
+              variant="outline"
+              size="lg"
+              className="text-lg px-8 py-6"
+            >
+              {t('hero.cta')}
+            </Button>
           </div>
         </div>
       </div>
