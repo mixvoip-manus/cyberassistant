@@ -5,13 +5,6 @@ import { Shield, ArrowRight } from 'lucide-react';
 export default function Hero() {
   const { t } = useLanguage();
 
-  const scrollToPresentation = () => {
-    const element = document.getElementById('presentation');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const scrollToCalculator = () => {
     const element = document.getElementById('assessment');
     if (element) {
@@ -46,25 +39,15 @@ export default function Hero() {
             {t('hero.subtitle')}
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={scrollToPresentation}
-              size="lg"
-              className="bg-[#00B050] hover:bg-[#00873D] text-white text-lg px-8 py-6"
-            >
-              {t('hero.ctaLearnHow')}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              onClick={scrollToCalculator}
-              variant="outline"
-              size="lg"
-              className="text-lg px-8 py-6"
-            >
-              {t('hero.cta')}
-            </Button>
-          </div>
+          {/* CTA */}
+          <Button
+            onClick={scrollToCalculator}
+            size="lg"
+            className="bg-[#00B050] hover:bg-[#00873D] text-white text-lg px-8 py-6"
+          >
+            {t('hero.cta')}
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>
