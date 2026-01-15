@@ -327,6 +327,14 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slideCyber.emergency2': 'Cyber Assurance',
     'presentation.slideCyber.emergency3': 'Cyber Advisory',
     'presentation.slideCyber.emergency4': 'IT Integrator – Restore',
+    
+    // Timeline Slide
+    'presentation.slideTimeline.title': 'The Complete Process',
+    'presentation.slideTimeline.subtitle': 'From IT setup to incident resolution',
+    'presentation.slideTimeline.footer': 'Preparation → Assessment → Protection → Response',
+    'presentation.slideTimeline.legendTitle': '',
+    'presentation.slideTimeline.prepTitle': '',
+    'presentation.slideTimeline.emergencyTitle': '',
   },
   fr: {
     // Navigation
@@ -646,6 +654,14 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slideCyber.emergency2': 'Cyber Assurance',
     'presentation.slideCyber.emergency3': 'Cyber Advisory',
     'presentation.slideCyber.emergency4': 'Intégrateur IT – Restauration',
+    
+    // Timeline Slide
+    'presentation.slideTimeline.title': 'Le Processus Complet',
+    'presentation.slideTimeline.subtitle': 'De la mise en place IT à la résolution d\'incident',
+    'presentation.slideTimeline.footer': 'Préparation → Assessment → Protection → Réponse',
+    'presentation.slideTimeline.legendTitle': '',
+    'presentation.slideTimeline.prepTitle': '',
+    'presentation.slideTimeline.emergencyTitle': '',
   },
   de: {
     // Navigation
@@ -965,6 +981,14 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slideCyber.emergency2': 'Cyber Assurance',
     'presentation.slideCyber.emergency3': 'Cyber Advisory',
     'presentation.slideCyber.emergency4': 'IT-Integrator – Wiederherstellung',
+    
+    // Timeline Slide
+    'presentation.slideTimeline.title': 'Der komplette Prozess',
+    'presentation.slideTimeline.subtitle': 'Vom IT-Aufbau bis zur Incident-Lösung',
+    'presentation.slideTimeline.footer': 'Vorbereitung → Assessment → Schutz → Response',
+    'presentation.slideTimeline.legendTitle': '',
+    'presentation.slideTimeline.prepTitle': '',
+    'presentation.slideTimeline.emergencyTitle': '',
   },
 };
 

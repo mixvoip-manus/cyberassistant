@@ -91,9 +91,24 @@ const slides: Slide[] = [
       'presentation.slideCyber.emergency4',
     ],
   },
-  // Original slides (renumbered)
+  // NEW Slide 4: Timeline/Flowchart
   {
     id: 4,
+    type: 'image',
+    titleKey: 'presentation.slideTimeline.title',
+    subtitleKey: 'presentation.slideTimeline.subtitle',
+    imageSrc: '/images/cyber_timeline_flowchart.png',
+    footerKey: 'presentation.slideTimeline.footer',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    legendTitleKey: 'presentation.slideTimeline.legendTitle',
+    prepTitleKey: 'presentation.slideTimeline.prepTitle',
+    prepItems: [],
+    emergencyTitleKey: 'presentation.slideTimeline.emergencyTitle',
+    emergencyItems: [],
+  },
+  // Original slides (renumbered)
+  {
+    id: 5,
     type: 'text',
     titleKey: 'presentation.slide2.title',
     subtitleKey: 'presentation.slide2.subtitle',
