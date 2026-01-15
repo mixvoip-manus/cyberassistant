@@ -19,7 +19,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.calculate': 'Calculate your Cyberscore',
     
     // Hero Section
-    'hero.title': 'What happens if your IT stops working tomorrow?',
+    'hero.title': 'What happens when a cyberattack shuts down your IT?',
     'hero.subtitle': 'Cyber Assistance – Your emergency plan for the worst case',
     'hero.description': 'Secure your business against the consequences of cyberattacks, fines, and losses. Strengthen your cybersecurity with the most comprehensive coverage on the market.',
     'hero.price': 'No deductible from',
@@ -336,7 +336,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.calculate': 'Calculez votre Cyberscore',
     
     // Hero Section
-    'hero.title': 'Que se passe-t-il si votre IT s\'arrête demain?',
+    'hero.title': 'Que se passe-t-il si une cyberattaque paralyse votre IT?',
     'hero.subtitle': 'Cyber Assistance – Votre plan d\'urgence pour le pire',
     'hero.description': 'Protégez votre entreprise contre les conséquences des cyberattaques, amendes et pertes. Renforcez votre cybersécurité avec la couverture la plus complète du marché.',
     'hero.price': 'Sans franchise à partir de',
@@ -653,7 +653,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.calculate': 'Berechnen Sie Ihren Cyberscore',
     
     // Hero Section
-    'hero.title': 'Was passiert, wenn Ihre IT morgen stillsteht?',
+    'hero.title': 'Was passiert, wenn eine Cyber-Attacke Ihre IT lahmlegt?',
     'hero.subtitle': 'Cyber Assistance – Ihr Notfallplan für den Ernstfall',
     'hero.description': 'Sichern Sie Ihr Unternehmen gegen die Folgen von Cyberangriffen, Bußgeldern und Verlusten ab. Stärken Sie Ihre Cybersicherheit mit dem umfassendsten Schutz auf dem Markt.',
     'hero.price': 'Ohne Selbstbeteiligung ab',
