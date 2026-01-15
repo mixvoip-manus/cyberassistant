@@ -253,6 +253,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Animated Presentation
     'presentation.title': 'Cyber Assistance in 2 Minutes',
     'presentation.subtitle': 'Watch our interactive presentation to learn how we protect your business',
+    'presentation.slideWelcome.title': 'Welcome',
+    'presentation.slideWelcome.subtitle': 'Response • Insurance • Prevention – All in One',
     'presentation.slide1.title': 'Welcome to Cyber Assistance',
     'presentation.slide1.subtitle': 'Your complete cyber protection partner',
     'presentation.slide1.point1': 'Comprehensive insurance coverage up to €250,000',
@@ -570,6 +572,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Animated Presentation
     'presentation.title': 'Cyber Assistance en 2 Minutes',
     'presentation.subtitle': 'Découvrez notre présentation interactive pour savoir comment nous protégeons votre entreprise',
+    'presentation.slideWelcome.title': 'Bienvenue',
+    'presentation.slideWelcome.subtitle': 'Réponse • Assurance • Prévention – Tout en Un',
     'presentation.slide1.title': 'Bienvenue chez Cyber Assistance',
     'presentation.slide1.subtitle': 'Votre partenaire complet de cyber-protection',
     'presentation.slide1.point1': 'Couverture d\'assurance complète jusqu\'à 250 000 €',
@@ -887,6 +891,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Animated Presentation
     'presentation.title': 'Cyber Assistance in 2 Minuten',
     'presentation.subtitle': 'Sehen Sie unsere interaktive Präsentation, um zu erfahren, wie wir Ihr Unternehmen schützen',
+    'presentation.slideWelcome.title': 'Willkommen',
+    'presentation.slideWelcome.subtitle': 'Response • Versicherung • Prävention – Alles in Einem',
     'presentation.slide1.title': 'Willkommen bei Cyber Assistance',
     'presentation.slide1.subtitle': 'Ihr kompletter Cyber-Schutz-Partner',
     'presentation.slide1.point1': 'Umfassender Versicherungsschutz bis zu 250.000 €',

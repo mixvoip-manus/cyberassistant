@@ -31,9 +31,19 @@ interface ImageSlide {
 type Slide = TextSlide | ImageSlide;
 
 const slides: Slide[] = [
-  // NEW Slide 1: House Scenario (Image-based)
+  // Welcome Slide (NEW - Position 1)
   {
     id: 1,
+    type: 'text',
+    titleKey: 'presentation.slideWelcome.title',
+    subtitleKey: 'presentation.slideWelcome.subtitle',
+    contentKeys: [],
+    icon: <Shield className="h-16 w-16" />,
+    bgGradient: 'from-slate-900 via-slate-800 to-slate-900',
+  },
+  // House Scenario (Image-based) - Position 2
+  {
+    id: 2,
     type: 'image',
     titleKey: 'presentation.slideHouse.title',
     subtitleKey: 'presentation.slideHouse.subtitle',
