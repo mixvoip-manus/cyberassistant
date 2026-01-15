@@ -1,16 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Scale, Users, CheckCircle2, Info, Clock, Zap, Building2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 export default function PricingSection() {
   const { t } = useLanguage();
-
-  const scrollToAssessment = () => {
-    const element = document.getElementById('assessment');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="pricing" className="py-16 md:py-24 bg-slate-50">
@@ -27,14 +19,19 @@ export default function PricingSection() {
 
         {/* Cyber Assistance Packages */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 flex items-center justify-center gap-2">
-            <Shield className="h-7 w-7 text-[#00B050]" />
-            Cyber Assistance
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* Cyber Assistance Header Bar */}
+          <div className="bg-[#00B050] text-white p-4 text-center rounded-t-2xl max-w-6xl mx-auto">
+            <div className="flex items-center justify-center gap-3">
+              <Shield className="h-8 w-8" />
+              <h3 className="text-2xl font-bold">Cyber Assistance</h3>
+            </div>
+            <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-0 max-w-6xl mx-auto">
             
             {/* Basic */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-[#4A90D9]">
+            <div className="bg-white shadow-lg overflow-hidden border-r border-slate-200 md:rounded-bl-2xl">
               <div className="p-6">
                 <div className="text-center mb-4">
                   <h4 className="text-xl font-bold text-[#4A90D9]">{t('pricing.assistance.basic.title')}</h4>
@@ -85,7 +82,7 @@ export default function PricingSection() {
             </div>
 
             {/* Pro - Featured */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-[#E63946] relative">
+            <div className="bg-white shadow-xl overflow-hidden border-x-2 border-b-2 border-[#E63946] relative">
               <div className="absolute top-0 left-0 right-0 bg-[#E63946] text-white text-center text-xs py-1 font-medium">
                 {t('pricing.mostPopular')}
               </div>
@@ -140,7 +137,7 @@ export default function PricingSection() {
             </div>
 
             {/* Enterprise */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-slate-800">
+            <div className="bg-white shadow-lg overflow-hidden border-l border-slate-200 md:rounded-br-2xl">
               <div className="p-6">
                 <div className="text-center mb-4">
                   <h4 className="text-xl font-bold text-slate-800">{t('pricing.assistance.enterprise.title')}</h4>
@@ -206,17 +203,19 @@ export default function PricingSection() {
               <div className="text-center mb-6">
                 <div className="text-sm text-muted-foreground mb-2">{t('pricing.assurance.coverage')}</div>
                 <div className="space-y-2">
-                  <div className="flex justify-between items-center px-4 py-2 bg-slate-50 rounded">
-                    <span>€50,000</span>
-                    <span className="font-bold text-blue-600">€0.50/{t('pricing.user')}</span>
+                  <div className="px-4 py-2 bg-slate-50 rounded text-center">
+                    <span className="font-bold text-blue-600">€50,000</span>
                   </div>
-                  <div className="flex justify-between items-center px-4 py-2 bg-slate-50 rounded">
-                    <span>€100,000</span>
-                    <span className="font-bold text-blue-600">€1.00/{t('pricing.user')}</span>
+                  <div className="px-4 py-2 bg-slate-50 rounded text-center">
+                    <span className="font-bold text-blue-600">€100,000</span>
                   </div>
-                  <div className="flex justify-between items-center px-4 py-2 bg-slate-50 rounded">
-                    <span>€250,000</span>
-                    <span className="font-bold text-blue-600">€2.00/{t('pricing.user')}</span>
+                  <div className="px-4 py-2 bg-slate-50 rounded text-center">
+                    <span className="font-bold text-blue-600">€250,000</span>
+                  </div>
+                  <div className="px-4 py-3 bg-blue-50 rounded border border-blue-200 text-center">
+                    <div className="font-bold text-blue-600">Enterprise</div>
+                    <div className="text-sm text-muted-foreground">{t('pricing.assurance.enterprise')}</div>
+                    <div className="text-lg font-bold mt-1 text-blue-600">{t('pricing.onRequest')}</div>
                   </div>
                 </div>
                 <div className="text-sm text-muted-foreground mt-2">{t('pricing.yearlyContract')}</div>

@@ -1,5 +1,4 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield } from 'lucide-react';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -17,12 +16,6 @@ export default function Hero() {
 
       <div className="container relative">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#00B050]/10 text-[#00B050] px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Shield className="h-4 w-4" />
-            <span>Powered by Mixvoip + Luxembourg Insurance</span>
-          </div>
-
           {/* Title */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
             {t('hero.title')}
