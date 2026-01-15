@@ -32,7 +32,7 @@ export default function WhatIs() {
               </div>
               <h3 className="text-xl font-bold mb-2">{t('what.attacks')}</h3>
               <p className="text-sm text-muted-foreground">
-                Ransomware, phishing, malware, DDoS attacks, and more
+                {t('what.attacks.desc')}
               </p>
             </div>
 
@@ -43,7 +43,7 @@ export default function WhatIs() {
               </div>
               <h3 className="text-xl font-bold mb-2">{t('what.fines')}</h3>
               <p className="text-sm text-muted-foreground">
-                GDPR penalties, CNPD sanctions, NIS2 & DORA compliance
+                {t('what.fines.desc')}
               </p>
             </div>
 
@@ -54,7 +54,7 @@ export default function WhatIs() {
               </div>
               <h3 className="text-xl font-bold mb-2">{t('what.losses')}</h3>
               <p className="text-sm text-muted-foreground">
-                Business interruption, revenue loss, reputation damage
+                {t('what.losses.desc')}
               </p>
             </div>
           </div>

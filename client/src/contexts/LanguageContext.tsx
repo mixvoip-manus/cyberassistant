@@ -39,8 +39,11 @@ const translations: Record<Language, Record<string, string>> = {
     'what.description2': 'We provide you with cybersecurity experts and specialized lawyers who will advise and assist you in legal and regulatory procedures as a result of a cyber incident. We will also handle the drafting of notifications to any governmental, regulatory, police, professional or legal body as appropriate.',
     'what.protect': 'Protect against:',
     'what.attacks': 'Attacks',
+    'what.attacks.desc': 'Ransomware, phishing, malware, DDoS attacks, and more',
     'what.fines': 'Fines',
+    'what.fines.desc': 'Regulatory compliance support & legal representation',
     'what.losses': 'Losses',
+    'what.losses.desc': 'Business interruption, revenue loss, reputation damage',
     
     // Benefits
     'benefits.title': 'Why choose Cyber Assistance?',
@@ -320,8 +323,11 @@ const translations: Record<Language, Record<string, string>> = {
     'what.description2': 'Nous mettons à votre disposition des experts en cybersécurité et des avocats spécialisés qui vous conseilleront et vous assisteront dans les procédures juridiques et réglementaires suite à un cyber-incident. Nous nous chargerons également de la rédaction des notifications à tout organisme gouvernemental, réglementaire, policier, professionnel ou juridique concerné.',
     'what.protect': 'Protégez-vous contre :',
     'what.attacks': 'Attaques',
+    'what.attacks.desc': 'Ransomware, phishing, malware, attaques DDoS, et plus',
     'what.fines': 'Amendes',
+    'what.fines.desc': 'Assistance aux déclarations réglementaires & représentation juridique',
     'what.losses': 'Pertes',
+    'what.losses.desc': 'Interruption d\'activité, perte de revenus, atteinte à la réputation',
     
     // Benefits
     'benefits.title': 'Pourquoi choisir Cyber Assistance ?',
@@ -601,8 +607,11 @@ const translations: Record<Language, Record<string, string>> = {
     'what.description2': 'Wir stellen Ihnen Cybersicherheitsexperten und spezialisierte Anwälte zur Verfügung, die Sie bei rechtlichen und regulatorischen Verfahren infolge eines Cyber-Vorfalls beraten und unterstützen. Wir übernehmen auch die Erstellung von Meldungen an alle zuständigen behördlichen, regulatorischen, polizeilichen, beruflichen oder rechtlichen Stellen.',
     'what.protect': 'Schützen Sie sich vor:',
     'what.attacks': 'Angriffen',
+    'what.attacks.desc': 'Ransomware, Phishing, Malware, DDoS-Angriffe und mehr',
     'what.fines': 'Bußgeldern',
+    'what.fines.desc': 'Unterstützung bei behördlichen Meldungen & rechtliche Vertretung',
     'what.losses': 'Verlusten',
+    'what.losses.desc': 'Betriebsunterbrechung, Umsatzverlust, Reputationsschaden',
     
     // Benefits
     'benefits.title': 'Warum Cyber Assistance wählen?',
