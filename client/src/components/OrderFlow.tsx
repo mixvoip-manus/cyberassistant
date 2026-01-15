@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Scale, Users, CheckCircle2, Upload, ArrowRight, ArrowLeft, Send, AlertCircle } from 'lucide-react';
+import { Shield, Scale, Users, CheckCircle2, Upload, ArrowRight, ArrowLeft, Send, AlertCircle, Clock, Zap, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
+type AssistancePackage = 'basic' | 'pro' | 'enterprise';
 type AssuranceOption = 'none' | '50k' | '100k' | '250k';
 type AdvisoryOption = 'none' | 'light' | 'standard' | 'enterprise';
 
 interface OrderData {
+  assistancePackage: AssistancePackage;
   userCount: number;
   assurance: AssuranceOption;
   advisory: AdvisoryOption;
@@ -29,6 +31,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
   const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const [orderData, setOrderData] = useState<OrderData>({
+    assistancePackage: 'pro',
     userCount: 10,
     assurance: 'none',
     advisory: 'none',
@@ -42,17 +45,27 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const isEnterpriseSelected = orderData.advisory === 'enterprise';
-  const needsConsultation = isEnterpriseSelected;
+  const isEnterpriseAssistance = orderData.assistancePackage === 'enterprise';
+  const isEnterpriseAdvisory = orderData.advisory === 'enterprise';
+  const needsConsultation = isEnterpriseAssistance || isEnterpriseAdvisory;
+
+  // Basic package has max 25 users
+  const maxUsers = orderData.assistancePackage === 'basic' ? 25 : 9999;
 
   const calculateTotal = () => {
-    let monthly = 0;
     let yearly = 0;
 
-    // Cyber Assistance: €2/user/month (yearly contract)
-    yearly += orderData.userCount * 2 * 12;
+    // Cyber Assistance pricing
+    if (orderData.assistancePackage === 'basic') {
+      // Basic is free (included in Mixvoip partnership)
+      yearly += 0;
+    } else if (orderData.assistancePackage === 'pro') {
+      // Pro: €2/user/month
+      yearly += orderData.userCount * 2 * 12;
+    }
+    // Enterprise is on request
 
-    // Cyber Assurance: per user/month (yearly contract)
+    // Cyber Assurance: per user/year
     if (orderData.assurance === '50k') {
       yearly += orderData.userCount * 0.5 * 12;
     } else if (orderData.assurance === '100k') {
@@ -68,9 +81,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
       yearly += 2000;
     }
 
-    monthly = yearly / 12;
-
-    return { monthly: monthly.toFixed(2), yearly: yearly.toFixed(2) };
+    return { yearly: yearly.toFixed(2) };
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -93,6 +104,13 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
   };
 
   const totals = calculateTotal();
+
+  // Get required score based on package
+  const getRequiredScore = () => {
+    if (orderData.assistancePackage === 'basic') return '60%';
+    if (orderData.assistancePackage === 'pro') return '80%';
+    return 'Custom';
+  };
 
   if (isSubmitted) {
     return (
@@ -138,37 +156,127 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
         </div>
 
         <div className="p-6">
-          {/* Step 1: Cyber Assistance + User Count */}
+          {/* Step 1: Cyber Assistance Package Selection */}
           {step === 1 && (
             <div className="space-y-6">
-              <div className="bg-[#00B050]/10 border border-[#00B050] rounded-xl p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-[#00B050] rounded-full flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold">Cyber Assistance</h3>
-                    <p className="text-muted-foreground">{t('order.assistance.required')}</p>
-                  </div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-[#00B050] rounded-full flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-[#00B050] mb-2">€2 <span className="text-base font-normal text-muted-foreground">{t('pricing.perUserMonth')}</span></div>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#00B050]" /> {t('pricing.assistance.feature1')}</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#00B050]" /> {t('pricing.assistance.feature2')}</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#00B050]" /> {t('pricing.assistance.feature3')}</li>
-                </ul>
+                <div>
+                  <h3 className="text-xl font-bold">Cyber Assistance</h3>
+                  <p className="text-muted-foreground">{t('order.assistance.selectPackage')}</p>
+                </div>
               </div>
 
-              <div>
-                <Label className="text-lg font-semibold">{t('order.userCount')}</Label>
-                <p className="text-sm text-muted-foreground mb-3">{t('order.userCountDesc')}</p>
-                <Input
-                  type="number"
-                  min="1"
-                  value={orderData.userCount}
-                  onChange={(e) => setOrderData({ ...orderData, userCount: parseInt(e.target.value) || 1 })}
-                  className="text-2xl font-bold h-14 text-center max-w-[200px]"
-                />
+              <div className="grid gap-4">
+                {/* Basic Package */}
+                <button
+                  onClick={() => setOrderData({ ...orderData, assistancePackage: 'basic', userCount: Math.min(orderData.userCount, 25) })}
+                  className={`p-5 rounded-xl border-2 text-left transition-all ${
+                    orderData.assistancePackage === 'basic' ? 'border-[#4A90D9] bg-blue-50' : 'border-slate-200 hover:border-slate-300'
+                  }`}
+                >
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <div className="font-bold text-lg text-[#4A90D9]">{t('pricing.assistance.basic.title')}</div>
+                      <div className="text-sm text-muted-foreground">Fit4Cybersecurity ≥ 60%</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-[#4A90D9]">{t('pricing.assistance.basic.price')}</div>
+                      <div className="text-xs text-muted-foreground">{t('pricing.assistance.basic.priceNote')}</div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1"><Users className="h-3 w-3" /> {t('pricing.assistance.basic.users')}</div>
+                    <div className="flex items-center gap-1"><Clock className="h-3 w-3" /> {t('pricing.assistance.basic.availability')}</div>
+                    <div className="flex items-center gap-1"><Zap className="h-3 w-3" /> {t('pricing.assistance.basic.response')}</div>
+                    <div className="flex items-center gap-1"><Shield className="h-3 w-3" /> {t('pricing.assistance.basic.crisis')}</div>
+                  </div>
+                </button>
+
+                {/* Pro Package */}
+                <button
+                  onClick={() => setOrderData({ ...orderData, assistancePackage: 'pro' })}
+                  className={`p-5 rounded-xl border-2 text-left transition-all relative ${
+                    orderData.assistancePackage === 'pro' ? 'border-[#E63946] bg-red-50' : 'border-slate-200 hover:border-slate-300'
+                  }`}
+                >
+                  <div className="absolute -top-3 left-4 bg-[#E63946] text-white text-xs px-2 py-1 rounded">
+                    {t('pricing.mostPopular')}
+                  </div>
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <div className="font-bold text-lg text-[#E63946]">{t('pricing.assistance.pro.title')}</div>
+                      <div className="text-sm text-muted-foreground">Fit4Cybersecurity ≥ 80%</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-[#E63946]">€2</div>
+                      <div className="text-xs text-muted-foreground">{t('pricing.perUserMonth')}</div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1"><Users className="h-3 w-3" /> {t('pricing.assistance.pro.users')}</div>
+                    <div className="flex items-center gap-1 font-bold text-[#E63946]"><Clock className="h-3 w-3" /> {t('pricing.assistance.pro.availability')}</div>
+                    <div className="flex items-center gap-1 font-bold text-[#E63946]"><Zap className="h-3 w-3" /> {t('pricing.assistance.pro.response')}</div>
+                    <div className="flex items-center gap-1"><Shield className="h-3 w-3" /> {t('pricing.assistance.pro.crisis')}</div>
+                  </div>
+                </button>
+
+                {/* Enterprise Package */}
+                <button
+                  onClick={() => setOrderData({ ...orderData, assistancePackage: 'enterprise' })}
+                  className={`p-5 rounded-xl border-2 text-left transition-all ${
+                    orderData.assistancePackage === 'enterprise' ? 'border-slate-800 bg-slate-100' : 'border-slate-200 hover:border-slate-300'
+                  }`}
+                >
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <div className="font-bold text-lg text-slate-800">{t('pricing.assistance.enterprise.title')}</div>
+                      <div className="text-sm text-muted-foreground">{t('pricing.assistance.enterprise.entry')}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-slate-800">{t('pricing.onRequest')}</div>
+                      <div className="text-xs text-muted-foreground">{t('pricing.assistance.enterprise.priceNote')}</div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1"><Building2 className="h-3 w-3" /> {t('pricing.assistance.enterprise.users')}</div>
+                    <div className="flex items-center gap-1 font-bold"><Clock className="h-3 w-3" /> {t('pricing.assistance.enterprise.availability')}</div>
+                    <div className="flex items-center gap-1 font-bold"><Zap className="h-3 w-3" /> {t('pricing.assistance.enterprise.response')}</div>
+                    <div className="flex items-center gap-1"><Shield className="h-3 w-3" /> {t('pricing.assistance.enterprise.crisis')}</div>
+                  </div>
+                </button>
+              </div>
+
+              {/* User Count (only for Basic and Pro) */}
+              {orderData.assistancePackage !== 'enterprise' && (
+                <div className="mt-6">
+                  <Label className="text-lg font-semibold">{t('order.userCount')}</Label>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {t('order.userCountDesc')}
+                    {orderData.assistancePackage === 'basic' && ` (max 25)`}
+                  </p>
+                  <Input
+                    type="number"
+                    min="1"
+                    max={maxUsers}
+                    value={orderData.userCount}
+                    onChange={(e) => setOrderData({ ...orderData, userCount: Math.min(parseInt(e.target.value) || 1, maxUsers) })}
+                    className="text-2xl font-bold h-14 text-center max-w-[200px]"
+                  />
+                </div>
+              )}
+
+              {/* Required Score Info */}
+              <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
+                <div className="flex items-start gap-2">
+                  <AlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div className="text-sm">
+                    <div className="font-medium text-amber-800">{t('order.requiredScore')}: Fit4Cybersecurity ≥ {getRequiredScore()}</div>
+                    <div className="text-amber-700">{t('order.requiredScoreDesc')}</div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -266,11 +374,11 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                   <div className="flex justify-between items-center">
                     <div>
                       <div className="font-bold">Light – DPO as a Service</div>
-                      <div className="text-sm text-muted-foreground">{t('order.advisory.lightDesc')}</div>
+                      <div className="text-sm text-muted-foreground">Data Protection Officer as a Service</div>
                     </div>
                     <div className="text-right">
                       <div className="text-xl font-bold text-purple-600">€500</div>
-                      <div className="text-xs text-muted-foreground">{t('order.perYear')}</div>
+                      <div className="text-xs text-muted-foreground">{t('pricing.year')}</div>
                     </div>
                   </div>
                 </button>
@@ -285,11 +393,11 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                   <div className="flex justify-between items-center">
                     <div>
                       <div className="font-bold">Standard – CISO as a Service</div>
-                      <div className="text-sm text-muted-foreground">{t('order.advisory.standardDesc')}</div>
+                      <div className="text-sm text-muted-foreground">Chief Information Security Officer as a Service</div>
                     </div>
                     <div className="text-right">
                       <div className="text-xl font-bold text-purple-600">€2,000</div>
-                      <div className="text-xs text-muted-foreground">{t('order.perYear')}</div>
+                      <div className="text-xs text-muted-foreground">{t('pricing.year')}</div>
                     </div>
                   </div>
                 </button>
@@ -303,25 +411,15 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                 >
                   <div className="flex justify-between items-center">
                     <div>
-                      <div className="font-bold">Enterprise – {t('pricing.advisory.enterprise')}</div>
-                      <div className="text-sm text-muted-foreground">{t('order.advisory.enterpriseDesc')}</div>
+                      <div className="font-bold">Enterprise – Custom solution</div>
+                      <div className="text-sm text-muted-foreground">Full custom enterprise solution</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-bold text-purple-600">{t('pricing.onRequest')}</div>
+                      <div className="text-xl font-bold text-purple-600">{t('pricing.onRequest')}</div>
                     </div>
                   </div>
                 </button>
               </div>
-
-              {isEnterpriseSelected && (
-                <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg flex items-start gap-3">
-                  <AlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-amber-800">
-                    <p className="font-semibold">{t('order.consultationRequired')}</p>
-                    <p>{t('order.consultationDesc')}</p>
-                  </div>
-                </div>
-              )}
 
               <div className="bg-purple-50 p-4 rounded-lg text-sm text-purple-800">
                 <p>{t('pricing.advisory.partner')}</p>
@@ -329,11 +427,11 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
             </div>
           )}
 
-          {/* Step 4: Contact Details & Certificate */}
+          {/* Step 4: Contact Details & Certificate Upload */}
           {step === 4 && (
             <div className="space-y-6">
               <h3 className="text-xl font-bold">{t('order.contactDetails')}</h3>
-
+              
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <Label>{t('order.companyName')} *</Label>
@@ -361,7 +459,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                   />
                 </div>
                 <div>
-                  <Label>{t('order.phone')}</Label>
+                  <Label>{t('order.phone')} ({t('order.optional')})</Label>
                   <Input
                     type="tel"
                     value={orderData.phone}
@@ -373,28 +471,27 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
 
               <div>
                 <Label>{t('order.certificate')} *</Label>
-                <p className="text-sm text-muted-foreground mb-2">{t('order.certificateDesc')}</p>
-                <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-[#00B050] transition-colors">
+                <p className="text-sm text-muted-foreground mb-2">
+                  {t('order.certificateDesc')} (≥ {getRequiredScore()})
+                </p>
+                <label className="border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:border-[#00B050] transition-colors">
+                  <Upload className="h-8 w-8 text-muted-foreground mb-2" />
+                  {orderData.certificateFile ? (
+                    <span className="text-[#00B050] font-medium">{orderData.certificateFile.name}</span>
+                  ) : (
+                    <span className="text-muted-foreground">{t('order.uploadCertificate')}</span>
+                  )}
                   <input
                     type="file"
                     accept=".pdf,.png,.jpg,.jpeg"
                     onChange={handleFileChange}
                     className="hidden"
-                    id="certificate-upload"
                   />
-                  <label htmlFor="certificate-upload" className="cursor-pointer">
-                    <Upload className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
-                    {orderData.certificateFile ? (
-                      <p className="text-[#00B050] font-medium">{orderData.certificateFile.name}</p>
-                    ) : (
-                      <p className="text-muted-foreground">{t('order.uploadCertificate')}</p>
-                    )}
-                  </label>
-                </div>
+                </label>
               </div>
 
               <div>
-                <Label>{t('order.message')}</Label>
+                <Label>{t('order.message')} ({t('order.optional')})</Label>
                 <Textarea
                   value={orderData.message}
                   onChange={(e) => setOrderData({ ...orderData, message: e.target.value })}
@@ -408,78 +505,79 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                 <h4 className="font-bold mb-4">{t('order.summary')}</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span>Cyber Assistance ({orderData.userCount} {t('order.users')})</span>
-                    <span>€{(orderData.userCount * 2 * 12).toFixed(2)}/{t('order.year')}</span>
+                    <span>Cyber Assistance ({orderData.assistancePackage === 'basic' ? 'Basic' : orderData.assistancePackage === 'pro' ? 'Pro' : 'Enterprise'}
+                      {orderData.assistancePackage !== 'enterprise' && ` - ${orderData.userCount} ${t('pricing.user')}s`})
+                    </span>
+                    <span>
+                      {orderData.assistancePackage === 'basic' ? t('pricing.assistance.basic.price') : 
+                       orderData.assistancePackage === 'pro' ? `€${(orderData.userCount * 2 * 12).toFixed(2)}/${t('pricing.year')}` :
+                       t('pricing.onRequest')}
+                    </span>
                   </div>
                   {orderData.assurance !== 'none' && (
                     <div className="flex justify-between">
                       <span>Cyber Assurance ({orderData.assurance})</span>
-                      <span>€{(orderData.userCount * (orderData.assurance === '50k' ? 0.5 : orderData.assurance === '100k' ? 1 : 2) * 12).toFixed(2)}/{t('order.year')}</span>
+                      <span>€{(orderData.userCount * (orderData.assurance === '50k' ? 0.5 : orderData.assurance === '100k' ? 1 : 2) * 12).toFixed(2)}/{t('pricing.year')}</span>
                     </div>
                   )}
-                  {orderData.advisory !== 'none' && orderData.advisory !== 'enterprise' && (
+                  {orderData.advisory !== 'none' && (
                     <div className="flex justify-between">
                       <span>Cyber Advisory ({orderData.advisory})</span>
-                      <span>€{orderData.advisory === 'light' ? '500.00' : '2,000.00'}/{t('order.year')}</span>
+                      <span>
+                        {orderData.advisory === 'light' ? '€500' : orderData.advisory === 'standard' ? '€2,000' : t('pricing.onRequest')}/{t('pricing.year')}
+                      </span>
                     </div>
                   )}
-                  {orderData.advisory === 'enterprise' && (
-                    <div className="flex justify-between text-purple-600">
-                      <span>Cyber Advisory (Enterprise)</span>
-                      <span>{t('pricing.onRequest')}</span>
-                    </div>
-                  )}
-                  <div className="border-t pt-2 mt-2 font-bold flex justify-between">
+                  <div className="border-t pt-2 mt-2 flex justify-between font-bold">
                     <span>{t('order.total')}</span>
-                    {needsConsultation ? (
-                      <span className="text-purple-600">{t('order.consultationNeeded')}</span>
-                    ) : (
-                      <span className="text-[#00B050]">€{totals.yearly}/{t('order.year')}</span>
-                    )}
+                    <span className="text-[#00B050]">
+                      {needsConsultation ? t('order.consultationRequired') : `€${totals.yearly}/${t('pricing.year')}`}
+                    </span>
                   </div>
                 </div>
               </div>
+
+              {needsConsultation && (
+                <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-amber-800">
+                      {t('order.consultationNote')}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
 
-        {/* Footer */}
+        {/* Footer Navigation */}
         <div className="sticky bottom-0 bg-white border-t p-6 flex justify-between">
-          {step > 1 ? (
-            <Button variant="outline" onClick={() => setStep(step - 1)}>
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              {t('order.back')}
-            </Button>
-          ) : (
-            <Button variant="outline" onClick={onClose}>
-              {t('order.cancel')}
-            </Button>
-          )}
+          <Button
+            variant="outline"
+            onClick={() => step > 1 ? setStep(step - 1) : onClose}
+            className="gap-2"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {step > 1 ? t('order.back') : t('order.cancel')}
+          </Button>
 
           {step < 4 ? (
-            <Button onClick={() => setStep(step + 1)} className="bg-[#00B050] hover:bg-[#00873D]">
+            <Button
+              onClick={() => setStep(step + 1)}
+              className="bg-[#00B050] hover:bg-[#00873D] gap-2"
+            >
               {t('order.next')}
-              <ArrowRight className="h-4 w-4 ml-2" />
+              <ArrowRight className="h-4 w-4" />
             </Button>
           ) : (
             <Button
               onClick={handleSubmit}
               disabled={isSubmitting || !orderData.companyName || !orderData.contactName || !orderData.email || !orderData.certificateFile}
-              className="bg-[#00B050] hover:bg-[#00873D]"
+              className="bg-[#00B050] hover:bg-[#00873D] gap-2"
             >
-              {isSubmitting ? (
-                t('order.submitting')
-              ) : needsConsultation ? (
-                <>
-                  {t('order.requestConsultation')}
-                  <Send className="h-4 w-4 ml-2" />
-                </>
-              ) : (
-                <>
-                  {t('order.submit')}
-                  <Send className="h-4 w-4 ml-2" />
-                </>
-              )}
+              {isSubmitting ? t('order.submitting') : needsConsultation ? t('order.requestConsultation') : t('order.submit')}
+              <Send className="h-4 w-4" />
             </Button>
           )}
         </div>
