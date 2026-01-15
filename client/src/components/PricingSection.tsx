@@ -203,14 +203,17 @@ export default function PricingSection() {
               <div className="text-center mb-6">
                 <div className="text-sm text-muted-foreground mb-2">{t('pricing.assurance.coverage')}</div>
                 <div className="space-y-2">
-                  <div className="px-4 py-2 bg-slate-50 rounded text-center">
+                  <div className="px-4 py-2 bg-slate-50 rounded flex justify-between items-center">
                     <span className="font-bold text-blue-600">€50,000</span>
+                    <span className="text-sm text-muted-foreground">200€ / {t('pricing.year')}</span>
                   </div>
-                  <div className="px-4 py-2 bg-slate-50 rounded text-center">
+                  <div className="px-4 py-2 bg-slate-50 rounded flex justify-between items-center">
                     <span className="font-bold text-blue-600">€100,000</span>
+                    <span className="text-sm text-muted-foreground">350€ / {t('pricing.year')}</span>
                   </div>
-                  <div className="px-4 py-2 bg-slate-50 rounded text-center">
+                  <div className="px-4 py-2 bg-slate-50 rounded flex justify-between items-center">
                     <span className="font-bold text-blue-600">€250,000</span>
+                    <span className="text-sm text-muted-foreground">750€ / {t('pricing.year')}</span>
                   </div>
                   <div className="px-4 py-3 bg-blue-50 rounded border border-blue-200 text-center">
                     <div className="font-bold text-blue-600">Enterprise</div>
