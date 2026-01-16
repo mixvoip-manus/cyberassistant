@@ -246,7 +246,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.terms': 'Terms & Conditions',
     'footer.contact': 'Contact',
     'footer.address': '70, rue des Prés, L-7333 Steinsel',
-    'footer.copyright': '© 2025 Mixvoip SA. All rights reserved.',
+    'footer.copyright': '© 2026 Mixvoip SA. All rights reserved.',
     'footer.offices': 'Office Locations',
     'footer.downloadBrochure': 'Download Brochure',
     
@@ -695,7 +695,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.terms': 'Conditions générales',
     'footer.contact': 'Contact',
     'footer.address': '70, rue des Prés, L-7333 Steinsel',
-    'footer.copyright': '© 2025 Mixvoip SA. Tous droits réservés.',
+    'footer.copyright': '© 2026 Mixvoip SA. Tous droits réservés.',
     'footer.offices': 'Nos bureaux',
     'footer.downloadBrochure': 'Télécharger la brochure',
     
@@ -1143,7 +1143,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.terms': 'AGB',
     'footer.contact': 'Kontakt',
     'footer.address': '70, rue des Prés, L-7333 Steinsel',
-    'footer.copyright': '© 2025 Mixvoip SA. Alle Rechte vorbehalten.',
+    'footer.copyright': '© 2026 Mixvoip SA. Alle Rechte vorbehalten.',
     'footer.offices': 'Standorte',
     'footer.downloadBrochure': 'Broschüre herunterladen',
     

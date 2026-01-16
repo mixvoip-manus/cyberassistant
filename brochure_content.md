@@ -2,7 +2,7 @@
 
 **Comprehensive cyber insurance protection for SMEs in Luxembourg and the Greater Region**
 
-INFORMATION BROCHURE 2025
+INFORMATION BROCHURE 2026
 
 ---
 
@@ -353,5 +353,5 @@ F-57000 Metz
 
 Get a personalized quote at **www.mixvoip.com/cyber**
 
-© 2025 Mixvoip S.A. All rights reserved.
+© 2026 Mixvoip S.A. All rights reserved.
 70, rue des Prés, L-7333 Steinsel, Luxembourg
