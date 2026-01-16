@@ -191,7 +191,7 @@ export default function PricingSection() {
 
         {/* Self-Qualification & False Alarm Policy Section */}
         <div className="mb-16 max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="bg-white rounded-t-2xl shadow-lg overflow-hidden">
             <div className="bg-amber-500 text-white p-4 text-center">
               <h3 className="text-xl font-bold">{t('pricing.selfQualification.title')}</h3>
               <p className="text-amber-100 text-sm mt-1">{t('pricing.selfQualification.subtitle')}</p>
@@ -213,10 +213,7 @@ export default function PricingSection() {
                   </ul>
                   <div className="mt-4 pt-4 border-t border-slate-200">
                     <p className="text-sm font-medium text-slate-700 mb-2">{t('pricing.selfQualification.notCyber.action')}</p>
-                    <div className="space-y-2">
-                      <a href="https://www.mixvoip.com/sla/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip SLA</a>
-                      <a href="https://www.mixvoip.com/contact/support/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip Support</a>
-                    </div>
+                    <a href="https://www.mixvoip.com/sla/" target="_blank" rel="noopener noreferrer" className="inline-block text-sm text-blue-600 hover:underline">→ Mixvoip SLA</a>
                   </div>
                 </div>
                 {/* Is a Cyber Emergency */}
@@ -233,12 +230,7 @@ export default function PricingSection() {
                     <li>• {t('pricing.selfQualification.isCyber.item5')}</li>
                   </ul>
                   <div className="mt-4 pt-4 border-t border-red-200">
-                    <p className="text-sm font-bold text-red-700 mb-2">{t('pricing.selfQualification.isCyber.action')}</p>
-                    <p className="text-sm font-medium text-slate-700 mb-2">{t('pricing.selfQualification.notCyber.action')}</p>
-                    <div className="space-y-2">
-                      <a href="https://www.mixvoip.com/sla/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip SLA</a>
-                      <a href="https://www.mixvoip.com/contact/support/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip Support</a>
-                    </div>
+                    <p className="text-sm font-bold text-red-700">{t('pricing.selfQualification.isCyber.action')}</p>
                   </div>
                 </div>
               </div>
@@ -262,6 +254,17 @@ export default function PricingSection() {
                 </div>
               </div>
             </div>
+          </div>
+          {/* Shared Mixvoip Support Button */}
+          <div className="bg-slate-700 rounded-b-2xl p-6 text-center">
+            <a 
+              href="https://www.mixvoip.com/contact/support/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block bg-white text-blue-600 font-medium px-8 py-3 rounded-lg hover:bg-slate-100 transition-colors shadow-md"
+            >
+              → Mixvoip Support
+            </a>
           </div>
         </div>
 
