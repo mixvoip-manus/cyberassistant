@@ -42,11 +42,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* Logo & Description */}
           <div>
-            <img
-              src="/images/Mixvoip-logo-white-green-slash-RGB.png"
-              alt="Mixvoip"
-              className="h-10 w-auto mb-4"
-            />
+            <a href="https://www.mixvoip.com">
+              <img
+                src="/images/Mixvoip-logo-white-green-slash-RGB.png"
+                alt="Mixvoip"
+                className="h-10 w-auto mb-4"
+              />
+            </a>
             <p className="text-slate-400 text-sm leading-relaxed max-w-md mb-6">
               {t('footer.disclaimer')}
             </p>
