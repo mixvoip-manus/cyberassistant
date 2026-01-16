@@ -233,7 +233,12 @@ export default function PricingSection() {
                     <li>• {t('pricing.selfQualification.isCyber.item5')}</li>
                   </ul>
                   <div className="mt-4 pt-4 border-t border-red-200">
-                    <p className="text-sm font-bold text-red-700">{t('pricing.selfQualification.isCyber.action')}</p>
+                    <p className="text-sm font-bold text-red-700 mb-2">{t('pricing.selfQualification.isCyber.action')}</p>
+                    <p className="text-sm font-medium text-slate-700 mb-2">{t('pricing.selfQualification.notCyber.action')}</p>
+                    <div className="space-y-2">
+                      <a href="https://www.mixvoip.com/sla/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip SLA</a>
+                      <a href="https://www.mixvoip.com/contact/support/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip Support</a>
+                    </div>
                   </div>
                 </div>
               </div>

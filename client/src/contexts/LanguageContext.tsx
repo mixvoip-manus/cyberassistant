@@ -319,7 +319,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.action': '☎ Call Cyber Assistance Hotline immediately!',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'False Alarm Policy',
-    'pricing.falseAlarm.basic': 'First 2 false alarms/year free, then 50€/incident',
+    'pricing.falseAlarm.basic': 'First 2 false alarms/year free, then 50€/false alarm',
     'pricing.falseAlarm.pro': 'Unlimited, redirect to IT support for non-cyber issues',
     'pricing.falseAlarm.enterprise': 'According to contract terms',
     'pricing.cta.text': 'Ready to protect your business? Start with the Fit4Cybersecurity Assessment.',
@@ -768,7 +768,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.action': '☎ Appelez la hotline Cyber Assistance immédiatement !',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'Politique de fausse alerte',
-    'pricing.falseAlarm.basic': '2 premières fausses alertes/an gratuites, puis 50€/incident',
+    'pricing.falseAlarm.basic': '2 premières fausses alertes/an gratuites, puis 50€/fausse alerte',
     'pricing.falseAlarm.pro': 'Illimité, redirection vers le support IT pour les problèmes non-cyber',
     'pricing.falseAlarm.enterprise': 'Selon les clauses du contrat',
     'pricing.cta.text': 'Prêt à protéger votre entreprise ? Commencez par l\'évaluation Fit4Cybersecurity.',
@@ -1216,7 +1216,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.action': '☎ Rufen Sie sofort die Cyber Assistance Hotline an!',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'Fehlalarm-Regelung',
-    'pricing.falseAlarm.basic': 'Erste 2 Fehlalarme/Jahr kostenlos, danach 50€/Vorfall',
+    'pricing.falseAlarm.basic': 'Erste 2 Fehlalarme/Jahr kostenlos, danach 50€/Fehlalarm',
     'pricing.falseAlarm.pro': 'Unbegrenzt, Weiterleitung an IT-Support bei Nicht-Cyber-Problemen',
     'pricing.falseAlarm.enterprise': 'Entsprechend den Vertragsklauseln',
     'pricing.cta.text': 'Bereit, Ihr Unternehmen zu schützen? Starten Sie mit dem Fit4Cybersecurity Assessment.',
