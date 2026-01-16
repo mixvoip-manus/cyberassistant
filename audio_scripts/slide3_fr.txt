@@ -1,0 +1,17 @@
+Et maintenant, le moment de révélation. Pour votre informatique, c'est exactement la même chose, on l'appelle juste différemment.
+
+En préparation: Le spécialiste IT a mis en place vos systèmes, c'est votre partenaire SLA. L'expert cyber fait des évaluations régulières, comme le test Fit4Cybersecurity. Un agent d'assurance vous propose une cyber-assurance. Et le DPO s'occupe du RGPD et de la conformité.
+
+Maintenant, le pire arrive: Un ransomware. Tout est chiffré. Plus rien ne fonctionne.
+
+Que se passe-t-il maintenant? Cyber Assistance, c'est votre brigade de pompiers numérique. Ils arrivent immédiatement, 24 heures sur 24, 7 jours sur 7, et vous remettent en ligne. Cyber Assurance, c'est votre assurance. Elle paie les dommages financiers. Cyber Advisory, c'est votre protection juridique. Ils aident pour les déclarations CNPD et les violations RGPD. Et à la fin, l'intégrateur IT restaure tout.
+
+Maintenant, la question décisive: Si demain matin vous arrivez au bureau et que tous les écrans affichent "Payez 50.000 euros en Bitcoin", appelez-vous votre prestataire IT qui entretient normalement vos serveurs?
+
+Il a un contrat SLA. Il s'occupe des imprimantes, des mises à jour, du réseau. Il n'est pas formé pour négocier avec des rançonneurs. Il ne sait pas comment gérer des extorqueurs.
+
+C'est comme appeler le technicien de chauffage quand votre maison brûle.
+
+C'est pourquoi: SLA n'est pas égal à Cyber Assistance n'est pas égal à Cyber Advisory et n'est pas égal à Cyber Assurance.
+
+Assistance immédiate, assurance, protection juridique – trois composants séparés pour votre sécurité informatique.

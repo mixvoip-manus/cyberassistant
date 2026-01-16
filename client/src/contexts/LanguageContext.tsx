@@ -421,7 +421,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: House Scenario Slide
     'presentation.slideHouse.title': 'You Already Know This',
     'presentation.slideHouse.subtitle': 'This is how it works with your house – a process everyone understands',
-    'presentation.slideHouse.footer': 'MAINTENANCE CONTRACT ≠ INSURANCE ≠ LEGAL PROTECTION',
+    'presentation.slideHouse.footer': 'MAINTENANCE CONTRACT ≠ FIRE BRIGADE ≠ INSURANCE ≠ LEGAL PROTECTION',
     'presentation.slideHouse.legendTitle': "Who's Who",
     'presentation.slideHouse.prepTitle': 'Preparation',
     'presentation.slideHouse.prep1': 'Builder – Construction',
@@ -437,7 +437,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: Cyber Scenario Slide
     'presentation.slideCyber.title': 'The Same Applies to Your IT',
     'presentation.slideCyber.subtitle': 'The direct translation – with partners you can freely choose',
-    'presentation.slideCyber.footer': 'SLA ≠ CYBER ASSISTANCE ≠ CYBER ADVISORY',
+    'presentation.slideCyber.footer': 'SLA ≠ CYBER ASSISTANCE ≠ CYBER ASSURANCE ≠ CYBER ADVISORY',
     'presentation.slideCyber.legendTitle': "Who's Who",
     'presentation.slideCyber.prepTitle': 'Preparation',
     'presentation.slideCyber.prep1': 'IT Specialist – SLA',
@@ -449,6 +449,12 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slideCyber.emergency2': 'Cyber Assurance',
     'presentation.slideCyber.emergency3': 'Cyber Advisory',
     'presentation.slideCyber.emergency4': 'IT Integrator – Restore',
+    
+    // Audio button
+    'presentation.audio.play': 'Play audio',
+    'presentation.audio.stop': 'Stop audio',
+    'presentation.audio.listenBtn': 'Listen',
+    'presentation.audio.stopBtn': 'Stop',
     
     // Timeline Slide
     'presentation.slideTimeline.title': 'The Complete Process',
@@ -869,7 +875,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: House Scenario Slide
     'presentation.slideHouse.title': 'Vous connaissez déjà ça',
     'presentation.slideHouse.subtitle': 'Voici comment ça fonctionne avec votre maison – un processus que tout le monde comprend',
-    'presentation.slideHouse.footer': 'CONTRAT D\'ENTRETIEN ≠ ASSURANCE ≠ PROTECTION JURIDIQUE',
+    'presentation.slideHouse.footer': 'CONTRAT D\'ENTRETIEN ≠ POMPIERS ≠ ASSURANCE ≠ PROTECTION JURIDIQUE',
     'presentation.slideHouse.legendTitle': 'Qui est qui',
     'presentation.slideHouse.prepTitle': 'Préparation',
     'presentation.slideHouse.prep1': 'Constructeur – Construction',
@@ -885,7 +891,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: Cyber Scenario Slide
     'presentation.slideCyber.title': 'C\'est pareil pour votre IT',
     'presentation.slideCyber.subtitle': 'La traduction directe – avec des partenaires que vous choisissez librement',
-    'presentation.slideCyber.footer': 'SLA ≠ CYBER ASSISTANCE ≠ CYBER ADVISORY',
+    'presentation.slideCyber.footer': 'SLA ≠ CYBER ASSISTANCE ≠ CYBER ASSURANCE ≠ CYBER ADVISORY',
     'presentation.slideCyber.legendTitle': 'Qui est qui',
     'presentation.slideCyber.prepTitle': 'Préparation',
     'presentation.slideCyber.prep1': 'Spécialiste IT – SLA',
@@ -897,6 +903,12 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slideCyber.emergency2': 'Cyber Assurance',
     'presentation.slideCyber.emergency3': 'Cyber Advisory',
     'presentation.slideCyber.emergency4': 'Intégrateur IT – Restauration',
+    
+    // Audio button
+    'presentation.audio.play': 'Écouter l\'audio',
+    'presentation.audio.stop': 'Arrêter l\'audio',
+    'presentation.audio.listenBtn': 'Écouter',
+    'presentation.audio.stopBtn': 'Arrêter',
     
     // Timeline Slide
     'presentation.slideTimeline.title': 'Le Processus Complet',
@@ -1317,7 +1329,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: House Scenario Slide
     'presentation.slideHouse.title': 'Das kennen Sie bereits',
     'presentation.slideHouse.subtitle': 'So funktioniert es mit Ihrem Haus – ein Prozess, den jeder versteht',
-    'presentation.slideHouse.footer': 'WARTUNGSVERTRAG ≠ VERSICHERUNG ≠ RECHTSSCHUTZ',
+    'presentation.slideHouse.footer': 'WARTUNGSVERTRAG ≠ FEUERWEHR ≠ VERSICHERUNG ≠ RECHTSSCHUTZ',
     'presentation.slideHouse.legendTitle': 'Wer ist wer',
     'presentation.slideHouse.prepTitle': 'Vorbereitung',
     'presentation.slideHouse.prep1': 'Bauarbeiter – Bau',
@@ -1333,7 +1345,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: Cyber Scenario Slide
     'presentation.slideCyber.title': 'Genauso funktioniert Ihre IT',
     'presentation.slideCyber.subtitle': 'Die direkte Übersetzung – mit Partnern, die Sie frei wählen können',
-    'presentation.slideCyber.footer': 'SLA ≠ CYBER ASSISTANCE ≠ CYBER ADVISORY',
+    'presentation.slideCyber.footer': 'SLA ≠ CYBER ASSISTANCE ≠ CYBER ASSURANCE ≠ CYBER ADVISORY',
     'presentation.slideCyber.legendTitle': 'Wer ist wer',
     'presentation.slideCyber.prepTitle': 'Vorbereitung',
     'presentation.slideCyber.prep1': 'IT-Spezialist – SLA',
@@ -1345,6 +1357,12 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slideCyber.emergency2': 'Cyber Assurance',
     'presentation.slideCyber.emergency3': 'Cyber Advisory',
     'presentation.slideCyber.emergency4': 'IT-Integrator – Wiederherstellung',
+    
+    // Audio button
+    'presentation.audio.play': 'Audio abspielen',
+    'presentation.audio.stop': 'Audio stoppen',
+    'presentation.audio.listenBtn': 'Anhören',
+    'presentation.audio.stopBtn': 'Stopp',
     
     // Timeline Slide
     'presentation.slideTimeline.title': 'Der komplette Prozess',

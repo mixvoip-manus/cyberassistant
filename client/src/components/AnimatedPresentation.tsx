@@ -175,10 +175,20 @@ const slides: Slide[] = [
   },
 ];
 
-// Audio files for slides (German only for now)
-const slideAudioFiles: Record<number, string> = {
-  1: '/audio/slide2_de.wav', // House slide (index 1)
-  2: '/audio/slide3_de.wav', // Cyber slide (index 2)
+// Audio files for slides by language
+const slideAudioFiles: Record<string, Record<number, string>> = {
+  de: {
+    1: '/audio/slide2_de.wav', // House slide (index 1)
+    2: '/audio/slide3_de.wav', // Cyber slide (index 2)
+  },
+  fr: {
+    1: '/audio/slide2_fr.wav', // House slide (index 1)
+    2: '/audio/slide3_fr.wav', // Cyber slide (index 2)
+  },
+  en: {
+    1: '/audio/slide2_en.wav', // House slide (index 1)
+    2: '/audio/slide3_en.wav', // Cyber slide (index 2)
+  },
 };
 
 export default function AnimatedPresentation() {
@@ -217,8 +227,10 @@ export default function AnimatedPresentation() {
 
   // Toggle audio playback for current slide
   const toggleAudio = useCallback(() => {
-    const audioFile = slideAudioFiles[currentSlide];
-    if (!audioFile || language !== 'de') return;
+    const langAudioFiles = slideAudioFiles[language];
+    if (!langAudioFiles) return;
+    const audioFile = langAudioFiles[currentSlide];
+    if (!audioFile) return;
 
     if (isAudioPlaying && audioRef.current) {
       audioRef.current.pause();
@@ -271,8 +283,8 @@ export default function AnimatedPresentation() {
         <p className="text-sm text-slate-600">
           {t(slide.subtitleKey)}
         </p>
-        {/* Audio Play Button - only for slides 1 and 2 (House and Cyber) and only in German */}
-        {slideAudioFiles[currentSlide] && language === 'de' && (
+        {/* Audio Play Button - only for slides 1 and 2 (House and Cyber) */}
+        {slideAudioFiles[language]?.[currentSlide] && (
           <button
             onClick={toggleAudio}
             className={`absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
@@ -280,12 +292,12 @@ export default function AnimatedPresentation() {
                 ? 'bg-red-500 text-white hover:bg-red-600' 
                 : 'bg-[#00B050] text-white hover:bg-[#00963f]'
             }`}
-            title={isAudioPlaying ? 'Audio stoppen' : 'Audio abspielen'}
+            title={isAudioPlaying ? t('presentation.audio.stop') : t('presentation.audio.play')}
           >
             {isAudioPlaying ? (
-              <><VolumeX className="h-4 w-4" /> Stopp</>
+              <><VolumeX className="h-4 w-4" /> {t('presentation.audio.stopBtn')}</>
             ) : (
-              <><Volume2 className="h-4 w-4" /> Anhören</>
+              <><Volume2 className="h-4 w-4" /> {t('presentation.audio.listenBtn')}</>
             )}
           </button>
         )}

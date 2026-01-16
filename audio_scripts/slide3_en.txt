@@ -1,0 +1,17 @@
+And now comes the aha moment. For your IT, it's exactly the same, we just call it differently.
+
+In preparation: The IT specialist set up your systems, that's your SLA partner. The cyber expert does regular assessments, like the Fit4Cybersecurity test. An insurance agent offers you cyber insurance. And the DPO takes care of GDPR and compliance.
+
+Now the worst happens: Ransomware. Everything is encrypted. Nothing works anymore.
+
+What happens now? Cyber Assistance, that's your digital fire brigade. They arrive immediately, 24 hours a day, 7 days a week, and get you back online. Cyber Assurance, that's your insurance. It pays for the financial damage. Cyber Advisory, that's your legal protection. They help with CNPD notifications and GDPR violations. And in the end, the IT integrator restores everything.
+
+Now the crucial question: If tomorrow morning you arrive at the office and all screens display "Pay 50,000 euros in Bitcoin", do you call your IT provider who normally maintains your servers?
+
+He has an SLA contract. He takes care of printers, updates, network. He's not trained for ransomware negotiations. He doesn't know how to deal with extortionists.
+
+That's like calling the heating technician when your house is on fire.
+
+That's why: SLA is not equal to Cyber Assistance is not equal to Cyber Advisory and is not equal to Cyber Assurance.
+
+Immediate response, insurance, legal protection – three separate building blocks for your IT security.
