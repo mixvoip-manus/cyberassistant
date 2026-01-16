@@ -189,6 +189,77 @@ export default function PricingSection() {
           </div>
         </div>
 
+        {/* Self-Qualification & False Alarm Policy Section */}
+        <div className="mb-16 max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-amber-500 text-white p-4 text-center">
+              <h3 className="text-xl font-bold">{t('pricing.selfQualification.title')}</h3>
+              <p className="text-amber-100 text-sm mt-1">{t('pricing.selfQualification.subtitle')}</p>
+            </div>
+            <div className="p-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Not a Cyber Emergency */}
+                <div className="bg-slate-50 rounded-xl p-4">
+                  <h4 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
+                    <span className="text-red-500">✗</span>
+                    {t('pricing.selfQualification.notCyber.title')}
+                  </h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• {t('pricing.selfQualification.notCyber.item1')}</li>
+                    <li>• {t('pricing.selfQualification.notCyber.item2')}</li>
+                    <li>• {t('pricing.selfQualification.notCyber.item3')}</li>
+                    <li>• {t('pricing.selfQualification.notCyber.item4')}</li>
+                    <li>• {t('pricing.selfQualification.notCyber.item5')}</li>
+                  </ul>
+                  <div className="mt-4 pt-4 border-t border-slate-200">
+                    <p className="text-sm font-medium text-slate-700 mb-2">{t('pricing.selfQualification.notCyber.action')}</p>
+                    <div className="space-y-2">
+                      <a href="https://www.mixvoip.com/sla/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip SLA</a>
+                      <a href="https://www.mixvoip.com/contact/support/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-600 hover:underline">→ Mixvoip Support</a>
+                    </div>
+                  </div>
+                </div>
+                {/* Is a Cyber Emergency */}
+                <div className="bg-red-50 rounded-xl p-4 border-2 border-red-200">
+                  <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2">
+                    <span className="text-green-500">✓</span>
+                    {t('pricing.selfQualification.isCyber.title')}
+                  </h4>
+                  <ul className="space-y-2 text-sm text-red-700">
+                    <li>• {t('pricing.selfQualification.isCyber.item1')}</li>
+                    <li>• {t('pricing.selfQualification.isCyber.item2')}</li>
+                    <li>• {t('pricing.selfQualification.isCyber.item3')}</li>
+                    <li>• {t('pricing.selfQualification.isCyber.item4')}</li>
+                    <li>• {t('pricing.selfQualification.isCyber.item5')}</li>
+                  </ul>
+                  <div className="mt-4 pt-4 border-t border-red-200">
+                    <p className="text-sm font-bold text-red-700">{t('pricing.selfQualification.isCyber.action')}</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* False Alarm Policy */}
+              <div className="mt-6 pt-6 border-t border-slate-200">
+                <h4 className="font-bold text-slate-800 mb-4">{t('pricing.falseAlarm.title')}</h4>
+                <div className="grid md:grid-cols-3 gap-4 text-sm">
+                  <div className="bg-[#4A90D9]/10 rounded-lg p-3">
+                    <div className="font-bold text-[#4A90D9]">Basic</div>
+                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.basic')}</div>
+                  </div>
+                  <div className="bg-[#E63946]/10 rounded-lg p-3">
+                    <div className="font-bold text-[#E63946]">Pro</div>
+                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.pro')}</div>
+                  </div>
+                  <div className="bg-slate-100 rounded-lg p-3">
+                    <div className="font-bold text-slate-800">Enterprise</div>
+                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.enterprise')}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Other Products Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           
@@ -203,17 +274,26 @@ export default function PricingSection() {
               <div className="text-center mb-6">
                 <div className="text-sm text-muted-foreground mb-2">{t('pricing.assurance.coverage')}</div>
                 <div className="space-y-2">
-                  <div className="px-4 py-2 bg-slate-50 rounded flex justify-between items-center">
-                    <span className="font-bold text-blue-600">€50,000</span>
-                    <span className="text-sm text-muted-foreground">200€ / {t('pricing.year')}</span>
+                  <div className="px-4 py-2 bg-slate-50 rounded">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-blue-600">€50,000</span>
+                      <span className="text-sm text-muted-foreground">200€ / {t('pricing.year')}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{t('pricing.assurance.deductible')}: 500€</div>
                   </div>
-                  <div className="px-4 py-2 bg-slate-50 rounded flex justify-between items-center">
-                    <span className="font-bold text-blue-600">€100,000</span>
-                    <span className="text-sm text-muted-foreground">350€ / {t('pricing.year')}</span>
+                  <div className="px-4 py-2 bg-slate-50 rounded">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-blue-600">€100,000</span>
+                      <span className="text-sm text-muted-foreground">350€ / {t('pricing.year')}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{t('pricing.assurance.deductible')}: 1.000€</div>
                   </div>
-                  <div className="px-4 py-2 bg-slate-50 rounded flex justify-between items-center">
-                    <span className="font-bold text-blue-600">€250,000</span>
-                    <span className="text-sm text-muted-foreground">750€ / {t('pricing.year')}</span>
+                  <div className="px-4 py-2 bg-slate-50 rounded">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-blue-600">€250,000</span>
+                      <span className="text-sm text-muted-foreground">750€ / {t('pricing.year')}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{t('pricing.assurance.deductible')}: 2.500€</div>
                   </div>
                   <div className="px-4 py-3 bg-blue-50 rounded border border-blue-200 text-center">
                     <div className="font-bold text-blue-600">Enterprise</div>
@@ -234,7 +314,7 @@ export default function PricingSection() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">{t('pricing.assurance.feature3')}</span>
+                  <span className="text-sm">{t('pricing.assurance.feature3New')}</span>
                 </li>
               </ul>
               <div className="flex items-start gap-2 text-xs text-muted-foreground bg-blue-50 p-3 rounded">
