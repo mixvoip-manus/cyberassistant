@@ -243,9 +243,9 @@ Choose the plan that fits your business needs. All plans include 24/7 emergency 
 | Cybercrime & Fraud | 10.000€ | 30.000€ | 50.000€ |
 | Employee Training | Basic | Advanced | Premium |
 | **Required Fit4Cyber Score** | ≥60% | ≥60% | Individual |
-| **Monthly Premium (from)** | Free* | 2€/user | Custom |
+| **Monthly Premium (from)** | Free* | 2€ / user | Custom |
 
-*Basic plan is free for existing Mixvoip customers. Pro plan starts at 2€/user/month. Contact us for Enterprise pricing.
+*Basic plan is free for existing Mixvoip customers. Pro plan starts at 2€ / user/month. Contact us for Enterprise pricing.
 
 ### Cyber Assistance False Alarm Policy
 
@@ -253,7 +253,7 @@ To ensure efficient use of emergency resources, the following false alarm policy
 
 | Plan | False Alarm Policy |
 |------|-------------------|
-| **Basic** | First 2 false alarms/year free, then €50/false alarm |
+| **Basic** | First 2 false alarms/year free, then 50€ / false alarm |
 | **Pro** | Unlimited, redirect to IT support for non-cyber issues |
 | **Enterprise** | According to contract terms |
 
@@ -263,9 +263,9 @@ Optional insurance coverage for financial losses. Requires Fit4Cybersecurity sco
 
 | Coverage Amount | Annual Premium | Deductible |
 |-----------------|----------------|------------|
-| 50.000€ | 200€/year | 500€ |
-| 100.000€ | 350€/year | 1.000€ |
-| 250.000€ | 750€/year | 2.500€ |
+| 50.000€ | 200€ / year | 500€ |
+| 100.000€ | 350€ / year | 1.000€ |
+| 250.000€ | 750€ / year | 2.500€ |
 | Enterprise | On request | Individual |
 
 ### 💡 Recommended Plan

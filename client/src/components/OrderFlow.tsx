@@ -212,7 +212,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                     </div>
                     <div className="text-right">
                       <div className="text-xl font-bold text-[#E63946]">2€</div>
-                      <div className="text-xs text-muted-foreground">{t('pricing.perUserMonth')}</div>
+                      <div className="text-xs text-muted-foreground">/ {t('pricing.perUserMonth')}</div>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
@@ -326,7 +326,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                       </div>
                       <div className="text-right">
                         <div className="text-xl font-bold text-blue-600">{option.price}</div>
-                        <div className="text-xs text-muted-foreground">{t('pricing.perUserMonth')}</div>
+                        <div className="text-xs text-muted-foreground">/ {t('pricing.perUserMonth')}</div>
                       </div>
                     </div>
                   </button>
@@ -378,7 +378,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                     </div>
                     <div className="text-right">
                       <div className="text-xl font-bold text-purple-600">500€</div>
-                      <div className="text-xs text-muted-foreground">{t('pricing.year')}</div>
+                      <div className="text-xs text-muted-foreground">/ {t('pricing.year')}</div>
                     </div>
                   </div>
                 </button>
@@ -397,7 +397,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                     </div>
                     <div className="text-right">
                       <div className="text-xl font-bold text-purple-600">2.000€</div>
-                      <div className="text-xs text-muted-foreground">{t('pricing.year')}</div>
+                      <div className="text-xs text-muted-foreground">/ {t('pricing.year')}</div>
                     </div>
                   </div>
                 </button>
@@ -524,14 +524,14 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                     <div className="flex justify-between">
                       <span>Cyber Advisory ({orderData.advisory})</span>
                       <span>
-                        {orderData.advisory === 'light' ? '500€' : orderData.advisory === 'standard' ? '2.000€' : t('pricing.onRequest')}/{t('pricing.year')}
+                        {orderData.advisory === 'light' ? '500€' : orderData.advisory === 'standard' ? '2.000€' : t('pricing.onRequest')} / {t('pricing.year')}
                       </span>
                     </div>
                   )}
                   <div className="border-t pt-2 mt-2 flex justify-between font-bold">
                     <span>{t('order.total')}</span>
                     <span className="text-[#00B050]">
-                      {needsConsultation ? t('order.consultationRequired') : `${totals.yearly}€/${t('pricing.year')}`}
+                      {needsConsultation ? t('order.consultationRequired') : `${totals.yearly}€ / ${t('pricing.year')}`}
                     </span>
                   </div>
                 </div>

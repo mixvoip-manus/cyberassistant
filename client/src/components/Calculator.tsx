@@ -484,8 +484,8 @@ export default function Calculator() {
           <div className="grid grid-cols-3 gap-3">
             {[
               { value: '50k', label: t('package.insurance.option1'), price: '+0€' },
-              { value: '100k', label: t('package.insurance.option2'), price: '+1€/user' },
-              { value: '250k', label: t('package.insurance.option3'), price: '+2€/user' },
+              { value: '100k', label: t('package.insurance.option2'), price: '+1€ / user' },
+              { value: '250k', label: t('package.insurance.option3'), price: '+2€ / user' },
             ].map((option) => (
               <button
                 key={option.value}

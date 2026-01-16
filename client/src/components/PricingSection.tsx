@@ -91,7 +91,7 @@ export default function PricingSection() {
                   <h4 className="text-xl font-bold text-[#E63946]">{t('pricing.assistance.pro.title')}</h4>
                   <div className="mt-3">
                     <span className="text-3xl font-bold text-[#E63946]">2€</span>
-                    <span className="text-muted-foreground">/{t('pricing.perUserMonth')}</span>
+                    <span className="text-muted-foreground"> / {t('pricing.perUserMonth')}</span>
                   </div>
                   <p className="text-sm text-muted-foreground mt-1">{t('pricing.yearlyContract')}</p>
                 </div>
@@ -345,12 +345,12 @@ export default function PricingSection() {
                   <div className="px-4 py-3 bg-slate-50 rounded">
                     <div className="font-bold text-purple-600">Light</div>
                     <div className="text-sm text-muted-foreground">DPO as a Service</div>
-                    <div className="text-xl font-bold mt-1">500€<span className="text-sm font-normal text-muted-foreground">/{t('pricing.year')}</span></div>
+                    <div className="text-xl font-bold mt-1">500€<span className="text-sm font-normal text-muted-foreground"> / {t('pricing.year')}</span></div>
                   </div>
                   <div className="px-4 py-3 bg-slate-50 rounded">
                     <div className="font-bold text-purple-600">Standard</div>
                     <div className="text-sm text-muted-foreground">CISO as a Service</div>
-                    <div className="text-xl font-bold mt-1">2.000€<span className="text-sm font-normal text-muted-foreground">/{t('pricing.year')}</span></div>
+                    <div className="text-xl font-bold mt-1">2.000€<span className="text-sm font-normal text-muted-foreground"> / {t('pricing.year')}</span></div>
                   </div>
                   <div className="px-4 py-3 bg-purple-50 rounded border border-purple-200">
                     <div className="font-bold text-purple-600">Enterprise</div>
