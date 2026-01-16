@@ -1,0 +1,17 @@
+Und jetzt kommt der Aha-Moment. Bei Ihrer IT ist es exakt dasselbe, nur nennen wir es anders.
+
+In der Vorbereitung: Der IT-Spezialist hat Ihre Systeme aufgebaut, das ist Ihr SLA-Partner. Der Cyber-Experte macht regelmäßige Assessments, wie der Fit4Cybersecurity-Test. Ein Versicherungsagent bietet Ihnen eine Cyber-Versicherung an. Und der DPO kümmert sich um DSGVO und Compliance.
+
+Jetzt passiert das Schlimmste: Ransomware. Alles ist verschlüsselt. Nichts geht mehr.
+
+Was passiert jetzt? Cyber Assistance, das ist Ihre digitale Feuerwehr. Die kommen sofort, 24 Stunden am Tag, 7 Tage die Woche, und bringen Sie wieder online. Cyber Assurance, das ist Ihre Versicherung. Die zahlt den finanziellen Schaden. Cyber Advisory, das ist Ihr Rechtsschutz. Die helfen bei CNPD-Meldungen und DSGVO-Verstößen. Und am Ende stellt der IT-Integrator alles wieder her.
+
+Jetzt die entscheidende Frage: Wenn Sie morgen früh ins Büro kommen und auf allen Bildschirmen steht "Zahlen Sie 50.000 Euro in Bitcoin", rufen Sie dann Ihren IT-Dienstleister an, der sonst Ihre Server wartet?
+
+Der hat einen SLA-Vertrag. Der kümmert sich um Drucker, Updates, Netzwerk. Der ist nicht ausgebildet für Ransomware-Verhandlungen. Der weiß nicht, wie man mit Erpressern umgeht.
+
+Das ist, als würden Sie bei einem Hausbrand den Heizungstechniker anrufen.
+
+Deshalb gilt: SLA ist nicht gleich Cyber Assistance ist nicht gleich Cyber Advisory und nicht gleich Cyber Assurance.
+
+Soforthilfe, Versicherung, Rechtsschutz – drei separate Bausteine für Ihre IT-Sicherheit.

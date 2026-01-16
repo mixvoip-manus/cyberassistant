@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Play, Pause, ChevronLeft, ChevronRight, Shield, Scale, Building2, Lock, CreditCard, GraduationCap, Phone, CheckCircle2, Home, Server } from 'lucide-react';
+import { Play, Pause, ChevronLeft, ChevronRight, Shield, Scale, Building2, Lock, CreditCard, GraduationCap, Phone, CheckCircle2, Home, Server, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface TextSlide {
@@ -175,11 +175,19 @@ const slides: Slide[] = [
   },
 ];
 
+// Audio files for slides (German only for now)
+const slideAudioFiles: Record<number, string> = {
+  1: '/audio/slide2_de.wav', // House slide (index 1)
+  2: '/audio/slide3_de.wav', // Cyber slide (index 2)
+};
+
 export default function AnimatedPresentation() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const SLIDE_DURATION = 10000; // 10 seconds per slide (longer for image slides)
 
@@ -197,6 +205,35 @@ export default function AnimatedPresentation() {
     setCurrentSlide(index);
     setProgress(0);
   }, []);
+
+  // Stop audio when slide changes
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsAudioPlaying(false);
+    }
+  }, [currentSlide]);
+
+  // Toggle audio playback for current slide
+  const toggleAudio = useCallback(() => {
+    const audioFile = slideAudioFiles[currentSlide];
+    if (!audioFile || language !== 'de') return;
+
+    if (isAudioPlaying && audioRef.current) {
+      audioRef.current.pause();
+      setIsAudioPlaying(false);
+    } else {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+      const audio = new Audio(audioFile);
+      audio.onended = () => setIsAudioPlaying(false);
+      audio.play();
+      audioRef.current = audio;
+      setIsAudioPlaying(true);
+    }
+  }, [currentSlide, isAudioPlaying, language]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -227,13 +264,31 @@ export default function AnimatedPresentation() {
   const renderImageSlide = (slide: ImageSlide) => (
     <div className={`absolute inset-0 flex flex-col bg-gradient-to-br ${slide.bgGradient}`}>
       {/* Header */}
-      <div className="text-center pt-4 pb-2 px-4">
+      <div className="text-center pt-4 pb-2 px-4 relative">
         <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-1">
           {t(slide.titleKey)}
         </h3>
         <p className="text-sm text-slate-600">
           {t(slide.subtitleKey)}
         </p>
+        {/* Audio Play Button - only for slides 1 and 2 (House and Cyber) and only in German */}
+        {slideAudioFiles[currentSlide] && language === 'de' && (
+          <button
+            onClick={toggleAudio}
+            className={`absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+              isAudioPlaying 
+                ? 'bg-red-500 text-white hover:bg-red-600' 
+                : 'bg-[#00B050] text-white hover:bg-[#00963f]'
+            }`}
+            title={isAudioPlaying ? 'Audio stoppen' : 'Audio abspielen'}
+          >
+            {isAudioPlaying ? (
+              <><VolumeX className="h-4 w-4" /> Stopp</>
+            ) : (
+              <><Volume2 className="h-4 w-4" /> Anhören</>
+            )}
+          </button>
+        )}
       </div>
 
       {/* Main Content: Legend + Image */}
