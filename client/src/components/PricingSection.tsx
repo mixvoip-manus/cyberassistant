@@ -90,7 +90,7 @@ export default function PricingSection() {
                 <div className="text-center mb-4">
                   <h4 className="text-xl font-bold text-[#E63946]">{t('pricing.assistance.pro.title')}</h4>
                   <div className="mt-3">
-                    <span className="text-3xl font-bold text-[#E63946]">€2</span>
+                    <span className="text-3xl font-bold text-[#E63946]">2€</span>
                     <span className="text-muted-foreground">/{t('pricing.perUserMonth')}</span>
                   </div>
                   <p className="text-sm text-muted-foreground mt-1">{t('pricing.yearlyContract')}</p>
@@ -284,21 +284,21 @@ export default function PricingSection() {
                 <div className="space-y-2">
                   <div className="px-4 py-2 bg-slate-50 rounded">
                     <div className="flex justify-between items-center">
-                      <span className="font-bold text-blue-600">€50,000</span>
+                      <span className="font-bold text-blue-600">50.000€</span>
                       <span className="text-sm text-muted-foreground">200€ / {t('pricing.year')}</span>
                     </div>
                     <div className="text-xs text-muted-foreground mt-1">{t('pricing.assurance.deductible')}: 500€</div>
                   </div>
                   <div className="px-4 py-2 bg-slate-50 rounded">
                     <div className="flex justify-between items-center">
-                      <span className="font-bold text-blue-600">€100,000</span>
+                      <span className="font-bold text-blue-600">100.000€</span>
                       <span className="text-sm text-muted-foreground">350€ / {t('pricing.year')}</span>
                     </div>
                     <div className="text-xs text-muted-foreground mt-1">{t('pricing.assurance.deductible')}: 1.000€</div>
                   </div>
                   <div className="px-4 py-2 bg-slate-50 rounded">
                     <div className="flex justify-between items-center">
-                      <span className="font-bold text-blue-600">€250,000</span>
+                      <span className="font-bold text-blue-600">250.000€</span>
                       <span className="text-sm text-muted-foreground">750€ / {t('pricing.year')}</span>
                     </div>
                     <div className="text-xs text-muted-foreground mt-1">{t('pricing.assurance.deductible')}: 2.500€</div>
@@ -345,12 +345,12 @@ export default function PricingSection() {
                   <div className="px-4 py-3 bg-slate-50 rounded">
                     <div className="font-bold text-purple-600">Light</div>
                     <div className="text-sm text-muted-foreground">DPO as a Service</div>
-                    <div className="text-xl font-bold mt-1">€500<span className="text-sm font-normal text-muted-foreground">/{t('pricing.year')}</span></div>
+                    <div className="text-xl font-bold mt-1">500€<span className="text-sm font-normal text-muted-foreground">/{t('pricing.year')}</span></div>
                   </div>
                   <div className="px-4 py-3 bg-slate-50 rounded">
                     <div className="font-bold text-purple-600">Standard</div>
                     <div className="text-sm text-muted-foreground">CISO as a Service</div>
-                    <div className="text-xl font-bold mt-1">€2,000<span className="text-sm font-normal text-muted-foreground">/{t('pricing.year')}</span></div>
+                    <div className="text-xl font-bold mt-1">2.000€<span className="text-sm font-normal text-muted-foreground">/{t('pricing.year')}</span></div>
                   </div>
                   <div className="px-4 py-3 bg-purple-50 rounded border border-purple-200">
                     <div className="font-bold text-purple-600">Enterprise</div>

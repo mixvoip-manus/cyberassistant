@@ -411,7 +411,7 @@ export default function Calculator() {
             <h4 className="font-semibold text-lg">{t('package.pro')}</h4>
           </div>
           <div className="mb-4">
-            <span className="text-3xl font-bold">€2</span>
+            <span className="text-3xl font-bold">2€</span>
             <span className="text-sm text-muted-foreground">{t('package.perUser')}</span>
           </div>
           <ul className="space-y-2 text-sm">
@@ -483,9 +483,9 @@ export default function Calculator() {
           </p>
           <div className="grid grid-cols-3 gap-3">
             {[
-              { value: '50k', label: t('package.insurance.option1'), price: '+€0' },
-              { value: '100k', label: t('package.insurance.option2'), price: '+€1/user' },
-              { value: '250k', label: t('package.insurance.option3'), price: '+€2/user' },
+              { value: '50k', label: t('package.insurance.option1'), price: '+0€' },
+              { value: '100k', label: t('package.insurance.option2'), price: '+1€/user' },
+              { value: '250k', label: t('package.insurance.option3'), price: '+2€/user' },
             ].map((option) => (
               <button
                 key={option.value}

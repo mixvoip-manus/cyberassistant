@@ -114,11 +114,11 @@ const translations = {
     step1Title: 'Step 1: Choose Your Package',
     step2Title: 'Step 2: Choose Insurance Coverage',
     insuranceCoverage: 'Insurance Coverage',
-    coverage50k: '€50,000',
-    coverage150k: '€150,000',
-    coverageCustom: 'Over €150,000',
-    price50k: '€2',
-    price150k: '€6',
+    coverage50k: '50.000€',
+    coverage150k: '150.000€',
+    coverageCustom: 'Over 150.000€',
+    price50k: '2€',
+    price150k: '6€',
     priceCustom: 'Custom',
     continueToInsurance: 'Continue',
     backToPackages: 'Back to Packages',
@@ -833,7 +833,7 @@ Gesendet von: Mixvoip Cyber Assistance Website`
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {/* €50,000 Coverage */}
+              {/* 50.000€ Coverage */}
               <div className={`border rounded-xl p-6 flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedCoverage === '50k' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-gray-200'}`}
                    onClick={() => handleCoverageSelect('50k')}>
                 <div className="text-center">
@@ -851,7 +851,7 @@ Gesendet von: Mixvoip Cyber Assistance Website`
                 </Button>
               </div>
 
-              {/* €150,000 Coverage */}
+              {/* 150.000€ Coverage */}
               <div className={`border rounded-xl p-6 flex flex-col cursor-pointer transition-all hover:shadow-lg ${selectedCoverage === '150k' ? 'border-2 border-[#00B050] bg-[#00B050]/5' : 'border-2 border-[#00B050]'}`}
                    onClick={() => handleCoverageSelect('150k')}>
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00B050] text-white px-4 py-1 rounded-full text-sm font-medium">

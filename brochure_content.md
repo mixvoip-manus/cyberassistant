@@ -105,7 +105,7 @@ Under GDPR, data breaches must be reported to the CNPD (Commission Nationale pou
 ✓ Regulatory notification assistance
 ✓ Defense against sanctions
 ✓ Third-party liability claims
-✓ Customer notification costs (up to €10,000)
+✓ Customer notification costs (up to 10.000€)
 
 ### Example Scenario
 
@@ -165,7 +165,7 @@ Ransomware attacks have increased by 300% in recent years. Our comprehensive cov
 
 **Situation:** A law firm receives a ransomware demand for €200,000 in Bitcoin. All case files are encrypted.
 
-**Response:** Mixvoip's cyber extortion team engages with the attackers while forensic specialists work to recover data from backups. The ransom is negotiated down to €45,000, but ultimately data is recovered without payment. Total cost covered: €78,000.
+**Response:** Mixvoip's cyber extortion team engages with the attackers while forensic specialists work to recover data from backups. The ransom is negotiated down to 50.000€, but ultimately data is recovered without payment. Total cost covered: €78,000.
 
 ---
 
@@ -235,17 +235,17 @@ Choose the plan that fits your business needs. All plans include 24/7 emergency 
 
 | Coverage | Basic | Pro | Enterprise |
 |----------|-------|-----|------------|
-| **Annual Aggregate Limit** | €50,000 | €150,000 | €250,000 |
-| Technical Emergency Response | €15,000 | €40,000 | €75,000 |
-| Legal & Regulatory | €10,000 | €30,000 | €50,000 |
-| Business Interruption | €15,000 | €50,000 | €75,000 |
-| Cyber Extortion | €10,000 | €30,000 | €50,000 |
-| Cybercrime & Fraud | €10,000 | €30,000 | €50,000 |
+| **Annual Aggregate Limit** | 50.000€ | 150.000€ | 250.000€ |
+| Technical Emergency Response | 15.000€ | 40.000€ | 75.000€ |
+| Legal & Regulatory | 10.000€ | 30.000€ | 50.000€ |
+| Business Interruption | 15.000€ | 50.000€ | 75.000€ |
+| Cyber Extortion | 10.000€ | 30.000€ | 50.000€ |
+| Cybercrime & Fraud | 10.000€ | 30.000€ | 50.000€ |
 | Employee Training | Basic | Advanced | Premium |
 | **Required Fit4Cyber Score** | ≥60% | ≥60% | Individual |
-| **Monthly Premium (from)** | Free* | €2/user | Custom |
+| **Monthly Premium (from)** | Free* | 2€/user | Custom |
 
-*Basic plan is free for existing Mixvoip customers. Pro plan starts at €2/user/month. Contact us for Enterprise pricing.
+*Basic plan is free for existing Mixvoip customers. Pro plan starts at 2€/user/month. Contact us for Enterprise pricing.
 
 ### Cyber Assistance False Alarm Policy
 
@@ -263,9 +263,9 @@ Optional insurance coverage for financial losses. Requires Fit4Cybersecurity sco
 
 | Coverage Amount | Annual Premium | Deductible |
 |-----------------|----------------|------------|
-| €50,000 | €200/year | €500 |
-| €100,000 | €350/year | €1,000 |
-| €250,000 | €750/year | €2,500 |
+| 50.000€ | 200€/year | 500€ |
+| 100.000€ | 350€/year | 1.000€ |
+| 250.000€ | 750€/year | 2.500€ |
 | Enterprise | On request | Individual |
 
 ### 💡 Recommended Plan

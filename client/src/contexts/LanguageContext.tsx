@@ -23,7 +23,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': 'Cyber Assistance – Your emergency plan for the worst case',
     'hero.description': 'Secure your business against the consequences of cyberattacks, fines, and losses. Strengthen your cybersecurity with the most comprehensive coverage on the market.',
     'hero.price': 'Starting from',
-    'hero.priceValue': '€2/user/month',
+    'hero.priceValue': '2€/user/month',
     'hero.cta': 'Calculate your Cyber Assistance',
     'hero.ctaSecondary': 'Learn more',
     'hero.ctaLearnHow': 'See how it works',
@@ -31,7 +31,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.card.subtitle': 'Complete Protection',
     'hero.card.response': '24/7 Response',
     'hero.card.gdpr': 'GDPR Coverage',
-    'hero.card.coverage': 'Up to €250k',
+    'hero.card.coverage': 'Up to 250k€',
     'hero.card.insurance': 'Insurance Coverage',
     
     // What is Section
@@ -103,7 +103,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.business.item4': 'Cryptojacking protection',
     'coverage.business.item5': 'Hardware coverage (Bricking)',
     'coverage.business.item6': 'Claims adjustment expenses',
-    'coverage.business.example': 'After the attack, the assessment shows: 3 days of business interruption, €15,000 in lost revenue. The insurance reimburses the lost profit within 14 days.',
+    'coverage.business.example': 'After the attack, the assessment shows: 3 days of business interruption, 15.000€ in lost revenue. The insurance reimburses the lost profit within 14 days.',
     
     'coverage.extortion.title': 'Cyber Extortion',
     'coverage.extortion.subtitle': 'Compensation for attacks and cyber extortion',
@@ -112,7 +112,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.extortion.item2': 'Ransom payment coverage (where legally permitted)',
     'coverage.extortion.item3': 'Negotiation expert services',
     'coverage.extortion.item4': 'Data recovery assistance',
-    'coverage.extortion.example': 'Your systems are encrypted by ransomware. The attackers demand €50,000 in Bitcoin. Our negotiation experts engage with the attackers while our technical team works on recovery. The insurance covers the negotiation costs and, if necessary, the ransom payment.',
+    'coverage.extortion.example': 'Your systems are encrypted by ransomware. The attackers demand 50.000€ in Bitcoin. Our negotiation experts engage with the attackers while our technical team works on recovery. The insurance covers the negotiation costs and, if necessary, the ransom payment.',
     
     'coverage.fraud.title': 'Cybercrime & Fraud',
     'coverage.fraud.subtitle': 'Fund transfer fraud and digital identity theft',
@@ -121,7 +121,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.fraud.item2': 'Digital identity theft',
     'coverage.fraud.item3': 'Social engineering protection',
     'coverage.fraud.item4': 'Invoice manipulation coverage',
-    'coverage.fraud.example': 'A fraudster impersonates your CEO via email and instructs your accountant to transfer €25,000 to a "new supplier." The money is gone before anyone notices. The insurance covers the lost funds.',
+    'coverage.fraud.example': 'A fraudster impersonates your CEO via email and instructs your accountant to transfer 25.000€ to a "new supplier." The money is gone before anyone notices. The insurance covers the lost funds.',
     
     'coverage.prevention.title': 'Prevention & Training',
     'coverage.prevention.subtitle': 'So it doesn\'t happen in the first place',
@@ -201,9 +201,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     'package.insurance.title': 'Add insurance coverage',
     'package.insurance.description': 'Add financial protection. Protect yourself not only technically, but also against the financial consequences of an attack.',
-    'package.insurance.option1': '€50,000',
-    'package.insurance.option2': '€100,000',
-    'package.insurance.option3': '€250,000',
+    'package.insurance.option1': '50.000€',
+    'package.insurance.option2': '100.000€',
+    'package.insurance.option3': '250.000€',
     
     // Checkout Form
     'form.company': 'Company name',
@@ -232,9 +232,9 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'My computer has been hijacked, what do I do?',
     'faq.a5': 'Call our emergency hotline immediately. Do not pay any ransom without consulting our experts first.',
     'faq.q6': 'What is the price and how do I pay?',
-    'faq.a6': 'Basic is free for Mixvoip customers. Pro starts at €2/user/month, billed monthly.',
+    'faq.a6': 'Basic is free for Mixvoip customers. Pro starts at 2€/user/month, billed monthly.',
     'faq.q7': 'What is the deductible?',
-    'faq.a7': 'Deductibles vary by coverage level: €50k coverage = 500€, €100k = 1,000€, €250k = 2,500€ deductible.',
+    'faq.a7': 'Deductibles vary by coverage level: 50k€ coverage = 500€, 100k€ = 1.000€, 250k€ = 2.500€ deductible.',
     'faq.q8': 'How is Cyber Assistance renewed?',
     'faq.a8': 'The contract renews automatically annually. You can cancel at any time with 30 days notice.',
     
@@ -379,7 +379,7 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slideWelcome.subtitle': 'Immediate Response • Insurance • Prevention – All in One',
     'presentation.slide1.title': 'Welcome to Cyber Assistance',
     'presentation.slide1.subtitle': 'Your complete cyber protection partner',
-    'presentation.slide1.point1': 'Comprehensive insurance coverage up to €250,000',
+    'presentation.slide1.point1': 'Comprehensive insurance coverage up to 250.000€',
     'presentation.slide1.point2': '24/7 emergency response team',
     'presentation.slide1.point3': 'Quick online subscription process',
     'presentation.slide2.title': 'Technical Emergency Response',
@@ -413,7 +413,7 @@ const translations: Record<Language, Record<string, string>> = {
     'presentation.slide7.point2': '1 year employee training platform',
     'presentation.slide7.point3': 'Ongoing security monitoring',
     'presentation.slide8.title': 'Get Protected Today',
-    'presentation.slide8.subtitle': 'Starting from €2/user/month',
+    'presentation.slide8.subtitle': 'Starting from 2€/user/month',
     'presentation.slide8.point1': 'Free for existing Mixvoip customers (Basic)',
     'presentation.slide8.point2': 'No questionnaire, no waiting period',
     'presentation.slide8.point3': 'Calculate your coverage in 60 seconds',

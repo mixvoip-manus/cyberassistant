@@ -211,7 +211,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                       <div className="text-sm text-muted-foreground">Fit4Cybersecurity ≥ 80%</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-[#E63946]">€2</div>
+                      <div className="text-xl font-bold text-[#E63946]">2€</div>
                       <div className="text-xs text-muted-foreground">{t('pricing.perUserMonth')}</div>
                     </div>
                   </div>
@@ -308,9 +308,9 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
 
                 {/* Coverage Options */}
                 {[
-                  { key: '50k' as AssuranceOption, coverage: '€50,000', price: '€0.50' },
-                  { key: '100k' as AssuranceOption, coverage: '€100,000', price: '€1.00' },
-                  { key: '250k' as AssuranceOption, coverage: '€250,000', price: '€2.00' },
+                  { key: '50k' as AssuranceOption, coverage: '50.000€', price: '0,50€' },
+                  { key: '100k' as AssuranceOption, coverage: '100.000€', price: '1,00€' },
+                  { key: '250k' as AssuranceOption, coverage: '250.000€', price: '2,00€' },
                 ].map((option) => (
                   <button
                     key={option.key}
@@ -377,7 +377,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                       <div className="text-sm text-muted-foreground">Data Protection Officer as a Service</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-purple-600">€500</div>
+                      <div className="text-xl font-bold text-purple-600">500€</div>
                       <div className="text-xs text-muted-foreground">{t('pricing.year')}</div>
                     </div>
                   </div>
@@ -396,7 +396,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                       <div className="text-sm text-muted-foreground">Chief Information Security Officer as a Service</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-purple-600">€2,000</div>
+                      <div className="text-xl font-bold text-purple-600">2.000€</div>
                       <div className="text-xs text-muted-foreground">{t('pricing.year')}</div>
                     </div>
                   </div>
@@ -524,14 +524,14 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                     <div className="flex justify-between">
                       <span>Cyber Advisory ({orderData.advisory})</span>
                       <span>
-                        {orderData.advisory === 'light' ? '€500' : orderData.advisory === 'standard' ? '€2,000' : t('pricing.onRequest')}/{t('pricing.year')}
+                        {orderData.advisory === 'light' ? '500€' : orderData.advisory === 'standard' ? '2.000€' : t('pricing.onRequest')}/{t('pricing.year')}
                       </span>
                     </div>
                   )}
                   <div className="border-t pt-2 mt-2 flex justify-between font-bold">
                     <span>{t('order.total')}</span>
                     <span className="text-[#00B050]">
-                      {needsConsultation ? t('order.consultationRequired') : `€${totals.yearly}/${t('pricing.year')}`}
+                      {needsConsultation ? t('order.consultationRequired') : `${totals.yearly}€/${t('pricing.year')}`}
                     </span>
                   </div>
                 </div>
