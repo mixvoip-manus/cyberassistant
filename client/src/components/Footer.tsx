@@ -44,7 +44,7 @@ export default function Footer() {
           <div>
             <a href="https://www.mixvoip.com">
               <img
-                src={getAssetUrl('images/Mixvoip-logo-white-green-slash-RGB.png')}
+                src={getAssetUrl('images/mixvoip-logo.svg')}
                 alt="Mixvoip"
                 className="h-10 w-auto mb-4"
               />

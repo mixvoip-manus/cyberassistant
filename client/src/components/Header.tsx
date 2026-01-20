@@ -36,7 +36,7 @@ export default function Header() {
           {/* Logo */}
           <a href="https://www.mixvoip.com" className="flex items-center gap-2">
             <img
-              src={getAssetUrl('images/Mixvoip-logo-RGB.jpg')}
+              src={getAssetUrl('images/mixvoip-logo.svg')}
               alt="Mixvoip"
               className="h-8 md:h-10 w-auto"
             />
