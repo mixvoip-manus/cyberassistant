@@ -1,4 +1,7 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
+
+import { useLocation } from 'wouter';
+import { BASE_PATH, SUPPORTED_LANGUAGES, getLanguageFromPath } from '@/App';
 
 export type Language = 'en' | 'fr' | 'de';
 
@@ -6,6 +9,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  getAssetUrl: (path: string) => string;
 }
 
 const translations: Record<Language, Record<string, string>> = {
@@ -1377,34 +1381,54 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [location, setLocation] = useLocation();
+  
+  // Get language from URL path
   const [language, setLanguageState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('language') as Language;
-      if (saved && ['en', 'fr', 'de'].includes(saved)) {
-        return saved;
-      }
-      const browserLang = navigator.language.split('-')[0];
-      if (['en', 'fr', 'de'].includes(browserLang)) {
-        return browserLang as Language;
+      const urlLang = getLanguageFromPath(window.location.pathname);
+      if (SUPPORTED_LANGUAGES.includes(urlLang)) {
+        return urlLang;
       }
     }
     return 'en';
   });
 
-  const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('language', lang);
-      document.documentElement.lang = lang;
+  // Sync language with URL changes
+  useEffect(() => {
+    const urlLang = getLanguageFromPath(location);
+    if (SUPPORTED_LANGUAGES.includes(urlLang) && urlLang !== language) {
+      setLanguageState(urlLang);
+      document.documentElement.lang = urlLang;
     }
-  }, []);
+  }, [location, language]);
+
+  const setLanguage = useCallback((lang: Language) => {
+    if (lang !== language) {
+      setLanguageState(lang);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('language', lang);
+        document.documentElement.lang = lang;
+        // Navigate to new language URL, preserving hash
+        const hash = window.location.hash;
+        const newPath = `/${lang}${BASE_PATH}/${hash}`;
+        setLocation(newPath);
+      }
+    }
+  }, [language, setLocation]);
 
   const t = useCallback((key: string): string => {
     return translations[language][key] || key;
   }, [language]);
 
+  // Get asset URL with current language prefix
+  const getAssetUrl = useCallback((path: string): string => {
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return `/${language}${BASE_PATH}/${cleanPath}`;
+  }, [language]);
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, getAssetUrl }}>
       {children}
     </LanguageContext.Provider>
   );

@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Phone, Mail, MapPin, Download } from 'lucide-react';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, getAssetUrl } = useLanguage();
 
   const offices = [
     {
@@ -44,7 +44,7 @@ export default function Footer() {
           <div>
             <a href="https://www.mixvoip.com">
               <img
-                src="/images/Mixvoip-logo-white-green-slash-RGB.png"
+                src={getAssetUrl('images/Mixvoip-logo-white-green-slash-RGB.png')}
                 alt="Mixvoip"
                 className="h-10 w-auto mb-4"
               />
@@ -54,7 +54,7 @@ export default function Footer() {
             </p>
             {/* Download Brochure */}
             <a
-              href="/Mixvoip_Cyber_Assistance_Brochure.pdf"
+              href={getAssetUrl('Mixvoip_Cyber_Assistance_Brochure.pdf')}
               download
               className="inline-flex items-center gap-2 bg-[#00B050] hover:bg-[#00963f] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >

@@ -192,7 +192,7 @@ const slideAudioFiles: Record<string, Record<number, string>> = {
 };
 
 export default function AnimatedPresentation() {
-  const { t, language } = useLanguage();
+  const { t, language, getAssetUrl } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -239,7 +239,7 @@ export default function AnimatedPresentation() {
       if (audioRef.current) {
         audioRef.current.pause();
       }
-      const audio = new Audio(audioFile);
+      const audio = new Audio(getAssetUrl(audioFile.slice(1)));
       audio.onended = () => setIsAudioPlaying(false);
       audio.play();
       audioRef.current = audio;
@@ -345,7 +345,7 @@ export default function AnimatedPresentation() {
         {/* Image */}
         <div className="flex-1 flex items-center justify-center min-w-0">
           <img 
-            src={slide.imageSrc} 
+            src={getAssetUrl(slide.imageSrc.slice(1))} 
             alt={t(slide.titleKey)}
             className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
           />
@@ -382,7 +382,7 @@ export default function AnimatedPresentation() {
       {/* Image - Full Width */}
       <div className="flex-1 flex items-center justify-center px-4 pb-4 min-h-0">
         <img 
-          src={slide.imageSrc} 
+          src={getAssetUrl(slide.imageSrc.slice(1))} 
           alt={t(slide.titleKey)}
           className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
         />

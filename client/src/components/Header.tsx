@@ -16,7 +16,7 @@ const languages: { code: Language; name: string; flag: string }[] = [
 ];
 
 export default function Header() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, getAssetUrl } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const currentLang = languages.find((l) => l.code === language) || languages[0];
@@ -36,7 +36,7 @@ export default function Header() {
           {/* Logo */}
           <a href="https://www.mixvoip.com" className="flex items-center gap-2">
             <img
-              src="/images/Mixvoip-logo-RGB.jpg"
+              src={getAssetUrl('images/Mixvoip-logo-RGB.jpg')}
               alt="Mixvoip"
               className="h-8 md:h-10 w-auto"
             />
