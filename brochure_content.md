@@ -59,7 +59,7 @@ Fit4Cybersecurity assessment and employee awareness
 
 ✓ Company registered in Luxembourg or Greater Region
 ✓ 1-250 employees (SME classification)
-✓ Valid Fit4Cybersecurity assessment (score ≥60% for Basic/Pro, ≥80% for Cyber Assurance)
+✓ Valid Fit4Cybersecurity assessment (score ≥65% for Basic/Pro, ≥80% for Cyber Assurance)
 ✓ Mixvoip customer (preferred) or standalone policy
 ✓ No previous unresolved cyber incidents
 
@@ -242,7 +242,7 @@ Choose the plan that fits your business needs. All plans include 24/7 emergency 
 | Cyber Extortion | 10.000€ | 30.000€ | 50.000€ |
 | Cybercrime & Fraud | 10.000€ | 30.000€ | 50.000€ |
 | Employee Training | Basic | Advanced | Premium |
-| **Required Fit4Cyber Score** | ≥60% | ≥60% | Individual |
+| **Required Fit4Cyber Score** | ≥65% | ≥65% | Individual |
 | **Monthly Premium (from)** | Free* | 2€ / user | Custom |
 
 *Basic plan is free for existing Mixvoip customers. Pro plan starts at 2€ / user/month. Contact us for Enterprise pricing.

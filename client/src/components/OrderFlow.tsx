@@ -107,7 +107,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
 
   // Get required score based on package
   const getRequiredScore = () => {
-    if (orderData.assistancePackage === 'basic') return '60%';
+    if (orderData.assistancePackage === 'basic') return '65%';
     if (orderData.assistancePackage === 'pro') return '80%';
     return 'Custom';
   };
@@ -180,7 +180,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <div className="font-bold text-lg text-[#4A90D9]">{t('pricing.assistance.basic.title')}</div>
-                      <div className="text-sm text-muted-foreground">Fit4Cybersecurity ≥ 60%</div>
+                      <div className="text-sm text-muted-foreground">Fit4Cybersecurity ≥ 65%</div>
                     </div>
                     <div className="text-right">
                       <div className="text-xl font-bold text-[#4A90D9]">{t('pricing.assistance.basic.price')}</div>

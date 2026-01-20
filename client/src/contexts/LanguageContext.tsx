@@ -148,8 +148,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     'calc.q1': 'What is your Fit4Cybersecurity score?',
     'calc.q1.opt1': '80% or higher',
-    'calc.q1.opt2': '60-79%',
-    'calc.q1.opt3': 'Below 60%',
+    'calc.q1.opt2': '65-79%',
+    'calc.q1.opt3': 'Below 65%',
     'calc.q1.opt4': 'I don\'t have one',
     'calc.q1.help': 'The official Luxembourg standard for assessing your cybersecurity. Free at fit4cybersecurity.nc3.lu',
     
@@ -191,7 +191,7 @@ const translations: Record<Language, Record<string, string>> = {
     'package.basic.feature1': 'Best effort response',
     'package.basic.feature2': 'Core user recovery',
     'package.basic.feature3': 'Business hours support',
-    'package.basic.note': '*For Mixvoip customers with Fit4Cyber score ≥60%',
+    'package.basic.note': '*For Mixvoip customers with Fit4Cyber score ≥65%',
     'package.pro.feature1': '24/7, 1h guaranteed response',
     'package.pro.feature2': 'Full system recovery',
     'package.pro.feature3': 'Round-the-clock support',
@@ -603,8 +603,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     'calc.q1': 'Quel est votre score Fit4Cybersecurity ?',
     'calc.q1.opt1': '80% ou plus',
-    'calc.q1.opt2': '60-79%',
-    'calc.q1.opt3': 'Moins de 60%',
+    'calc.q1.opt2': '65-79%',
+    'calc.q1.opt3': 'Moins de 65%',
     'calc.q1.opt4': 'Je n\'en ai pas',
     'calc.q1.help': 'Le standard officiel luxembourgeois pour évaluer votre cybersécurité. Gratuit sur fit4cybersecurity.nc3.lu',
     
@@ -646,7 +646,7 @@ const translations: Record<Language, Record<string, string>> = {
     'package.basic.feature1': 'Réponse best effort',
     'package.basic.feature2': 'Récupération utilisateurs clés',
     'package.basic.feature3': 'Support heures ouvrables',
-    'package.basic.note': '*Pour les clients Mixvoip avec score Fit4Cyber ≥60%',
+    'package.basic.note': '*Pour les clients Mixvoip avec score Fit4Cyber ≥65%',
     'package.pro.feature1': '24/7, réponse garantie 1h',
     'package.pro.feature2': 'Récupération système complète',
     'package.pro.feature3': 'Support 24h/24',
@@ -1057,8 +1057,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     'calc.q1': 'Was ist Ihr Fit4Cybersecurity-Score?',
     'calc.q1.opt1': '80% oder höher',
-    'calc.q1.opt2': '60-79%',
-    'calc.q1.opt3': 'Unter 60%',
+    'calc.q1.opt2': '65-79%',
+    'calc.q1.opt3': 'Unter 65%',
     'calc.q1.opt4': 'Ich habe keinen',
     'calc.q1.help': 'Der offizielle luxemburgische Standard zur Bewertung Ihrer Cybersicherheit. Kostenlos auf fit4cybersecurity.nc3.lu',
     
@@ -1100,7 +1100,7 @@ const translations: Record<Language, Record<string, string>> = {
     'package.basic.feature1': 'Best-Effort-Reaktion',
     'package.basic.feature2': 'Core-User-Wiederherstellung',
     'package.basic.feature3': 'Support zu Geschäftszeiten',
-    'package.basic.note': '*Für Mixvoip-Kunden mit Fit4Cyber-Score ≥60%',
+    'package.basic.note': '*Für Mixvoip-Kunden mit Fit4Cyber-Score ≥65%',
     'package.pro.feature1': '24/7, 1h garantierte Reaktion',
     'package.pro.feature2': 'Vollständige Systemwiederherstellung',
     'package.pro.feature3': 'Rund-um-die-Uhr-Support',

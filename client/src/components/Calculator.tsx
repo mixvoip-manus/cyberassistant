@@ -67,9 +67,9 @@ export default function Calculator() {
   });
 
   const checkEligibility = () => {
-    // User is eligible if they have a Fit4Cyber score >= 60%
+    // User is eligible if they have a Fit4Cyber score >= 65%
     const eligible =
-      formData.fit4cyberScore === '80+' || formData.fit4cyberScore === '60-79';
+      formData.fit4cyberScore === '80+' || formData.fit4cyberScore === '65-79';
     setIsEligible(eligible);
     setShowResult(true);
   };
@@ -130,8 +130,8 @@ export default function Calculator() {
         <div className="grid grid-cols-2 gap-3">
           {[
             { value: '80+', label: t('calc.q1.opt1') },
-            { value: '60-79', label: t('calc.q1.opt2') },
-            { value: '<60', label: t('calc.q1.opt3') },
+            { value: '65-79', label: t('calc.q1.opt2') },
+            { value: '<65', label: t('calc.q1.opt3') },
             { value: 'none', label: t('calc.q1.opt4') },
           ].map((option) => (
             <button
@@ -352,7 +352,7 @@ export default function Calculator() {
         {/* Basic */}
         <div
           onClick={() => {
-            if (formData.isMixvoipCustomer && (formData.fit4cyberScore === '80+' || formData.fit4cyberScore === '60-79')) {
+            if (formData.isMixvoipCustomer && (formData.fit4cyberScore === '80+' || formData.fit4cyberScore === '65-79')) {
               setFormData({ ...formData, selectedPackage: 'basic' });
             }
           }}
@@ -361,7 +361,7 @@ export default function Calculator() {
             formData.selectedPackage === 'basic'
               ? 'border-[#00B050] bg-[#00B050]/5'
               : 'border-border hover:border-[#00B050]/50',
-            (!formData.isMixvoipCustomer || (formData.fit4cyberScore !== '80+' && formData.fit4cyberScore !== '60-79'))
+            (!formData.isMixvoipCustomer || (formData.fit4cyberScore !== '80+' && formData.fit4cyberScore !== '65-79'))
               ? 'opacity-50 cursor-not-allowed'
               : 'cursor-pointer'
           )}

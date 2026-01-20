@@ -46,7 +46,7 @@ export default function PricingSection() {
                     <Zap className="h-4 w-4 text-[#4A90D9] flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-medium">{t('pricing.assistance.entry')}</div>
-                      <div className="text-muted-foreground">Fit4Cybersecurity ≥ 60%</div>
+                      <div className="text-muted-foreground">Fit4Cybersecurity ≥ 65%</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
