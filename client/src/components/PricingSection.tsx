@@ -31,7 +31,7 @@ export default function PricingSection() {
           <div className="grid md:grid-cols-4 gap-0 max-w-7xl mx-auto">
             
             {/* Basic */}
-            <div className="bg-white shadow-lg overflow-hidden border-r border-slate-200 md:rounded-bl-2xl">
+            <div className="bg-white shadow-lg overflow-hidden border-r border-slate-200">
               <div className="p-5">
                 <div className="text-center mb-4">
                   <h4 className="text-lg font-bold text-[#4A90D9]">{t('pricing.assistance.basic.title')}</h4>
@@ -242,6 +242,33 @@ export default function PricingSection() {
               </div>
             </div>
           </div>
+          
+          {/* Firefighter Analogy - directly under Cyber Assistance */}
+          <div className="bg-slate-100 rounded-b-2xl p-4 border-t border-slate-200 max-w-7xl mx-auto">
+            <h4 className="text-sm font-bold mb-3 text-center text-slate-700">{t('pricing.analogy.title')}</h4>
+            <div className="grid grid-cols-4 gap-2">
+              <div className="text-center p-2 bg-white rounded-lg shadow-sm">
+                <div className="text-lg mb-1">🚒</div>
+                <div className="font-bold text-[#4A90D9] text-xs">Basic</div>
+                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.basic')}</div>
+              </div>
+              <div className="text-center p-2 bg-white rounded-lg shadow-sm">
+                <div className="text-lg mb-1">🚒</div>
+                <div className="font-bold text-[#E63946] text-xs">Pro</div>
+                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.pro')}</div>
+              </div>
+              <div className="text-center p-2 bg-white rounded-lg shadow-sm">
+                <div className="text-lg mb-1">🏭</div>
+                <div className="font-bold text-[#FF8C00] text-xs">Advanced</div>
+                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.advanced')}</div>
+              </div>
+              <div className="text-center p-2 bg-white rounded-lg shadow-sm">
+                <div className="text-lg mb-1">✈️</div>
+                <div className="font-bold text-slate-800 text-xs">Enterprise</div>
+                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.enterprise')}</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Self-Qualification & False Alarm Policy Section */}
@@ -312,35 +339,6 @@ export default function PricingSection() {
                     <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.enterprise')}</div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Firefighter Analogy */}
-        <div className="mb-8 max-w-6xl mx-auto">
-          <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-2xl p-6 text-white">
-            <h3 className="text-lg font-bold mb-4 text-center">{t('pricing.analogy.title')}</h3>
-            <div className="grid md:grid-cols-4 gap-4">
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">🚒</div>
-                <div className="font-bold text-[#4A90D9]">Basic</div>
-                <div className="text-sm text-slate-300 mt-1">{t('pricing.analogy.basic')}</div>
-              </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">🚒</div>
-                <div className="font-bold text-[#E63946]">Pro</div>
-                <div className="text-sm text-slate-300 mt-1">{t('pricing.analogy.pro')}</div>
-              </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">🏭</div>
-                <div className="font-bold text-[#FF8C00]">Advanced</div>
-                <div className="text-sm text-slate-300 mt-1">{t('pricing.analogy.advanced')}</div>
-              </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-2xl mb-2">✈️</div>
-                <div className="font-bold text-white">Enterprise</div>
-                <div className="text-sm text-slate-300 mt-1">{t('pricing.analogy.enterprise')}</div>
               </div>
             </div>
           </div>
