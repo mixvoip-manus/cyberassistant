@@ -1421,11 +1421,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return translations[language][key] || key;
   }, [language]);
 
-  // Get asset URL - static assets are at root, not language-prefixed
+  // Get asset URL with language and base path for proxy compatibility
   const getAssetUrl = useCallback((path: string): string => {
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    return `/${cleanPath}`;
-  }, []);
+    return `/${language}/enterprise/cyberassist/${cleanPath}`;
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, getAssetUrl }}>

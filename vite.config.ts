@@ -27,6 +27,13 @@ export default defineConfig({
     port: 3000,
     strictPort: false, // Will find next available port if 3000 is busy
     host: true,
+    proxy: {
+      // Rewrite language-prefixed asset paths to root
+      '^/(de|en|fr)/enterprise/cyberassist/(images|audio|Mixvoip_Cyber_Assistance_Brochure\\.pdf)': {
+        target: 'http://localhost:3000',
+        rewrite: (path: string) => path.replace(/^\/(de|en|fr)\/enterprise\/cyberassist\//, '/'),
+      },
+    },
     allowedHosts: [
       ".manuspre.computer",
       ".manus.computer",
