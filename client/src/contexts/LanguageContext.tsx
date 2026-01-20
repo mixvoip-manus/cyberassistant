@@ -1424,6 +1424,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Get asset URL with language and base path for proxy compatibility
   const getAssetUrl = useCallback((path: string): string => {
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    // Static assets (images, audio, pdf) should use absolute path from root
+    // This ensures they work both in dev and production with proxy
+    if (cleanPath.startsWith('images/') || cleanPath.startsWith('audio/') || cleanPath.endsWith('.pdf')) {
+      return `/${cleanPath}`;
+    }
     return `/${language}/enterprise/cyberassist/${cleanPath}`;
   }, [language]);
 
