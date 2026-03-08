@@ -24,7 +24,7 @@ export default function PricingSection() {
           <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl max-w-5xl mx-auto">
             <div className="flex items-center justify-center gap-3">
               <Eye className="h-7 w-7" />
-              <h3 className="text-2xl font-bold">Mixvoip SOCaaS</h3>
+              <h3 className="text-2xl font-bold">Mixvoip SOC as a Service</h3>
             </div>
             <div className="flex items-center justify-center gap-2 mt-1">
               <span className="text-cyan-100 text-sm">{t('cycle.poweredBy')}</span>

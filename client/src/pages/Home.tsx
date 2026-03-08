@@ -19,12 +19,12 @@ export default function Home() {
         <Hero />
         <AnimatedPresentation />
         <WhatIs />
+        <CoverageAccordion />
         <CyberSuite />
         <Benefits />
         <Statistics />
-        <PricingSection />
         <Fit4CyberAssessment />
-        <CoverageAccordion />
+        <PricingSection />
         <FAQ />
       </main>
       <Footer />
