@@ -54,7 +54,7 @@ export default function Footer() {
             </p>
             {/* Download Brochure */}
             <a
-              href="https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/Mixvoip_Cyber_Suite_Brochure_2026_ef9e447b.pdf"
+              href="https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/Mixvoip_Cyber_Suite_Brochure_2026_ffe159a9.pdf"
               download
               className="inline-flex items-center gap-2 bg-[#00B050] hover:bg-[#00963f] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >
