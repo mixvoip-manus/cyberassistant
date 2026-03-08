@@ -348,7 +348,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.item3': '"You have been hacked" message',
     'pricing.selfQualification.isCyber.item4': 'Customer data stolen',
     'pricing.selfQualification.isCyber.item5': 'Extortion email received',
-    'pricing.selfQualification.isCyber.action': '☎ Call Cyber Suite Hotline immediately!',
+    'pricing.selfQualification.isCyber.action': '☎ Call CyberAssistance Hotline immediately!',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'False Alarm Policy',
     'pricing.falseAlarm.basic': 'First 2 false alarms / year free, then 50€ / false alarm',
@@ -380,8 +380,8 @@ const translations: Record<Language, Record<string, string>> = {
     // CyberAssurance Light
     'pricing.assuranceLight.title': 'CyberAssurance Light included',
     'pricing.assuranceLight.description': 'Every CyberAssistance package includes CyberAssurance Light: up to 2 days Emergency Response for up to 5 key personnel, covered by Le Foyer.',
-    'pricing.assuranceLight.price': '10€ / month flat (5 key personnel × 2€)',
-    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light is a bonus included at no extra cost. You can upgrade to full CyberAssurance separately if you need higher coverage.',
+    'pricing.assuranceLight.price': '10€ / month (already included in your CyberAssistance price)',
+    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light is already included in your CyberAssistance subscription – no additional cost. You can upgrade to full CyberAssurance separately if you need higher coverage.',
     'pricing.assurance.lightReminder': 'Remember: CyberAssurance Light (2 days Emergency Response for 5 key personnel) is already included in your CyberAssistance package. The plans below offer extended coverage.',
     'pricing.assurance.disclaimer': 'CyberAssurance is provided by Le Foyer. Purchasing CyberAssistance does not require purchasing CyberAssurance (regulatory requirement). CyberAssurance Light is included transparently.',
     
@@ -891,7 +891,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.item3': 'Message "Vous avez été piraté"',
     'pricing.selfQualification.isCyber.item4': 'Données clients volées',
     'pricing.selfQualification.isCyber.item5': 'Email d\'extorsion reçu',
-    'pricing.selfQualification.isCyber.action': '☎ Appelez la hotline Cyber Suite immédiatement !',
+    'pricing.selfQualification.isCyber.action': '☎ Appelez la hotline CyberAssistance immédiatement !',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'Politique de fausse alerte',
     'pricing.falseAlarm.basic': '2 premières fausses alertes / an gratuites, puis 50€ / fausse alerte',
@@ -923,8 +923,8 @@ const translations: Record<Language, Record<string, string>> = {
     // CyberAssurance Light
     'pricing.assuranceLight.title': 'CyberAssurance Light incluse',
     'pricing.assuranceLight.description': 'Chaque package CyberAssistance inclut CyberAssurance Light : jusqu\'à 2 jours de réponse d\'urgence pour 5 personnes clés, couverts par Le Foyer.',
-    'pricing.assuranceLight.price': '10€ / mois forfaitaire (5 personnes clés × 2€)',
-    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light est un bonus inclus sans frais supplémentaires. Vous pouvez passer à CyberAssurance complète séparément si vous avez besoin d\'une couverture plus élevée.',
+    'pricing.assuranceLight.price': '10€ / mois (déjà inclus dans votre abonnement CyberAssistance)',
+    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light est déjà incluse dans votre abonnement CyberAssistance – sans coût supplémentaire. Vous pouvez passer à CyberAssurance complète séparément si vous avez besoin d\'une couverture plus élevée.',
     'pricing.assurance.lightReminder': 'Rappel : CyberAssurance Light (2 jours de réponse d\'urgence pour 5 personnes clés) est déjà incluse dans votre package CyberAssistance. Les plans ci-dessous offrent une couverture étendue.',
     'pricing.assurance.disclaimer': 'CyberAssurance est fournie par Le Foyer. L\'achat de CyberAssistance n\'oblige pas à souscrire CyberAssurance (exigence réglementaire). CyberAssurance Light est incluse de manière transparente.',
     
@@ -1433,7 +1433,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.item3': '"Sie wurden gehackt" Meldung',
     'pricing.selfQualification.isCyber.item4': 'Kundendaten gestohlen',
     'pricing.selfQualification.isCyber.item5': 'Erpresser-E-Mail erhalten',
-    'pricing.selfQualification.isCyber.action': '☎ Rufen Sie sofort die Cyber Suite Hotline an!',
+    'pricing.selfQualification.isCyber.action': '☎ Rufen Sie sofort die CyberAssistance Hotline an!',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'Fehlalarm-Regelung',
     'pricing.falseAlarm.basic': 'Erste 2 Fehlalarme / Jahr kostenlos, danach 50€ / Fehlalarm',
@@ -1465,8 +1465,8 @@ const translations: Record<Language, Record<string, string>> = {
     // CyberAssurance Light
     'pricing.assuranceLight.title': 'CyberAssurance Light inklusive',
     'pricing.assuranceLight.description': 'Jedes CyberAssistance-Paket enthält CyberAssurance Light: bis zu 2 Tage Notfall-Einsatz für bis zu 5 Schlüsselpersonen, übernommen durch Le Foyer.',
-    'pricing.assuranceLight.price': '10€ / Monat pauschal (5 Schlüsselpersonen × 2€)',
-    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light ist ein Bonus, der ohne Aufpreis enthalten ist. Sie k\u00f6nnen separat auf die volle CyberAssurance upgraden, wenn Sie h\u00f6heren Schutz ben\u00f6tigen.',
+    'pricing.assuranceLight.price': '10€ / Monat (bereits in Ihrem CyberAssistance-Abo enthalten)',
+    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light ist bereits in Ihrem CyberAssistance-Abo enthalten – ohne Zusatzkosten. Sie können separat auf die volle CyberAssurance upgraden, wenn Sie höheren Schutz benötigen.',
     'pricing.assurance.lightReminder': 'Zur Erinnerung: CyberAssurance Light (2 Tage Notfall-Einsatz für 5 Schlüsselpersonen) ist bereits in Ihrem CyberAssistance-Paket enthalten. Die untenstehenden Pläne bieten erweiterten Schutz.',
     'pricing.assurance.disclaimer': 'CyberAssurance wird von Le Foyer bereitgestellt. Der Kauf von CyberAssistance verpflichtet nicht zum Kauf von CyberAssurance (regulatorische Anforderung). CyberAssurance Light ist transparent enthalten.',
     
