@@ -181,18 +181,24 @@ const slides: Slide[] = [
 const slideAudioFiles: Record<string, Record<number, string>> = {
   de: {
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_de_28341056.wav', // House slide (index 1)
-    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_de_9215d95a.wav', // Cyber slide (index 2)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_de_9215d95a.wav', // Cyber slide (index 2) - v3 with Mixvoip products
     3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_de_v3_b95e4f2c.wav', // Timeline slide (index 3)
     4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_de_v3_7172674c.wav', // SOCaaS + CyberAssistance slide (index 4)
     5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_de_v3_6bebc4fd.wav', // CyberAdvisory slide (index 5)
   },
   fr: {
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_fr_41edeb1c.wav', // House slide (index 1)
-    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_fr_1bc44563.wav', // Cyber slide (index 2)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_fr_v3_4e748e8d.wav', // Cyber slide (index 2) - v3 with Mixvoip products
+    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_fr_v3_0d0737b9.wav', // Timeline slide (index 3)
+    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_fr_v3_3f3e6523.wav', // SOCaaS + CyberAssistance slide (index 4)
+    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_fr_v3_ef7475ee.wav', // CyberAdvisory slide (index 5)
   },
   en: {
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_en_d47cff41.wav', // House slide (index 1)
-    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_en_48330cd9.wav', // Cyber slide (index 2)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_en_v3_ed765cbb.wav', // Cyber slide (index 2) - v3 with Mixvoip products
+    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_en_v3_a2bbd2e1.wav', // Timeline slide (index 3)
+    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_en_v3_2e448452.wav', // SOCaaS + CyberAssistance slide (index 4)
+    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_en_v3_b8e3fa5e.wav', // CyberAdvisory slide (index 5)
   },
 };
 
