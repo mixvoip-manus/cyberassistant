@@ -181,24 +181,39 @@ const slides: Slide[] = [
 const slideAudioFiles: Record<string, Record<number, string>> = {
   de: {
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_de_28341056.wav', // House slide (index 1)
-    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_de_9215d95a.wav', // Cyber slide (index 2) - v3 with Mixvoip products
-    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_de_v3_b95e4f2c.wav', // Timeline slide (index 3)
-    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_de_v3_7172674c.wav', // SOCaaS + CyberAssistance slide (index 4)
-    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_de_v3_6bebc4fd.wav', // CyberAdvisory slide (index 5)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_de_9215d95a.wav', // Cyber slide (index 2)
+    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_de_v3_b95e4f2c.wav', // Timeline (index 3)
+    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_de_v3_7172674c.wav', // SOCaaS + CyberAssistance (index 4)
+    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_de_v3_6bebc4fd.wav', // CyberAdvisory (index 5)
+    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_de_2895a53d.wav', // CyberAssurance (index 6)
+    7: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_extortion_de_63cdb9bd.wav', // Cyber Extortion (index 7)
+    8: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_fraud_de_f6180568.wav', // Cybercrime & Fraud (index 8)
+    9: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_training_de_ec4ebd5b.wav', // Prevention & Training (index 9)
+    10: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_closing_de_d1bc5878.wav', // Closing (index 10)
   },
   fr: {
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_fr_41edeb1c.wav', // House slide (index 1)
-    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_fr_v3_4e748e8d.wav', // Cyber slide (index 2) - v3 with Mixvoip products
-    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_fr_v3_0d0737b9.wav', // Timeline slide (index 3)
-    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_fr_v3_3f3e6523.wav', // SOCaaS + CyberAssistance slide (index 4)
-    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_fr_v3_ef7475ee.wav', // CyberAdvisory slide (index 5)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_fr_v3_4e748e8d.wav', // Cyber slide (index 2)
+    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_fr_v3_0d0737b9.wav', // Timeline (index 3)
+    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_fr_v3_3f3e6523.wav', // SOCaaS + CyberAssistance (index 4)
+    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_fr_v3_ef7475ee.wav', // CyberAdvisory (index 5)
+    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_fr_e887e02e.wav', // CyberAssurance (index 6)
+    7: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_extortion_fr_80d2710f.wav', // Cyber Extortion (index 7)
+    8: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_fraud_fr_d6ff0d5f.wav', // Cybercrime & Fraud (index 8)
+    9: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_training_fr_338a7b31.wav', // Prevention & Training (index 9)
+    10: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_closing_fr_cc22975c.wav', // Closing (index 10)
   },
   en: {
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_en_d47cff41.wav', // House slide (index 1)
-    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_en_v3_ed765cbb.wav', // Cyber slide (index 2) - v3 with Mixvoip products
-    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_en_v3_a2bbd2e1.wav', // Timeline slide (index 3)
-    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_en_v3_2e448452.wav', // SOCaaS + CyberAssistance slide (index 4)
-    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_en_v3_b8e3fa5e.wav', // CyberAdvisory slide (index 5)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_en_v3_ed765cbb.wav', // Cyber slide (index 2)
+    3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_en_v3_a2bbd2e1.wav', // Timeline (index 3)
+    4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_en_v3_2e448452.wav', // SOCaaS + CyberAssistance (index 4)
+    5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_en_v3_b8e3fa5e.wav', // CyberAdvisory (index 5)
+    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_en_d384410c.wav', // CyberAssurance (index 6)
+    7: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_extortion_en_1fc75abb.wav', // Cyber Extortion (index 7)
+    8: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_fraud_en_afe1ddd9.wav', // Cybercrime & Fraud (index 8)
+    9: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_training_en_046eb9fd.wav', // Prevention & Training (index 9)
+    10: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_closing_en_41779e4a.wav', // Closing (index 10)
   },
 };
 
