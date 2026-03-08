@@ -91,6 +91,7 @@ const slides: Slide[] = [
       'presentation.slideCyber.prep2',
       'presentation.slideCyber.prep3',
       'presentation.slideCyber.prep4',
+      'presentation.slideCyber.prep5',
     ],
     emergencyTitleKey: 'presentation.slideCyber.emergencyTitle',
     emergencyItems: [
@@ -98,6 +99,7 @@ const slides: Slide[] = [
       'presentation.slideCyber.emergency2',
       'presentation.slideCyber.emergency3',
       'presentation.slideCyber.emergency4',
+      'presentation.slideCyber.emergency5',
     ],
   },
   // NEW Slide 4: Timeline/Flowchart

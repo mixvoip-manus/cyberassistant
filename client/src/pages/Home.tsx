@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import AnimatedPresentation from '@/components/AnimatedPresentation';
 import WhatIs from '@/components/WhatIs';
-import CyberCycle360 from '@/components/CyberCycle360';
+import CyberSuite from '@/components/CyberSuite';
 import Benefits from '@/components/Benefits';
 import Statistics from '@/components/Statistics';
 import CoverageAccordion from '@/components/CoverageAccordion';
@@ -19,7 +19,7 @@ export default function Home() {
         <Hero />
         <AnimatedPresentation />
         <WhatIs />
-        <CyberCycle360 />
+        <CyberSuite />
         <Benefits />
         <Statistics />
         <PricingSection />

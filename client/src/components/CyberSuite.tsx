@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Eye, Scale, BookOpen } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
-export default function CyberCycle360() {
+export default function CyberSuite() {
   const { t, getAssetUrl } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -111,7 +111,7 @@ export default function CyberCycle360() {
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                   <div className={`w-24 h-24 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-slate-600 flex items-center justify-center shadow-2xl transition-all duration-500 ${activeIndex !== null ? 'scale-110' : ''}`}>
                     <div className="text-center">
-                      <div className="text-2xl font-black text-white">360°</div>
+                      <div className="text-sm font-black text-white leading-tight">Cyber<br/>Suite</div>
                       <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">{t('cycle.center')}</div>
                     </div>
                   </div>
