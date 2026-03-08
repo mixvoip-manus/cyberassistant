@@ -205,7 +205,7 @@ export default function CoverageAccordion() {
                     <div className="flex items-start gap-2">
                       <AlertCircle className="h-5 w-5 text-[#00B050] shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-semibold text-sm block mb-1">Example:</span>
+                        <span className="font-semibold text-sm block mb-1">{t('coverage.example.label')}</span>
                         <p className="text-sm text-muted-foreground">{t(coverage.exampleKey)}</p>
                       </div>
                     </div>

@@ -73,7 +73,8 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 in 4 European SMEs fears a cyberattack could force them to close.',
     
     // Coverage Accordions
-    'coverage.title': 'What is covered?',
+    'coverage.title': 'Insurance & Response Coverage',
+    'coverage.example.label': 'Example:',
     'coverage.viewDetails': 'View coverage details',
     'coverage.hideDetails': 'Hide details',
     
@@ -357,7 +358,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.text': 'Ready to protect your business? Start with the Fit4Cybersecurity Assessment.',
     'pricing.cta.button': 'Start Assessment',
     // SOCaaS
-    'pricing.socaas.tagline': 'The Fire Station Control Center – 24/7 Monitoring from Luxembourg',
+    'pricing.socaas.tagline': 'The Fire Alarm System – 24/7 Monitoring from Luxembourg',
     'pricing.socaas.perAssetMonth': 'per asset / month',
     'pricing.socaas.pack5': 'Billed in packs of 5 assets',
     'pricing.socaas.tranquility.target': 'Ideal for SMEs without IT team',
@@ -535,7 +536,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cycle.analogy.label': 'House analogy',
     'cycle.socaas.title': 'SOC as a Service',
     'cycle.socaas.short': 'Monitor',
-    'cycle.socaas.role': 'The Fire Station Control Center',
+    'cycle.socaas.role': 'The Fire Alarm System',
     'cycle.socaas.description': '24/7 monitoring of your entire IT infrastructure. Detects threats before they cause damage – like a fire alarm system connected to the control center. Powered by RSecure from Luxembourg.',
     'cycle.socaas.analogy': 'The fire alarm system connected to the control center – detects smoke before the fire breaks out.',
     'cycle.assistance.title': 'CyberAssistance',
@@ -615,7 +616,8 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 PME européenne sur 4 craint qu\'une cyberattaque puisse la contraindre à fermer.',
     
     // Coverage Accordions
-    'coverage.title': 'Qu\'est-ce qui est couvert ?',
+    'coverage.title': 'Couverture Assurance & Intervention',
+    'coverage.example.label': 'Exemple :',
     'coverage.viewDetails': 'Voir les détails de couverture',
     'coverage.hideDetails': 'Masquer les détails',
     
@@ -899,7 +901,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.text': 'Prêt à protéger votre entreprise ? Commencez par l\'évaluation Fit4Cybersecurity.',
     'pricing.cta.button': 'Démarrer l’évaluation',
     // SOCaaS
-    'pricing.socaas.tagline': 'Le Centre de Commandement des Pompiers – Surveillance 24/7 depuis le Luxembourg',
+    'pricing.socaas.tagline': 'Le Système d\'Alarme Incendie – Surveillance 24/7 depuis le Luxembourg',
     'pricing.socaas.perAssetMonth': 'par asset / mois',
     'pricing.socaas.pack5': 'Facturé par packs de 5 assets',
     'pricing.socaas.tranquility.target': 'Idéal pour PME sans équipe IT',
@@ -1076,7 +1078,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cycle.analogy.label': 'Analogie maison',
     'cycle.socaas.title': 'SOC as a Service',
     'cycle.socaas.short': 'Surveiller',
-    'cycle.socaas.role': 'Le Centre de Contrôle',
+    'cycle.socaas.role': 'Le Système d\'Alarme Incendie',
     'cycle.socaas.description': 'Surveillance 24/7 de toute votre infrastructure IT. Détecte les menaces avant qu\'elles ne causent des dommages – comme un système d\'alarme incendie connecté au centre de contrôle.',
     'cycle.socaas.analogy': 'Le système d\'alarme incendie connecté au centre de contrôle – détecte la fumée avant que le feu ne se déclare.',
     'cycle.assistance.title': 'CyberAssistance',
@@ -1156,7 +1158,8 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 von 4 europäischen KMU befürchtet, dass ein Cyberangriff sie zur Schließung zwingen könnte.',
     
     // Coverage Accordions
-    'coverage.title': 'Was ist abgedeckt?',
+    'coverage.title': 'Versicherungs- & Notfallschutz',
+    'coverage.example.label': 'Beispiel:',
     'coverage.viewDetails': 'Deckungsdetails anzeigen',
     'coverage.hideDetails': 'Details ausblenden',
     
@@ -1440,7 +1443,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.text': 'Bereit, Ihr Unternehmen zu schützen? Starten Sie mit dem Fit4Cybersecurity Assessment.',
     'pricing.cta.button': 'Assessment starten',
     // SOCaaS
-    'pricing.socaas.tagline': 'Die Feuerwehrleitstelle – 24/7 Überwachung aus Luxemburg',
+    'pricing.socaas.tagline': 'Die Brandmeldeanlage – 24/7 Überwachung aus Luxemburg',
     'pricing.socaas.perAssetMonth': 'pro Asset / Monat',
     'pricing.socaas.pack5': 'Abrechnung in 5er-Paketen',
     'pricing.socaas.tranquility.target': 'Ideal für KMU ohne IT-Team',
@@ -1617,7 +1620,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cycle.analogy.label': 'Haus-Analogie',
     'cycle.socaas.title': 'SOC as a Service',
     'cycle.socaas.short': 'Überwachen',
-    'cycle.socaas.role': 'Die Feuerwehrleitstelle',
+    'cycle.socaas.role': 'Die Brandmeldeanlage',
     'cycle.socaas.description': '24/7 Überwachung Ihrer gesamten IT-Infrastruktur. Erkennt Bedrohungen bevor sie Schaden anrichten – wie eine Brandmeldeanlage die mit der Leitstelle verbunden ist.',
     'cycle.socaas.analogy': 'Die Brandmeldeanlage verbunden mit der Leitstelle – erkennt Rauch bevor das Feuer ausbricht.',
     'cycle.assistance.title': 'CyberAssistance',

@@ -85,7 +85,7 @@ export default function Statistics() {
             <div>
               <p className="text-xl md:text-2xl font-semibold">{t('stats.bottomline')}</p>
               <p className="text-slate-400 text-sm mt-2">
-                Source: ENISA Threat Landscape 2024
+                {t('stats.source')}: ENISA Threat Landscape 2024
               </p>
             </div>
           </div>
