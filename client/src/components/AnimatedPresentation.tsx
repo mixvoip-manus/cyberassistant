@@ -180,7 +180,8 @@ const slides: Slide[] = [
 // Audio files for slides by language
 const slideAudioFiles: Record<string, Record<number, string>> = {
   de: {
-    1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_de_28341056.wav', // House slide (index 1)
+    0: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_welcome_de_3571360f.wav', // Welcome (index 0)
+    1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_haus_de_v3_f786a0e4.wav', // House slide (index 1) - v3
     2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_de_9215d95a.wav', // Cyber slide (index 2)
     3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_de_v3_b95e4f2c.wav', // Timeline (index 3)
     4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_de_v3_7172674c.wav', // SOCaaS + CyberAssistance (index 4)
@@ -192,6 +193,7 @@ const slideAudioFiles: Record<string, Record<number, string>> = {
     10: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_closing_de_d1bc5878.wav', // Closing (index 10)
   },
   fr: {
+    0: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_welcome_fr_726ef172.wav', // Welcome (index 0)
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_fr_41edeb1c.wav', // House slide (index 1)
     2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_fr_v3_4e748e8d.wav', // Cyber slide (index 2)
     3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_fr_v3_0d0737b9.wav', // Timeline (index 3)
@@ -204,6 +206,7 @@ const slideAudioFiles: Record<string, Record<number, string>> = {
     10: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_closing_fr_cc22975c.wav', // Closing (index 10)
   },
   en: {
+    0: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_welcome_en_1ca10afb.wav', // Welcome (index 0)
     1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_en_d47cff41.wav', // House slide (index 1)
     2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_cyber_en_v3_ed765cbb.wav', // Cyber slide (index 2)
     3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_en_v3_a2bbd2e1.wav', // Timeline (index 3)
