@@ -3,7 +3,7 @@
 .pnpm-store/
 
 # Build outputs
-dist/
+# dist/ - included for deployment
 build/
 *.dist
 
@@ -104,3 +104,4 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+dist/

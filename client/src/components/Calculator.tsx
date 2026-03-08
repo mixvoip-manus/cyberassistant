@@ -534,7 +534,7 @@ export default function Calculator() {
             asChild
             className="bg-[#00B050] hover:bg-[#00873D]"
           >
-            <a href="mailto:support@mixvoip.com?subject=Cyber Assistance Enterprise Inquiry">
+            <a href="mailto:support@mixvoip.com?subject=Cyber Suite Enterprise Inquiry">
               {t('package.contact')}
             </a>
           </Button>

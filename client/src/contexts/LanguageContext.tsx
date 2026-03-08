@@ -24,14 +24,14 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero Section
     'hero.title': 'What happens when a cyberattack shuts down your IT?',
-    'hero.subtitle': 'Cyber Assistance – Your emergency plan for the worst case',
+    'hero.subtitle': 'Cyber Suite – Your emergency plan for the worst case',
     'hero.description': 'Secure your business against the consequences of cyberattacks, fines, and losses. Strengthen your cybersecurity with the most comprehensive coverage on the market.',
     'hero.price': 'Starting from',
     'hero.priceValue': '2€ / user / month',
-    'hero.cta': 'Calculate your Cyber Assistance',
+    'hero.cta': 'Calculate your Cyber Suite',
     'hero.ctaSecondary': 'Learn more',
     'hero.ctaLearnHow': 'See how it works',
-    'hero.card.title': 'Cyber Assistance',
+    'hero.card.title': 'Cyber Suite',
     'hero.card.subtitle': 'Complete Protection',
     'hero.card.response': '24/7 Response',
     'hero.card.gdpr': 'GDPR Coverage',
@@ -39,8 +39,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.card.insurance': 'Insurance Coverage',
     
     // What is Section
-    'what.title': 'What is Cyber Assistance?',
-    'what.description': 'Cyber Assistance is the essential product to protect businesses. It is also the indispensable complement to your company\'s cybersecurity strategy.',
+    'what.title': 'What is Cyber Suite?',
+    'what.description': 'Cyber Suite is the essential product to protect businesses. It is also the indispensable complement to your company\'s cybersecurity strategy.',
     'what.description2': 'We provide you with cybersecurity experts who will advise and assist you in regulatory procedures as a result of a cyber incident. We will also handle the drafting of notifications to any governmental, regulatory, or professional body as appropriate.',
     'what.protect': 'Protect against:',
     'what.attacks': 'Attacks',
@@ -51,7 +51,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.losses.desc': 'Business interruption, revenue loss, reputation damage',
     
     // Benefits
-    'benefits.title': 'Why choose Cyber Assistance?',
+    'benefits.title': 'Why choose Cyber Suite?',
     'benefits.coverage.title': 'All essential coverages',
     'benefits.coverage.description': 'The only insurance that includes fraud protection coverage in its basic policy',
     'benefits.nodeductible.title': 'Simple online subscription',
@@ -96,7 +96,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.legal.item3': 'Administrative sanctions (CNPD, CNIL, etc.)',
     'coverage.legal.item4': 'Defamation coverage',
     'coverage.legal.item5': 'Intellectual property rights violation',
-    'coverage.legal.example': 'You receive a malicious email (phishing) and, by mistake, download a program that exposes your company\'s and clients\' data. A mandatory report to the CNPD is required. Cyber Assistance helps you draft the necessary notifications to clients and regulatory authorities.',
+    'coverage.legal.example': 'You receive a malicious email (phishing) and, by mistake, download a program that exposes your company\'s and clients\' data. A mandatory report to the CNPD is required. Cyber Suite helps you draft the necessary notifications to clients and regulatory authorities.',
     
     'coverage.business.title': 'Business Interruption & System Damage',
     'coverage.business.subtitle': 'We help you recover quickly',
@@ -138,7 +138,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.prevention.example': 'Your Fit4Cyber score shows: MFA is missing on 3 systems. We help you fix this in 2 weeks – and you qualify for better insurance conditions.',
     
     // Calculator
-    'calc.title': 'Calculate your Cyber Assistance',
+    'calc.title': 'Calculate your Cyber Suite',
     'calc.step1': 'Check',
     'calc.step2': 'Choose',
     'calc.step3': 'Start',
@@ -175,7 +175,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.continue': 'Continue to checkout',
     'calc.back': 'Back',
     
-    'calc.result.eligible': 'Great news! You qualify for Cyber Assistance.',
+    'calc.result.eligible': 'Great news! You qualify for Cyber Suite.',
     'calc.result.upgrade': 'You need to improve your security score first.',
     'calc.result.noscore': 'Get your free Fit4Cyber assessment first.',
     'calc.result.getAssessment': 'Get Fit4Cyber Assessment',
@@ -215,7 +215,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.contact': 'Contact person',
     'form.email': 'Email',
     'form.phone': 'Phone',
-    'form.terms1': 'I accept the Terms and Conditions of Mixvoip Cyber Assistance',
+    'form.terms1': 'I accept the Terms and Conditions of Mixvoip Cyber Suite',
     'form.terms2': 'I accept the insurance terms of our Luxembourg insurance partner',
     'form.terms3': 'I confirm that my information, particularly the Fit4Cyber score, is correct',
     'form.submit': 'Order now & activate protection',
@@ -225,21 +225,21 @@ const translations: Record<Language, Record<string, string>> = {
     
     // FAQ
     'faq.title': 'Frequently Asked Questions',
-    'faq.q1': 'Where can I call if I have questions during the Cyber Assistance subscription?',
+    'faq.q1': 'Where can I call if I have questions during the Cyber Suite subscription?',
     'faq.a1': 'Contact us at +352 20 33 33 00 or email support@mixvoip.com',
     'faq.q2': 'What should I do if I have an incident?',
     'faq.a2': 'Call our 24/7 emergency hotline immediately. Our team will guide you through the process.',
-    'faq.q3': 'What advantages does Cyber Assistance offer me?',
+    'faq.q3': 'What advantages does Cyber Suite offer me?',
     'faq.a3': 'Complete protection: technical response + insurance coverage + legal support + prevention training.',
     'faq.q4': 'If my laptop is stolen with all my client data, am I covered?',
-    'faq.a4': 'Yes, Cyber Assistance covers data breaches including those resulting from device theft.',
+    'faq.a4': 'Yes, Cyber Suite covers data breaches including those resulting from device theft.',
     'faq.q5': 'My computer has been hijacked, what do I do?',
     'faq.a5': 'Call our emergency hotline immediately. Do not pay any ransom without consulting our experts first.',
     'faq.q6': 'What is the price and how do I pay?',
     'faq.a6': 'Basic is free for Mixvoip customers. Pro starts at 2€ / user / month, billed monthly.',
     'faq.q7': 'What is the deductible?',
     'faq.a7': 'Deductibles vary by coverage level: 50k€ coverage = 500€, 100k€ = 1.000€, 250k€ = 2.500€ deductible.',
-    'faq.q8': 'How is Cyber Assistance renewed?',
+    'faq.q8': 'How is Cyber Suite renewed?',
     'faq.a8': 'The contract renews automatically annually. You can cancel at any time with 30 days notice.',
     
     // Footer
@@ -347,7 +347,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.item3': '"You have been hacked" message',
     'pricing.selfQualification.isCyber.item4': 'Customer data stolen',
     'pricing.selfQualification.isCyber.item5': 'Extortion email received',
-    'pricing.selfQualification.isCyber.action': '☎ Call Cyber Assistance Hotline immediately!',
+    'pricing.selfQualification.isCyber.action': '☎ Call Cyber Suite Hotline immediately!',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'False Alarm Policy',
     'pricing.falseAlarm.basic': 'First 2 false alarms / year free, then 50€ / false alarm',
@@ -432,11 +432,11 @@ const translations: Record<Language, Record<string, string>> = {
     'order.success.close': 'Close',
     
     // Animated Presentation
-    'presentation.title': 'Cyber Assistance in 2 Minutes',
+    'presentation.title': 'Cyber Suite in 2 Minutes',
     'presentation.subtitle': 'Watch our interactive presentation to learn how we protect your business',
     'presentation.slideWelcome.title': 'Welcome',
     'presentation.slideWelcome.subtitle': 'Immediate Response • Insurance • Prevention – All in One',
-    'presentation.slide1.title': 'Welcome to Cyber Assistance',
+    'presentation.slide1.title': 'Welcome to Cyber Suite',
     'presentation.slide1.subtitle': 'Your complete cyber protection partner',
     'presentation.slide1.point1': 'Comprehensive insurance coverage up to 250.000€',
     'presentation.slide1.point2': '24/7 emergency response team',
@@ -566,14 +566,14 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero Section
     'hero.title': 'Que se passe-t-il si une cyberattaque paralyse votre IT?',
-    'hero.subtitle': 'Cyber Assistance – Votre plan d\'urgence pour le pire',
+    'hero.subtitle': 'Cyber Suite – Votre plan d\'urgence pour le pire',
     'hero.description': 'Protégez votre entreprise contre les conséquences des cyberattaques, amendes et pertes. Renforcez votre cybersécurité avec la couverture la plus complète du marché.',
     'hero.price': 'À partir de',
     'hero.priceValue': '2€ / utilisateur / mois',
-    'hero.cta': 'Calculez votre Cyber Assistance',
+    'hero.cta': 'Calculez votre Cyber Suite',
     'hero.ctaSecondary': 'En savoir plus',
     'hero.ctaLearnHow': 'Voir comment ça marche',
-    'hero.card.title': 'Cyber Assistance',
+    'hero.card.title': 'Cyber Suite',
     'hero.card.subtitle': 'Protection Complète',
     'hero.card.response': 'Réponse 24/7',
     'hero.card.gdpr': 'Couverture RGPD',
@@ -581,8 +581,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.card.insurance': 'Couverture d\'Assurance',
     
     // What is Section
-    'what.title': 'Qu\'est-ce que Cyber Assistance ?',
-    'what.description': 'Cyber Assistance est le produit essentiel pour protéger les entreprises. C\'est aussi le complément indispensable à la stratégie de cybersécurité de votre entreprise.',
+    'what.title': 'Qu\'est-ce que Cyber Suite ?',
+    'what.description': 'Cyber Suite est le produit essentiel pour protéger les entreprises. C\'est aussi le complément indispensable à la stratégie de cybersécurité de votre entreprise.',
     'what.description2': 'Nous mettons à votre disposition des experts en cybersécurité qui vous conseilleront et vous assisteront dans les procédures réglementaires suite à un cyber-incident. Nous nous chargerons également de la rédaction des notifications à tout organisme gouvernemental, réglementaire ou professionnel concerné.',
     'what.protect': 'Protégez-vous contre :',
     'what.attacks': 'Attaques',
@@ -593,7 +593,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.losses.desc': 'Interruption d\'activité, perte de revenus, atteinte à la réputation',
     
     // Benefits
-    'benefits.title': 'Pourquoi choisir Cyber Assistance ?',
+    'benefits.title': 'Pourquoi choisir Cyber Suite ?',
     'benefits.coverage.title': 'Toutes les couvertures essentielles',
     'benefits.coverage.description': 'La seule assurance qui inclut la protection contre la fraude dans sa police de base',
     'benefits.nodeductible.title': 'Souscription en ligne simple',
@@ -638,7 +638,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.legal.item3': 'Sanctions administratives (CNPD, CNIL, etc.)',
     'coverage.legal.item4': 'Couverture diffamation',
     'coverage.legal.item5': 'Violation des droits de propriété intellectuelle',
-    'coverage.legal.example': 'Vous recevez un email malveillant (phishing) et, par erreur, téléchargez un programme qui expose les données de votre entreprise et de vos clients. Un rapport obligatoire à la CNPD est requis. Cyber Assistance vous aide à rédiger les notifications nécessaires aux clients et aux autorités réglementaires.',
+    'coverage.legal.example': 'Vous recevez un email malveillant (phishing) et, par erreur, téléchargez un programme qui expose les données de votre entreprise et de vos clients. Un rapport obligatoire à la CNPD est requis. Cyber Suite vous aide à rédiger les notifications nécessaires aux clients et aux autorités réglementaires.',
     
     'coverage.business.title': 'Interruption d\'Activité & Dommages aux Systèmes',
     'coverage.business.subtitle': 'Nous vous aidons à récupérer rapidement',
@@ -680,7 +680,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.prevention.example': 'Votre score Fit4Cyber montre : MFA manquant sur 3 systèmes. Nous vous aidons à corriger cela en 2 semaines – et vous bénéficiez de meilleures conditions d\'assurance.',
     
     // Calculator
-    'calc.title': 'Calculez votre Cyber Assistance',
+    'calc.title': 'Calculez votre Cyber Suite',
     'calc.step1': 'Vérifier',
     'calc.step2': 'Choisir',
     'calc.step3': 'Démarrer',
@@ -717,7 +717,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.continue': 'Continuer vers le paiement',
     'calc.back': 'Retour',
     
-    'calc.result.eligible': 'Bonne nouvelle ! Vous êtes éligible à Cyber Assistance.',
+    'calc.result.eligible': 'Bonne nouvelle ! Vous êtes éligible à Cyber Suite.',
     'calc.result.upgrade': 'Vous devez d\'abord améliorer votre score de sécurité.',
     'calc.result.noscore': 'Obtenez d\'abord votre évaluation Fit4Cyber gratuite.',
     'calc.result.getAssessment': 'Obtenir l\'évaluation Fit4Cyber',
@@ -757,7 +757,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.contact': 'Personne de contact',
     'form.email': 'Email',
     'form.phone': 'Téléphone',
-    'form.terms1': 'J\'accepte les Conditions Générales de Mixvoip Cyber Assistance',
+    'form.terms1': 'J\'accepte les Conditions Générales de Mixvoip Cyber Suite',
     'form.terms2': 'J\'accepte les conditions d\'assurance de notre partenaire assureur luxembourgeois',
     'form.terms3': 'Je confirme que mes informations, notamment le score Fit4Cyber, sont correctes',
     'form.submit': 'Commander maintenant & activer la protection',
@@ -767,21 +767,21 @@ const translations: Record<Language, Record<string, string>> = {
     
     // FAQ
     'faq.title': 'Questions Fréquentes',
-    'faq.q1': 'Où puis-je appeler si j\'ai des questions pendant l\'abonnement Cyber Assistance ?',
+    'faq.q1': 'Où puis-je appeler si j\'ai des questions pendant l\'abonnement Cyber Suite ?',
     'faq.a1': 'Contactez-nous au +352 20 33 33 00 ou par email à support@mixvoip.com',
     'faq.q2': 'Que dois-je faire si j\'ai un incident ?',
     'faq.a2': 'Appelez immédiatement notre hotline d\'urgence 24/7. Notre équipe vous guidera tout au long du processus.',
-    'faq.q3': 'Quels avantages Cyber Assistance m\'offre-t-il ?',
+    'faq.q3': 'Quels avantages Cyber Suite m\'offre-t-il ?',
     'faq.a3': 'Protection complète : réponse technique + couverture d\'assurance + support juridique + formation préventive.',
     'faq.q4': 'Si mon ordinateur portable est volé avec toutes les données de mes clients, suis-je couvert ?',
-    'faq.a4': 'Oui, Cyber Assistance couvre les violations de données, y compris celles résultant du vol d\'appareils.',
+    'faq.a4': 'Oui, Cyber Suite couvre les violations de données, y compris celles résultant du vol d\'appareils.',
     'faq.q5': 'Mon ordinateur a été piraté, que dois-je faire ?',
     'faq.a5': 'Appelez immédiatement notre hotline d\'urgence. Ne payez aucune rançon sans consulter d\'abord nos experts.',
     'faq.q6': 'Quel est le prix et comment puis-je payer ?',
     'faq.a6': 'Basic est gratuit pour les clients Mixvoip. Pro commence à 2€ / utilisateur / mois, facturé mensuellement.',
     'faq.q7': 'Quelle est la franchise ?',
     'faq.a7': 'Les franchises varient selon le niveau de couverture : couverture 50k€ = 500€, 100k€ = 1.000€, 250k€ = 2.500€ de franchise.',
-    'faq.q8': 'Comment Cyber Assistance est-il renouvelé ?',
+    'faq.q8': 'Comment Cyber Suite est-il renouvelé ?',
     'faq.a8': 'Le contrat se renouvelle automatiquement chaque année. Vous pouvez résilier à tout moment avec un préavis de 30 jours.',
     
     // Footer
@@ -889,7 +889,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.item3': 'Message "Vous avez été piraté"',
     'pricing.selfQualification.isCyber.item4': 'Données clients volées',
     'pricing.selfQualification.isCyber.item5': 'Email d\'extorsion reçu',
-    'pricing.selfQualification.isCyber.action': '☎ Appelez la hotline Cyber Assistance immédiatement !',
+    'pricing.selfQualification.isCyber.action': '☎ Appelez la hotline Cyber Suite immédiatement !',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'Politique de fausse alerte',
     'pricing.falseAlarm.basic': '2 premières fausses alertes / an gratuites, puis 50€ / fausse alerte',
@@ -973,11 +973,11 @@ const translations: Record<Language, Record<string, string>> = {
     'order.success.close': 'Fermer',
     
     // Animated Presentation
-    'presentation.title': 'Cyber Assistance en 2 Minutes',
+    'presentation.title': 'Cyber Suite en 2 Minutes',
     'presentation.subtitle': 'Découvrez notre présentation interactive pour savoir comment nous protégeons votre entreprise',
     'presentation.slideWelcome.title': 'Bienvenue',
     'presentation.slideWelcome.subtitle': 'Assistance immédiate • Assurance • Prévention – Tout en Un',
-    'presentation.slide1.title': 'Bienvenue chez Cyber Assistance',
+    'presentation.slide1.title': 'Bienvenue chez Cyber Suite',
     'presentation.slide1.subtitle': 'Votre partenaire complet de cyber-protection',
     'presentation.slide1.point1': 'Couverture d\'assurance complète jusqu\'à 250 000 €',
     'presentation.slide1.point2': 'Équipe d\'intervention d\'urgence 24h/24 et 7j/7',
@@ -1107,14 +1107,14 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero Section
     'hero.title': 'Was passiert, wenn eine Cyber-Attacke Ihre IT lahmlegt?',
-    'hero.subtitle': 'Cyber Assistance – Ihr Notfallplan für den Ernstfall',
+    'hero.subtitle': 'Cyber Suite – Ihr Notfallplan für den Ernstfall',
     'hero.description': 'Sichern Sie Ihr Unternehmen gegen die Folgen von Cyberangriffen, Bußgeldern und Verlusten ab. Stärken Sie Ihre Cybersicherheit mit dem umfassendsten Schutz auf dem Markt.',
     'hero.price': 'Ab',
     'hero.priceValue': '2€ / Nutzer / Monat',
-    'hero.cta': 'Berechnen Sie Ihre Cyber Assistance',
+    'hero.cta': 'Berechnen Sie Ihre Cyber Suite',
     'hero.ctaSecondary': 'Mehr erfahren',
     'hero.ctaLearnHow': 'So funktioniert es',
-    'hero.card.title': 'Cyber Assistance',
+    'hero.card.title': 'Cyber Suite',
     'hero.card.subtitle': 'Komplettschutz',
     'hero.card.response': '24/7 Reaktion',
     'hero.card.gdpr': 'DSGVO-Deckung',
@@ -1122,8 +1122,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.card.insurance': 'Versicherungsdeckung',
     
     // What is Section
-    'what.title': 'Was ist Cyber Assistance?',
-    'what.description': 'Cyber Assistance ist das unverzichtbare Produkt zum Schutz von Unternehmen. Es ist auch die unentbehrliche Ergänzung zur Cybersicherheitsstrategie Ihres Unternehmens.',
+    'what.title': 'Was ist Cyber Suite?',
+    'what.description': 'Cyber Suite ist das unverzichtbare Produkt zum Schutz von Unternehmen. Es ist auch die unentbehrliche Ergänzung zur Cybersicherheitsstrategie Ihres Unternehmens.',
     'what.description2': 'Wir stellen Ihnen Cybersicherheitsexperten zur Verfügung, die Sie bei regulatorischen Verfahren infolge eines Cyber-Vorfalls beraten und unterstützen. Wir übernehmen auch die Erstellung von Meldungen an alle zuständigen behördlichen, regulatorischen oder beruflichen Stellen.',
     'what.protect': 'Schützen Sie sich vor:',
     'what.attacks': 'Angriffen',
@@ -1134,7 +1134,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.losses.desc': 'Betriebsunterbrechung, Umsatzverlust, Reputationsschaden',
     
     // Benefits
-    'benefits.title': 'Warum Cyber Assistance wählen?',
+    'benefits.title': 'Warum Cyber Suite wählen?',
     'benefits.coverage.title': 'Alle wesentlichen Deckungen',
     'benefits.coverage.description': 'Die einzige Versicherung, die Betrugsschutz in ihrer Basispolice enthält',
     'benefits.nodeductible.title': 'Einfache Online-Anmeldung',
@@ -1179,7 +1179,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.legal.item3': 'Verwaltungssanktionen (CNPD, CNIL, BfDI, etc.)',
     'coverage.legal.item4': 'Verleumdungsschutz',
     'coverage.legal.item5': 'Verletzung von geistigen Eigentumsrechten',
-    'coverage.legal.example': 'Sie erhalten eine bösartige E-Mail (Phishing) und laden versehentlich ein Programm herunter, das die Daten Ihres Unternehmens und Ihrer Kunden offenlegt. Eine Pflichtmeldung an die Datenschutzbehörde ist erforderlich. Cyber Assistance hilft Ihnen bei der Erstellung der erforderlichen Mitteilungen an Kunden und Aufsichtsbehörden.',
+    'coverage.legal.example': 'Sie erhalten eine bösartige E-Mail (Phishing) und laden versehentlich ein Programm herunter, das die Daten Ihres Unternehmens und Ihrer Kunden offenlegt. Eine Pflichtmeldung an die Datenschutzbehörde ist erforderlich. Cyber Suite hilft Ihnen bei der Erstellung der erforderlichen Mitteilungen an Kunden und Aufsichtsbehörden.',
     
     'coverage.business.title': 'Betriebsunterbrechung & Systemschäden',
     'coverage.business.subtitle': 'Wir helfen Ihnen bei der schnellen Wiederherstellung',
@@ -1221,7 +1221,7 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.prevention.example': 'Ihr Fit4Cyber-Score zeigt: MFA fehlt auf 3 Systemen. Wir helfen Ihnen, das in 2 Wochen zu beheben – und Sie qualifizieren sich für bessere Versicherungskonditionen.',
     
     // Calculator
-    'calc.title': 'Berechnen Sie Ihre Cyber Assistance',
+    'calc.title': 'Berechnen Sie Ihre Cyber Suite',
     'calc.step1': 'Prüfen',
     'calc.step2': 'Wählen',
     'calc.step3': 'Starten',
@@ -1258,7 +1258,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.continue': 'Weiter zur Kasse',
     'calc.back': 'Zurück',
     
-    'calc.result.eligible': 'Gute Nachrichten! Sie qualifizieren sich für Cyber Assistance.',
+    'calc.result.eligible': 'Gute Nachrichten! Sie qualifizieren sich für Cyber Suite.',
     'calc.result.upgrade': 'Sie müssen zuerst Ihren Sicherheits-Score verbessern.',
     'calc.result.noscore': 'Holen Sie sich zuerst Ihre kostenlose Fit4Cyber-Bewertung.',
     'calc.result.getAssessment': 'Fit4Cyber-Bewertung erhalten',
@@ -1298,7 +1298,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.contact': 'Ansprechpartner',
     'form.email': 'E-Mail',
     'form.phone': 'Telefon',
-    'form.terms1': 'Ich akzeptiere die AGB von Mixvoip Cyber Assistance',
+    'form.terms1': 'Ich akzeptiere die AGB von Mixvoip Cyber Suite',
     'form.terms2': 'Ich akzeptiere die Versicherungsbedingungen unseres luxemburgischen Versicherungspartners',
     'form.terms3': 'Ich bestätige, dass meine Angaben, insbesondere der Fit4Cyber-Score, korrekt sind',
     'form.submit': 'Jetzt bestellen & Schutz aktivieren',
@@ -1308,21 +1308,21 @@ const translations: Record<Language, Record<string, string>> = {
     
     // FAQ
     'faq.title': 'Häufig gestellte Fragen',
-    'faq.q1': 'Wo kann ich anrufen, wenn ich während des Cyber Assistance-Abonnements Fragen habe?',
+    'faq.q1': 'Wo kann ich anrufen, wenn ich während des Cyber Suite-Abonnements Fragen habe?',
     'faq.a1': 'Kontaktieren Sie uns unter +352 20 33 33 00 oder per E-Mail an support@mixvoip.com',
     'faq.q2': 'Was soll ich tun, wenn ich einen Vorfall habe?',
     'faq.a2': 'Rufen Sie sofort unsere 24/7-Notfall-Hotline an. Unser Team führt Sie durch den Prozess.',
-    'faq.q3': 'Welche Vorteile bietet mir Cyber Assistance?',
+    'faq.q3': 'Welche Vorteile bietet mir Cyber Suite?',
     'faq.a3': 'Vollständiger Schutz: technische Reaktion + Versicherungsschutz + rechtliche Unterstützung + Präventionsschulung.',
     'faq.q4': 'Wenn mein Laptop mit allen Kundendaten gestohlen wird, bin ich dann abgedeckt?',
-    'faq.a4': 'Ja, Cyber Assistance deckt Datenschutzverletzungen ab, einschließlich solcher, die durch Gerätediebstahl entstehen.',
+    'faq.a4': 'Ja, Cyber Suite deckt Datenschutzverletzungen ab, einschließlich solcher, die durch Gerätediebstahl entstehen.',
     'faq.q5': 'Mein Computer wurde gehackt, was soll ich tun?',
     'faq.a5': 'Rufen Sie sofort unsere Notfall-Hotline an. Zahlen Sie kein Lösegeld, ohne vorher unsere Experten zu konsultieren.',
     'faq.q6': 'Was ist der Preis und wie bezahle ich?',
     'faq.a6': 'Basic ist kostenlos für Mixvoip-Kunden. Pro beginnt bei 2€ / Nutzer / Monat, monatlich abgerechnet.',
     'faq.q7': 'Was ist die Selbstbeteiligung?',
     'faq.a7': 'Die Selbstbeteiligung variiert je nach Deckungsstufe: 50k€ Deckung = 500€, 100k€ = 1.000€, 250k€ = 2.500€ Selbstbeteiligung.',
-    'faq.q8': 'Wie wird Cyber Assistance verlängert?',
+    'faq.q8': 'Wie wird Cyber Suite verlängert?',
     'faq.a8': 'Der Vertrag verlängert sich automatisch jährlich. Sie können jederzeit mit 30 Tagen Kündigungsfrist kündigen.',
     
     // Footer
@@ -1430,7 +1430,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.selfQualification.isCyber.item3': '"Sie wurden gehackt" Meldung',
     'pricing.selfQualification.isCyber.item4': 'Kundendaten gestohlen',
     'pricing.selfQualification.isCyber.item5': 'Erpresser-E-Mail erhalten',
-    'pricing.selfQualification.isCyber.action': '☎ Rufen Sie sofort die Cyber Assistance Hotline an!',
+    'pricing.selfQualification.isCyber.action': '☎ Rufen Sie sofort die Cyber Suite Hotline an!',
     // False Alarm Policy
     'pricing.falseAlarm.title': 'Fehlalarm-Regelung',
     'pricing.falseAlarm.basic': 'Erste 2 Fehlalarme / Jahr kostenlos, danach 50€ / Fehlalarm',
@@ -1514,11 +1514,11 @@ const translations: Record<Language, Record<string, string>> = {
     'order.success.close': 'Schließen',
     
     // Animated Presentation
-    'presentation.title': 'Cyber Assistance in 2 Minuten',
+    'presentation.title': 'Cyber Suite in 2 Minuten',
     'presentation.subtitle': 'Sehen Sie unsere interaktive Präsentation, um zu erfahren, wie wir Ihr Unternehmen schützen',
     'presentation.slideWelcome.title': 'Willkommen',
     'presentation.slideWelcome.subtitle': 'Soforthilfe • Versicherung • Prävention – Alles in Einem',
-    'presentation.slide1.title': 'Willkommen bei Cyber Assistance',
+    'presentation.slide1.title': 'Willkommen bei Cyber Suite',
     'presentation.slide1.subtitle': 'Ihr kompletter Cyber-Schutz-Partner',
     'presentation.slide1.point1': 'Umfassender Versicherungsschutz bis zu 250.000 €',
     'presentation.slide1.point2': '24/7 Notfall-Einsatzteam',
@@ -1685,10 +1685,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Get asset URL with language and base path for proxy compatibility
   const getAssetUrl = useCallback((path: string): string => {
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    // Static assets (images, audio, pdf) should use absolute path from root
-    // This ensures they work both in dev and production with proxy
+    // Static assets (images, audio, pdf) should use base path relative URL
+    // This ensures they work in subpath deployments
+    const viteBase = import.meta.env.BASE_URL || '/';
     if (cleanPath.startsWith('images/') || cleanPath.startsWith('audio/') || cleanPath.endsWith('.pdf')) {
-      return `/${cleanPath}`;
+      return `${viteBase}${cleanPath}`;
     }
     return `/${language}/enterprise/cyberassist/${cleanPath}`;
   }, [language]);

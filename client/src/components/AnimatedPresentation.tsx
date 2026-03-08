@@ -56,7 +56,7 @@ const slides: Slide[] = [
     type: 'image',
     titleKey: 'presentation.slideHouse.title',
     subtitleKey: 'presentation.slideHouse.subtitle',
-    imageSrc: '/images/house_lifecycle_complete.png',
+    imageSrc: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/house_lifecycle_complete_7d3a0414.png',
     footerKey: 'presentation.slideHouse.footer',
     bgGradient: 'from-orange-50 via-white to-amber-50',
     legendTitleKey: 'presentation.slideHouse.legendTitle',
@@ -81,7 +81,7 @@ const slides: Slide[] = [
     type: 'image',
     titleKey: 'presentation.slideCyber.title',
     subtitleKey: 'presentation.slideCyber.subtitle',
-    imageSrc: '/images/cyber_lifecycle_complete.png',
+    imageSrc: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/cyber_lifecycle_complete_9ac9e5f3.png',
     footerKey: 'presentation.slideCyber.footer',
     bgGradient: 'from-green-50 via-white to-blue-50',
     legendTitleKey: 'presentation.slideCyber.legendTitle',
@@ -108,7 +108,7 @@ const slides: Slide[] = [
     type: 'simple-image',
     titleKey: 'presentation.slideTimeline.title',
     subtitleKey: 'presentation.slideTimeline.subtitle',
-    imageSrc: '/images/cyber_timeline_flowchart.png',
+    imageSrc: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/cyber_timeline_flowchart_ae965303.png',
     bgGradient: 'from-slate-50 via-white to-slate-50',
   },
   // Original slides (renumbered)
@@ -180,16 +180,16 @@ const slides: Slide[] = [
 // Audio files for slides by language
 const slideAudioFiles: Record<string, Record<number, string>> = {
   de: {
-    1: '/audio/slide2_de.wav', // House slide (index 1)
-    2: '/audio/slide3_de.wav', // Cyber slide (index 2)
+    1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_de_28341056.wav', // House slide (index 1)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_de_9215d95a.wav', // Cyber slide (index 2)
   },
   fr: {
-    1: '/audio/slide2_fr.wav', // House slide (index 1)
-    2: '/audio/slide3_fr.wav', // Cyber slide (index 2)
+    1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_fr_41edeb1c.wav', // House slide (index 1)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_fr_1bc44563.wav', // Cyber slide (index 2)
   },
   en: {
-    1: '/audio/slide2_en.wav', // House slide (index 1)
-    2: '/audio/slide3_en.wav', // Cyber slide (index 2)
+    1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide2_en_d47cff41.wav', // House slide (index 1)
+    2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide3_en_48330cd9.wav', // Cyber slide (index 2)
   },
 };
 
@@ -241,7 +241,7 @@ export default function AnimatedPresentation() {
       if (audioRef.current) {
         audioRef.current.pause();
       }
-      const audio = new Audio(getAssetUrl(audioFile.slice(1)));
+      const audio = new Audio(audioFile.startsWith('http') ? audioFile : getAssetUrl(audioFile.slice(1)));
       audio.onended = () => setIsAudioPlaying(false);
       audio.play();
       audioRef.current = audio;

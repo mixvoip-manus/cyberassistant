@@ -164,7 +164,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">Cyber Assistance</h3>
+                  <h3 className="text-xl font-bold">CyberAssistance</h3>
                   <p className="text-muted-foreground">{t('order.assistance.selectPackage')}</p>
                 </div>
               </div>
@@ -505,7 +505,7 @@ export default function OrderFlow({ onClose }: OrderFlowProps) {
                 <h4 className="font-bold mb-4">{t('order.summary')}</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span>Cyber Assistance ({orderData.assistancePackage === 'basic' ? 'Basic' : orderData.assistancePackage === 'pro' ? 'Pro' : 'Enterprise'}
+                    <span>CyberAssistance ({orderData.assistancePackage === 'basic' ? 'Basic' : orderData.assistancePackage === 'pro' ? 'Pro' : 'Enterprise'}
                       {orderData.assistancePackage !== 'enterprise' && ` - ${orderData.userCount} ${t('pricing.user')}s`})
                     </span>
                     <span>

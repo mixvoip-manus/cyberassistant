@@ -28,3 +28,23 @@
 - [ ] Enterprise: According to contract terms
 
 ## All changes need translations in EN, FR, DE
+
+## Cyber Assistance → Cyber Suite Renaming (Umbrella vs Component)
+
+### Regel:
+- **Cyber Suite by Mixvoip** = Gesamtlösung / Umbrella
+- **CyberAssistance** = nur die Feuerwehr-Komponente (Notfall-Reaktion)
+
+### Muss zu "Cyber Suite" geändert werden:
+- [ ] hero.subtitle, hero.cta, hero.card.title
+- [ ] what.title, what.description
+- [ ] benefits.title
+- [ ] coverage.legal.example
+- [ ] calc.title, calc.result.eligible
+- [ ] form.terms1
+- [ ] faq.q1, faq.q3, faq.a4, faq.q8
+- [ ] presentation.title, presentation.slide1.title
+- [ ] pricing.selfQualification.isCyber.action
+- [ ] Fit4CyberAssessment: eligible, pricingTitle, PDF, email
+- [ ] Calculator: email subject
+- [ ] (All 3 languages: EN, FR, DE)
