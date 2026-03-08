@@ -1,8 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Scale, Users, CheckCircle2, Info, Clock, Zap, Building2, Star } from 'lucide-react';
+import { Shield, Scale, Users, CheckCircle2, Info, Clock, Zap, Building2, Star, Eye, Gavel } from 'lucide-react';
 
 export default function PricingSection() {
-  const { t } = useLanguage();
+  const { t, getAssetUrl } = useLanguage();
 
   return (
     <section id="pricing" className="py-16 md:py-24 bg-slate-50">
@@ -17,13 +17,132 @@ export default function PricingSection() {
           </p>
         </div>
 
-        {/* Cyber Assistance Packages */}
+        {/* ============================================ */}
+        {/* 1. SOCaaS powered by RSecure                 */}
+        {/* ============================================ */}
+        <div className="mb-16">
+          <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl max-w-5xl mx-auto">
+            <div className="flex items-center justify-center gap-3">
+              <Eye className="h-7 w-7" />
+              <h3 className="text-2xl font-bold">Mixvoip SOCaaS</h3>
+            </div>
+            <div className="flex items-center justify-center gap-2 mt-1">
+              <span className="text-cyan-100 text-sm">{t('cycle.poweredBy')}</span>
+              <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
+            </div>
+            <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
+          </div>
+          
+          <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
+            <div className="p-6">
+              {/* SOCaaS Packages */}
+              <div className="grid md:grid-cols-3 gap-4 mb-6">
+                {/* R-SOC Tranquility */}
+                <div className="text-center p-4 bg-cyan-50 rounded-xl border-2 border-cyan-200">
+                  <div className="font-bold text-cyan-700 text-lg">R-SOC Tranquility</div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.tranquility.target')}</div>
+                  <div className="mt-3">
+                    <span className="text-3xl font-bold text-cyan-700">7,20€</span>
+                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perAssetMonth')}</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
+                  <div className="mt-4 space-y-2 text-left text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f1')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f2')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f3')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f4')}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* R-SOC Full */}
+                <div className="text-center p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <div className="font-bold text-slate-800 text-lg">R-SOC</div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.full.target')}</div>
+                  <div className="mt-3">
+                    <span className="text-3xl font-bold text-slate-800">10€</span>
+                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perAssetMonth')}</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
+                  <div className="mt-4 space-y-2 text-left text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f1')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f2')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f3')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f4')}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Enterprise */}
+                <div className="text-center p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <div className="font-bold text-slate-800 text-lg">Enterprise</div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.enterprise.target')}</div>
+                  <div className="mt-3">
+                    <span className="text-2xl font-bold text-slate-800">{t('pricing.onRequest')}</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">&nbsp;</div>
+                  <div className="mt-4 space-y-2 text-left text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f1')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f2')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f3')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f4')}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* SOCaaS Analogy */}
+              <div className="bg-cyan-50 rounded-xl p-4 text-center">
+                <p className="text-sm text-cyan-800 font-medium">
+                  🔍 {t('pricing.socaas.analogy')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================ */}
+        {/* 2. Cyber Assistance (Mixvoip)                */}
+        {/* ============================================ */}
         <div className="mb-16">
           {/* Cyber Assistance Header Bar */}
           <div className="bg-[#00B050] text-white p-4 text-center rounded-t-2xl max-w-7xl mx-auto">
             <div className="flex items-center justify-center gap-3">
               <Shield className="h-8 w-8" />
-              <h3 className="text-2xl font-bold">Cyber Assistance</h3>
+              <h3 className="text-2xl font-bold">Mixvoip CyberAssistance</h3>
             </div>
             <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
           </div>
@@ -192,10 +311,10 @@ export default function PricingSection() {
             </div>
 
             {/* Enterprise */}
-            <div className="bg-white shadow-lg overflow-hidden md:rounded-br-2xl">
+            <div className="bg-white shadow-lg overflow-hidden">
               <div className="p-5">
                 <div className="text-center mb-4">
-                  <h4 className="text-lg font-bold text-slate-800">{t('pricing.assistance.enterprise.title')}</h4>
+                  <h4 className="text-lg font-bold text-slate-800">Enterprise</h4>
                   <div className="mt-2">
                     <span className="text-xl font-bold text-slate-800">{t('pricing.onRequest')}</span>
                   </div>
@@ -266,6 +385,22 @@ export default function PricingSection() {
                 <div className="text-lg mb-1">✈️</div>
                 <div className="font-bold text-slate-800 text-xs">Enterprise</div>
                 <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.enterprise')}</div>
+              </div>
+            </div>
+          </div>
+
+          {/* CyberAssurance Light included notice */}
+          <div className="max-w-7xl mx-auto mt-3">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
+              <Shield className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <div className="font-bold text-blue-800 text-sm flex items-center gap-2">
+                  {t('pricing.assuranceLight.title')}
+                  <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-4" />
+                </div>
+                <p className="text-sm text-blue-700 mt-1">{t('pricing.assuranceLight.description')}</p>
+                <p className="text-xs text-blue-600 mt-2 font-medium">{t('pricing.assuranceLight.price')}</p>
+                <p className="text-xs text-muted-foreground mt-1">{t('pricing.assuranceLight.disclaimer')}</p>
               </div>
             </div>
           </div>
@@ -344,17 +479,29 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* Cyber Assurance */}
+        {/* ============================================ */}
+        {/* 3. CyberAssurance powered by Le Foyer        */}
+        {/* ============================================ */}
         <div className="mb-8">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
             <div className="bg-[#2563EB] text-white p-4 text-center">
               <div className="flex items-center justify-center gap-3">
                 <Scale className="h-6 w-6" />
-                <h3 className="text-xl font-bold">Cyber Assurance</h3>
+                <h3 className="text-xl font-bold">Mixvoip CyberAssurance</h3>
+              </div>
+              <div className="flex items-center justify-center gap-2 mt-1">
+                <span className="text-blue-100 text-sm">{t('cycle.poweredBy')}</span>
+                <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-5 brightness-0 invert" />
               </div>
               <p className="text-blue-100 text-sm mt-1">{t('pricing.assurance.tagline')}</p>
             </div>
             <div className="p-6">
+              {/* CyberAssurance Light reminder */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 flex items-start gap-2">
+                <Info className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-green-800">{t('pricing.assurance.lightReminder')}</p>
+              </div>
+              
               <div className="text-sm text-muted-foreground mb-3">{t('pricing.assurance.coverage')}</div>
               <div className="grid grid-cols-4 gap-3 mb-6">
                 <div className="text-center p-3 bg-slate-50 rounded-lg">
@@ -419,21 +566,29 @@ export default function PricingSection() {
               </div>
               
               <div className="text-sm text-muted-foreground">{t('pricing.yearlyContract')}</div>
-              <div className="mt-4 pt-4 border-t border-slate-200 flex items-center gap-2 text-sm text-muted-foreground">
-                <Info className="h-4 w-4" />
-                <span>{t('pricing.assurance.partner')}</span>
+              <div className="mt-4 pt-4 border-t border-slate-200">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Info className="h-4 w-4" />
+                  <span>{t('pricing.assurance.disclaimer')}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Cyber Advisory */}
+        {/* ============================================ */}
+        {/* 4. CyberAdvisory powered by Luxgap           */}
+        {/* ============================================ */}
         <div className="mb-8">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
             <div className="bg-[#7C3AED] text-white p-4 text-center">
               <div className="flex items-center justify-center gap-3">
-                <Scale className="h-6 w-6" />
-                <h3 className="text-xl font-bold">Cyber Advisory</h3>
+                <Gavel className="h-6 w-6" />
+                <h3 className="text-xl font-bold">Mixvoip CyberAdvisory</h3>
+              </div>
+              <div className="flex items-center justify-center gap-2 mt-1">
+                <span className="text-purple-100 text-sm">{t('cycle.poweredBy')}</span>
+                <img src={getAssetUrl('/images/luxgaplogo.svg')} alt="Luxgap" className="h-5 brightness-0 invert" />
               </div>
               <p className="text-purple-100 text-sm mt-1">{t('pricing.advisory.tagline')}</p>
             </div>
