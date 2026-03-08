@@ -383,7 +383,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.assuranceLight.price': '10€ / month (already included in your CyberAssistance price)',
     'pricing.assuranceLight.disclaimer': 'CyberAssurance Light is already included in your CyberAssistance subscription – no additional cost. You can upgrade to full CyberAssurance separately if you need higher coverage.',
     'pricing.assurance.lightReminder': 'Remember: CyberAssurance Light (2 days Emergency Response for 5 key personnel) is already included in your CyberAssistance package. The plans below offer extended coverage.',
-    'pricing.assurance.disclaimer': 'CyberAssurance is provided by Le Foyer. Purchasing CyberAssistance does not require purchasing CyberAssurance (regulatory requirement). CyberAssurance Light is included transparently.',
+    'pricing.assurance.disclaimer': 'CyberAssurance is provided by Le Foyer. Purchasing CyberAssistance does not require purchasing CyberAssurance (regulatory requirement). CyberAssurance Light is automatically included at no extra cost.',
     
     // Order Flow
     'order.title': 'Configure Your Cyber Protection',
@@ -926,7 +926,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.assuranceLight.price': '10€ / mois (déjà inclus dans votre abonnement CyberAssistance)',
     'pricing.assuranceLight.disclaimer': 'CyberAssurance Light est déjà incluse dans votre abonnement CyberAssistance – sans coût supplémentaire. Vous pouvez passer à CyberAssurance complète séparément si vous avez besoin d\'une couverture plus élevée.',
     'pricing.assurance.lightReminder': 'Rappel : CyberAssurance Light (2 jours de réponse d\'urgence pour 5 personnes clés) est déjà incluse dans votre package CyberAssistance. Les plans ci-dessous offrent une couverture étendue.',
-    'pricing.assurance.disclaimer': 'CyberAssurance est fournie par Le Foyer. L\'achat de CyberAssistance n\'oblige pas à souscrire CyberAssurance (exigence réglementaire). CyberAssurance Light est incluse de manière transparente.',
+    'pricing.assurance.disclaimer': 'CyberAssurance est fournie par Le Foyer. L\'achat de CyberAssistance n\'oblige pas à souscrire CyberAssurance (exigence réglementaire). CyberAssurance Light est automatiquement incluse sans frais supplémentaires.',
     
     // Order Flow
     'order.title': 'Configurez votre protection cyber',
@@ -1468,7 +1468,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.assuranceLight.price': '10€ / Monat (bereits in Ihrem CyberAssistance-Abo enthalten)',
     'pricing.assuranceLight.disclaimer': 'CyberAssurance Light ist bereits in Ihrem CyberAssistance-Abo enthalten – ohne Zusatzkosten. Sie können separat auf die volle CyberAssurance upgraden, wenn Sie höheren Schutz benötigen.',
     'pricing.assurance.lightReminder': 'Zur Erinnerung: CyberAssurance Light (2 Tage Notfall-Einsatz für 5 Schlüsselpersonen) ist bereits in Ihrem CyberAssistance-Paket enthalten. Die untenstehenden Pläne bieten erweiterten Schutz.',
-    'pricing.assurance.disclaimer': 'CyberAssurance wird von Le Foyer bereitgestellt. Der Kauf von CyberAssistance verpflichtet nicht zum Kauf von CyberAssurance (regulatorische Anforderung). CyberAssurance Light ist transparent enthalten.',
+    'pricing.assurance.disclaimer': 'CyberAssurance wird von Le Foyer bereitgestellt. Der Kauf von CyberAssistance verpflichtet nicht zum Kauf von CyberAssurance (regulatorische Anforderung). CyberAssurance Light ist automatisch inklusive – ohne Zusatzkosten.',
     
     // Order Flow
     'order.title': 'Konfigurieren Sie Ihren Cyber-Schutz',
