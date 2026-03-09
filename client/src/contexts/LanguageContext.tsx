@@ -378,12 +378,12 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.socaas.enterprise.f4': 'Regulatory compliance reporting',
     'pricing.socaas.analogy': 'The fire alarm system connected to the control center – detects smoke before the fire breaks out.',
     // CyberAssurance Light
-    'pricing.assuranceLight.title': 'CyberAssurance Light included',
-    'pricing.assuranceLight.description': 'Every CyberAssistance package includes CyberAssurance Light: up to 2 days Emergency Response for up to 5 key personnel, covered by Le Foyer.',
-    'pricing.assuranceLight.price': '10€ / month (already included in your CyberAssistance price)',
-    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light is already included in your CyberAssistance subscription – no additional cost. You can upgrade to full CyberAssurance separately if you need higher coverage.',
-    'pricing.assurance.lightReminder': 'Remember: CyberAssurance Light (2 days Emergency Response for 5 key personnel) is already included in your CyberAssistance package. The plans below offer extended coverage.',
-    'pricing.assurance.disclaimer': 'CyberAssurance is provided by Le Foyer. Purchasing CyberAssistance does not require purchasing CyberAssurance (regulatory requirement). CyberAssurance Light is automatically included at no extra cost.',
+    'pricing.assuranceLight.title': 'CyberAssurance Light',
+    'pricing.assuranceLight.description': 'Mixvoip and Le Foyer offer a special CyberAssurance Light covering up to 2 days Emergency Response for up to 5 key personnel.',
+    'pricing.assuranceLight.price': '10€ / month – professional cyber insurance for just 120€ annually',
+    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light is a separate insurance product offered by Mixvoip and Le Foyer. It is not bundled with CyberAssistance. You can upgrade to full CyberAssurance if you need higher coverage.',
+    'pricing.assurance.lightReminder': 'Mixvoip and Le Foyer offer CyberAssurance Light (2 days Emergency Response for 5 key personnel) for just 10€/month. The plans below offer extended coverage.',
+    'pricing.assurance.disclaimer': 'CyberAssurance is provided by Le Foyer. Purchasing CyberAssistance does not require purchasing CyberAssurance (regulatory requirement). CyberAssurance Light is a separate offering by Mixvoip and Le Foyer at 10€/month.',
     
     // Order Flow
     'order.title': 'Configure Your Cyber Protection',
@@ -921,12 +921,12 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.socaas.enterprise.f4': 'Rapports de conformité réglementaire',
     'pricing.socaas.analogy': 'Le système d\'alarme incendie relié au centre de commandement – détecte la fumée avant que le feu ne se déclare.',
     // CyberAssurance Light
-    'pricing.assuranceLight.title': 'CyberAssurance Light incluse',
-    'pricing.assuranceLight.description': 'Chaque package CyberAssistance inclut CyberAssurance Light : jusqu\'à 2 jours de réponse d\'urgence pour 5 personnes clés, couverts par Le Foyer.',
-    'pricing.assuranceLight.price': '10€ / mois (déjà inclus dans votre abonnement CyberAssistance)',
-    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light est déjà incluse dans votre abonnement CyberAssistance – sans coût supplémentaire. Vous pouvez passer à CyberAssurance complète séparément si vous avez besoin d\'une couverture plus élevée.',
-    'pricing.assurance.lightReminder': 'Rappel : CyberAssurance Light (2 jours de réponse d\'urgence pour 5 personnes clés) est déjà incluse dans votre package CyberAssistance. Les plans ci-dessous offrent une couverture étendue.',
-    'pricing.assurance.disclaimer': 'CyberAssurance est fournie par Le Foyer. L\'achat de CyberAssistance n\'oblige pas à souscrire CyberAssurance (exigence réglementaire). CyberAssurance Light est automatiquement incluse sans frais supplémentaires.',
+    'pricing.assuranceLight.title': 'CyberAssurance Light',
+    'pricing.assuranceLight.description': 'Mixvoip et Le Foyer proposent une CyberAssurance Light spéciale couvrant jusqu\'à 2 jours de réponse d\'urgence pour 5 personnes clés.',
+    'pricing.assuranceLight.price': '10€ / mois – une assurance cyber professionnelle pour seulement 120€ par an',
+    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light est un produit d\'assurance séparé proposé par Mixvoip et Le Foyer. Il n\'est pas inclus dans CyberAssistance. Vous pouvez passer à CyberAssurance complète si vous avez besoin d\'une couverture plus élevée.',
+    'pricing.assurance.lightReminder': 'Mixvoip et Le Foyer proposent CyberAssurance Light (2 jours de réponse d\'urgence pour 5 personnes clés) pour seulement 10€/mois. Les plans ci-dessous offrent une couverture étendue.',
+    'pricing.assurance.disclaimer': 'CyberAssurance est fournie par Le Foyer. L\'achat de CyberAssistance n\'oblige pas à souscrire CyberAssurance (exigence réglementaire). CyberAssurance Light est une offre séparée de Mixvoip et Le Foyer à 10€/mois.',
     
     // Order Flow
     'order.title': 'Configurez votre protection cyber',
@@ -1463,12 +1463,12 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.socaas.enterprise.f4': 'Regulatorische Compliance-Berichte',
     'pricing.socaas.analogy': 'Die Brandmeldeanlage verbunden mit der Leitstelle – erkennt Rauch bevor das Feuer ausbricht.',
     // CyberAssurance Light
-    'pricing.assuranceLight.title': 'CyberAssurance Light inklusive',
-    'pricing.assuranceLight.description': 'Jedes CyberAssistance-Paket enthält CyberAssurance Light: bis zu 2 Tage Notfall-Einsatz für bis zu 5 Schlüsselpersonen, übernommen durch Le Foyer.',
-    'pricing.assuranceLight.price': '10€ / Monat (bereits in Ihrem CyberAssistance-Abo enthalten)',
-    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light ist bereits in Ihrem CyberAssistance-Abo enthalten – ohne Zusatzkosten. Sie können separat auf die volle CyberAssurance upgraden, wenn Sie höheren Schutz benötigen.',
-    'pricing.assurance.lightReminder': 'Zur Erinnerung: CyberAssurance Light (2 Tage Notfall-Einsatz für 5 Schlüsselpersonen) ist bereits in Ihrem CyberAssistance-Paket enthalten. Die untenstehenden Pläne bieten erweiterten Schutz.',
-    'pricing.assurance.disclaimer': 'CyberAssurance wird von Le Foyer bereitgestellt. Der Kauf von CyberAssistance verpflichtet nicht zum Kauf von CyberAssurance (regulatorische Anforderung). CyberAssurance Light ist automatisch inklusive – ohne Zusatzkosten.',
+    'pricing.assuranceLight.title': 'CyberAssurance Light',
+    'pricing.assuranceLight.description': 'Mixvoip und Le Foyer bieten eine spezielle CyberAssurance Light an: bis zu 2 Tage Notfall-Einsatz für bis zu 5 Schlüsselpersonen.',
+    'pricing.assuranceLight.price': '10€ / Monat – professionelle Cyber-Versicherung für nur 120€ jährlich',
+    'pricing.assuranceLight.disclaimer': 'CyberAssurance Light ist ein separates Versicherungsprodukt von Mixvoip und Le Foyer. Es ist nicht in CyberAssistance enthalten. Sie können auf die volle CyberAssurance upgraden, wenn Sie höheren Schutz benötigen.',
+    'pricing.assurance.lightReminder': 'Mixvoip und Le Foyer bieten CyberAssurance Light (2 Tage Notfall-Einsatz für 5 Schlüsselpersonen) für nur 10€/Monat an. Die untenstehenden Pläne bieten erweiterten Schutz.',
+    'pricing.assurance.disclaimer': 'CyberAssurance wird von Le Foyer bereitgestellt. Der Kauf von CyberAssistance verpflichtet nicht zum Kauf von CyberAssurance (regulatorische Anforderung). CyberAssurance Light ist ein separates Angebot von Mixvoip und Le Foyer für 10€/Monat.',
     
     // Order Flow
     'order.title': 'Konfigurieren Sie Ihren Cyber-Schutz',
