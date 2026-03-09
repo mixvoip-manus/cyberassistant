@@ -19,6 +19,7 @@ interface ImageSlide {
   titleKey: string;
   subtitleKey: string;
   imageSrc: string;
+  imageSrcByLang?: Record<string, string>;
   footerKey: string;
   bgGradient: string;
   legendTitleKey: string;
@@ -57,6 +58,11 @@ const slides: Slide[] = [
     titleKey: 'presentation.slideHouse.title',
     subtitleKey: 'presentation.slideHouse.subtitle',
     imageSrc: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/house_lifecycle_complete_7d3a0414.png',
+    imageSrcByLang: {
+      de: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/house_lifecycle_complete_7d3a0414.png',
+      en: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/house_lifecycle_en-X5Pe5zLEM22Qf5PL2NF3mL.png',
+      fr: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/house_lifecycle_fr-QQudCjQ2AMAH6755GTMhV5.png',
+    },
     footerKey: 'presentation.slideHouse.footer',
     bgGradient: 'from-orange-50 via-white to-amber-50',
     legendTitleKey: 'presentation.slideHouse.legendTitle',
@@ -82,6 +88,11 @@ const slides: Slide[] = [
     titleKey: 'presentation.slideCyber.title',
     subtitleKey: 'presentation.slideCyber.subtitle',
     imageSrc: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/cyber_lifecycle_complete_9ac9e5f3.png',
+    imageSrcByLang: {
+      de: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/cyber_lifecycle_complete_9ac9e5f3.png',
+      en: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/cyber_lifecycle_en-bK3nVZwE86ZDupzQf8sqkM.png',
+      fr: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/cyber_lifecycle_fr-4B5sGKw5sjtVm56CqURDs2.png',
+    },
     footerKey: 'presentation.slideCyber.footer',
     bgGradient: 'from-green-50 via-white to-blue-50',
     legendTitleKey: 'presentation.slideCyber.legendTitle',
@@ -186,7 +197,7 @@ const slideAudioFiles: Record<string, Record<number, string>> = {
     3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_de_v3_b95e4f2c.wav', // Timeline (index 3)
     4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_de_v3_7172674c.wav', // SOCaaS + CyberAssistance (index 4)
     5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_de_v3_6bebc4fd.wav', // CyberAdvisory (index 5)
-    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_de_2895a53d.wav', // CyberAssurance (index 6)
+    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_de_new_288abc49.wav', // CyberAssurance (index 6) - v2 no bundle language
     7: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_extortion_de_63cdb9bd.wav', // Cyber Extortion (index 7)
     8: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_fraud_de_f6180568.wav', // Cybercrime & Fraud (index 8)
     9: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_training_de_ec4ebd5b.wav', // Prevention & Training (index 9)
@@ -199,7 +210,7 @@ const slideAudioFiles: Record<string, Record<number, string>> = {
     3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_fr_v3_0d0737b9.wav', // Timeline (index 3)
     4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_fr_v3_3f3e6523.wav', // SOCaaS + CyberAssistance (index 4)
     5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_fr_v3_ef7475ee.wav', // CyberAdvisory (index 5)
-    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_fr_e887e02e.wav', // CyberAssurance (index 6)
+    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_fr_new_705447bd.wav', // CyberAssurance (index 6) - v2 no bundle language
     7: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_extortion_fr_80d2710f.wav', // Cyber Extortion (index 7)
     8: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_fraud_fr_d6ff0d5f.wav', // Cybercrime & Fraud (index 8)
     9: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_training_fr_338a7b31.wav', // Prevention & Training (index 9)
@@ -212,7 +223,7 @@ const slideAudioFiles: Record<string, Record<number, string>> = {
     3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide4_timeline_en_v3_a2bbd2e1.wav', // Timeline (index 3)
     4: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide5_socaas_en_v3_2e448452.wav', // SOCaaS + CyberAssistance (index 4)
     5: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide6_advisory_en_v3_b8e3fa5e.wav', // CyberAdvisory (index 5)
-    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_en_d384410c.wav', // CyberAssurance (index 6)
+    6: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_assurance_en_new_27aa281c.wav', // CyberAssurance (index 6) - v2 no bundle language
     7: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_extortion_en_1fc75abb.wav', // Cyber Extortion (index 7)
     8: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_fraud_en_afe1ddd9.wav', // Cybercrime & Fraud (index 8)
     9: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/slide_training_en_046eb9fd.wav', // Prevention & Training (index 9)
@@ -374,7 +385,7 @@ export default function AnimatedPresentation() {
         {/* Image */}
         <div className="flex-1 flex items-center justify-center min-w-0">
           <img 
-            src={slide.imageSrc.startsWith('http') ? slide.imageSrc : getAssetUrl(slide.imageSrc.slice(1))} 
+            src={(() => { const src = slide.imageSrcByLang?.[language] || slide.imageSrc; return src.startsWith('http') ? src : getAssetUrl(src.slice(1)); })()}
             alt={t(slide.titleKey)}
             className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
           />
