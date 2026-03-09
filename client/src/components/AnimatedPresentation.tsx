@@ -374,7 +374,7 @@ export default function AnimatedPresentation() {
         {/* Image */}
         <div className="flex-1 flex items-center justify-center min-w-0">
           <img 
-            src={getAssetUrl(slide.imageSrc.slice(1))} 
+            src={slide.imageSrc.startsWith('http') ? slide.imageSrc : getAssetUrl(slide.imageSrc.slice(1))} 
             alt={t(slide.titleKey)}
             className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
           />
@@ -411,7 +411,7 @@ export default function AnimatedPresentation() {
       {/* Image - Full Width */}
       <div className="flex-1 flex items-center justify-center px-4 pb-4 min-h-0">
         <img 
-          src={getAssetUrl(slide.imageSrc.slice(1))} 
+          src={slide.imageSrc.startsWith('http') ? slide.imageSrc : getAssetUrl(slide.imageSrc.slice(1))} 
           alt={t(slide.titleKey)}
           className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
         />
