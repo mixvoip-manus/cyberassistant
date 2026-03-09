@@ -331,7 +331,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.advisory.standard.desc': '8h consulting / year',
     'pricing.advisory.advanced.desc': '24h consulting + on-site audit',
     'pricing.advisory.enterprise.desc': 'Unlimited + dedicated advisor',
-    'pricing.advisory.partner': 'In partnership with a professional advisory partner',
+    'pricing.advisory.partner': '',
     // Self-Qualification Section
     'pricing.selfQualification.title': 'Is it a Cyber Emergency?',
     'pricing.selfQualification.subtitle': 'Help us help you faster by identifying the right support channel',
@@ -383,7 +383,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.assuranceLight.price': '10€ / month – professional cyber insurance for just 120€ annually',
     'pricing.assuranceLight.disclaimer': 'CyberAssurance Light is a separate insurance product offered by Mixvoip and Le Foyer. It is not bundled with CyberAssistance. You can upgrade to full CyberAssurance if you need higher coverage.',
     'pricing.assurance.lightReminder': 'Mixvoip and Le Foyer offer CyberAssurance Light (2 days Emergency Response for 5 key personnel) for just 10€/month. The plans below offer extended coverage.',
-    'pricing.assurance.disclaimer': 'CyberAssurance is provided by Le Foyer. Purchasing CyberAssistance does not require purchasing CyberAssurance (regulatory requirement). CyberAssurance Light is a separate offering by Mixvoip and Le Foyer at 10€/month.',
+    'pricing.assurance.disclaimer': 'CyberAssurance is provided by Le Foyer. Purchasing CyberAssistance does not require purchasing CyberAssurance. CyberAssurance Light is a separate offering by Mixvoip and Le Foyer at 10€/month.',
     
     // Order Flow
     'order.title': 'Configure Your Cyber Protection',
@@ -874,7 +874,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.advisory.standard.desc': '8h conseil / an',
     'pricing.advisory.advanced.desc': '24h conseil + audit sur site',
     'pricing.advisory.enterprise.desc': 'Illimité + conseiller dédié',
-    'pricing.advisory.partner': 'En partenariat avec un partenaire conseil professionnel',
+    'pricing.advisory.partner': '',
     // Self-Qualification Section
     'pricing.selfQualification.title': 'Est-ce une urgence cyber ?',
     'pricing.selfQualification.subtitle': 'Aidez-nous à vous aider plus rapidement en identifiant le bon canal de support',
@@ -926,7 +926,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.assuranceLight.price': '10€ / mois – une assurance cyber professionnelle pour seulement 120€ par an',
     'pricing.assuranceLight.disclaimer': 'CyberAssurance Light est un produit d\'assurance séparé proposé par Mixvoip et Le Foyer. Il n\'est pas inclus dans CyberAssistance. Vous pouvez passer à CyberAssurance complète si vous avez besoin d\'une couverture plus élevée.',
     'pricing.assurance.lightReminder': 'Mixvoip et Le Foyer proposent CyberAssurance Light (2 jours de réponse d\'urgence pour 5 personnes clés) pour seulement 10€/mois. Les plans ci-dessous offrent une couverture étendue.',
-    'pricing.assurance.disclaimer': 'CyberAssurance est fournie par Le Foyer. L\'achat de CyberAssistance n\'oblige pas à souscrire CyberAssurance (exigence réglementaire). CyberAssurance Light est une offre séparée de Mixvoip et Le Foyer à 10€/mois.',
+    'pricing.assurance.disclaimer': 'CyberAssurance est fournie par Le Foyer. L\'achat de CyberAssistance n\'oblige pas à souscrire CyberAssurance. CyberAssurance Light est une offre séparée de Mixvoip et Le Foyer à 10€/mois.',
     
     // Order Flow
     'order.title': 'Configurez votre protection cyber',
@@ -1416,7 +1416,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.advisory.standard.desc': '8h Beratung / Jahr',
     'pricing.advisory.advanced.desc': '24h Beratung + Vor-Ort-Audit',
     'pricing.advisory.enterprise.desc': 'Unbegrenzt + dedizierter Berater',
-    'pricing.advisory.partner': 'In Partnerschaft mit einem professionellen Beratungspartner',
+    'pricing.advisory.partner': '',
     // Self-Qualification Section
     'pricing.selfQualification.title': 'Ist es ein Cyber-Notfall?',
     'pricing.selfQualification.subtitle': 'Helfen Sie uns, Ihnen schneller zu helfen, indem Sie den richtigen Support-Kanal identifizieren',
@@ -1468,7 +1468,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.assuranceLight.price': '10€ / Monat – professionelle Cyber-Versicherung für nur 120€ jährlich',
     'pricing.assuranceLight.disclaimer': 'CyberAssurance Light ist ein separates Versicherungsprodukt von Mixvoip und Le Foyer. Es ist nicht in CyberAssistance enthalten. Sie können auf die volle CyberAssurance upgraden, wenn Sie höheren Schutz benötigen.',
     'pricing.assurance.lightReminder': 'Mixvoip und Le Foyer bieten CyberAssurance Light (2 Tage Notfall-Einsatz für 5 Schlüsselpersonen) für nur 10€/Monat an. Die untenstehenden Pläne bieten erweiterten Schutz.',
-    'pricing.assurance.disclaimer': 'CyberAssurance wird von Le Foyer bereitgestellt. Der Kauf von CyberAssistance verpflichtet nicht zum Kauf von CyberAssurance (regulatorische Anforderung). CyberAssurance Light ist ein separates Angebot von Mixvoip und Le Foyer für 10€/Monat.',
+    'pricing.assurance.disclaimer': 'CyberAssurance wird von Le Foyer bereitgestellt. Der Kauf von CyberAssistance verpflichtet nicht zum Kauf von CyberAssurance. CyberAssurance Light ist ein separates Angebot von Mixvoip und Le Foyer für 10€/Monat.',
     
     // Order Flow
     'order.title': 'Konfigurieren Sie Ihren Cyber-Schutz',
