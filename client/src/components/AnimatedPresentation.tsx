@@ -392,13 +392,6 @@ export default function AnimatedPresentation() {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className={`py-2 px-4 text-center ${slide.id === 1 ? 'bg-gradient-to-r from-orange-500 to-red-500' : 'bg-gradient-to-r from-green-500 to-blue-500'}`}>
-        <p className="text-sm font-bold text-white">
-          {t(slide.footerKey)}
-        </p>
-      </div>
-
       {/* Slide Number */}
       <div className="absolute bottom-12 right-4 text-slate-500 text-sm">
         {currentSlide + 1} / {slides.length}
