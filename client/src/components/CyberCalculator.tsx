@@ -3,9 +3,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Calculator, Shield, Eye, Scale, BookOpen, ChevronDown, ChevronUp, AlertTriangle, CheckCircle2, Info, XCircle, ShieldAlert, ShieldCheck } from 'lucide-react';
 
 type SOCChoice = 'none' | 'tranquility' | 'rsoc';
-type AssistanceChoice = 'basic' | 'essentiel' | 'etendu' | 'pro';
-type AssuranceChoice = 'none' | 'essentiel' | 'etendu' | 'pro';
-type AdvisoryChoice = 'none' | 'essentiel' | 'etendu' | 'pro';
+type AssistanceChoice = 'basic' | 'essentiel' | 'advanced' | 'pro';
+type AssuranceChoice = 'none' | 'essentiel' | 'advanced' | 'pro';
+type AdvisoryChoice = 'none' | 'essentiel' | 'advanced' | 'pro';
 
 const translations = {
   en: {
@@ -42,24 +42,24 @@ const translations = {
     assistBasicDesc: 'Business hours, best effort, up to 25 users',
     assistEssentiel: 'Essentiel – 2€/user/month',
     assistEssentielDesc: '24/7, 1h response, forensics, remediation',
-    assistEtendu: 'Advanced – 5€/user/month',
-    assistEtenduDesc: '24/7 priority, 30 min response, on-site support',
+    assistAdvanced: 'Advanced – 5€/user/month',
+    assistAdvancedDesc: '24/7 priority, 30 min response, on-site support',
     assistPro: 'Pro – On request',
     assistProDesc: 'Dedicated team, custom SLA',
     // Assurance options
     assurNone: 'No insurance',
     assurEssentiel: 'Essentiel – 120€/year',
     assurEssentielDesc: 'Le Foyer covers 2 days emergency deployment',
-    assurEtendu: 'Advanced – 200€/year',
-    assurEtenduDesc: 'Le Foyer covers 4 days emergency deployment',
+    assurAdvanced: 'Advanced – 200€/year',
+    assurAdvancedDesc: 'Le Foyer covers 4 days emergency deployment',
     assurPro: 'Pro – On request',
     assurProDesc: 'Le Foyer Cyber Pro full contract',
     // Advisory options
     advisNone: 'No advisory',
     advisEssentiel: 'Essentiel – 500€/year',
     advisEssentielDesc: '2h consulting/year, CNPD/GDPR support',
-    advisEtendu: 'Advanced – 2,000€/year',
-    advisEtenduDesc: '8h consulting/year, NIS2, security policies',
+    advisAdvanced: 'Advanced – 2,000€/year',
+    advisAdvancedDesc: '8h consulting/year, NIS2, security policies',
     advisPro: 'Pro – On request',
     advisProDesc: '24h consulting + on-site audit',
     // Incident flow
@@ -74,18 +74,18 @@ const translations = {
     incident3resp: 'Mixvoip (CyberAssistance)',
     incident3hint_basic: 'Best effort, business hours only – no guaranteed response time',
     incident3hint_essentiel: '1 hour guaranteed response, 24/7',
-    incident3hint_etendu: '30 min guaranteed response, 24/7 priority line',
+    incident3hint_advanced: '30 min guaranteed response, 24/7 priority line',
     incident4: 'Forensics & remediation',
     incident4resp: 'Mixvoip (CyberAssistance)',
     incident4hint_basic: 'Limited scope – core user recovery only',
     incident4hint_essentiel: 'Full forensics, remediation, CNPD preparation',
-    incident4hint_etendu: 'Full forensics + on-site support + crisis PR',
+    incident4hint_advanced: 'Full forensics + on-site support + crisis PR',
     incident5: 'Who pays the bill?',
     incident5resp_assur: 'Le Foyer (CyberAssurance)',
     incident5resp_no: 'You – deployment costs at 800€/day',
     incident5hint_no: 'A typical incident takes 2-5 days = 1,600€ – 4,000€',
     incident5hint_essentiel: 'Le Foyer covers up to 2 days (1,600€)',
-    incident5hint_etendu: 'Le Foyer covers up to 4 days (3,200€)',
+    incident5hint_advanced: 'Le Foyer covers up to 4 days (3,200€)',
     incident6: 'CNPD notification (72h deadline)',
     incident6resp_advis: 'Luxgap (CyberAdvisory)',
     incident6resp_assurpro: 'Le Foyer lawyer (CyberAssurance Pro)',
@@ -115,13 +115,13 @@ const translations = {
     advisServiceTitle: 'CyberAdvisory (Luxgap)',
     basicServiceDesc: 'Business hours support (Mon-Fri, 8-18h). Best effort response. Triage, core user recovery, CNPD preparation. Up to 25 users.',
     essentielServiceDesc: '24/7 support with 1 hour guaranteed response time. Full forensics, remediation, CNPD preparation. Unlimited users.',
-    etenduServiceDesc: '24/7 priority line with 30 min guaranteed response. On-site support, crisis PR, VoIP fraud protection. Unlimited users.',
+    advancedServiceDesc: '24/7 priority line with 30 min guaranteed response. On-site support, crisis PR, VoIP fraud protection. Unlimited users.',
     proServiceDesc: 'Dedicated team with custom SLA. All services individually tailored to your needs.',
     assurEssentielServiceDesc: 'Le Foyer covers the costs of 2 days Mixvoip emergency deployment (value: 1,600€).',
-    assurEtenduServiceDesc: 'Le Foyer covers the costs of 4 days Mixvoip emergency deployment (value: 3,200€).',
+    assurAdvancedServiceDesc: 'Le Foyer covers the costs of 4 days Mixvoip emergency deployment (value: 3,200€).',
     assurProServiceDesc: 'Le Foyer Cyber Pro full insurance contract. Comprehensive cyber coverage including financial losses, business interruption, data recovery, and legal costs.',
     advisEssentielServiceDesc: '2h consulting per year. CNPD/CSSF notification support, GDPR compliance assistance, legal advisory services, NIS2 assessment.',
-    advisEtenduServiceDesc: '8h consulting per year. Security policy development, employee awareness training, incident response planning, annual security review.',
+    advisAdvancedServiceDesc: '8h consulting per year. Security policy development, employee awareness training, incident response planning, annual security review.',
     advisProServiceDesc: '24h consulting per year + on-site audit. Dedicated advisor, unlimited support.',
     noSocWarning: 'Without SOC monitoring, attacks may go undetected for days or weeks.',
     noAssuranceWarning: 'Without CyberAssurance, you pay the deployment costs yourself (800€/day).',
@@ -160,22 +160,22 @@ const translations = {
     assistBasicDesc: 'Heures de bureau, best effort, jusqu\'à 25 utilisateurs',
     assistEssentiel: 'Essentiel – 2€/utilisateur/mois',
     assistEssentielDesc: '24/7, réponse 1h, forensique, remédiation',
-    assistEtendu: 'Advanced – 5€/utilisateur/mois',
-    assistEtenduDesc: '24/7 prioritaire, réponse 30 min, support sur site',
+    assistAdvanced: 'Advanced – 5€/utilisateur/mois',
+    assistAdvancedDesc: '24/7 prioritaire, réponse 30 min, support sur site',
     assistPro: 'Pro – Sur demande',
     assistProDesc: 'Équipe dédiée, SLA personnalisé',
     assurNone: 'Pas d\'assurance',
     assurEssentiel: 'Essentiel – 120€/an',
     assurEssentielDesc: 'Le Foyer couvre 2 jours de déploiement d\'urgence',
-    assurEtendu: 'Advanced – 200€/an',
-    assurEtenduDesc: 'Le Foyer couvre 4 jours de déploiement d\'urgence',
+    assurAdvanced: 'Advanced – 200€/an',
+    assurAdvancedDesc: 'Le Foyer couvre 4 jours de déploiement d\'urgence',
     assurPro: 'Pro – Sur demande',
     assurProDesc: 'Contrat complet Le Foyer Cyber Pro',
     advisNone: 'Pas de conseil',
     advisEssentiel: 'Essentiel – 500€/an',
     advisEssentielDesc: '2h conseil/an, support CNPD/RGPD',
-    advisEtendu: 'Advanced – 2 000€/an',
-    advisEtenduDesc: '8h conseil/an, NIS2, politiques de sécurité',
+    advisAdvanced: 'Advanced – 2 000€/an',
+    advisAdvancedDesc: '8h conseil/an, NIS2, politiques de sécurité',
     advisPro: 'Pro – Sur demande',
     advisProDesc: '24h conseil + audit sur site',
     incident1: 'Attaque détectée',
@@ -189,18 +189,18 @@ const translations = {
     incident3resp: 'Mixvoip (CyberAssistance)',
     incident3hint_basic: 'Best effort, heures de bureau uniquement – pas de temps de réponse garanti',
     incident3hint_essentiel: 'Réponse garantie 1 heure, 24/7',
-    incident3hint_etendu: 'Réponse garantie 30 min, ligne prioritaire 24/7',
+    incident3hint_advanced: 'Réponse garantie 30 min, ligne prioritaire 24/7',
     incident4: 'Forensique & remédiation',
     incident4resp: 'Mixvoip (CyberAssistance)',
     incident4hint_basic: 'Périmètre limité – récupération utilisateurs principaux uniquement',
     incident4hint_essentiel: 'Forensique complète, remédiation, préparation CNPD',
-    incident4hint_etendu: 'Forensique complète + support sur site + PR de crise',
+    incident4hint_advanced: 'Forensique complète + support sur site + PR de crise',
     incident5: 'Qui paie la facture ?',
     incident5resp_assur: 'Le Foyer (CyberAssurance)',
     incident5resp_no: 'Vous – coûts de déploiement à 800€/jour',
     incident5hint_no: 'Un incident typique dure 2-5 jours = 1 600€ – 4 000€',
     incident5hint_essentiel: 'Le Foyer couvre jusqu\'à 2 jours (1 600€)',
-    incident5hint_etendu: 'Le Foyer couvre jusqu\'à 4 jours (3 200€)',
+    incident5hint_advanced: 'Le Foyer couvre jusqu\'à 4 jours (3 200€)',
     incident6: 'Notification CNPD (délai 72h)',
     incident6resp_advis: 'Luxgap (CyberAdvisory)',
     incident6resp_assurpro: 'Avocat Le Foyer (CyberAssurance Pro)',
@@ -228,13 +228,13 @@ const translations = {
     advisServiceTitle: 'CyberAdvisory (Luxgap)',
     basicServiceDesc: 'Support heures de bureau (Lun-Ven, 8-18h). Réponse best effort. Triage, récupération utilisateurs principaux, préparation CNPD. Jusqu\'à 25 utilisateurs.',
     essentielServiceDesc: 'Support 24/7 avec temps de réponse garanti 1 heure. Forensique complète, remédiation, préparation CNPD. Utilisateurs illimités.',
-    etenduServiceDesc: 'Ligne prioritaire 24/7 avec réponse garantie 30 min. Support sur site, PR de crise, protection fraude VoIP. Utilisateurs illimités.',
+    advancedServiceDesc: 'Ligne prioritaire 24/7 avec réponse garantie 30 min. Support sur site, PR de crise, protection fraude VoIP. Utilisateurs illimités.',
     proServiceDesc: 'Équipe dédiée avec SLA personnalisé. Tous les services adaptés individuellement à vos besoins.',
     assurEssentielServiceDesc: 'Le Foyer couvre les coûts de 2 jours de déploiement d\'urgence Mixvoip (valeur : 1 600€).',
-    assurEtenduServiceDesc: 'Le Foyer couvre les coûts de 4 jours de déploiement d\'urgence Mixvoip (valeur : 3 200€).',
+    assurAdvancedServiceDesc: 'Le Foyer couvre les coûts de 4 jours de déploiement d\'urgence Mixvoip (valeur : 3 200€).',
     assurProServiceDesc: 'Contrat complet Le Foyer Cyber Pro. Couverture cyber complète incluant pertes financières, interruption d\'activité, récupération de données et frais juridiques.',
     advisEssentielServiceDesc: '2h de conseil par an. Support notification CNPD/CSSF, assistance conformité RGPD, services de conseil juridique, évaluation NIS2.',
-    advisEtenduServiceDesc: '8h de conseil par an. Développement de politiques de sécurité, formation sensibilisation employés, planification réponse incidents, revue sécurité annuelle.',
+    advisAdvancedServiceDesc: '8h de conseil par an. Développement de politiques de sécurité, formation sensibilisation employés, planification réponse incidents, revue sécurité annuelle.',
     advisProServiceDesc: '24h de conseil par an + audit sur site. Conseiller dédié, support illimité.',
     noSocWarning: 'Sans surveillance SOC, les attaques peuvent passer inaperçues pendant des jours ou des semaines.',
     noAssuranceWarning: 'Sans CyberAssurance, vous payez les coûts de déploiement vous-même (800€/jour).',
@@ -273,22 +273,22 @@ const translations = {
     assistBasicDesc: 'Geschäftszeiten, Best Effort, bis 25 Benutzer',
     assistEssentiel: 'Essentiel – 2€/Benutzer/Monat',
     assistEssentielDesc: '24/7, 1h Reaktion, Forensik, Remediation',
-    assistEtendu: 'Advanced – 5€/Benutzer/Monat',
-    assistEtenduDesc: '24/7 Priority, 30 Min Reaktion, Vor-Ort-Support',
+    assistAdvanced: 'Advanced – 5€/Benutzer/Monat',
+    assistAdvancedDesc: '24/7 Priority, 30 Min Reaktion, Vor-Ort-Support',
     assistPro: 'Pro – Auf Anfrage',
     assistProDesc: 'Dediziertes Team, individuelles SLA',
     assurNone: 'Keine Versicherung',
     assurEssentiel: 'Essentiel – 120€/Jahr',
     assurEssentielDesc: 'Le Foyer übernimmt 2 Tage Notfalleinsatz',
-    assurEtendu: 'Advanced – 200€/Jahr',
-    assurEtenduDesc: 'Le Foyer übernimmt 4 Tage Notfalleinsatz',
+    assurAdvanced: 'Advanced – 200€/Jahr',
+    assurAdvancedDesc: 'Le Foyer übernimmt 4 Tage Notfalleinsatz',
     assurPro: 'Pro – Auf Anfrage',
     assurProDesc: 'Le Foyer Cyber Pro Vollvertrag',
     advisNone: 'Keine Beratung',
     advisEssentiel: 'Essentiel – 500€/Jahr',
     advisEssentielDesc: '2h Beratung/Jahr, CNPD/DSGVO-Support',
-    advisEtendu: 'Advanced – 2.000€/Jahr',
-    advisEtenduDesc: '8h Beratung/Jahr, NIS2, Security Policies',
+    advisAdvanced: 'Advanced – 2.000€/Jahr',
+    advisAdvancedDesc: '8h Beratung/Jahr, NIS2, Security Policies',
     advisPro: 'Pro – Auf Anfrage',
     advisProDesc: '24h Beratung + Vor-Ort-Audit',
     incident1: 'Angriff erkannt',
@@ -302,18 +302,18 @@ const translations = {
     incident3resp: 'Mixvoip (CyberAssistance)',
     incident3hint_basic: 'Best Effort, nur Geschäftszeiten – keine garantierte Reaktionszeit',
     incident3hint_essentiel: '1 Stunde garantierte Reaktion, 24/7',
-    incident3hint_etendu: '30 Min garantierte Reaktion, 24/7 Priority-Line',
+    incident3hint_advanced: '30 Min garantierte Reaktion, 24/7 Priority-Line',
     incident4: 'Forensik & Remediation',
     incident4resp: 'Mixvoip (CyberAssistance)',
     incident4hint_basic: 'Begrenzter Umfang – nur Core-User-Recovery',
     incident4hint_essentiel: 'Vollständige Forensik, Remediation, CNPD-Vorbereitung',
-    incident4hint_etendu: 'Vollständige Forensik + Vor-Ort-Support + Krisen-PR',
+    incident4hint_advanced: 'Vollständige Forensik + Vor-Ort-Support + Krisen-PR',
     incident5: 'Wer zahlt die Rechnung?',
     incident5resp_assur: 'Le Foyer (CyberAssurance)',
     incident5resp_no: 'Sie – Einsatzkosten von 800€/Tag',
     incident5hint_no: 'Ein typischer Vorfall dauert 2-5 Tage = 1.600€ – 4.000€',
     incident5hint_essentiel: 'Le Foyer übernimmt bis zu 2 Tage (1.600€)',
-    incident5hint_etendu: 'Le Foyer übernimmt bis zu 4 Tage (3.200€)',
+    incident5hint_advanced: 'Le Foyer übernimmt bis zu 4 Tage (3.200€)',
     incident6: 'CNPD-Meldung (72h Frist)',
     incident6resp_advis: 'Luxgap (CyberAdvisory)',
     incident6resp_assurpro: 'Le Foyer Anwalt (CyberAssurance Pro)',
@@ -341,13 +341,13 @@ const translations = {
     advisServiceTitle: 'CyberAdvisory (Luxgap)',
     basicServiceDesc: 'Geschäftszeiten-Support (Mo-Fr, 8-18h). Best-Effort-Reaktion. Triage, Core-User-Recovery, CNPD-Vorbereitung. Bis zu 25 Benutzer.',
     essentielServiceDesc: '24/7 Support mit 1 Stunde garantierter Reaktionszeit. Vollständige Forensik, Remediation, CNPD-Vorbereitung. Unbegrenzte Benutzer.',
-    etenduServiceDesc: '24/7 Priority-Line mit 30 Min garantierter Reaktion. Vor-Ort-Support, Krisen-PR, VoIP-Betrugsschutz. Unbegrenzte Benutzer.',
+    advancedServiceDesc: '24/7 Priority-Line mit 30 Min garantierter Reaktion. Vor-Ort-Support, Krisen-PR, VoIP-Betrugsschutz. Unbegrenzte Benutzer.',
     proServiceDesc: 'Dediziertes Team mit individuellem SLA. Alle Leistungen individuell auf Ihre Bedürfnisse zugeschnitten.',
     assurEssentielServiceDesc: 'Le Foyer übernimmt die Kosten für 2 Tage Mixvoip-Notfalleinsatz (Wert: 1.600€).',
-    assurEtenduServiceDesc: 'Le Foyer übernimmt die Kosten für 4 Tage Mixvoip-Notfalleinsatz (Wert: 3.200€).',
+    assurAdvancedServiceDesc: 'Le Foyer übernimmt die Kosten für 4 Tage Mixvoip-Notfalleinsatz (Wert: 3.200€).',
     assurProServiceDesc: 'Le Foyer Cyber Pro Vollvertrag. Umfassender Cyber-Versicherungsschutz inkl. finanzielle Verluste, Betriebsunterbrechung, Datenwiederherstellung und Rechtskosten.',
     advisEssentielServiceDesc: '2h Beratung pro Jahr. CNPD/CSSF-Meldungsunterstützung, DSGVO-Compliance, Rechtsberatung, NIS2-Bewertung.',
-    advisEtenduServiceDesc: '8h Beratung pro Jahr. Security Policies, Mitarbeiterschulung, Incident Response Planning, jährliche Sicherheitsüberprüfung.',
+    advisAdvancedServiceDesc: '8h Beratung pro Jahr. Security Policies, Mitarbeiterschulung, Incident Response Planning, jährliche Sicherheitsüberprüfung.',
     advisProServiceDesc: '24h Beratung pro Jahr + Vor-Ort-Audit. Dedizierter Berater, unbegrenzter Support.',
     noSocWarning: 'Ohne SOC-Überwachung können Angriffe tage- oder wochenlang unentdeckt bleiben.',
     noAssuranceWarning: 'Ohne CyberAssurance zahlen Sie die Einsatzkosten selbst (800€/Tag).',
@@ -404,21 +404,21 @@ export default function CyberCalculator() {
     // Assistance: per user per year
     if (assistance === 'essentiel') {
       assistCost = users * 24;
-    } else if (assistance === 'etendu') {
+    } else if (assistance === 'advanced') {
       assistCost = users * 60;
     }
 
     // Assurance: flat per year
     if (assurance === 'essentiel') {
       assurCost = 120;
-    } else if (assurance === 'etendu') {
+    } else if (assurance === 'advanced') {
       assurCost = 200;
     }
 
     // Advisory: flat per year
     if (advisory === 'essentiel') {
       advisCost = 500;
-    } else if (advisory === 'etendu') {
+    } else if (advisory === 'advanced') {
       advisCost = 2000;
     }
 
@@ -467,7 +467,7 @@ export default function CyberCalculator() {
       {
         action: t.incident3,
         responsible: t.incident3resp,
-        hint: assistance === 'basic' ? t.incident3hint_basic : assistance === 'essentiel' ? t.incident3hint_essentiel : assistance === 'etendu' || assistance === 'pro' ? t.incident3hint_etendu : t.incident3hint_basic,
+        hint: assistance === 'basic' ? t.incident3hint_basic : assistance === 'essentiel' ? t.incident3hint_essentiel : assistance === 'advanced' || assistance === 'pro' ? t.incident3hint_advanced : t.incident3hint_basic,
         isCovered: true,
         isPartial: assistance === 'basic',
       },
@@ -475,7 +475,7 @@ export default function CyberCalculator() {
       {
         action: t.incident4,
         responsible: t.incident4resp,
-        hint: assistance === 'basic' ? t.incident4hint_basic : assistance === 'essentiel' ? t.incident4hint_essentiel : t.incident4hint_etendu,
+        hint: assistance === 'basic' ? t.incident4hint_basic : assistance === 'essentiel' ? t.incident4hint_essentiel : t.incident4hint_advanced,
         isCovered: true,
         isPartial: assistance === 'basic',
       },
@@ -483,7 +483,7 @@ export default function CyberCalculator() {
       {
         action: t.incident5,
         responsible: assurance !== 'none' ? t.incident5resp_assur : t.incident5resp_no,
-        hint: assurance === 'none' ? t.incident5hint_no : assurance === 'essentiel' ? t.incident5hint_essentiel : t.incident5hint_etendu,
+        hint: assurance === 'none' ? t.incident5hint_no : assurance === 'essentiel' ? t.incident5hint_essentiel : t.incident5hint_advanced,
         isCovered: assurance !== 'none',
       },
       // Step 6: CNPD notification
@@ -567,7 +567,7 @@ export default function CyberCalculator() {
                 </div>
               </div>
               <div className="space-y-2">
-                {([['basic', t.assistBasic, t.assistBasicDesc], ['essentiel', t.assistEssentiel, t.assistEssentielDesc], ['etendu', t.assistEtendu, t.assistEtenduDesc], ['pro', t.assistPro, t.assistProDesc]] as const).map(([val, label, desc]) => (
+                {([['basic', t.assistBasic, t.assistBasicDesc], ['essentiel', t.assistEssentiel, t.assistEssentielDesc], ['advanced', t.assistAdvanced, t.assistAdvancedDesc], ['pro', t.assistPro, t.assistProDesc]] as const).map(([val, label, desc]) => (
                   <label key={val} className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${assistance === val ? 'bg-red-50 border-2 border-red-300' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'}`}>
                     <input type="radio" name="assistance" value={val} checked={assistance === val} onChange={() => setAssistance(val as AssistanceChoice)} className="accent-[#E63946]" />
                     <div className="flex-1">
@@ -589,7 +589,7 @@ export default function CyberCalculator() {
                 </div>
               </div>
               <div className="space-y-2">
-                {([['none', t.assurNone, ''], ['essentiel', t.assurEssentiel, t.assurEssentielDesc], ['etendu', t.assurEtendu, t.assurEtenduDesc], ['pro', t.assurPro, t.assurProDesc]] as const).map(([val, label, desc]) => (
+                {([['none', t.assurNone, ''], ['essentiel', t.assurEssentiel, t.assurEssentielDesc], ['advanced', t.assurAdvanced, t.assurAdvancedDesc], ['pro', t.assurPro, t.assurProDesc]] as const).map(([val, label, desc]) => (
                   <label key={val} className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${assurance === val ? 'bg-blue-50 border-2 border-blue-300' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'}`}>
                     <input type="radio" name="assurance" value={val} checked={assurance === val} onChange={() => setAssurance(val as AssuranceChoice)} className="accent-[#2563EB]" />
                     <div className="flex-1">
@@ -611,7 +611,7 @@ export default function CyberCalculator() {
                 </div>
               </div>
               <div className="space-y-2">
-                {([['none', t.advisNone, ''], ['essentiel', t.advisEssentiel, t.advisEssentielDesc], ['etendu', t.advisEtendu, t.advisEtenduDesc], ['pro', t.advisPro, t.advisProDesc]] as const).map(([val, label, desc]) => (
+                {([['none', t.advisNone, ''], ['essentiel', t.advisEssentiel, t.advisEssentielDesc], ['advanced', t.advisAdvanced, t.advisAdvancedDesc], ['pro', t.advisPro, t.advisProDesc]] as const).map(([val, label, desc]) => (
                   <label key={val} className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${advisory === val ? 'bg-purple-50 border-2 border-purple-300' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'}`}>
                     <input type="radio" name="advisory" value={val} checked={advisory === val} onChange={() => setAdvisory(val as AdvisoryChoice)} className="accent-[#7C3AED]" />
                     <div className="flex-1">
@@ -764,9 +764,9 @@ export default function CyberCalculator() {
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-[#E63946] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold text-slate-700">{t.assistServiceTitle} – {assistance === 'basic' ? 'Basic' : assistance === 'essentiel' ? 'Essentiel' : assistance === 'etendu' ? 'Advanced' : 'Pro'}</div>
+                      <div className="font-semibold text-slate-700">{t.assistServiceTitle} – {assistance === 'basic' ? 'Basic' : assistance === 'essentiel' ? 'Essentiel' : assistance === 'advanced' ? 'Advanced' : 'Pro'}</div>
                       <div className="text-muted-foreground">
-                        {assistance === 'basic' ? t.basicServiceDesc : assistance === 'essentiel' ? t.essentielServiceDesc : assistance === 'etendu' ? t.etenduServiceDesc : t.proServiceDesc}
+                        {assistance === 'basic' ? t.basicServiceDesc : assistance === 'essentiel' ? t.essentielServiceDesc : assistance === 'advanced' ? t.advancedServiceDesc : t.proServiceDesc}
                       </div>
                     </div>
                   </div>
@@ -774,9 +774,9 @@ export default function CyberCalculator() {
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[#2563EB] flex-shrink-0 mt-0.5" />
                       <div>
-                        <div className="font-semibold text-slate-700">{t.assurServiceTitle} – {assurance === 'essentiel' ? 'Essentiel' : assurance === 'etendu' ? 'Advanced' : 'Pro'}</div>
+                        <div className="font-semibold text-slate-700">{t.assurServiceTitle} – {assurance === 'essentiel' ? 'Essentiel' : assurance === 'advanced' ? 'Advanced' : 'Pro'}</div>
                         <div className="text-muted-foreground">
-                          {assurance === 'essentiel' ? t.assurEssentielServiceDesc : assurance === 'etendu' ? t.assurEtenduServiceDesc : t.assurProServiceDesc}
+                          {assurance === 'essentiel' ? t.assurEssentielServiceDesc : assurance === 'advanced' ? t.assurAdvancedServiceDesc : t.assurProServiceDesc}
                         </div>
                       </div>
                     </div>
@@ -785,9 +785,9 @@ export default function CyberCalculator() {
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[#7C3AED] flex-shrink-0 mt-0.5" />
                       <div>
-                        <div className="font-semibold text-slate-700">{t.advisServiceTitle} – {advisory === 'essentiel' ? 'Essentiel' : advisory === 'etendu' ? 'Advanced' : 'Pro'}</div>
+                        <div className="font-semibold text-slate-700">{t.advisServiceTitle} – {advisory === 'essentiel' ? 'Essentiel' : advisory === 'advanced' ? 'Advanced' : 'Pro'}</div>
                         <div className="text-muted-foreground">
-                          {advisory === 'essentiel' ? t.advisEssentielServiceDesc : advisory === 'etendu' ? t.advisEtenduServiceDesc : t.advisProServiceDesc}
+                          {advisory === 'essentiel' ? t.advisEssentielServiceDesc : advisory === 'advanced' ? t.advisAdvancedServiceDesc : t.advisProServiceDesc}
                         </div>
                       </div>
                     </div>

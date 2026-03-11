@@ -253,14 +253,14 @@ export default function PricingSection() {
             {/* Advanced - Featured */}
             <div className="bg-white shadow-lg overflow-hidden border-x-2 border-b-2 border-[#FF8C00] relative">
               <div className="absolute top-0 left-0 right-0 bg-[#FF8C00] text-white text-center text-xs py-1 font-medium">
-                {t('pricing.assistance.etendu.badge')}
+                {t('pricing.assistance.advanced.badge')}
               </div>
               <div className="p-5 pt-7">
                 <div className="text-center mb-4">
-                  <h4 className="text-lg font-bold text-[#FF8C00]">{t('pricing.assistance.etendu.title')}</h4>
+                  <h4 className="text-lg font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.title')}</h4>
                   <div className="mt-2">
-                    <span className="text-2xl font-bold text-[#FF8C00]">{t('pricing.assistance.etendu.price')}€</span>
-                    <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.etendu.priceNote')}</span>
+                    <span className="text-2xl font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.price')}€</span>
+                    <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.advanced.priceNote')}</span>
                   </div>
                 </div>
                 
@@ -269,41 +269,41 @@ export default function PricingSection() {
                     <Star className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-medium">{t('pricing.assistance.entry')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.etendu.entry')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.advanced.entry')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <Users className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-medium">{t('pricing.assistance.users')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.etendu.users')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.advanced.users')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <Clock className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-medium">{t('pricing.assistance.availability')}</div>
-                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.etendu.availability')}</div>
+                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.availability')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <Clock className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-medium">{t('pricing.assistance.response')}</div>
-                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.etendu.response')}</div>
+                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.response')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <Shield className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-medium">{t('pricing.assistance.crisis')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.etendu.crisis')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.advanced.crisis')}</div>
                     </div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-100">
                     <div className="flex items-center gap-1.5 text-blue-600">
                       <Info className="h-3 w-3" />
-                      <span className="text-xs font-medium">{t('pricing.assistance.etendu.recommendation')}</span>
+                      <span className="text-xs font-medium">{t('pricing.assistance.advanced.recommendation')}</span>
                     </div>
                   </div>
                 </div>
@@ -384,7 +384,7 @@ export default function PricingSection() {
               <div className="text-center p-2 bg-white rounded-lg shadow-sm">
                 <div className="text-lg mb-1">🏭</div>
                 <div className="font-bold text-[#FF8C00] text-xs">Advanced</div>
-                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.etendu')}</div>
+                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.advanced')}</div>
               </div>
               <div className="text-center p-2 bg-white rounded-lg shadow-sm">
                 <div className="text-lg mb-1">✈️</div>
@@ -469,7 +469,7 @@ export default function PricingSection() {
                   </div>
                   <div className="bg-slate-50 p-3 rounded-lg">
                     <div className="font-medium text-[#FF8C00]">Advanced</div>
-                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.etendu')}</div>
+                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.advanced')}</div>
                   </div>
                   <div className="bg-slate-50 p-3 rounded-lg">
                     <div className="font-medium text-slate-800">Pro</div>
@@ -514,12 +514,12 @@ export default function PricingSection() {
                   <div className="text-xs text-muted-foreground mt-2">{t('pricing.assurance.essentiel.desc')}</div>
                 </div>
                 <div className="text-center p-4 bg-blue-100 rounded-lg border-2 border-blue-400">
-                  <div className="font-bold text-blue-800 text-lg">{t('pricing.assurance.etendu.title')}</div>
+                  <div className="font-bold text-blue-800 text-lg">{t('pricing.assurance.advanced.title')}</div>
                   <div className="mt-2">
-                    <span className="text-2xl font-bold text-blue-800">{t('pricing.assurance.etendu.price')}€</span>
-                    <span className="text-sm text-muted-foreground"> / {t('pricing.assurance.etendu.priceNote')}</span>
+                    <span className="text-2xl font-bold text-blue-800">{t('pricing.assurance.advanced.price')}€</span>
+                    <span className="text-sm text-muted-foreground"> / {t('pricing.assurance.advanced.priceNote')}</span>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-2">{t('pricing.assurance.etendu.desc')}</div>
+                  <div className="text-xs text-muted-foreground mt-2">{t('pricing.assurance.advanced.desc')}</div>
                 </div>
                 <div className="text-center p-4 bg-slate-50 rounded-lg border border-slate-200">
                   <div className="font-bold text-slate-700 text-lg">{t('pricing.assurance.pro.title')}</div>
@@ -609,12 +609,12 @@ export default function PricingSection() {
                   <div className="text-xs text-muted-foreground mt-2">{t('pricing.advisory.essentiel.desc')}</div>
                 </div>
                 <div className="text-center p-4 bg-purple-100 rounded-lg border-2 border-purple-400">
-                  <div className="font-bold text-purple-800 text-lg">{t('pricing.advisory.etendu.title')}</div>
+                  <div className="font-bold text-purple-800 text-lg">{t('pricing.advisory.advanced.title')}</div>
                   <div className="mt-2">
-                    <span className="text-2xl font-bold text-purple-800">{t('pricing.advisory.etendu.price')}€</span>
+                    <span className="text-2xl font-bold text-purple-800">{t('pricing.advisory.advanced.price')}€</span>
                     <span className="text-sm text-muted-foreground"> / {t('pricing.year')}</span>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-2">{t('pricing.advisory.etendu.desc')}</div>
+                  <div className="text-xs text-muted-foreground mt-2">{t('pricing.advisory.advanced.desc')}</div>
                 </div>
                 <div className="text-center p-4 bg-slate-50 rounded-lg border border-slate-200">
                   <div className="font-bold text-slate-700 text-lg">{t('pricing.advisory.pro.title')}</div>
