@@ -73,7 +73,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 in 4 European SMEs fears a cyberattack could force them to close.',
     
     // Coverage Accordions
-    'coverage.title': 'Insurance & Response Coverage',
+    'coverage.title': 'What does Cyber Suite cover in case of an attack?',
     'coverage.example.label': 'Example:',
     'coverage.viewDetails': 'View coverage details',
     'coverage.hideDetails': 'Hide details',
@@ -237,7 +237,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'My computer has been hijacked, what do I do?',
     'faq.a5': 'Call our emergency hotline immediately. Do not pay any ransom without consulting our experts first.',
     'faq.q6': 'What is the price and how do I pay?',
-    'faq.a6': 'Basic is free for Mixvoip customers. Pro starts at 2€ / user / month, billed monthly.',
+    'faq.a6': 'Basic is free for Mixvoip customers. Essentiel starts at 2€ / user / month, billed monthly.',
     'faq.q7': 'What is the deductible?',
     'faq.a7': 'Deductibles are determined by Le Foyer based on your risk profile. Contact us for details.',
     'faq.q8': 'How is Cyber Suite renewed?',
@@ -636,7 +636,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 PME européenne sur 4 craint qu\'une cyberattaque puisse la contraindre à fermer.',
     
     // Coverage Accordions
-    'coverage.title': 'Couverture Assurance & Intervention',
+    'coverage.title': 'Que couvre Cyber Suite en cas d\'attaque ?',
     'coverage.example.label': 'Exemple :',
     'coverage.viewDetails': 'Voir les détails de couverture',
     'coverage.hideDetails': 'Masquer les détails',
@@ -800,7 +800,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'Mon ordinateur a été piraté, que dois-je faire ?',
     'faq.a5': 'Appelez immédiatement notre hotline d\'urgence. Ne payez aucune rançon sans consulter d\'abord nos experts.',
     'faq.q6': 'Quel est le prix et comment puis-je payer ?',
-    'faq.a6': 'Basic est gratuit pour les clients Mixvoip. Pro commence à 2€ / utilisateur / mois, facturé mensuellement.',
+    'faq.a6': 'Basic est gratuit pour les clients Mixvoip. Essentiel commence à 2€ / utilisateur / mois, facturé mensuellement.',
     'faq.q7': 'Quelle est la franchise ?',
     'faq.a7': 'Les franchises sont déterminées par Le Foyer en fonction de votre profil de risque. Contactez-nous pour plus de détails.',
     'faq.q8': 'Comment Cyber Suite est-il renouvelé ?',
@@ -1197,7 +1197,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 von 4 europäischen KMU befürchtet, dass ein Cyberangriff sie zur Schließung zwingen könnte.',
     
     // Coverage Accordions
-    'coverage.title': 'Versicherungs- & Notfallschutz',
+    'coverage.title': 'Was deckt Cyber Suite im Angriffsfall ab?',
     'coverage.example.label': 'Beispiel:',
     'coverage.viewDetails': 'Deckungsdetails anzeigen',
     'coverage.hideDetails': 'Details ausblenden',
@@ -1361,7 +1361,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'Mein Computer wurde gehackt, was soll ich tun?',
     'faq.a5': 'Rufen Sie sofort unsere Notfall-Hotline an. Zahlen Sie kein Lösegeld, ohne vorher unsere Experten zu konsultieren.',
     'faq.q6': 'Was ist der Preis und wie bezahle ich?',
-    'faq.a6': 'Basic ist kostenlos für Mixvoip-Kunden. Pro beginnt bei 2€ / Nutzer / Monat, monatlich abgerechnet.',
+    'faq.a6': 'Basic ist kostenlos für Mixvoip-Kunden. Essentiel beginnt bei 2€ / Nutzer / Monat, monatlich abgerechnet.',
     'faq.q7': 'Was ist die Selbstbeteiligung?',
     'faq.a7': 'Die Selbstbeteiligung wird von Le Foyer basierend auf Ihrem Risikoprofil festgelegt. Kontaktieren Sie uns für Details.',
     'faq.q8': 'Wie wird Cyber Suite verlängert?',
