@@ -617,7 +617,7 @@ Gesendet von: Mixvoip Cyber Suite Website`
         {showOrderFlow && <OrderFlow onClose={() => setShowOrderFlow(false)} />}
         <section id="assessment" className="section-padding bg-slate-50">
         <div className="container">
-          <div id="calculator" className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
+          <div id="assessment-card" className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto">
             <div className="text-center mb-8">
               <div className="w-20 h-20 bg-[#00B050]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Shield className="w-10 h-10 text-[#00B050]" />
