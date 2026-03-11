@@ -16,10 +16,10 @@ const translations: Record<Language, Record<string, string>> = {
   en: {
     // Navigation
     'nav.home': 'Home',
-    'nav.coverage': 'Coverage',
+    'nav.coverage': 'What we cover',
     'nav.pricing': 'Pricing',
     'nav.faq': 'FAQ',
-    'nav.contact': 'Contact',
+    'nav.contact': 'Book a meeting',
     'nav.calculate': 'Calculate your Cyberscore',
     
     // Hero Section
@@ -579,10 +579,10 @@ const translations: Record<Language, Record<string, string>> = {
   fr: {
     // Navigation
     'nav.home': 'Accueil',
-    'nav.coverage': 'Couvertures',
+    'nav.coverage': 'Ce que nous couvrons',
     'nav.pricing': 'Tarifs',
     'nav.faq': 'FAQ',
-    'nav.contact': 'Contact',
+    'nav.contact': 'Prendre rendez-vous',
     'nav.calculate': 'Calculez votre Cyberscore',
     
     // Hero Section
@@ -1140,10 +1140,10 @@ const translations: Record<Language, Record<string, string>> = {
   de: {
     // Navigation
     'nav.home': 'Startseite',
-    'nav.coverage': 'Deckungen',
+    'nav.coverage': 'Was wir abdecken',
     'nav.pricing': 'Preise',
     'nav.faq': 'FAQ',
-    'nav.contact': 'Kontakt',
+    'nav.contact': 'Termin buchen',
     'nav.calculate': 'Berechnen Sie Ihren Cyberscore',
     
     // Hero Section

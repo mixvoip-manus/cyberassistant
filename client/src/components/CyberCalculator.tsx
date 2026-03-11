@@ -689,7 +689,7 @@ export default function CyberCalculator() {
                   {hasOnRequest ? (
                     <div className="text-center">
                       <div className="text-2xl font-bold text-slate-900">{t.onRequest}</div>
-                      <p className="text-xs text-muted-foreground mt-1">{t.contactUs}</p>
+                      <a href="https://voxbi.me/mixvoip" target="_blank" rel="noopener noreferrer" className="text-xs text-[#00B050] hover:underline mt-1 inline-block">{t.contactUs}</a>
                       {calculation.total > 0 && (
                         <p className="text-sm text-muted-foreground mt-2">
                           + {formatPrice(calculation.total)}€ {t.perYear}

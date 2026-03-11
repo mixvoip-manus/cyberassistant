@@ -93,7 +93,7 @@ const translations = {
     free: 'Free',
     forMixvoipCustomers: 'for Mixvoip customers',
     custom: 'Custom',
-    contactSales: 'Contact Sales',
+    contactSales: 'Book a meeting',
     backToAssessment: 'Back to Assessment',
     fastTrackTitle: 'Fast-Track Request',
     fastTrackSubtitle: 'You already have a Fit4Cybersecurity score of 65% or higher',
@@ -171,7 +171,7 @@ const translations = {
     free: 'Gratuit',
     forMixvoipCustomers: 'pour les clients Mixvoip',
     custom: 'Sur mesure',
-    contactSales: 'Contacter les ventes',
+    contactSales: 'Prendre rendez-vous',
     backToAssessment: 'Retour à l\'évaluation',
     fastTrackTitle: 'Demande Fast-Track',
     fastTrackSubtitle: 'Vous avez déjà un score Fit4Cybersecurity de 65% ou plus',
@@ -249,7 +249,7 @@ const translations = {
     free: 'Kostenlos',
     forMixvoipCustomers: 'für Mixvoip-Kunden',
     custom: 'Individuell',
-    contactSales: 'Vertrieb kontaktieren',
+    contactSales: 'Termin buchen',
     backToAssessment: 'Zurück zum Assessment',
     fastTrackTitle: 'Fast-Track Anfrage',
     fastTrackSubtitle: 'Sie haben bereits einen Fit4Cybersecurity Score von 65% oder höher',
@@ -651,14 +651,15 @@ Gesendet von: Mixvoip Cyber Suite Website`
             </Button>
 
             {/* Secondary Option - Already have score */}
-            <Button 
-              variant="outline"
-              onClick={() => setShowOrderFlow(true)}
-              className="w-full border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3"
+            <a
+              href="https://voxbi.me/mixvoip"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-center border border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3 rounded-md text-sm font-medium"
             >
               <Zap className="mr-2 w-4 h-4" />
               {t.alreadyHaveScore}
-            </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -1239,13 +1240,15 @@ Gesendet von: Mixvoip Cyber Suite Website`
                 <Download className="mr-2 w-4 h-4" />
                 {t.downloadReport}
               </Button>
-              <Button
-                onClick={() => setCurrentStep('contact')}
-                className="flex-1 bg-[#00B050] hover:bg-[#00873D] text-white"
+              <a
+                href="https://voxbi.me/mixvoip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00873D] text-white rounded-md px-4 py-2 text-sm font-medium"
               >
                 {t.requestConsultation}
                 <ChevronRight className="ml-2 w-4 h-4" />
-              </Button>
+              </a>
             </div>
           </div>
         </div>

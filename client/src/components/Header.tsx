@@ -62,12 +62,14 @@ export default function Header() {
             >
               {t('nav.faq')}
             </button>
-            <button
-              onClick={() => scrollToSection('contact')}
+            <a
+              href="https://voxbi.me/mixvoip"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {t('nav.contact')}
-            </button>
+            </a>
           </nav>
 
           {/* Right side: Language + CTA */}
@@ -137,12 +139,14 @@ export default function Header() {
               >
                 {t('nav.faq')}
               </button>
-              <button
-                onClick={() => scrollToSection('contact')}
+              <a
+                href="https://voxbi.me/mixvoip"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
               >
                 {t('nav.contact')}
-              </button>
+              </a>
               <Button
                 onClick={() => scrollToSection('assessment')}
                 className="mt-2 bg-[#00B050] hover:bg-[#00873D] text-white"
