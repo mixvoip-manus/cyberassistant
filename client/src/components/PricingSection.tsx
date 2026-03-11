@@ -43,7 +43,7 @@ export default function PricingSection() {
                   <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.tranquility.target')}</div>
                   <div className="mt-3">
                     <span className="text-3xl font-bold text-cyan-700">7,20€</span>
-                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perAssetMonth')}</span>
+                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perUserMonth')}</span>
                   </div>
                   <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
                   <div className="mt-4 space-y-2 text-left text-sm">
@@ -72,7 +72,7 @@ export default function PricingSection() {
                   <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.full.target')}</div>
                   <div className="mt-3">
                     <span className="text-3xl font-bold text-slate-800">10€</span>
-                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perAssetMonth')}</span>
+                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perUserMonth')}</span>
                   </div>
                   <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
                   <div className="mt-4 space-y-2 text-left text-sm">

@@ -371,7 +371,8 @@ const translations: Record<Language, Record<string, string>> = {
     // SOCaaS
     'pricing.socaas.tagline': 'The Fire Alarm System – 24/7 Monitoring from Luxembourg',
     'pricing.socaas.perAssetMonth': 'per asset / month',
-    'pricing.socaas.pack5': 'Billed in packs of 5 assets',
+    'pricing.socaas.perUserMonth': 'per user / month',
+    'pricing.socaas.pack5': 'Billed in packs of 5 users',
     'pricing.socaas.tranquility.target': 'Ideal for SMEs without IT team',
     'pricing.socaas.tranquility.f1': 'Sophos XDR license included',
     'pricing.socaas.tranquility.f2': 'Endpoints + Microsoft 365 + Servers',
@@ -933,7 +934,8 @@ const translations: Record<Language, Record<string, string>> = {
     // SOCaaS
     'pricing.socaas.tagline': 'Le Système d\'Alarme Incendie – Surveillance 24/7 depuis le Luxembourg',
     'pricing.socaas.perAssetMonth': 'par asset / mois',
-    'pricing.socaas.pack5': 'Facturé par packs de 5 assets',
+    'pricing.socaas.perUserMonth': 'par utilisateur / mois',
+    'pricing.socaas.pack5': 'Facturé par packs de 5 utilisateurs',
     'pricing.socaas.tranquility.target': 'Idéal pour PME sans équipe IT',
     'pricing.socaas.tranquility.f1': 'Licence Sophos XDR incluse',
     'pricing.socaas.tranquility.f2': 'Endpoints + Microsoft 365 + Serveurs',
@@ -1493,6 +1495,7 @@ const translations: Record<Language, Record<string, string>> = {
     // SOCaaS
     'pricing.socaas.tagline': 'Die Brandmeldeanlage – 24/7 Überwachung aus Luxemburg',
     'pricing.socaas.perAssetMonth': 'pro Asset / Monat',
+    'pricing.socaas.perUserMonth': 'pro Benutzer / Monat',
     'pricing.socaas.pack5': 'Abrechnung in 5er-Paketen',
     'pricing.socaas.tranquility.target': 'Ideal für KMU ohne IT-Team',
     'pricing.socaas.tranquility.f1': 'Sophos XDR-Lizenz inklusive',

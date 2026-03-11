@@ -42,10 +42,10 @@ const translations = {
     socNone: 'No monitoring',
     socTranquility: 'R-SOC Tranquility',
     socTranquilityDesc: 'Ideal for SMEs without IT team',
-    socTranquilityPrice: '7.20€ / asset / month',
+    socTranquilityPrice: '7.20€ / user / month',
     socRsoc: 'R-SOC',
     socRsocDesc: 'For businesses with IT infrastructure',
-    socRsocPrice: '10€ / asset / month (packs of 5)',
+    socRsocPrice: '10€ / user / month (packs of 5)',
     // Assistance options
     assistBasic: 'Basic (Included)',
     assistBasicDesc: 'Business hours, best effort, up to 25 users',
@@ -142,10 +142,10 @@ const translations = {
     socNone: 'Pas de surveillance',
     socTranquility: 'R-SOC Tranquility',
     socTranquilityDesc: 'Idéal pour PME sans équipe IT',
-    socTranquilityPrice: '7,20€ / asset / mois',
+    socTranquilityPrice: '7,20€ / utilisateur / mois',
     socRsoc: 'R-SOC',
     socRsocDesc: 'Pour entreprises avec infrastructure IT',
-    socRsocPrice: '10€ / asset / mois (packs de 5)',
+    socRsocPrice: '10€ / utilisateur / mois (packs de 5)',
     assistBasic: 'Basic (Inclus)',
     assistBasicDesc: 'Heures de bureau, best effort, jusqu\'à 25 utilisateurs',
     assistEssentiel: 'Essentiel – 2€/utilisateur/mois',
@@ -237,10 +237,10 @@ const translations = {
     socNone: 'Keine Überwachung',
     socTranquility: 'R-SOC Tranquility',
     socTranquilityDesc: 'Ideal für KMU ohne IT-Team',
-    socTranquilityPrice: '7,20€ / Asset / Monat',
+    socTranquilityPrice: '7,20€ / Benutzer / Monat',
     socRsoc: 'R-SOC',
     socRsocDesc: 'Für Unternehmen mit IT-Infrastruktur',
-    socRsocPrice: '10€ / Asset / Monat (5er-Pakete)',
+    socRsocPrice: '10€ / Benutzer / Monat (5er-Pakete)',
     assistBasic: 'Basic (Inklusive)',
     assistBasicDesc: 'Geschäftszeiten, Best Effort, bis 25 Benutzer',
     assistEssentiel: 'Essentiel – 2€/Benutzer/Monat',
@@ -306,7 +306,6 @@ export default function CyberCalculator() {
   const t = translations[language as keyof typeof translations] || translations.en;
 
   const [users, setUsers] = useState<number>(25);
-  const [assets, setAssets] = useState<number>(20);
   const [soc, setSoc] = useState<SOCChoice>('none');
   const [assistance, setAssistance] = useState<AssistanceChoice>('basic');
   const [assurance, setAssurance] = useState<AssuranceChoice>('none');
@@ -321,12 +320,12 @@ export default function CyberCalculator() {
     let assurCost = 0;
     let advisCost = 0;
 
-    // SOC: per asset per year
+    // SOC: per user per year (monthly price × 12)
     if (soc === 'tranquility') {
-      socCost = assets * 86.40;
+      socCost = users * 7.20 * 12;
     } else if (soc === 'rsoc') {
-      const packs = Math.ceil(assets / 5) * 5;
-      socCost = packs * 120;
+      const packs = Math.ceil(users / 5) * 5;
+      socCost = packs * 10 * 12;
     }
 
     // Assistance: per user per year
@@ -357,7 +356,7 @@ export default function CyberCalculator() {
       advisory: advisCost,
       total: socCost + assistCost + assurCost + advisCost,
     };
-  }, [users, assets, soc, assistance, assurance, advisory]);
+  }, [users, soc, assistance, assurance, advisory]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat(language === 'de' ? 'de-DE' : language === 'fr' ? 'fr-FR' : 'en-US', {
@@ -393,35 +392,18 @@ export default function CyberCalculator() {
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Left: Configuration */}
           <div className="lg:col-span-3 space-y-6">
-            {/* Users & Assets Input */}
+            {/* Users Input */}
             <div className="bg-white rounded-xl shadow-sm border p-5">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">{t.usersLabel}</label>
-                  <input
-                    type="number"
-                    min="1"
-                    max="10000"
-                    value={users}
-                    onChange={(e) => setUsers(Math.max(1, parseInt(e.target.value) || 1))}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg text-lg font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#50B848] focus:border-transparent"
-                    placeholder={t.usersPlaceholder}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">{t.assetsLabel}</label>
-                  <input
-                    type="number"
-                    min="1"
-                    max="10000"
-                    value={assets}
-                    onChange={(e) => setAssets(Math.max(1, parseInt(e.target.value) || 1))}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg text-lg font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#50B848] focus:border-transparent"
-                    placeholder={t.assetsPlaceholder}
-                  />
-                  <p className="text-xs text-muted-foreground mt-1">{t.assetsHint}</p>
-                </div>
-              </div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">{t.usersLabel}</label>
+              <input
+                type="number"
+                min="1"
+                max="10000"
+                value={users}
+                onChange={(e) => setUsers(Math.max(1, parseInt(e.target.value) || 1))}
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg text-lg font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#50B848] focus:border-transparent"
+                placeholder={t.usersPlaceholder}
+              />
             </div>
 
             {/* SOC Selection */}
