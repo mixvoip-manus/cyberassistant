@@ -20,14 +20,14 @@ export default function Home() {
         <Hero />
         <AnimatedPresentation />
         <WhatIs />
-        <CoverageAccordion />
         <CyberSuite />
+        <CoverageAccordion />
         <Statistics />
-        <Fit4CyberAssessment />
         <PricingSection />
         <BookMeetingCTA />
         <CyberCalculator />
         <BookMeetingCTA />
+        <Fit4CyberAssessment />
         <FAQ />
       </main>
       <Footer />

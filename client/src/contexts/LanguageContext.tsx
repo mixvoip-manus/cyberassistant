@@ -50,14 +50,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.losses': 'Losses',
     'what.losses.desc': 'Business interruption, revenue loss, reputation damage',
     
-    // Benefits
-    'benefits.title': 'Why choose Cyber Suite?',
-    'benefits.coverage.title': 'All essential coverages',
-    'benefits.coverage.description': 'Monitoring, response, insurance, compliance, and advisory – everything your business needs before, during, and after a cyber incident',
-    'benefits.nodeductible.title': 'Simple online subscription',
-    'benefits.nodeductible.description': 'Subscribe online without lengthy questionnaires - quick and easy setup',
-    'benefits.limits.title': 'Modular & scalable',
-    'benefits.limits.description': 'Choose exactly the components and coverage levels your business needs – from monitoring to insurance, each module works independently or together',
+
     
     // Statistics
     'stats.title': 'Cyberattacks in our region: The numbers speak for themselves',
@@ -237,11 +230,11 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'My computer has been hijacked, what do I do?',
     'faq.a5': 'Call our emergency hotline immediately. Do not pay any ransom without consulting our experts first.',
     'faq.q6': 'What is the price and how do I pay?',
-    'faq.a6': 'Basic is free for Mixvoip customers. Essentiel starts at 2€ / user / month, billed monthly.',
+    'faq.a6': 'CyberAssistance: Basic is free for Mixvoip customers, Essentiel 2€/user/month, Advanced 5€/user/month (monthly billing). SOC as a Service: from 7.20€/user/month (monthly billing). CyberAssurance: from 120€/year (annual contract). CyberAdvisory: from 500€/year (annual contract).',
     'faq.q7': 'What is the deductible?',
     'faq.a7': 'Deductibles are determined by Le Foyer based on your risk profile. Contact us for details.',
     'faq.q8': 'How is Cyber Suite renewed?',
-    'faq.a8': 'The contract renews automatically annually. You can cancel at any time with 30 days notice.',
+    'faq.a8': 'CyberAssistance and SOC as a Service are billed monthly and can be cancelled monthly. CyberAssurance and CyberAdvisory are annual contracts that renew automatically. You can cancel with 30 days notice before the end of the contract period.',
     
     // Footer
     'footer.disclaimer': 'Insurance coverage is provided by a licensed Luxembourg insurance company. Mixvoip SA acts as an intermediary and is not the insurer. Terms and conditions apply.',
@@ -370,6 +363,8 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.button': 'Start Assessment',
     // SOCaaS
     'pricing.socaas.tagline': 'The Fire Alarm System – 24/7 Monitoring from Luxembourg',
+    'pricing.monthlyBilling': 'Monthly billing, cancel anytime',
+    'pricing.annualContract': 'Annual contract',
     'pricing.socaas.perAssetMonth': 'per asset / month',
     'pricing.socaas.perUserMonth': 'per user / month',
     'pricing.socaas.pack5': 'Billed in packs of 5 users',
@@ -613,14 +608,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.losses': 'Pertes',
     'what.losses.desc': 'Interruption d\'activité, perte de revenus, atteinte à la réputation',
     
-    // Benefits
-    'benefits.title': 'Pourquoi choisir Cyber Suite ?',
-    'benefits.coverage.title': 'Toutes les couvertures essentielles',
-    'benefits.coverage.description': 'Surveillance, réponse, assurance, conformité et conseil – tout ce dont votre entreprise a besoin avant, pendant et après un cyber-incident',
-    'benefits.nodeductible.title': 'Souscription en ligne simple',
-    'benefits.nodeductible.description': 'Souscrivez en ligne sans questionnaires fastidieux - configuration rapide et facile',
-    'benefits.limits.title': 'Modulaire & évolutif',
-    'benefits.limits.description': 'Choisissez exactement les composants et niveaux de couverture dont votre entreprise a besoin – de la surveillance à l\'assurance, chaque module fonctionne indépendamment ou ensemble',
+
     
     // Statistics
     'stats.title': 'Cyberattaques dans notre région : Les chiffres parlent d\'eux-mêmes',
@@ -800,11 +788,11 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'Mon ordinateur a été piraté, que dois-je faire ?',
     'faq.a5': 'Appelez immédiatement notre hotline d\'urgence. Ne payez aucune rançon sans consulter d\'abord nos experts.',
     'faq.q6': 'Quel est le prix et comment puis-je payer ?',
-    'faq.a6': 'Basic est gratuit pour les clients Mixvoip. Essentiel commence à 2€ / utilisateur / mois, facturé mensuellement.',
+    'faq.a6': 'CyberAssistance : Basic est gratuit pour les clients Mixvoip, Essentiel 2€/utilisateur/mois, Advanced 5€/utilisateur/mois (facturation mensuelle). SOC as a Service : à partir de 7,20€/utilisateur/mois (facturation mensuelle). CyberAssurance : à partir de 120€/an (contrat annuel). CyberAdvisory : à partir de 500€/an (contrat annuel).',
     'faq.q7': 'Quelle est la franchise ?',
     'faq.a7': 'Les franchises sont déterminées par Le Foyer en fonction de votre profil de risque. Contactez-nous pour plus de détails.',
     'faq.q8': 'Comment Cyber Suite est-il renouvelé ?',
-    'faq.a8': 'Le contrat se renouvelle automatiquement chaque année. Vous pouvez résilier à tout moment avec un préavis de 30 jours.',
+    'faq.a8': 'CyberAssistance et SOC as a Service sont facturés mensuellement et résiliables chaque mois. CyberAssurance et CyberAdvisory sont des contrats annuels qui se renouvellent automatiquement. Résiliation possible avec un préavis de 30 jours avant la fin de la période contractuelle.',
     
     // Footer
     'footer.disclaimer': 'La couverture d\'assurance est fournie par une compagnie d\'assurance luxembourgeoise agréée. Mixvoip SA agit en tant qu\'intermédiaire et n\'est pas l\'assureur. Des conditions générales s\'appliquent.',
@@ -933,6 +921,8 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.button': 'Démarrer l’évaluation',
     // SOCaaS
     'pricing.socaas.tagline': 'Le Système d\'Alarme Incendie – Surveillance 24/7 depuis le Luxembourg',
+    'pricing.monthlyBilling': 'Facturation mensuelle, résiliable à tout moment',
+    'pricing.annualContract': 'Contrat annuel',
     'pricing.socaas.perAssetMonth': 'par asset / mois',
     'pricing.socaas.perUserMonth': 'par utilisateur / mois',
     'pricing.socaas.pack5': 'Facturé par packs de 5 utilisateurs',
@@ -1174,14 +1164,7 @@ const translations: Record<Language, Record<string, string>> = {
     'what.losses': 'Verlusten',
     'what.losses.desc': 'Betriebsunterbrechung, Umsatzverlust, Reputationsschaden',
     
-    // Benefits
-    'benefits.title': 'Warum Cyber Suite wählen?',
-    'benefits.coverage.title': 'Alle wesentlichen Deckungen',
-    'benefits.coverage.description': 'Überwachung, Reaktion, Versicherung, Compliance und Beratung – alles was Ihr Unternehmen vor, während und nach einem Cyber-Vorfall braucht',
-    'benefits.nodeductible.title': 'Einfache Online-Anmeldung',
-    'benefits.nodeductible.description': 'Melden Sie sich online an ohne langwierige Fragebögen - schnelle und einfache Einrichtung',
-    'benefits.limits.title': 'Modular & skalierbar',
-    'benefits.limits.description': 'Wählen Sie genau die Komponenten und Deckungsstufen, die Ihr Unternehmen braucht – von der Überwachung bis zur Versicherung, jedes Modul funktioniert eigenständig oder zusammen',
+
     
     // Statistics
     'stats.title': 'Cyberangriffe in unserer Region: Die Zahlen sprechen für sich',
@@ -1361,11 +1344,11 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'Mein Computer wurde gehackt, was soll ich tun?',
     'faq.a5': 'Rufen Sie sofort unsere Notfall-Hotline an. Zahlen Sie kein Lösegeld, ohne vorher unsere Experten zu konsultieren.',
     'faq.q6': 'Was ist der Preis und wie bezahle ich?',
-    'faq.a6': 'Basic ist kostenlos für Mixvoip-Kunden. Essentiel beginnt bei 2€ / Nutzer / Monat, monatlich abgerechnet.',
+    'faq.a6': 'CyberAssistance: Basic ist kostenlos für Mixvoip-Kunden, Essentiel 2€/Nutzer/Monat, Advanced 5€/Nutzer/Monat (monatliche Abrechnung). SOC as a Service: ab 7,20€/Nutzer/Monat (monatliche Abrechnung). CyberAssurance: ab 120€/Jahr (Jahresvertrag). CyberAdvisory: ab 500€/Jahr (Jahresvertrag).',
     'faq.q7': 'Was ist die Selbstbeteiligung?',
     'faq.a7': 'Die Selbstbeteiligung wird von Le Foyer basierend auf Ihrem Risikoprofil festgelegt. Kontaktieren Sie uns für Details.',
     'faq.q8': 'Wie wird Cyber Suite verlängert?',
-    'faq.a8': 'Der Vertrag verlängert sich automatisch jährlich. Sie können jederzeit mit 30 Tagen Kündigungsfrist kündigen.',
+    'faq.a8': 'CyberAssistance und SOC as a Service werden monatlich abgerechnet und sind monatlich kündbar. CyberAssurance und CyberAdvisory sind Jahresverträge, die sich automatisch verlängern. Kündigung mit 30 Tagen Frist vor Ende der Vertragslaufzeit möglich.',
     
     // Footer
     'footer.disclaimer': 'Der Versicherungsschutz wird von einem lizenzierten luxemburgischen Versicherungsunternehmen bereitgestellt. Mixvoip SA handelt als Vermittler und ist nicht der Versicherer. Es gelten die Allgemeinen Geschäftsbedingungen.',
@@ -1494,6 +1477,8 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.button': 'Assessment starten',
     // SOCaaS
     'pricing.socaas.tagline': 'Die Brandmeldeanlage – 24/7 Überwachung aus Luxemburg',
+    'pricing.monthlyBilling': 'Monatliche Abrechnung, jederzeit kündbar',
+    'pricing.annualContract': 'Jahresvertrag',
     'pricing.socaas.perAssetMonth': 'pro Asset / Monat',
     'pricing.socaas.perUserMonth': 'pro Benutzer / Monat',
     'pricing.socaas.pack5': 'Abrechnung in 5er-Paketen',

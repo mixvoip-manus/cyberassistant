@@ -31,6 +31,7 @@ export default function PricingSection() {
               <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
             </div>
             <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
+            <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
           </div>
           
           <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
@@ -145,6 +146,7 @@ export default function PricingSection() {
               <h3 className="text-2xl font-bold">Mixvoip CyberAssistance</h3>
             </div>
             <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
+            <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
           </div>
           
           <div className="grid md:grid-cols-4 gap-0 max-w-7xl mx-auto">
@@ -496,6 +498,7 @@ export default function PricingSection() {
                 <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-5 brightness-0 invert" />
               </div>
               <p className="text-blue-100 text-sm mt-1">{t('pricing.assurance.tagline')}</p>
+              <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.annualContract')}</span>
             </div>
             <div className="p-6">
               {/* CyberAssurance info */}
@@ -596,6 +599,7 @@ export default function PricingSection() {
                 <img src={getAssetUrl('/images/luxgaplogo.svg')} alt="Luxgap" className="h-5 brightness-0 invert" />
               </div>
               <p className="text-purple-100 text-sm mt-1">{t('pricing.advisory.tagline')}</p>
+              <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.annualContract')}</span>
             </div>
             <div className="p-6">
               {/* Advisory Packages */}
