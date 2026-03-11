@@ -166,7 +166,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.q4.help': 'Your honest answer helps us assess the risk fairly. Previous incidents are not an exclusion criterion.',
     
     'calc.check': 'Check my eligibility',
-    'calc.continue': 'Continue to checkout',
+    'calc.continue': 'Continue',
     'calc.back': 'Back',
     
     'calc.result.eligible': 'Great news! You qualify for Cyber Suite.',
@@ -512,7 +512,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: Cyber Scenario Slide
     'presentation.slideCyber.title': 'And Now Your IT',
     'presentation.slideCyber.subtitle': 'Exactly the same principle',
-    'presentation.slideCyber.footer': 'MANAGED SERVICE ≠ LEITSTELLE ≠ CYBERASSISTANCE ≠ VERSICHERUNG ≠ COMPLIANCE',
+    'presentation.slideCyber.footer': 'MANAGED SERVICE ≠ CONTROL CENTER ≠ CYBERASSISTANCE ≠ INSURANCE ≠ COMPLIANCE',
     'presentation.slideCyber.legendTitle': "Who's Who",
     'presentation.slideCyber.prepTitle': 'Preparation',
     'presentation.slideCyber.prep1': 'Mixvoip – Infrastructure',
@@ -724,7 +724,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.q4.help': 'Votre réponse honnête nous aide à évaluer le risque équitablement. Les incidents passés ne sont pas un critère d\'exclusion.',
     
     'calc.check': 'Vérifier mon éligibilité',
-    'calc.continue': 'Continuer vers le paiement',
+    'calc.continue': 'Continuer',
     'calc.back': 'Retour',
     
     'calc.result.eligible': 'Bonne nouvelle ! Vous êtes éligible à Cyber Suite.',
@@ -1068,7 +1068,7 @@ const translations: Record<Language, Record<string, string>> = {
     // NEW: Cyber Scenario Slide
     'presentation.slideCyber.title': 'Et maintenant votre IT',
     'presentation.slideCyber.subtitle': 'Exactement le même principe',
-    'presentation.slideCyber.footer': 'MANAGED SERVICE ≠ LEITSTELLE ≠ CYBERASSISTANCE ≠ ASSURANCE ≠ COMPLIANCE',
+    'presentation.slideCyber.footer': 'MANAGED SERVICE ≠ CENTRE DE CONTRÔLE ≠ CYBERASSISTANCE ≠ ASSURANCE ≠ COMPLIANCE',
     'presentation.slideCyber.legendTitle': 'Qui est qui',
     'presentation.slideCyber.prepTitle': 'Préparation',
     'presentation.slideCyber.prep1': 'Mixvoip – Infrastructure',
@@ -1141,7 +1141,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': 'Cyber Suite – Ihre komplette Cybersicherheitslösung aus einer Hand',
     'hero.description': 'Sichern Sie Ihr Unternehmen gegen die Folgen von Cyberangriffen, Bußgeldern und Verlusten ab. Stärken Sie Ihre Cybersicherheit mit dem umfassendsten Schutz auf dem Markt.',
     'hero.price': 'Ab',
-    'hero.priceValue': '2€ / Nutzer / Monat',
+    'hero.priceValue': '2€ / Benutzer / Monat',
     'hero.cta': 'Berechnen Sie Ihre Cyber Suite',
     'hero.ctaSecondary': 'Mehr erfahren',
     'hero.ctaLearnHow': 'So funktioniert es',
@@ -1280,7 +1280,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.q4.help': 'Ihre ehrliche Antwort hilft uns, das Risiko fair einzuschätzen. Frühere Vorfälle sind kein Ausschlusskriterium.',
     
     'calc.check': 'Berechtigung prüfen',
-    'calc.continue': 'Weiter zur Kasse',
+    'calc.continue': 'Weiter',
     'calc.back': 'Zurück',
     
     'calc.result.eligible': 'Gute Nachrichten! Sie qualifizieren sich für Cyber Suite.',
@@ -1294,7 +1294,7 @@ const translations: Record<Language, Record<string, string>> = {
     'package.enterprise': 'Enterprise',
     'package.recommended': 'Empfohlen',
     'package.free': 'KOSTENLOS',
-    'package.perUser': '/Nutzer/Monat',
+    'package.perUser': '/Benutzer/Monat',
     'package.custom': 'Individueller Preis',
     'package.basic.feature1': 'Best-Effort-Reaktion',
     'package.basic.feature2': 'Core-User-Wiederherstellung',
@@ -1344,7 +1344,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'Mein Computer wurde gehackt, was soll ich tun?',
     'faq.a5': 'Rufen Sie sofort unsere Notfall-Hotline an. Zahlen Sie kein Lösegeld, ohne vorher unsere Experten zu konsultieren.',
     'faq.q6': 'Was ist der Preis und wie bezahle ich?',
-    'faq.a6': 'CyberAssistance: Basic ist kostenlos für Mixvoip-Kunden, Essentiel 2€/Nutzer/Monat, Advanced 5€/Nutzer/Monat (monatliche Abrechnung). SOC as a Service: ab 7,20€/Nutzer/Monat (monatliche Abrechnung). CyberAssurance: ab 120€/Jahr (Jahresvertrag). CyberAdvisory: ab 500€/Jahr (Jahresvertrag).',
+    'faq.a6': 'CyberAssistance: Basic ist kostenlos für Mixvoip-Kunden, Essentiel 2€/Benutzer/Monat, Advanced 5€/Benutzer/Monat (monatliche Abrechnung). SOC as a Service: ab 7,20€/Benutzer/Monat (monatliche Abrechnung). CyberAssurance: ab 120€/Jahr (Jahresvertrag). CyberAdvisory: ab 500€/Jahr (Jahresvertrag).',
     'faq.q7': 'Was ist die Selbstbeteiligung?',
     'faq.a7': 'Die Selbstbeteiligung wird von Le Foyer basierend auf Ihrem Risikoprofil festgelegt. Kontaktieren Sie uns für Details.',
     'faq.q8': 'Wie wird Cyber Suite verlängert?',
@@ -1365,7 +1365,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing Section
     'pricing.title': 'Preise',
     'pricing.subtitle': 'Wählen Sie den Schutz, der zu Ihrem Unternehmen passt. Alle Produkte erfordern einen Fit4Cybersecurity-Score von ≥65%.',
-    'pricing.perUserMonth': 'pro Nutzer / Monat',
+    'pricing.perUserMonth': 'pro Benutzer / Monat',
     'pricing.yearlyContract': 'Jahresvertrag',
     'pricing.required': 'Für alle Pakete erforderlich',
     'pricing.onRequest': 'Auf Anfrage',
@@ -1665,7 +1665,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cycle.socaas.title': 'SOC as a Service',
     'cycle.socaas.short': 'Überwachen',
     'cycle.socaas.role': 'Die Brandmeldeanlage',
-    'cycle.socaas.description': '24/7 Überwachung Ihrer gesamten IT-Infrastruktur. Erkennt Bedrohungen bevor sie Schaden anrichten – wie eine Brandmeldeanlage die mit der Leitstelle verbunden ist.',
+    'cycle.socaas.description': '24/7 Überwachung Ihrer gesamten IT-Infrastruktur. Erkennt Bedrohungen bevor sie Schaden anrichten – wie eine Brandmeldeanlage, die mit der Leitstelle verbunden ist.',
     'cycle.socaas.analogy': 'Die Brandmeldeanlage verbunden mit der Leitstelle – erkennt Rauch bevor das Feuer ausbricht.',
     'cycle.assistance.title': 'CyberAssistance',
     'cycle.assistance.short': 'Reagieren',
@@ -1681,7 +1681,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cycle.advisory.short': 'Beraten',
     'cycle.advisory.role': 'Der Rechtsexperte',
     'cycle.advisory.description': 'Regulatorische Compliance, DSGVO, NIS2, CNPD-Meldungen und rechtliche Unterstützung. Ihr Wegweiser durch den Regulierungs-Dschungel vor und nach einem Vorfall.',
-    'cycle.advisory.analogy': 'Der Anwalt und Baugutachter – stellt sicher dass alles konform ist und vertritt Sie bei Streitigkeiten.',
+    'cycle.advisory.analogy': 'Der Anwalt und Baugutachter – stellt sicher, dass alles konform ist und vertritt Sie bei Streitigkeiten.',
     'cycle.analogy.title': 'Die Haus-Analogie',
   },
 };
