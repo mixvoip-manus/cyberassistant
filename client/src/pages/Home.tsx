@@ -3,12 +3,12 @@ import Hero from '@/components/Hero';
 import AnimatedPresentation from '@/components/AnimatedPresentation';
 import WhatIs from '@/components/WhatIs';
 import CyberSuite from '@/components/CyberSuite';
-import Benefits from '@/components/Benefits';
 import Statistics from '@/components/Statistics';
 import CoverageAccordion from '@/components/CoverageAccordion';
 import PricingSection from '@/components/PricingSection';
 import CyberCalculator from '@/components/CyberCalculator';
 import Fit4CyberAssessment from '@/components/Fit4CyberAssessment';
+import BookMeetingCTA from '@/components/BookMeetingCTA';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
@@ -22,11 +22,12 @@ export default function Home() {
         <WhatIs />
         <CoverageAccordion />
         <CyberSuite />
-        <Benefits />
         <Statistics />
         <Fit4CyberAssessment />
         <PricingSection />
+        <BookMeetingCTA />
         <CyberCalculator />
+        <BookMeetingCTA />
         <FAQ />
       </main>
       <Footer />
