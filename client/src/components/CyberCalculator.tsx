@@ -42,7 +42,7 @@ const translations = {
     assistBasicDesc: 'Business hours, best effort, up to 25 users',
     assistEssentiel: 'Essentiel – 2€/user/month',
     assistEssentielDesc: '24/7, 1h response, forensics, remediation',
-    assistEtendu: 'Étendu – 5€/user/month',
+    assistEtendu: 'Advanced – 5€/user/month',
     assistEtenduDesc: '24/7 priority, 30 min response, on-site support',
     assistPro: 'Pro – On request',
     assistProDesc: 'Dedicated team, custom SLA',
@@ -50,7 +50,7 @@ const translations = {
     assurNone: 'No insurance',
     assurEssentiel: 'Essentiel – 120€/year',
     assurEssentielDesc: 'Le Foyer covers 2 days emergency deployment',
-    assurEtendu: 'Étendu – 200€/year',
+    assurEtendu: 'Advanced – 200€/year',
     assurEtenduDesc: 'Le Foyer covers 4 days emergency deployment',
     assurPro: 'Pro – On request',
     assurProDesc: 'Le Foyer Cyber Pro full contract',
@@ -58,7 +58,7 @@ const translations = {
     advisNone: 'No advisory',
     advisEssentiel: 'Essentiel – 500€/year',
     advisEssentielDesc: '2h consulting/year, CNPD/GDPR support',
-    advisEtendu: 'Étendu – 2,000€/year',
+    advisEtendu: 'Advanced – 2,000€/year',
     advisEtenduDesc: '8h consulting/year, NIS2, security policies',
     advisPro: 'Pro – On request',
     advisProDesc: '24h consulting + on-site audit',
@@ -69,7 +69,7 @@ const translations = {
     incident1hint_no: 'Average time to detect without SOC: 197 days',
     incident2: 'Report to Mixvoip Helpdesk',
     incident2resp: 'You call Mixvoip – describe the problem',
-    incident2hint: 'Available during business hours (Basic) or 24/7 (Essentiel/Étendu)',
+    incident2hint: 'Available during business hours (Basic) or 24/7 (Essentiel/Advanced)',
     incident3: 'Triage & first response',
     incident3resp: 'Mixvoip (CyberAssistance)',
     incident3hint_basic: 'Best effort, business hours only – no guaranteed response time',
@@ -160,21 +160,21 @@ const translations = {
     assistBasicDesc: 'Heures de bureau, best effort, jusqu\'à 25 utilisateurs',
     assistEssentiel: 'Essentiel – 2€/utilisateur/mois',
     assistEssentielDesc: '24/7, réponse 1h, forensique, remédiation',
-    assistEtendu: 'Étendu – 5€/utilisateur/mois',
+    assistEtendu: 'Advanced – 5€/utilisateur/mois',
     assistEtenduDesc: '24/7 prioritaire, réponse 30 min, support sur site',
     assistPro: 'Pro – Sur demande',
     assistProDesc: 'Équipe dédiée, SLA personnalisé',
     assurNone: 'Pas d\'assurance',
     assurEssentiel: 'Essentiel – 120€/an',
     assurEssentielDesc: 'Le Foyer couvre 2 jours de déploiement d\'urgence',
-    assurEtendu: 'Étendu – 200€/an',
+    assurEtendu: 'Advanced – 200€/an',
     assurEtenduDesc: 'Le Foyer couvre 4 jours de déploiement d\'urgence',
     assurPro: 'Pro – Sur demande',
     assurProDesc: 'Contrat complet Le Foyer Cyber Pro',
     advisNone: 'Pas de conseil',
     advisEssentiel: 'Essentiel – 500€/an',
     advisEssentielDesc: '2h conseil/an, support CNPD/RGPD',
-    advisEtendu: 'Étendu – 2 000€/an',
+    advisEtendu: 'Advanced – 2 000€/an',
     advisEtenduDesc: '8h conseil/an, NIS2, politiques de sécurité',
     advisPro: 'Pro – Sur demande',
     advisProDesc: '24h conseil + audit sur site',
@@ -184,7 +184,7 @@ const translations = {
     incident1hint_no: 'Délai moyen de détection sans SOC : 197 jours',
     incident2: 'Signalement au Helpdesk Mixvoip',
     incident2resp: 'Vous appelez Mixvoip – décrivez le problème',
-    incident2hint: 'Disponible en heures de bureau (Basic) ou 24/7 (Essentiel/Étendu)',
+    incident2hint: 'Disponible en heures de bureau (Basic) ou 24/7 (Essentiel/Advanced)',
     incident3: 'Triage & première réponse',
     incident3resp: 'Mixvoip (CyberAssistance)',
     incident3hint_basic: 'Best effort, heures de bureau uniquement – pas de temps de réponse garanti',
@@ -273,21 +273,21 @@ const translations = {
     assistBasicDesc: 'Geschäftszeiten, Best Effort, bis 25 Benutzer',
     assistEssentiel: 'Essentiel – 2€/Benutzer/Monat',
     assistEssentielDesc: '24/7, 1h Reaktion, Forensik, Remediation',
-    assistEtendu: 'Étendu – 5€/Benutzer/Monat',
+    assistEtendu: 'Advanced – 5€/Benutzer/Monat',
     assistEtenduDesc: '24/7 Priority, 30 Min Reaktion, Vor-Ort-Support',
     assistPro: 'Pro – Auf Anfrage',
     assistProDesc: 'Dediziertes Team, individuelles SLA',
     assurNone: 'Keine Versicherung',
     assurEssentiel: 'Essentiel – 120€/Jahr',
     assurEssentielDesc: 'Le Foyer übernimmt 2 Tage Notfalleinsatz',
-    assurEtendu: 'Étendu – 200€/Jahr',
+    assurEtendu: 'Advanced – 200€/Jahr',
     assurEtenduDesc: 'Le Foyer übernimmt 4 Tage Notfalleinsatz',
     assurPro: 'Pro – Auf Anfrage',
     assurProDesc: 'Le Foyer Cyber Pro Vollvertrag',
     advisNone: 'Keine Beratung',
     advisEssentiel: 'Essentiel – 500€/Jahr',
     advisEssentielDesc: '2h Beratung/Jahr, CNPD/DSGVO-Support',
-    advisEtendu: 'Étendu – 2.000€/Jahr',
+    advisEtendu: 'Advanced – 2.000€/Jahr',
     advisEtenduDesc: '8h Beratung/Jahr, NIS2, Security Policies',
     advisPro: 'Pro – Auf Anfrage',
     advisProDesc: '24h Beratung + Vor-Ort-Audit',
@@ -297,7 +297,7 @@ const translations = {
     incident1hint_no: 'Durchschnittliche Erkennungszeit ohne SOC: 197 Tage',
     incident2: 'Meldung an Mixvoip Helpdesk',
     incident2resp: 'Sie rufen Mixvoip an – beschreiben das Problem',
-    incident2hint: 'Verfügbar während Geschäftszeiten (Basic) oder 24/7 (Essentiel/Étendu)',
+    incident2hint: 'Verfügbar während Geschäftszeiten (Basic) oder 24/7 (Essentiel/Advanced)',
     incident3: 'Triage & Erste Reaktion',
     incident3resp: 'Mixvoip (CyberAssistance)',
     incident3hint_basic: 'Best Effort, nur Geschäftszeiten – keine garantierte Reaktionszeit',
@@ -764,7 +764,7 @@ export default function CyberCalculator() {
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-[#E63946] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold text-slate-700">{t.assistServiceTitle} – {assistance === 'basic' ? 'Basic' : assistance === 'essentiel' ? 'Essentiel' : assistance === 'etendu' ? 'Étendu' : 'Pro'}</div>
+                      <div className="font-semibold text-slate-700">{t.assistServiceTitle} – {assistance === 'basic' ? 'Basic' : assistance === 'essentiel' ? 'Essentiel' : assistance === 'etendu' ? 'Advanced' : 'Pro'}</div>
                       <div className="text-muted-foreground">
                         {assistance === 'basic' ? t.basicServiceDesc : assistance === 'essentiel' ? t.essentielServiceDesc : assistance === 'etendu' ? t.etenduServiceDesc : t.proServiceDesc}
                       </div>
@@ -774,7 +774,7 @@ export default function CyberCalculator() {
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[#2563EB] flex-shrink-0 mt-0.5" />
                       <div>
-                        <div className="font-semibold text-slate-700">{t.assurServiceTitle} – {assurance === 'essentiel' ? 'Essentiel' : assurance === 'etendu' ? 'Étendu' : 'Pro'}</div>
+                        <div className="font-semibold text-slate-700">{t.assurServiceTitle} – {assurance === 'essentiel' ? 'Essentiel' : assurance === 'etendu' ? 'Advanced' : 'Pro'}</div>
                         <div className="text-muted-foreground">
                           {assurance === 'essentiel' ? t.assurEssentielServiceDesc : assurance === 'etendu' ? t.assurEtenduServiceDesc : t.assurProServiceDesc}
                         </div>
@@ -785,7 +785,7 @@ export default function CyberCalculator() {
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[#7C3AED] flex-shrink-0 mt-0.5" />
                       <div>
-                        <div className="font-semibold text-slate-700">{t.advisServiceTitle} – {advisory === 'essentiel' ? 'Essentiel' : advisory === 'etendu' ? 'Étendu' : 'Pro'}</div>
+                        <div className="font-semibold text-slate-700">{t.advisServiceTitle} – {advisory === 'essentiel' ? 'Essentiel' : advisory === 'etendu' ? 'Advanced' : 'Pro'}</div>
                         <div className="text-muted-foreground">
                           {advisory === 'essentiel' ? t.advisEssentielServiceDesc : advisory === 'etendu' ? t.advisEtenduServiceDesc : t.advisProServiceDesc}
                         </div>

@@ -250,7 +250,7 @@ export default function PricingSection() {
               </div>
             </div>
 
-            {/* Étendu - Featured */}
+            {/* Advanced - Featured */}
             <div className="bg-white shadow-lg overflow-hidden border-x-2 border-b-2 border-[#FF8C00] relative">
               <div className="absolute top-0 left-0 right-0 bg-[#FF8C00] text-white text-center text-xs py-1 font-medium">
                 {t('pricing.assistance.etendu.badge')}
@@ -383,7 +383,7 @@ export default function PricingSection() {
               </div>
               <div className="text-center p-2 bg-white rounded-lg shadow-sm">
                 <div className="text-lg mb-1">🏭</div>
-                <div className="font-bold text-[#FF8C00] text-xs">Étendu</div>
+                <div className="font-bold text-[#FF8C00] text-xs">Advanced</div>
                 <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.etendu')}</div>
               </div>
               <div className="text-center p-2 bg-white rounded-lg shadow-sm">
@@ -468,7 +468,7 @@ export default function PricingSection() {
                     <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.essentiel')}</div>
                   </div>
                   <div className="bg-slate-50 p-3 rounded-lg">
-                    <div className="font-medium text-[#FF8C00]">Étendu</div>
+                    <div className="font-medium text-[#FF8C00]">Advanced</div>
                     <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.etendu')}</div>
                   </div>
                   <div className="bg-slate-50 p-3 rounded-lg">
