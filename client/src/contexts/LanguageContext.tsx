@@ -1719,7 +1719,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         document.documentElement.lang = lang;
         // Navigate to new language URL, preserving hash
         const hash = window.location.hash;
-        const newPath = `/${lang}${BASE_PATH}/${hash}`;
+        const newPath = `/${lang}/${hash}`;
         setLocation(newPath);
       }
     }
@@ -1738,7 +1738,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (cleanPath.startsWith('images/') || cleanPath.startsWith('audio/') || cleanPath.endsWith('.pdf')) {
       return `${viteBase}${cleanPath}`;
     }
-    return `/${language}/enterprise/cyberassist/${cleanPath}`;
+    return `/${language}/${cleanPath}`;
   }, [language]);
 
   return (
