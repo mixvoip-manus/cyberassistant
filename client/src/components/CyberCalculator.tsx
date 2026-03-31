@@ -5,7 +5,7 @@ import { Calculator, Shield, Eye, Scale, BookOpen, ChevronDown, ChevronUp, Alert
 type SOCChoice = 'none' | 'tranquility' | 'rsoc';
 type AssistanceChoice = 'basic' | 'essentiel' | 'advanced' | 'pro';
 type AssuranceChoice = 'none' | 'essentiel' | 'advanced' | 'pro';
-type AdvisoryChoice = 'none' | 'essentiel' | 'advanced' | 'pro';
+type AdvisoryChoice = 'none' | 'starter' | 'business' | 'expert';
 
 const translations = {
   en: {
@@ -56,12 +56,12 @@ const translations = {
     assurProDesc: 'Le Foyer Cyber Pro full contract',
     // Advisory options
     advisNone: 'No advisory',
-    advisEssentiel: 'Essentiel – 500€/year',
-    advisEssentielDesc: '2h consulting/year, CNPD/GDPR support',
-    advisAdvanced: 'Advanced – 2,000€/year',
-    advisAdvancedDesc: '8h consulting/year, NIS2, security policies',
-    advisPro: 'Pro – On request',
-    advisProDesc: '24h consulting + on-site audit',
+    advisStarter: 'Starter – 450€/month',
+    advisStarterDesc: 'External DPO, GDPR compliance, <10 employees',
+    advisBusiness: 'Business – 828€/month',
+    advisBusinessDesc: 'DPO + CISO, audits, pentests, 10-50 employees',
+    advisExpert: 'Expert – 1,656€/month',
+    advisExpertDesc: 'DPO + CISO full coverage, 50-100 employees',
     // Incident flow
     incident1: 'Attack detected',
     incident1resp_soc: 'SOC (RCarre) – automatic 24/7 detection',
@@ -120,9 +120,9 @@ const translations = {
     assurEssentielServiceDesc: 'Le Foyer covers the costs of 2 days Mixvoip emergency deployment (value: 1,600€).',
     assurAdvancedServiceDesc: 'Le Foyer covers the costs of 4 days Mixvoip emergency deployment (value: 3,200€).',
     assurProServiceDesc: 'Le Foyer Cyber Pro full insurance contract. Comprehensive cyber coverage including financial losses, business interruption, data recovery, and legal costs.',
-    advisEssentielServiceDesc: '2h consulting per year. CNPD/CSSF notification support, GDPR compliance assistance, legal advisory services, NIS2 assessment.',
-    advisAdvancedServiceDesc: '8h consulting per year. Security policy development, employee awareness training, incident response planning, annual security review.',
-    advisProServiceDesc: '24h consulting per year + on-site audit. Dedicated advisor, unlimited support.',
+    advisStarterServiceDesc: 'External DPO: GDPR compliance, data processing register, annual M365 review, 1 pentest/year, phishing campaign, online training portal.',
+    advisBusinessServiceDesc: 'DPO + CISO: full data breach management, CNPD notification, weekly pentests, dark web monitoring, regulatory audits included.',
+    advisExpertServiceDesc: 'DPO + CISO full coverage: all assets, IT team coaching, risk management, ISO 27001/EUROPRIVACY certification possible.',
     noSocWarning: 'Without SOC monitoring, attacks may go undetected for days or weeks.',
     noAssuranceWarning: 'Without CyberAssurance, you pay the deployment costs yourself (800€/day).',
     assuranceRecommendation: 'We recommend adding CyberAssurance to cover your emergency deployment costs.',
@@ -172,12 +172,12 @@ const translations = {
     assurPro: 'Pro – Sur demande',
     assurProDesc: 'Contrat complet Le Foyer Cyber Pro',
     advisNone: 'Pas de conseil',
-    advisEssentiel: 'Essentiel – 500€/an',
-    advisEssentielDesc: '2h conseil/an, support CNPD/RGPD',
-    advisAdvanced: 'Advanced – 2 000€/an',
-    advisAdvancedDesc: '8h conseil/an, NIS2, politiques de sécurité',
-    advisPro: 'Pro – Sur demande',
-    advisProDesc: '24h conseil + audit sur site',
+    advisStarter: 'Starter – 450€/mois',
+    advisStarterDesc: 'DPO externe, conformité RGPD, <10 employés',
+    advisBusiness: 'Business – 828€/mois',
+    advisBusinessDesc: 'DPO + CISO, audits, pentests, 10-50 employés',
+    advisExpert: 'Expert – 1 656€/mois',
+    advisExpertDesc: 'DPO + CISO couverture complète, 50-100 employés',
     incident1: 'Attaque détectée',
     incident1resp_soc: 'SOC (RCarre) – détection automatique 24/7',
     incident1resp_no: 'Vous – vous devez détecter l\'attaque vous-même',
@@ -233,9 +233,9 @@ const translations = {
     assurEssentielServiceDesc: 'Le Foyer couvre les coûts de 2 jours de déploiement d\'urgence Mixvoip (valeur : 1 600€).',
     assurAdvancedServiceDesc: 'Le Foyer couvre les coûts de 4 jours de déploiement d\'urgence Mixvoip (valeur : 3 200€).',
     assurProServiceDesc: 'Contrat complet Le Foyer Cyber Pro. Couverture cyber complète incluant pertes financières, interruption d\'activité, récupération de données et frais juridiques.',
-    advisEssentielServiceDesc: '2h de conseil par an. Support notification CNPD/CSSF, assistance conformité RGPD, services de conseil juridique, évaluation NIS2.',
-    advisAdvancedServiceDesc: '8h de conseil par an. Développement de politiques de sécurité, formation sensibilisation employés, planification réponse incidents, revue sécurité annuelle.',
-    advisProServiceDesc: '24h de conseil par an + audit sur site. Conseiller dédié, support illimité.',
+    advisStarterServiceDesc: 'DPO externe : conformité RGPD, registre des traitements, revue M365 annuelle, 1 pentest/an, campagne phishing, portail formation en ligne.',
+    advisBusinessServiceDesc: 'DPO + CISO : gestion complète des violations de données, notification CNPD, pentests hebdomadaires, surveillance dark web, audits régulateurs inclus.',
+    advisExpertServiceDesc: 'DPO + CISO couverture totale : tous les actifs, accompagnement équipe IT, gestion des risques, certification ISO 27001/EUROPRIVACY possible.',
     noSocWarning: 'Sans surveillance SOC, les attaques peuvent passer inaperçues pendant des jours ou des semaines.',
     noAssuranceWarning: 'Sans CyberAssurance, vous payez les coûts de déploiement vous-même (800€/jour).',
     assuranceRecommendation: 'Nous recommandons d\'ajouter CyberAssurance pour couvrir vos coûts de déploiement d\'urgence.',
@@ -285,12 +285,12 @@ const translations = {
     assurPro: 'Pro – Auf Anfrage',
     assurProDesc: 'Le Foyer Cyber Pro Vollvertrag',
     advisNone: 'Keine Beratung',
-    advisEssentiel: 'Essentiel – 500€/Jahr',
-    advisEssentielDesc: '2h Beratung/Jahr, CNPD/DSGVO-Support',
-    advisAdvanced: 'Advanced – 2.000€/Jahr',
-    advisAdvancedDesc: '8h Beratung/Jahr, NIS2, Security Policies',
-    advisPro: 'Pro – Auf Anfrage',
-    advisProDesc: '24h Beratung + Vor-Ort-Audit',
+    advisStarter: 'Starter – 450€/Monat',
+    advisStarterDesc: 'Externer DPO, DSGVO-Konformität, <10 Mitarbeiter',
+    advisBusiness: 'Business – 828€/Monat',
+    advisBusinessDesc: 'DPO + CISO, Audits, Pentests, 10-50 Mitarbeiter',
+    advisExpert: 'Expert – 1.656€/Monat',
+    advisExpertDesc: 'DPO + CISO Vollabdeckung, 50-100 Mitarbeiter',
     incident1: 'Angriff erkannt',
     incident1resp_soc: 'SOC (RCarre) – automatische 24/7 Erkennung',
     incident1resp_no: 'Sie – Sie müssen den Angriff selbst erkennen',
@@ -346,9 +346,9 @@ const translations = {
     assurEssentielServiceDesc: 'Le Foyer übernimmt die Kosten für 2 Tage Mixvoip-Notfalleinsatz (Wert: 1.600€).',
     assurAdvancedServiceDesc: 'Le Foyer übernimmt die Kosten für 4 Tage Mixvoip-Notfalleinsatz (Wert: 3.200€).',
     assurProServiceDesc: 'Le Foyer Cyber Pro Vollvertrag. Umfassender Cyber-Versicherungsschutz inkl. finanzielle Verluste, Betriebsunterbrechung, Datenwiederherstellung und Rechtskosten.',
-    advisEssentielServiceDesc: '2h Beratung pro Jahr. CNPD/CSSF-Meldungsunterstützung, DSGVO-Compliance, Rechtsberatung, NIS2-Bewertung.',
-    advisAdvancedServiceDesc: '8h Beratung pro Jahr. Security Policies, Mitarbeiterschulung, Incident Response Planning, jährliche Sicherheitsüberprüfung.',
-    advisProServiceDesc: '24h Beratung pro Jahr + Vor-Ort-Audit. Dedizierter Berater, unbegrenzter Support.',
+    advisStarterServiceDesc: 'Externer DPO: DSGVO-Konformität, Verarbeitungsregister, jährliche M365-Prüfung, 1 Pentest/Jahr, Phishing-Kampagne, Online-Schulungsportal.',
+    advisBusinessServiceDesc: 'DPO + CISO: vollständiges Datenschutzverletzungsmanagement, CNPD-Meldung, wöchentliche Pentests, Dark-Web-Überwachung, regulatorische Audits inklusive.',
+    advisExpertServiceDesc: 'DPO + CISO Vollabdeckung: alle Assets, IT-Team-Coaching, Risikomanagement, ISO 27001/EUROPRIVACY-Zertifizierung möglich.',
     noSocWarning: 'Ohne SOC-Überwachung können Angriffe tage- oder wochenlang unentdeckt bleiben.',
     noAssuranceWarning: 'Ohne CyberAssurance zahlen Sie die Einsatzkosten selbst (800€/Tag).',
     assuranceRecommendation: 'Wir empfehlen CyberAssurance hinzuzufügen, um Ihre Notfalleinsatzkosten abzudecken.',
@@ -367,7 +367,7 @@ export default function CyberCalculator() {
   const [advisory, setAdvisory] = useState<AdvisoryChoice>('none');
   const [showIncident, setShowIncident] = useState(true);
 
-  const hasOnRequest = assistance === 'pro' || assurance === 'pro' || advisory === 'pro';
+  const hasOnRequest = assistance === 'pro' || assurance === 'pro';
 
   // Coverage score: 0-4 based on how many service areas are actively covered
   const coverageScore = useMemo(() => {
@@ -415,11 +415,13 @@ export default function CyberCalculator() {
       assurCost = 200;
     }
 
-    // Advisory: flat per year
-    if (advisory === 'essentiel') {
-      advisCost = 500;
-    } else if (advisory === 'advanced') {
-      advisCost = 2000;
+    // Advisory: monthly price × 12
+    if (advisory === 'starter') {
+      advisCost = 450 * 12;
+    } else if (advisory === 'business') {
+      advisCost = 828 * 12;
+    } else if (advisory === 'expert') {
+      advisCost = 1656 * 12;
     }
 
     return {
@@ -611,7 +613,7 @@ export default function CyberCalculator() {
                 </div>
               </div>
               <div className="space-y-2">
-                {([['none', t.advisNone, ''], ['essentiel', t.advisEssentiel, t.advisEssentielDesc], ['advanced', t.advisAdvanced, t.advisAdvancedDesc], ['pro', t.advisPro, t.advisProDesc]] as const).map(([val, label, desc]) => (
+                {([['none', t.advisNone, ''], ['starter', t.advisStarter, t.advisStarterDesc], ['business', t.advisBusiness, t.advisBusinessDesc], ['expert', t.advisExpert, t.advisExpertDesc]] as const).map(([val, label, desc]) => (
                   <label key={val} className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${advisory === val ? 'bg-purple-50 border-2 border-purple-300' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'}`}>
                     <input type="radio" name="advisory" value={val} checked={advisory === val} onChange={() => setAdvisory(val as AdvisoryChoice)} className="accent-[#7C3AED]" />
                     <div className="flex-1">
@@ -680,7 +682,7 @@ export default function CyberCalculator() {
                       <BookOpen className="h-3.5 w-3.5 text-[#7C3AED]" /> CyberAdvisory
                     </span>
                     <span className={`font-medium ${advisory === 'none' ? 'text-slate-400' : ''}`}>
-                      {advisory === 'none' ? '—' : advisory === 'pro' ? t.onRequest : `${formatPrice(calculation.advisory)}€`}
+                      {advisory === 'none' ? '—' : `${formatPrice(calculation.advisory)}€`}
                     </span>
                   </div>
                 </div>
@@ -785,9 +787,9 @@ export default function CyberCalculator() {
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[#7C3AED] flex-shrink-0 mt-0.5" />
                       <div>
-                        <div className="font-semibold text-slate-700">{t.advisServiceTitle} – {advisory === 'essentiel' ? 'Essentiel' : advisory === 'advanced' ? 'Advanced' : 'Pro'}</div>
+                        <div className="font-semibold text-slate-700">{t.advisServiceTitle} – {advisory === 'starter' ? 'Starter' : advisory === 'business' ? 'Business' : 'Expert'}</div>
                         <div className="text-muted-foreground">
-                          {advisory === 'essentiel' ? t.advisEssentielServiceDesc : advisory === 'advanced' ? t.advisAdvancedServiceDesc : t.advisProServiceDesc}
+                          {advisory === 'starter' ? t.advisStarterServiceDesc : advisory === 'business' ? t.advisBusinessServiceDesc : t.advisExpertServiceDesc}
                         </div>
                       </div>
                     </div>
