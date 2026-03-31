@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Calculator, Shield, Eye, Scale, BookOpen, ChevronDown, ChevronUp, AlertTriangle, CheckCircle2, Info, XCircle, ShieldAlert, ShieldCheck } from 'lucide-react';
 
@@ -369,6 +369,37 @@ export default function CyberCalculator() {
 
   const hasOnRequest = assistance === 'pro' || assurance === 'pro';
 
+  // User-count-based restrictions
+  const isBasicAllowed = users <= 25;
+  const isAdvisStarterAllowed = users < 10;
+  const isAdvisBusAllowed = users >= 10 && users <= 50;
+  const isAdvisExpertAllowed = users >= 50 && users <= 100;
+  const isAdvisOverLimit = users > 100;
+
+  // Auto-switch when user count makes current selection invalid
+  useEffect(() => {
+    // Advisory: auto-switch to best matching tier
+    if (advisory === 'starter' && !isAdvisStarterAllowed) {
+      if (users >= 10 && users <= 50) setAdvisory('business');
+      else if (users > 50 && users <= 100) setAdvisory('expert');
+      else if (users > 100) setAdvisory('none');
+    }
+    if (advisory === 'business' && !isAdvisBusAllowed) {
+      if (users < 10) setAdvisory('starter');
+      else if (users > 50 && users <= 100) setAdvisory('expert');
+      else if (users > 100) setAdvisory('none');
+    }
+    if (advisory === 'expert' && !isAdvisExpertAllowed) {
+      if (users < 10) setAdvisory('starter');
+      else if (users >= 10 && users <= 50) setAdvisory('business');
+      else if (users > 100) setAdvisory('none');
+    }
+    // Assistance: auto-switch Basic to Essentiel if over 25 users
+    if (assistance === 'basic' && users > 25) {
+      setAssistance('essentiel');
+    }
+  }, [users, advisory, assistance, isAdvisStarterAllowed, isAdvisBusAllowed, isAdvisExpertAllowed]);
+
   // Coverage score: 0-4 based on how many service areas are actively covered
   const coverageScore = useMemo(() => {
     let score = 0;
@@ -569,15 +600,19 @@ export default function CyberCalculator() {
                 </div>
               </div>
               <div className="space-y-2">
-                {([['basic', t.assistBasic, t.assistBasicDesc], ['essentiel', t.assistEssentiel, t.assistEssentielDesc], ['advanced', t.assistAdvanced, t.assistAdvancedDesc], ['pro', t.assistPro, t.assistProDesc]] as const).map(([val, label, desc]) => (
-                  <label key={val} className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${assistance === val ? 'bg-red-50 border-2 border-red-300' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'}`}>
-                    <input type="radio" name="assistance" value={val} checked={assistance === val} onChange={() => setAssistance(val as AssistanceChoice)} className="accent-[#E63946]" />
-                    <div className="flex-1">
-                      <div className="font-medium text-sm">{label}</div>
-                      <div className="text-xs text-muted-foreground">{desc}</div>
-                    </div>
-                  </label>
-                ))}
+                {([['basic', t.assistBasic, t.assistBasicDesc], ['essentiel', t.assistEssentiel, t.assistEssentielDesc], ['advanced', t.assistAdvanced, t.assistAdvancedDesc], ['pro', t.assistPro, t.assistProDesc]] as const).map(([val, label, desc]) => {
+                  const isDisabled = val === 'basic' && !isBasicAllowed;
+                  return (
+                    <label key={val} className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isDisabled ? 'opacity-50 cursor-not-allowed bg-slate-100 border border-slate-200' : assistance === val ? 'bg-red-50 border-2 border-red-300 cursor-pointer' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100 cursor-pointer'}`}>
+                      <input type="radio" name="assistance" value={val} checked={assistance === val} onChange={() => !isDisabled && setAssistance(val as AssistanceChoice)} disabled={isDisabled} className="accent-[#E63946]" />
+                      <div className="flex-1">
+                        <div className={`font-medium text-sm ${isDisabled ? 'line-through' : ''}`}>{label}</div>
+                        <div className="text-xs text-muted-foreground">{desc}</div>
+                        {isDisabled && <div className="text-xs text-red-500 font-medium mt-1">⚠ {users} users exceeds the 25-user limit</div>}
+                      </div>
+                    </label>
+                  );
+                })}
               </div>
             </div>
 
@@ -613,15 +648,27 @@ export default function CyberCalculator() {
                 </div>
               </div>
               <div className="space-y-2">
-                {([['none', t.advisNone, ''], ['starter', t.advisStarter, t.advisStarterDesc], ['business', t.advisBusiness, t.advisBusinessDesc], ['expert', t.advisExpert, t.advisExpertDesc]] as const).map(([val, label, desc]) => (
-                  <label key={val} className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${advisory === val ? 'bg-purple-50 border-2 border-purple-300' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'}`}>
-                    <input type="radio" name="advisory" value={val} checked={advisory === val} onChange={() => setAdvisory(val as AdvisoryChoice)} className="accent-[#7C3AED]" />
-                    <div className="flex-1">
-                      <div className="font-medium text-sm">{label}</div>
-                      {desc && <div className="text-xs text-muted-foreground">{desc}</div>}
+                {([['none', t.advisNone, ''], ['starter', t.advisStarter, t.advisStarterDesc], ['business', t.advisBusiness, t.advisBusinessDesc], ['expert', t.advisExpert, t.advisExpertDesc]] as const).map(([val, label, desc]) => {
+                  const isDisabled = (val === 'starter' && !isAdvisStarterAllowed) || (val === 'business' && !isAdvisBusAllowed) || (val === 'expert' && !isAdvisExpertAllowed);
+                  const isNoneVal = val === 'none';
+                  return (
+                    <label key={val} className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${!isNoneVal && isDisabled ? 'opacity-50 cursor-not-allowed bg-slate-100 border border-slate-200' : advisory === val ? 'bg-purple-50 border-2 border-purple-300 cursor-pointer' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100 cursor-pointer'}`}>
+                      <input type="radio" name="advisory" value={val} checked={advisory === val} onChange={() => !(isDisabled && !isNoneVal) && setAdvisory(val as AdvisoryChoice)} disabled={isDisabled && !isNoneVal} className="accent-[#7C3AED]" />
+                      <div className="flex-1">
+                        <div className={`font-medium text-sm ${!isNoneVal && isDisabled ? 'line-through' : ''}`}>{label}</div>
+                        {desc && <div className="text-xs text-muted-foreground">{desc}</div>}
+                      </div>
+                    </label>
+                  );
+                })}
+                {isAdvisOverLimit && (
+                  <div className="p-3 bg-purple-50 border border-purple-200 rounded-lg">
+                    <div className="text-sm font-medium text-purple-700">100+ users</div>
+                    <div className="text-xs text-purple-600 mt-1">
+                      <a href="https://voxbi.me/mixvoip" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-800">{t.contactUs}</a>
                     </div>
-                  </label>
-                ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
