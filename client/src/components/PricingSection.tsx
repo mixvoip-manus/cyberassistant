@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Scale, Users, CheckCircle2, Info, Clock, Zap, Building2, Star, Eye, Gavel } from 'lucide-react';
+import { Shield, Scale, Users, CheckCircle2, Info, Clock, Zap, Building2, Star, Eye, Gavel, MapPin, Wifi, FileText, AlertTriangle, XCircle } from 'lucide-react';
 
 export default function PricingSection() {
   const { t, getAssetUrl } = useLanguage();
@@ -149,103 +149,132 @@ export default function PricingSection() {
             <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
           </div>
           
+          {/* Minimum Requirement Notice */}
+          <div className="bg-amber-50 border-x border-amber-200 px-4 py-2 max-w-7xl mx-auto">
+            <div className="flex items-center gap-2 justify-center">
+              <AlertTriangle className="h-3.5 w-3.5 text-amber-600 flex-shrink-0" />
+              <span className="text-xs font-medium text-amber-800">{t('pricing.assistance.minRequirement')}</span>
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-4 gap-0 max-w-7xl mx-auto">
             
-            {/* Basic */}
+            {/* Office */}
             <div className="bg-white shadow-lg overflow-hidden border-r border-slate-200">
               <div className="p-5">
                 <div className="text-center mb-4">
-                  <h4 className="text-lg font-bold text-[#4A90D9]">{t('pricing.assistance.basic.title')}</h4>
+                  <h4 className="text-lg font-bold text-[#4A90D9]">{t('pricing.assistance.office.title')}</h4>
                   <div className="mt-2">
-                    <span className="text-2xl font-bold text-[#4A90D9]">{t('pricing.assistance.basic.price')}</span>
+                    <span className="text-2xl font-bold text-[#4A90D9]">{t('pricing.assistance.office.price')}€</span>
+                    <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.office.priceNote')}</span>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1">{t('pricing.assistance.basic.priceNote')}</p>
+                  <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.office.sla')}</p>
                 </div>
                 
                 <div className="space-y-3 text-xs">
                   <div className="flex items-start gap-2">
                     <Zap className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.entry')}</div>
-                      <div className="text-muted-foreground">Fit4Cybersecurity ≥ 65%</div>
+                      <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.office.responseCyber')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Users className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
+                    <MapPin className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.users')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.basic.users')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
+                      <div className="text-muted-foreground text-red-400">{t('pricing.assistance.office.interventionOnsite')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
+                    <Wifi className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.availability')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.basic.availability')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.office.interventionRemote')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
+                    <Gavel className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.response')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.basic.response')}</div>
+                      <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
+                      <div className="text-emerald-600 font-medium">{t('pricing.assistance.office.cnpd')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
+                    <FileText className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.crisis')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.basic.crisis')}</div>
+                      <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
+                      <div className="text-red-400">{t('pricing.assistance.office.incidentReport')}</div>
+                    </div>
+                  </div>
+                  <div className="mt-2 pt-2 border-t border-slate-100">
+                    <div className="flex items-start gap-1.5 text-emerald-600">
+                      <Shield className="h-3 w-3 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="text-xs font-medium">{t('pricing.assistance.cyberAssurance')}</div>
+                        <div className="text-xs text-muted-foreground">{t('pricing.assistance.office.cyberAssurance')}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Essentiel */}
+            {/* Business */}
             <div className="bg-white shadow-xl overflow-hidden border-r border-slate-200">
               <div className="p-5">
                 <div className="text-center mb-4">
-                  <h4 className="text-lg font-bold text-[#E63946]">{t('pricing.assistance.essentiel.title')}</h4>
+                  <h4 className="text-lg font-bold text-[#E63946]">{t('pricing.assistance.business.title')}</h4>
                   <div className="mt-2">
-                    <span className="text-2xl font-bold text-[#E63946]">{t('pricing.assistance.essentiel.price')}€</span>
-                    <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.essentiel.priceNote')}</span>
+                    <span className="text-2xl font-bold text-[#E63946]">{t('pricing.assistance.business.price')}€</span>
+                    <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.business.priceNote')}</span>
                   </div>
+                  <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.business.sla')}</p>
                 </div>
                 
                 <div className="space-y-3 text-xs">
                   <div className="flex items-start gap-2">
-                    <Users className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
+                    <Zap className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.users')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.essentiel.users')}</div>
+                      <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
+                      <div className="text-muted-foreground font-bold text-[#E63946]">{t('pricing.assistance.business.responseCyber')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
+                    <MapPin className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.availability')}</div>
-                      <div className="text-muted-foreground font-bold text-[#E63946]">{t('pricing.assistance.essentiel.availability')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.business.interventionOnsite')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
+                    <Wifi className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.response')}</div>
-                      <div className="text-muted-foreground font-bold text-[#E63946]">{t('pricing.assistance.essentiel.response')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.business.interventionRemote')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
+                    <Gavel className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.crisis')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.essentiel.crisis')}</div>
+                      <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
+                      <div className="text-emerald-600 font-medium">{t('pricing.assistance.business.cnpd')}</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <FileText className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
+                      <div className="text-emerald-600 font-medium">{t('pricing.assistance.business.incidentReport')}</div>
                     </div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-100">
-                    <div className="flex items-center gap-1.5 text-emerald-600">
-                      <CheckCircle2 className="h-3 w-3" />
-                      <span className="text-xs font-medium">{t('pricing.assistance.essentiel.recommendation')}</span>
+                    <div className="flex items-start gap-1.5 text-emerald-600">
+                      <Shield className="h-3 w-3 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="text-xs font-medium">{t('pricing.assistance.cyberAssurance')}</div>
+                        <div className="text-xs text-muted-foreground">{t('pricing.assistance.business.cyberAssurance')}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -264,48 +293,52 @@ export default function PricingSection() {
                     <span className="text-2xl font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.price')}€</span>
                     <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.advanced.priceNote')}</span>
                   </div>
+                  <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.advanced.sla')}</p>
                 </div>
                 
                 <div className="space-y-3 text-xs">
                   <div className="flex items-start gap-2">
-                    <Star className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
+                    <Zap className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.entry')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.advanced.entry')}</div>
+                      <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
+                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.responseCyber')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Users className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
+                    <MapPin className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.users')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.advanced.users')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
+                      <div className="text-muted-foreground">{t('pricing.assistance.advanced.interventionOnsite')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
+                    <Wifi className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.availability')}</div>
-                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.availability')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
+                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.interventionRemote')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
+                    <Gavel className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.response')}</div>
-                      <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.response')}</div>
+                      <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
+                      <div className="text-emerald-600 font-medium">{t('pricing.assistance.advanced.cnpd')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
+                    <FileText className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.crisis')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.advanced.crisis')}</div>
+                      <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
+                      <div className="text-emerald-600 font-medium">{t('pricing.assistance.advanced.incidentReport')}</div>
                     </div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-100">
-                    <div className="flex items-center gap-1.5 text-emerald-600">
-                      <CheckCircle2 className="h-3 w-3" />
-                      <span className="text-xs font-medium">{t('pricing.assistance.advanced.recommendation')}</span>
+                    <div className="flex items-start gap-1.5 text-emerald-600">
+                      <Shield className="h-3 w-3 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="text-xs font-medium">{t('pricing.assistance.cyberAssurance')}</div>
+                        <div className="text-xs text-muted-foreground">{t('pricing.assistance.advanced.cyberAssurance')}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -320,48 +353,49 @@ export default function PricingSection() {
                   <div className="mt-2">
                     <span className="text-xl font-bold text-slate-800">{t('pricing.assistance.pro.priceNote')}</span>
                   </div>
+                  <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.pro.sla')}</p>
                 </div>
                 
                 <div className="space-y-3 text-xs">
                   <div className="flex items-start gap-2">
                     <Zap className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.entry')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.pro.entry')}</div>
+                      <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
+                      <div className="text-muted-foreground font-bold">{t('pricing.assistance.pro.responseCyber')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Building2 className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
+                    <MapPin className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.users')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.pro.users')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
+                      <div className="text-muted-foreground font-bold">{t('pricing.assistance.pro.interventionOnsite')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
+                    <Wifi className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.availability')}</div>
-                      <div className="text-muted-foreground font-bold">{t('pricing.assistance.pro.availability')}</div>
+                      <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
+                      <div className="text-muted-foreground font-bold">{t('pricing.assistance.pro.interventionRemote')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Clock className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
+                    <Gavel className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.response')}</div>
-                      <div className="text-muted-foreground font-bold">{t('pricing.assistance.pro.response')}</div>
+                      <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
+                      <div className="text-emerald-600 font-medium">{t('pricing.assistance.pro.cnpd')}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
+                    <FileText className="h-3.5 w-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium">{t('pricing.assistance.crisis')}</div>
-                      <div className="text-muted-foreground">{t('pricing.assistance.pro.crisis')}</div>
+                      <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
+                      <div className="text-emerald-600 font-medium">{t('pricing.assistance.pro.incidentReport')}</div>
                     </div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-100">
-                    <a href="#cyberassurance" className="flex items-center gap-1.5 text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">
-                      <Info className="h-3 w-3" />
-                      <span className="text-xs font-medium underline">{t('pricing.assistance.pro.recommendation')}</span>
+                    <a href="#cyberassurance" className="flex items-start gap-1.5 text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">
+                      <Info className="h-3 w-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs font-medium underline">{t('pricing.assistance.pro.cyberAssurance')}</span>
                     </a>
                   </div>
                 </div>
@@ -375,13 +409,13 @@ export default function PricingSection() {
             <div className="grid grid-cols-4 gap-2">
               <div className="text-center p-2 bg-white rounded-lg shadow-sm">
                 <div className="text-lg mb-1">🚒</div>
-                <div className="font-bold text-[#4A90D9] text-xs">Basic</div>
-                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.basic')}</div>
+                <div className="font-bold text-[#4A90D9] text-xs">Office</div>
+                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.office')}</div>
               </div>
               <div className="text-center p-2 bg-white rounded-lg shadow-sm">
                 <div className="text-lg mb-1">🚒</div>
-                <div className="font-bold text-[#E63946] text-xs">Essentiel</div>
-                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.essentiel')}</div>
+                <div className="font-bold text-[#E63946] text-xs">Business</div>
+                <div className="text-xs text-muted-foreground mt-1">{t('pricing.analogy.business')}</div>
               </div>
               <div className="text-center p-2 bg-white rounded-lg shadow-sm">
                 <div className="text-lg mb-1">🏭</div>
@@ -451,12 +485,12 @@ export default function PricingSection() {
                 <h4 className="font-bold text-slate-800 mb-4">{t('pricing.falseAlarm.title')}</h4>
                 <div className="grid md:grid-cols-4 gap-4 text-sm">
                   <div className="bg-slate-50 p-3 rounded-lg">
-                    <div className="font-medium text-[#4A90D9]">Basic</div>
-                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.basic')}</div>
+                    <div className="font-medium text-[#4A90D9]">Office</div>
+                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.office')}</div>
                   </div>
                   <div className="bg-slate-50 p-3 rounded-lg">
-                    <div className="font-medium text-[#E63946]">Essentiel</div>
-                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.essentiel')}</div>
+                    <div className="font-medium text-[#E63946]">Business</div>
+                    <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.business')}</div>
                   </div>
                   <div className="bg-slate-50 p-3 rounded-lg">
                     <div className="font-medium text-[#FF8C00]">Advanced</div>
