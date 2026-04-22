@@ -80,32 +80,33 @@ export default function CyberSuite() {
   return (
     <>
       {/* Branding bar: Cyber Suite + Partner Logos — light background */}
-      <div className="pt-20 md:pt-24 bg-white border-b border-slate-100">
+      <div className="pt-20 md:pt-24 bg-slate-50 border-b border-slate-200">
         <div className="container">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 md:py-8">
-            {/* Left: Cyber Suite branding */}
-            <div className="flex-shrink-0">
-              <div className="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Cyber Suite</div>
-              <div className="text-xs md:text-sm text-slate-500 font-medium">by Mixvoip</div>
+          <div className="py-6 md:py-8 text-center">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-800 mb-1">Cyber Suite</h1>
+            <p className="text-sm text-slate-500 mb-5">by Mixvoip</p>
+            <div className="flex items-center justify-center gap-3 text-xs text-slate-400 uppercase tracking-widest font-medium mb-4">
+              <div className="w-8 h-px bg-slate-300" />
+              {t('cycle.partners')}
+              <div className="w-8 h-px bg-slate-300" />
             </div>
-
-            {/* Right: Partner logos */}
-            <div className="flex items-center gap-6 md:gap-10">
+            <div className="flex items-center justify-center gap-8 md:gap-14">
               <img
                 src={getAssetUrl('images/logo_le_foyer.svg')}
                 alt="Le Foyer"
-                className="h-16 md:h-20 object-contain"
+                className="h-20 md:h-24 object-contain"
               />
-              <div className="flex flex-col items-center gap-2">
+              <div className="w-px h-12 bg-slate-200" />
+              <div className="flex flex-col items-center gap-3">
                 <img
                   src={getAssetUrl('images/luxgaplogo.svg')}
                   alt="Luxgap"
-                  className="h-6 md:h-7 object-contain"
+                  className="h-5 md:h-6 object-contain"
                 />
                 <img
                   src={getAssetUrl('images/Rsecure.svg')}
                   alt="RSecure"
-                  className="h-6 md:h-7 object-contain"
+                  className="h-5 md:h-6 object-contain"
                 />
               </div>
             </div>
