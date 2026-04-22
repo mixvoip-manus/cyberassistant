@@ -291,7 +291,7 @@ export default function PricingSection() {
                     <div className="mt-2 pt-2 border-t border-slate-100">
                       <a href="#cyberassurance" className="flex items-start gap-1.5 text-blue-600 hover:text-blue-800 transition-colors cursor-pointer" onClick={(e) => { e.preventDefault(); document.getElementById('cyberassurance')?.scrollIntoView({ behavior: 'smooth' }); }}>
                         <Info className="h-3 w-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-xs font-medium underline">{t('pricing.assistance.pro.recommendation')}</span>
+                        <span className="text-xs font-medium underline">Le Foyer Cyber Pro</span>
                       </a>
                     </div>
                   </div>
