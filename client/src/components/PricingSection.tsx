@@ -31,7 +31,7 @@ export default function PricingSection() {
             onClick={() => toggleSection('assistance')}
             className="w-full max-w-7xl mx-auto block"
           >
-            <div className="bg-[#00B050] rounded-t-2xl overflow-hidden px-6 md:px-10 py-5">
+            <div className={`bg-[#00B050] overflow-hidden px-6 md:px-10 py-5 transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.assistance ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
               <div className="flex items-center">
                 {/* Le Foyer Logo embedded on green — large & left-aligned */}
                 <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-20 md:h-28 object-contain brightness-0 invert flex-shrink-0" />
@@ -46,6 +46,12 @@ export default function PricingSection() {
                   <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
                 </div>
               </div>
+              {!openSections.assistance && (
+                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
+                  <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
+                  <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
+                </div>
+              )}
             </div>
           </button>
           
@@ -157,7 +163,7 @@ export default function PricingSection() {
             onClick={() => toggleSection('foyer')}
             className="w-full max-w-7xl mx-auto block"
           >
-            <div className="bg-[#2563EB] text-white p-6 text-center rounded-t-2xl">
+            <div className={`bg-[#2563EB] text-white p-6 text-center transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.foyer ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
               <div className="flex items-center justify-center gap-3">
                 <Scale className="h-7 w-7" />
                 <h3 className="text-2xl font-bold">{t('pricing.assurance.productName')}</h3>
@@ -169,6 +175,12 @@ export default function PricingSection() {
                 <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-5 brightness-0 invert" />
               </div>
               <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.assurance.upgradeBadge')}</span>
+              {!openSections.foyer && (
+                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
+                  <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
+                  <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
+                </div>
+              )}
             </div>
           </button>
 
@@ -225,7 +237,7 @@ export default function PricingSection() {
             onClick={() => toggleSection('advisory')}
             className="w-full block"
           >
-            <div className="bg-[#7C3AED] text-white p-4 text-center rounded-t-2xl min-h-[180px] flex flex-col justify-center">
+            <div className={`bg-[#7C3AED] text-white p-4 text-center min-h-[180px] flex flex-col justify-center transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.advisory ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
               <div className="flex items-center justify-center gap-3">
                 <Gavel className="h-6 w-6" />
                 <h3 className="text-xl font-bold">Mixvoip CyberAdvisory</h3>
@@ -237,6 +249,12 @@ export default function PricingSection() {
               </div>
               <p className="text-purple-100 text-sm mt-1">{t('pricing.advisory.tagline')}</p>
               <p className="text-purple-200 text-xs mt-1 max-w-2xl mx-auto">{t('pricing.advisory.subtitle')}</p>
+              {!openSections.advisory && (
+                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
+                  <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
+                  <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
+                </div>
+              )}
             </div>
           </button>
 
@@ -378,7 +396,7 @@ export default function PricingSection() {
             onClick={() => toggleSection('soc')}
             className="w-full block"
           >
-            <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl min-h-[180px] flex flex-col justify-center">
+            <div className={`bg-[#0891B2] text-white p-4 text-center min-h-[180px] flex flex-col justify-center transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.soc ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
               <div className="flex items-center justify-center gap-3">
                 <Eye className="h-7 w-7" />
                 <h3 className="text-2xl font-bold">Mixvoip SOC as a Service</h3>
@@ -389,6 +407,12 @@ export default function PricingSection() {
                 <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
               </div>
               <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
+              {!openSections.soc && (
+                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
+                  <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
+                  <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
+                </div>
+              )}
             </div>
           </button>
 

@@ -69,6 +69,8 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.title': 'What does the complete Cyber Suite cover in case of an attack?',
     'coverage.example.label': 'Example:',
     'coverage.viewDetails': 'View coverage details',
+    'pricing.viewPlans': 'View plans',
+    'pricing.hidePlans': 'Hide plans',
     'coverage.hideDetails': 'Hide details',
     
     'coverage.tech.title': 'Technical Emergency Response',
@@ -675,6 +677,8 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.title': 'Que couvre la Cyber Suite complète en cas d\'attaque ?',
     'coverage.example.label': 'Exemple :',
     'coverage.viewDetails': 'Voir les détails de couverture',
+    'pricing.viewPlans': 'Voir les offres',
+    'pricing.hidePlans': 'Masquer les offres',
     'coverage.hideDetails': 'Masquer les détails',
     
     'coverage.tech.title': 'Intervention Technique d\'Urgence',
@@ -1279,6 +1283,8 @@ const translations: Record<Language, Record<string, string>> = {
     'coverage.title': 'Was deckt die komplette Cyber Suite im Angriffsfall ab?',
     'coverage.example.label': 'Beispiel:',
     'coverage.viewDetails': 'Deckungsdetails anzeigen',
+    'pricing.viewPlans': 'Angebote anzeigen',
+    'pricing.hidePlans': 'Angebote ausblenden',
     'coverage.hideDetails': 'Details ausblenden',
     
     'coverage.tech.title': 'Technische Notfallhilfe',
