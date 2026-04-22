@@ -18,7 +18,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <WhatIs />
+        {/* WhatIs hidden */}
+        {/* <WhatIs /> */}
         <CyberSuite />
         {/* Statistics hidden */}
         {/* <Statistics /> */}
