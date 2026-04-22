@@ -328,12 +328,12 @@ export default function PricingSection() {
                 <h3 className="text-2xl font-bold">{t('pricing.assurance.productName')}</h3>
                 <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.foyer ? 'rotate-180' : ''}`} />
               </div>
-              <p className="text-sm text-emerald-100 font-medium mt-1 italic">{t('pricing.assurance.exclusiveAdvantage')}</p>
+              <p className="text-sm text-blue-200 font-medium mt-1">{t('pricing.assurance.upgradeNote')}</p>
               <div className="flex items-center justify-center gap-2 mt-2">
                 <span className="text-blue-100 text-sm">{t('cycle.poweredBy')}</span>
                 <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-5 brightness-0 invert" />
               </div>
-              <p className="text-blue-100 text-sm mt-1">{t('pricing.assurance.tagline')}</p>
+              <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.assurance.upgradeBadge')}</span>
             </div>
           </button>
 
