@@ -44,12 +44,6 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection('pricing')}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t('nav.pricing')}
-            </button>
             <a
               href="https://voxbi.me/mixvoip"
               target="_blank"
@@ -109,12 +103,6 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-2">
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="px-4 py-2 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
-              >
-                {t('nav.pricing')}
-              </button>
               <a
                 href="https://voxbi.me/mixvoip"
                 target="_blank"
