@@ -10,6 +10,7 @@ import CyberCalculator from '@/components/CyberCalculator';
 import Fit4CyberAssessment from '@/components/Fit4CyberAssessment';
 import BookMeetingCTA from '@/components/BookMeetingCTA';
 import FAQ from '@/components/FAQ';
+import CoverageFAQ from '@/components/CoverageFAQ';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -30,10 +31,12 @@ export default function Home() {
         {/* Calculator hidden - pricing model changing */}
         {/* <CyberCalculator /> */}
         {/* <BookMeetingCTA /> */}
-        <Fit4CyberAssessment />
-        {/* FAQ hidden */}
+        {/* Fit4CyberAssessment moved into CoverageFAQ */}
+        {/* <Fit4CyberAssessment /> */}
+        {/* Separate FAQ and Coverage hidden - replaced by combined CoverageFAQ */}
         {/* <FAQ /> */}
-        <CoverageAccordion />
+        {/* <CoverageAccordion /> */}
+        <CoverageFAQ />
         {/* AnimatedPresentation hidden - moved to end for later use */}
         {/* <AnimatedPresentation /> */}
       </main>
