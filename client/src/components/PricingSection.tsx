@@ -510,13 +510,7 @@ export default function PricingSection() {
                     </div>
                   </div>
                 </div>
-                
-                {/* SOCaaS Analogy */}
-                <div className="bg-cyan-50 rounded-xl p-4 text-center">
-                  <p className="text-sm text-cyan-800 font-medium">
-                    🔍 {t('pricing.socaas.analogy')}
-                  </p>
-                </div>
+
               </div>
             </div>
           </div>
