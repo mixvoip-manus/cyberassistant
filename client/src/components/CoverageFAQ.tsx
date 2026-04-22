@@ -186,8 +186,7 @@ export default function CoverageFAQ() {
                   onClick={() => setOpenFaqIndex(openFaqIndex === -1 ? null : -1)}
                   className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
                 >
-                  <span className="font-medium text-sm pr-4 flex items-center gap-2">
-                    <Shield className="h-4 w-4 text-amber-500" />
+                  <span className="font-medium text-sm pr-4">
                     {t('pricing.selfQualification.title')}
                   </span>
                   <ChevronDown

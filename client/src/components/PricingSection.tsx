@@ -320,7 +320,7 @@ export default function PricingSection() {
           {/* Clickable Header */}
           <button
             onClick={() => toggleSection('foyer')}
-            className="w-full max-w-5xl mx-auto block"
+            className="w-full max-w-7xl mx-auto block"
           >
             <div className="bg-[#2563EB] text-white p-6 text-center rounded-t-2xl">
               <div className="flex items-center justify-center gap-3">
@@ -339,7 +339,7 @@ export default function PricingSection() {
 
           {/* Collapsible Content */}
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out max-w-5xl mx-auto ${openSections.foyer ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${openSections.foyer ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
             <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden">
               <div className="p-8">
