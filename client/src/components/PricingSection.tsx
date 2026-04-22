@@ -48,8 +48,8 @@ export default function PricingSection() {
                 <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
               </div>
               {/* Right: White with Le Foyer Logo */}
-              <div className="bg-white flex items-center justify-center p-6 w-[280px] border-t border-r border-slate-200">
-                <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-20 object-contain" />
+              <div className="bg-white flex items-center justify-center p-8 w-[320px] border-t border-r border-slate-200">
+                <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-32 object-contain" />
               </div>
             </div>
           </button>
