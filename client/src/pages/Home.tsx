@@ -20,7 +20,6 @@ export default function Home() {
         <Hero />
         <WhatIs />
         <CyberSuite />
-        <CoverageAccordion />
         <Statistics />
         <PricingSection />
         <BookMeetingCTA />
@@ -29,6 +28,7 @@ export default function Home() {
         {/* <BookMeetingCTA /> */}
         <Fit4CyberAssessment />
         <FAQ />
+        <CoverageAccordion />
         {/* AnimatedPresentation hidden - moved to end for later use */}
         {/* <AnimatedPresentation /> */}
       </main>
