@@ -86,7 +86,7 @@ export default function CyberSuite() {
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-6">
               {/* Le Foyer Logo - left */}
               <div className="flex-shrink-0 flex items-center justify-center">
-                <img src={getAssetUrl('images/logo_le_foyer.svg')} alt="Le Foyer" className="h-24 md:h-32 object-contain brightness-0 invert opacity-80" />
+                <img src={getAssetUrl('images/logo_le_foyer.svg')} alt="Le Foyer" className="h-36 md:h-48 object-contain brightness-0 invert opacity-90" />
               </div>
 
               {/* Title text - center */}
