@@ -8,7 +8,7 @@ export default function PricingSection() {
   // Accordion state: CyberAssistance & Le Foyer open by default, Advisory & SOC closed
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     assistance: true,
-    foyer: true,
+    foyer: false,
     advisory: false,
     soc: false,
   });
@@ -217,7 +217,7 @@ export default function PricingSection() {
         {/* ============================================ */}
         {/* 3. CyberAdvisory & 4. SOC side by side       */}
         {/* ============================================ */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-7xl mx-auto">
         {/* CyberAdvisory powered by Luxgap */}
         <div>
           {/* Clickable Header */}
