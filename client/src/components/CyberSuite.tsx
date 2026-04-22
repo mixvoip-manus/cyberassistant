@@ -90,22 +90,24 @@ export default function CyberSuite() {
             </div>
 
             {/* Right: Partner logos */}
-            <div className="flex items-center gap-5 md:gap-8">
+            <div className="flex items-center gap-6 md:gap-10">
               <img
                 src={getAssetUrl('images/logo_le_foyer.svg')}
                 alt="Le Foyer"
-                className="h-10 md:h-12 object-contain"
+                className="h-16 md:h-20 object-contain"
               />
-              <img
-                src={getAssetUrl('images/luxgaplogo.svg')}
-                alt="Luxgap"
-                className="h-6 md:h-8 object-contain"
-              />
-              <img
-                src={getAssetUrl('images/Rsecure.svg')}
-                alt="RSecure"
-                className="h-6 md:h-8 object-contain"
-              />
+              <div className="flex flex-col items-center gap-2">
+                <img
+                  src={getAssetUrl('images/luxgaplogo.svg')}
+                  alt="Luxgap"
+                  className="h-6 md:h-7 object-contain"
+                />
+                <img
+                  src={getAssetUrl('images/Rsecure.svg')}
+                  alt="RSecure"
+                  className="h-6 md:h-7 object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
