@@ -45,7 +45,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             <a
-              href="https://voxbi.me/mixvoip"
+              href="https://voxbi.me/mixvoip/sales"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -104,7 +104,7 @@ export default function Header() {
           <div className="lg:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-2">
               <a
-                href="https://voxbi.me/mixvoip"
+                href="https://voxbi.me/mixvoip/sales"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"

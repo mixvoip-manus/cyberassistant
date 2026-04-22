@@ -81,7 +81,7 @@ export default function Footer() {
               </li>
             </ul>
             <a
-              href="https://voxbi.me/mixvoip"
+              href="https://voxbi.me/mixvoip/sales"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-4 bg-[#00B050] hover:bg-[#00963f] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"

@@ -32,7 +32,7 @@ export default function BookMeetingCTA() {
             <p className="text-slate-300 text-sm max-w-lg">{t.subtitle}</p>
           </div>
           <a
-            href="https://voxbi.me/mixvoip"
+            href="https://voxbi.me/mixvoip/sales"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#00B050] hover:bg-[#00963f] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors whitespace-nowrap shadow-lg shadow-[#00B050]/20"

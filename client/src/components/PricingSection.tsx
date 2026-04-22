@@ -416,7 +416,7 @@ export default function PricingSection() {
                 {/* Book a Meeting CTA */}
                 <div className="text-center">
                   <a
-                    href="https://voxbi.me/mixvoip"
+                    href="https://voxbi.me/mixvoip/sales"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg transition-colors"
@@ -539,7 +539,7 @@ export default function PricingSection() {
                     <span className="font-bold text-slate-800">{t('pricing.advisory.over100')}</span>
                     <span className="text-sm text-muted-foreground ml-2">{t('pricing.advisory.over100.desc')}</span>
                   </div>
-                  <a href="https://voxbi.me/mixvoip" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-purple-600 hover:text-purple-800 whitespace-nowrap">
+                  <a href="https://voxbi.me/mixvoip/sales" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-purple-600 hover:text-purple-800 whitespace-nowrap">
                     {t('pricing.advisory.over100.cta')} →
                   </a>
                 </div>

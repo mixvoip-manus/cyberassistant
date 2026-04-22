@@ -665,7 +665,7 @@ export default function CyberCalculator() {
                   <div className="p-3 bg-purple-50 border border-purple-200 rounded-lg">
                     <div className="text-sm font-medium text-purple-700">100+ users</div>
                     <div className="text-xs text-purple-600 mt-1">
-                      <a href="https://voxbi.me/mixvoip" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-800">{t.contactUs}</a>
+                      <a href="https://voxbi.me/mixvoip/sales" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-800">{t.contactUs}</a>
                     </div>
                   </div>
                 )}
@@ -738,7 +738,7 @@ export default function CyberCalculator() {
                   {hasOnRequest ? (
                     <div className="text-center">
                       <div className="text-2xl font-bold text-slate-900">{t.onRequest}</div>
-                      <a href="https://voxbi.me/mixvoip" target="_blank" rel="noopener noreferrer" className="text-xs text-[#00B050] hover:underline mt-1 inline-block">{t.contactUs}</a>
+                      <a href="https://voxbi.me/mixvoip/sales" target="_blank" rel="noopener noreferrer" className="text-xs text-[#00B050] hover:underline mt-1 inline-block">{t.contactUs}</a>
                       {calculation.total > 0 && (
                         <p className="text-sm text-muted-foreground mt-2">
                           + {formatPrice(calculation.total)}€ {t.perYear}

@@ -652,7 +652,7 @@ Gesendet von: Mixvoip Cyber Suite Website`
 
             {/* Secondary Option - Already have score */}
             <a
-              href="https://voxbi.me/mixvoip"
+              href="https://voxbi.me/mixvoip/sales"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center border border-[#00B050] text-[#00B050] hover:bg-[#00B050]/5 py-3 rounded-md text-sm font-medium"
@@ -1241,7 +1241,7 @@ Gesendet von: Mixvoip Cyber Suite Website`
                 {t.downloadReport}
               </Button>
               <a
-                href="https://voxbi.me/mixvoip"
+                href="https://voxbi.me/mixvoip/sales"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00873D] text-white rounded-md px-4 py-2 text-sm font-medium"
