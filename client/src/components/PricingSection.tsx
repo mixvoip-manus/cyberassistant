@@ -58,14 +58,6 @@ export default function PricingSection() {
           <div
             className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${openSections.assistance ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
-            {/* Minimum Requirement Notice */}
-            <div className="bg-amber-50 border-x border-amber-200 px-4 py-2">
-              <div className="flex items-center gap-2 justify-center">
-                <AlertTriangle className="h-3.5 w-3.5 text-amber-600 flex-shrink-0" />
-                <span className="text-xs font-medium text-amber-800">{t('pricing.assistance.minRequirement')}</span>
-              </div>
-            </div>
-            
             <div className="grid md:grid-cols-4 gap-0">
               
               {/* Office */}
@@ -309,6 +301,14 @@ export default function PricingSection() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Minimum Requirement Notice */}
+            <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 mt-4 max-w-7xl mx-auto">
+              <div className="flex items-start gap-2">
+                <AlertTriangle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                <span className="text-xs font-medium text-amber-800">{t('pricing.assistance.minRequirement')}</span>
               </div>
             </div>
 

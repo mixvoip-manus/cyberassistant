@@ -4,7 +4,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative pt-24 pb-8 md:pt-32 md:pb-12 overflow-hidden">
+    <section className="relative pt-16 pb-4 md:pt-20 md:pb-6 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30" />
       <div
@@ -17,10 +17,10 @@ export default function Hero() {
       <div className="container relative">
         <div className="max-w-4xl mx-auto text-center">
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
             {t('hero.title')}
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('hero.subtitle')}
           </p>
         </div>

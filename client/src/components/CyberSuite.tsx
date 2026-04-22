@@ -94,7 +94,7 @@ export default function CyberSuite() {
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
                   <span className="text-xs font-semibold text-sky-300 uppercase tracking-widest">{t('cycle.badge')}</span>
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+                <h2 className="text-2xl md:text-4xl font-bold mb-4 text-white">
                   {t('cycle.title')}
                 </h2>
                 <p className="text-lg text-slate-400 max-w-2xl mx-auto">
