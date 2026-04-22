@@ -20,7 +20,8 @@ export default function Home() {
         <Hero />
         <WhatIs />
         <CyberSuite />
-        <Statistics />
+        {/* Statistics hidden */}
+        {/* <Statistics /> */}
         <PricingSection />
         <BookMeetingCTA />
         {/* Calculator hidden - pricing model changing */}
