@@ -37,14 +37,14 @@ export default function PricingSection() {
                 <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-20 md:h-28 object-contain brightness-0 invert flex-shrink-0" />
                 <div className="h-16 md:h-20 w-px bg-white/40 flex-shrink-0"></div>
                 {/* Mixvoip CyberAssistance */}
-                <div className="text-white flex flex-col">
+                <div className="text-white flex flex-col items-center">
                   <div className="flex items-center gap-3">
                     <Shield className="h-8 w-8 md:h-10 md:w-10" />
                     <h3 className="text-2xl md:text-3xl font-bold">Mixvoip CyberAssistance</h3>
                     <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.assistance ? 'rotate-180' : ''}`} />
                   </div>
                   <p className="text-green-100 text-sm md:text-base mt-1">{t('pricing.assistance.tagline')}</p>
-                  <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs md:text-sm font-medium text-white w-fit">{t('pricing.monthlyBilling')}</span>
+                  <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs md:text-sm font-medium text-white">{t('pricing.monthlyBilling')}</span>
                 </div>
               </div>
             </div>
