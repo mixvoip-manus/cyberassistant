@@ -32,7 +32,11 @@ export default function PricingSection() {
             className="w-full max-w-7xl mx-auto block"
           >
             <div className="flex rounded-t-2xl overflow-hidden">
-              {/* Left: Green with Mixvoip CyberAssistance */}
+              {/* Left: White with Le Foyer Logo */}
+              <div className="bg-white flex items-center justify-center p-6 w-[200px] md:w-[240px] border-t border-l border-slate-200">
+                <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-24 md:h-28 object-contain" />
+              </div>
+              {/* Right: Green with Mixvoip CyberAssistance */}
               <div className="bg-[#00B050] text-white p-6 flex-1 flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center gap-3">
                   <Shield className="h-8 w-8" />
@@ -41,10 +45,6 @@ export default function PricingSection() {
                 </div>
                 <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
                 <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
-              </div>
-              {/* Right: White with Le Foyer Logo */}
-              <div className="bg-white flex items-center justify-center p-8 w-[320px] border-t border-r border-slate-200">
-                <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-32 object-contain" />
               </div>
             </div>
           </button>
