@@ -18,7 +18,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <AnimatedPresentation />
         <WhatIs />
         <CyberSuite />
         <CoverageAccordion />
@@ -30,6 +29,8 @@ export default function Home() {
         {/* <BookMeetingCTA /> */}
         <Fit4CyberAssessment />
         <FAQ />
+        {/* AnimatedPresentation hidden - moved to end for later use */}
+        {/* <AnimatedPresentation /> */}
       </main>
       <Footer />
     </div>
