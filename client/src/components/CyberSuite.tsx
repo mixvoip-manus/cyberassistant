@@ -78,36 +78,17 @@ export default function CyberSuite() {
   const radius = 160; // radius of the circle
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <section ref={sectionRef} className="pt-28 md:pt-32 pb-16 md:pb-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
       <div className="container">
         <div className="max-w-6xl mx-auto">
-          {/* Title with Partner Logos */}
-          <div className={`mb-14 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-6">
-              {/* Le Foyer Logo - left */}
-              <div className="flex-shrink-0 flex items-center justify-center">
-                <img src={getAssetUrl('images/logo_le_foyer.svg')} alt="Le Foyer" className="h-36 md:h-48 object-contain brightness-0 invert opacity-90" />
-              </div>
-
-              {/* Title text - center */}
-              <div className="flex-1 text-center">
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
-                  <span className="text-xs font-semibold text-sky-300 uppercase tracking-widest">{t('cycle.badge')}</span>
-                </div>
-                <h2 className="text-2xl md:text-4xl font-bold mb-4 text-white">
-                  {t('cycle.title')}
-                </h2>
-                <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                  {t('cycle.subtitle')}
-                </p>
-              </div>
-
-              {/* Luxgap + RSecure - right, stacked */}
-              <div className="flex-shrink-0 flex flex-col items-center gap-5">
-                <img src={getAssetUrl('images/luxgaplogo.svg')} alt="Luxgap" className="h-14 md:h-16 object-contain brightness-0 invert opacity-80" />
-                <img src={getAssetUrl('images/Rsecure.svg')} alt="RSecure" className="h-14 md:h-16 object-contain brightness-0 invert opacity-80" />
-              </div>
-            </div>
+          {/* Title */}
+          <div className={`mb-14 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 text-white">
+              {t('cycle.title')}
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              {t('cycle.subtitle')}
+            </p>
           </div>
 
           {/* Main Layout: Circle + Details + Partner Logos */}
@@ -126,10 +107,11 @@ export default function CyberSuite() {
                 {/* Center logo */}
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                   <div className={`w-24 h-24 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-slate-600 flex items-center justify-center shadow-2xl transition-all duration-500 ${activeIndex !== null ? 'scale-110' : ''}`}>
-                    <div className="text-center">
-                      <div className="text-sm font-black text-white leading-tight">Cyber<br/>Suite</div>
-                      <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">{t('cycle.center')}</div>
-                    </div>
+                    <img
+                      src={getAssetUrl('images/mixvoip-logo.svg')}
+                      alt="Mixvoip"
+                      className="h-8 w-auto brightness-0 invert"
+                    />
                   </div>
                 </div>
 

@@ -17,14 +17,16 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <Hero />
+        {/* Hero hidden per user request */}
+        {/* <Hero /> */}
         {/* WhatIs hidden */}
         {/* <WhatIs /> */}
         <CyberSuite />
         {/* Statistics hidden */}
         {/* <Statistics /> */}
         <PricingSection />
-        <BookMeetingCTA />
+        {/* BookMeetingCTA hidden per user request */}
+        {/* <BookMeetingCTA /> */}
         {/* Calculator hidden - pricing model changing */}
         {/* <CyberCalculator /> */}
         {/* <BookMeetingCTA /> */}
