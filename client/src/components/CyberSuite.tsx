@@ -83,7 +83,7 @@ export default function CyberSuite() {
       <div className="pt-16 md:pt-20">
         <div className="bg-[#00B050] py-3">
           <div className="container">
-            <p className="text-white font-bold text-center text-lg md:text-xl tracking-wide italic">
+            <p className="text-white font-bold text-center text-lg md:text-xl tracking-wide">
               Cyber Suite by Mixvoip
             </p>
           </div>
@@ -280,14 +280,14 @@ export default function CyberSuite() {
 
               {/* Luxgap + RSecure stacked on the right */}
               <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-                <div className="bg-white rounded-xl px-5 py-3 shadow-md">
+                <div className="bg-white rounded-xl shadow-md w-[180px] h-[70px] flex items-center justify-center px-4">
                   <img
                     src={getAssetUrl('images/luxgap-full.webp')}
                     alt="Luxgap"
                     className="h-10 w-auto object-contain"
                   />
                 </div>
-                <div className="bg-white rounded-xl px-5 py-3 shadow-md">
+                <div className="bg-white rounded-xl shadow-md w-[180px] h-[70px] flex items-center justify-center px-4">
                   <img
                     src={getAssetUrl('images/rsecure-full.png')}
                     alt="RSecure"
@@ -298,14 +298,14 @@ export default function CyberSuite() {
 
               {/* Mobile: Luxgap + RSecure row */}
               <div className="flex lg:hidden items-center justify-center gap-6">
-                <div className="bg-white rounded-xl px-4 py-2 shadow-md">
+                <div className="bg-white rounded-xl shadow-md w-[150px] h-[56px] flex items-center justify-center px-3">
                   <img
                     src={getAssetUrl('images/luxgap-full.webp')}
                     alt="Luxgap"
                     className="h-8 w-auto object-contain"
                   />
                 </div>
-                <div className="bg-white rounded-xl px-4 py-2 shadow-md">
+                <div className="bg-white rounded-xl shadow-md w-[150px] h-[56px] flex items-center justify-center px-3">
                   <img
                     src={getAssetUrl('images/rsecure-full.png')}
                     alt="RSecure"
