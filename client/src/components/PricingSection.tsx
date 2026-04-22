@@ -53,250 +53,85 @@ export default function PricingSection() {
           <div
             className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${openSections.assistance ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
-            <div className="grid md:grid-cols-4 gap-0">
-              
-              {/* Office */}
-              <div className="bg-white shadow-lg overflow-hidden border-r border-slate-200">
-                <div className="p-5">
-                  <div className="text-center mb-4">
-                    <h4 className="text-lg font-bold text-[#4A90D9]">{t('pricing.assistance.office.title')}</h4>
-                    <div className="mt-2">
-                      <span className="text-2xl font-bold text-[#4A90D9]">{t('pricing.assistance.office.price')}€</span>
-                      <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.office.priceNote')}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.office.sla')}</p>
-                  </div>
-                  
-                  <div className="space-y-3 text-xs">
-                    <div className="flex items-start gap-2">
-                      <Zap className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.office.responseCyber')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <MapPin className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
-                        <div className="text-muted-foreground text-red-400">{t('pricing.assistance.office.interventionOnsite')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Wifi className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.office.interventionRemote')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Gavel className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
-                        <div className="text-emerald-600 font-medium">{t('pricing.assistance.office.cnpd')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <FileText className="h-3.5 w-3.5 text-[#4A90D9] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
-                        <div className="text-red-400">{t('pricing.assistance.office.incidentReport')}</div>
-                      </div>
-                    </div>
-                    <div className="mt-2 pt-2 border-t border-slate-100">
-                      <div className="flex items-start gap-1.5 text-emerald-600">
-                        <Shield className="h-3 w-3 flex-shrink-0 mt-0.5" />
-                        <div>
-                          <div className="text-xs font-medium">{t('pricing.assistance.cyberAssurance')}</div>
-                          <div className="text-xs text-muted-foreground">{t('pricing.assistance.office.cyberAssurance')}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Business */}
-              <div className="bg-white shadow-xl overflow-hidden border-r border-slate-200">
-                <div className="p-5">
-                  <div className="text-center mb-4">
-                    <h4 className="text-lg font-bold text-[#E63946]">{t('pricing.assistance.business.title')}</h4>
-                    <div className="mt-2">
-                      <span className="text-2xl font-bold text-[#E63946]">{t('pricing.assistance.business.price')}€</span>
-                      <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.business.priceNote')}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.business.sla')}</p>
-                  </div>
-                  
-                  <div className="space-y-3 text-xs">
-                    <div className="flex items-start gap-2">
-                      <Zap className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
-                        <div className="text-muted-foreground font-bold text-[#E63946]">{t('pricing.assistance.business.responseCyber')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <MapPin className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.business.interventionOnsite')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Wifi className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.business.interventionRemote')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Gavel className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
-                        <div className="text-emerald-600 font-medium">{t('pricing.assistance.business.cnpd')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <FileText className="h-3.5 w-3.5 text-[#E63946] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
-                        <div className="text-emerald-600 font-medium">{t('pricing.assistance.business.incidentReport')}</div>
-                      </div>
-                    </div>
-                    <div className="mt-2 pt-2 border-t border-slate-100">
-                      <div className="flex items-start gap-1.5 text-emerald-600">
-                        <Shield className="h-3 w-3 flex-shrink-0 mt-0.5" />
-                        <div>
-                          <div className="text-xs font-medium">{t('pricing.assistance.cyberAssurance')}</div>
-                          <div className="text-xs text-muted-foreground">{t('pricing.assistance.business.cyberAssurance')}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advanced - Featured */}
-              <div className="bg-white shadow-lg overflow-hidden border-x-2 border-b-2 border-[#FF8C00] relative">
-                <div className="absolute top-0 left-0 right-0 bg-[#FF8C00] text-white text-center text-xs py-1 font-medium">
-                  {t('pricing.assistance.advanced.badge')}
-                </div>
-                <div className="p-5 pt-7">
-                  <div className="text-center mb-4">
-                    <h4 className="text-lg font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.title')}</h4>
-                    <div className="mt-2">
-                      <span className="text-2xl font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.price')}€</span>
-                      <span className="text-xs text-muted-foreground"> / {t('pricing.assistance.advanced.priceNote')}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.advanced.sla')}</p>
-                  </div>
-                  
-                  <div className="space-y-3 text-xs">
-                    <div className="flex items-start gap-2">
-                      <Zap className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
-                        <div className="text-muted-foreground font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.responseCyber')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <MapPin className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.advanced.interventionOnsite')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Wifi className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.advanced.interventionRemote')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Gavel className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
-                        <div className="text-emerald-600 font-medium">{t('pricing.assistance.advanced.cnpd')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <FileText className="h-3.5 w-3.5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
-                        <div className="text-emerald-600 font-medium">{t('pricing.assistance.advanced.incidentReport')}</div>
-                      </div>
-                    </div>
-                    <div className="mt-2 pt-2 border-t border-slate-100">
-                      <div className="flex items-start gap-1.5 text-emerald-600">
-                        <Shield className="h-3 w-3 flex-shrink-0 mt-0.5" />
-                        <div>
-                          <div className="text-xs font-medium">{t('pricing.assistance.cyberAssurance')}</div>
-                          <div className="text-xs text-muted-foreground">{t('pricing.assistance.advanced.cyberAssurance')}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Pro */}
-              <div className="bg-white shadow-lg overflow-hidden rounded-br-2xl">
-                <div className="p-5">
-                  <div className="text-center mb-4">
-                    <h4 className="text-lg font-bold text-slate-800">{t('pricing.assistance.pro.title')}</h4>
-                    <div className="mt-2">
-                      <span className="text-2xl font-bold text-slate-800">{t('pricing.onRequest')}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1 font-medium">{t('pricing.assistance.pro.sla')}</p>
-                  </div>
-                  
-                  <div className="space-y-3 text-xs">
-                    <div className="flex items-start gap-2">
-                      <Zap className="h-3.5 w-3.5 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.responseCyber')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.pro.responseCyber')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <MapPin className="h-3.5 w-3.5 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionOnsite')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.pro.interventionOnsite')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Wifi className="h-3.5 w-3.5 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.interventionRemote')}</div>
-                        <div className="text-muted-foreground">{t('pricing.assistance.pro.interventionRemote')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Gavel className="h-3.5 w-3.5 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.cnpd')}</div>
-                        <div className="text-emerald-600 font-medium">{t('pricing.assistance.pro.cnpd')}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <FileText className="h-3.5 w-3.5 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium">{t('pricing.assistance.incidentReport')}</div>
-                        <div className="text-emerald-600 font-medium">{t('pricing.assistance.pro.incidentReport')}</div>
-                      </div>
-                    </div>
-                    <div className="mt-2 pt-2 border-t border-slate-100">
-                      <a href="#cyberassurance" className="flex items-start gap-1.5 text-blue-600 hover:text-blue-800 transition-colors cursor-pointer" onClick={(e) => { e.preventDefault(); document.getElementById('cyberassurance')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                        <Info className="h-3 w-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-xs font-medium underline">Le Foyer Cyber Pro</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-white rounded-b-2xl shadow-lg overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b-2 border-slate-200">
+                    <th className="text-left p-4 bg-slate-50 font-semibold text-slate-600 w-[200px]"></th>
+                    <th className="p-4 text-center min-w-[140px]">
+                      <div className="text-[#4A90D9] font-bold text-base">{t('pricing.assistance.office.title')}</div>
+                      <div className="mt-1"><span className="text-xl font-bold text-[#4A90D9]">{t('pricing.assistance.office.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.office.priceNote')}</span></div>
+                      <div className="text-xs text-muted-foreground mt-0.5">{t('pricing.assistance.office.sla')}</div>
+                    </th>
+                    <th className="p-4 text-center min-w-[140px]">
+                      <div className="text-[#E63946] font-bold text-base">{t('pricing.assistance.business.title')}</div>
+                      <div className="mt-1"><span className="text-xl font-bold text-[#E63946]">{t('pricing.assistance.business.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.business.priceNote')}</span></div>
+                      <div className="text-xs text-muted-foreground mt-0.5">{t('pricing.assistance.business.sla')}</div>
+                    </th>
+                    <th className="p-4 text-center min-w-[140px] bg-orange-50 border-x-2 border-t-2 border-[#FF8C00] relative">
+                      <div className="absolute -top-0 left-0 right-0 bg-[#FF8C00] text-white text-[10px] py-0.5 font-medium rounded-t">{t('pricing.assistance.advanced.badge')}</div>
+                      <div className="text-[#FF8C00] font-bold text-base mt-2">{t('pricing.assistance.advanced.title')}</div>
+                      <div className="mt-1"><span className="text-xl font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.advanced.priceNote')}</span></div>
+                      <div className="text-xs text-muted-foreground mt-0.5">{t('pricing.assistance.advanced.sla')}</div>
+                    </th>
+                    <th className="p-4 text-center min-w-[140px]">
+                      <div className="text-slate-800 font-bold text-base">{t('pricing.assistance.pro.title')}</div>
+                      <div className="mt-1"><span className="text-xl font-bold text-slate-800">{t('pricing.onRequest')}</span></div>
+                      <div className="text-xs text-muted-foreground mt-0.5">{t('pricing.assistance.pro.sla')}</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Response Time Cyber */}
+                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                    <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Zap className="h-4 w-4 text-slate-400" />{t('pricing.assistance.responseCyber')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.office.responseCyber')}</td>
+                    <td className="p-4 text-center font-bold text-[#E63946]">{t('pricing.assistance.business.responseCyber')}</td>
+                    <td className="p-4 text-center font-bold text-[#FF8C00] bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.responseCyber')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.pro.responseCyber')}</td>
+                  </tr>
+                  {/* Intervention Onsite */}
+                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                    <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><MapPin className="h-4 w-4 text-slate-400" />{t('pricing.assistance.interventionOnsite')}</td>
+                    <td className="p-4 text-center"><XCircle className="h-4 w-4 text-red-400 mx-auto" /></td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.business.interventionOnsite')}</td>
+                    <td className="p-4 text-center text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.interventionOnsite')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.pro.interventionOnsite')}</td>
+                  </tr>
+                  {/* Intervention Remote */}
+                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                    <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Wifi className="h-4 w-4 text-slate-400" />{t('pricing.assistance.interventionRemote')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.office.interventionRemote')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.business.interventionRemote')}</td>
+                    <td className="p-4 text-center text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.interventionRemote')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.pro.interventionRemote')}</td>
+                  </tr>
+                  {/* CNPD */}
+                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                    <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Gavel className="h-4 w-4 text-slate-400" />{t('pricing.assistance.cnpd')}</td>
+                    <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                    <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                    <td className="p-4 text-center bg-orange-50/50 border-x border-orange-100"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                    <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                  </tr>
+                  {/* Incident Report */}
+                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                    <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><FileText className="h-4 w-4 text-slate-400" />{t('pricing.assistance.incidentReport')}</td>
+                    <td className="p-4 text-center"><XCircle className="h-4 w-4 text-red-400 mx-auto" /></td>
+                    <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                    <td className="p-4 text-center bg-orange-50/50 border-x border-orange-100"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                    <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                  </tr>
+                  {/* CyberAssurance */}
+                  <tr className="hover:bg-slate-50/50">
+                    <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Shield className="h-4 w-4 text-emerald-500" />{t('pricing.assistance.cyberAssurance')}</td>
+                    <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.office.cyberAssurance')}</td>
+                    <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.business.cyberAssurance')}</td>
+                    <td className="p-4 text-center text-xs text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.cyberAssurance')}</td>
+                    <td className="p-4 text-center text-xs"><a href="#cyberassurance" className="text-blue-600 hover:text-blue-800 underline cursor-pointer" onClick={(e) => { e.preventDefault(); document.getElementById('cyberassurance')?.scrollIntoView({ behavior: 'smooth' }); }}>Le Foyer Cyber Pro</a></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
             {/* Minimum Requirement Notice */}
