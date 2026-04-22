@@ -28,7 +28,8 @@ export default function Home() {
         {/* <CyberCalculator /> */}
         {/* <BookMeetingCTA /> */}
         <Fit4CyberAssessment />
-        <FAQ />
+        {/* FAQ hidden */}
+        {/* <FAQ /> */}
         <CoverageAccordion />
         {/* AnimatedPresentation hidden - moved to end for later use */}
         {/* <AnimatedPresentation /> */}

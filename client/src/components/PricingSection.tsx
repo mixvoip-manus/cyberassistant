@@ -16,125 +16,7 @@ export default function PricingSection() {
         </div>
 
         {/* ============================================ */}
-        {/* 1. SOCaaS powered by RSecure                 */}
-        {/* ============================================ */}
-        <div className="mb-16">
-          <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl max-w-5xl mx-auto">
-            <div className="flex items-center justify-center gap-3">
-              <Eye className="h-7 w-7" />
-              <h3 className="text-2xl font-bold">Mixvoip SOC as a Service</h3>
-            </div>
-            <div className="flex items-center justify-center gap-2 mt-1">
-              <span className="text-cyan-100 text-sm">{t('cycle.poweredBy')}</span>
-              <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
-            </div>
-            <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
-            <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
-          </div>
-          
-          <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
-            <div className="p-6">
-              {/* SOCaaS Packages */}
-              <div className="grid md:grid-cols-3 gap-4 mb-6">
-                {/* R-SOC Tranquility */}
-                <div className="text-center p-4 bg-cyan-50 rounded-xl border-2 border-cyan-200">
-                  <div className="font-bold text-cyan-700 text-lg">R-SOC Tranquility</div>
-                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.tranquility.target')}</div>
-                  <div className="mt-3">
-                    <span className="text-3xl font-bold text-cyan-700">7,20€</span>
-                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perUserMonth')}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
-                  <div className="mt-4 space-y-2 text-left text-sm">
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.tranquility.f1')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.tranquility.f2')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.tranquility.f3')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.tranquility.f4')}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* R-SOC Full */}
-                <div className="text-center p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="font-bold text-slate-800 text-lg">R-SOC</div>
-                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.full.target')}</div>
-                  <div className="mt-3">
-                    <span className="text-3xl font-bold text-slate-800">10€</span>
-                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perUserMonth')}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
-                  <div className="mt-4 space-y-2 text-left text-sm">
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.full.f1')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.full.f2')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.full.f3')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.full.f4')}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Enterprise */}
-                <div className="text-center p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="font-bold text-slate-800 text-lg">Enterprise</div>
-                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.enterprise.target')}</div>
-                  <div className="mt-3">
-                    <span className="text-2xl font-bold text-slate-800">{t('pricing.onRequest')}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-1">&nbsp;</div>
-                  <div className="mt-4 space-y-2 text-left text-sm">
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.enterprise.f1')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.enterprise.f2')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.enterprise.f3')}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
-                      <span>{t('pricing.socaas.enterprise.f4')}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* SOCaaS Analogy */}
-              <div className="bg-cyan-50 rounded-xl p-4 text-center">
-                <p className="text-sm text-cyan-800 font-medium">
-                  🔍 {t('pricing.socaas.analogy')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ============================================ */}
-        {/* 2. Cyber Assistance (Mixvoip)                */}
+        {/* 1. Cyber Assistance (Mixvoip)                */}
         {/* ============================================ */}
         <div className="mb-16">
           {/* Cyber Assistance Header Bar - Split Layout */}
@@ -408,7 +290,8 @@ export default function PricingSection() {
             </div>
           </div>
           
-          {/* Firefighter Analogy - directly under Cyber Assistance */}
+          {/* Firefighter Analogy - hidden */}
+          {/*
           <div className="bg-slate-100 rounded-b-2xl p-4 border-t border-slate-200 max-w-7xl mx-auto">
             <h4 className="text-sm font-bold mb-3 text-center text-slate-700">{t('pricing.analogy.title')}</h4>
             <div className="grid grid-cols-4 gap-2">
@@ -434,6 +317,7 @@ export default function PricingSection() {
               </div>
             </div>
           </div>
+          */}
 
 
         </div>
@@ -704,6 +588,124 @@ export default function PricingSection() {
               {/* Billing Note */}
               <div className="mt-6 pt-4 border-t border-slate-200">
                 <p className="text-xs text-muted-foreground">{t('pricing.advisory.billingNote')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================ */}
+        {/* 5. SOCaaS powered by RSecure (moved to bottom) */}
+        {/* ============================================ */}
+        <div className="mb-8">
+          <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl max-w-5xl mx-auto">
+            <div className="flex items-center justify-center gap-3">
+              <Eye className="h-7 w-7" />
+              <h3 className="text-2xl font-bold">Mixvoip SOC as a Service</h3>
+            </div>
+            <div className="flex items-center justify-center gap-2 mt-1">
+              <span className="text-cyan-100 text-sm">{t('cycle.poweredBy')}</span>
+              <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
+            </div>
+            <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
+            <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
+          </div>
+          
+          <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
+            <div className="p-6">
+              {/* SOCaaS Packages */}
+              <div className="grid md:grid-cols-3 gap-4 mb-6">
+                {/* R-SOC Tranquility */}
+                <div className="text-center p-4 bg-cyan-50 rounded-xl border-2 border-cyan-200">
+                  <div className="font-bold text-cyan-700 text-lg">R-SOC Tranquility</div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.tranquility.target')}</div>
+                  <div className="mt-3">
+                    <span className="text-3xl font-bold text-cyan-700">7,20€</span>
+                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perUserMonth')}</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
+                  <div className="mt-4 space-y-2 text-left text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f1')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f2')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f3')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-cyan-600 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.tranquility.f4')}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* R-SOC Full */}
+                <div className="text-center p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <div className="font-bold text-slate-800 text-lg">R-SOC</div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.full.target')}</div>
+                  <div className="mt-3">
+                    <span className="text-3xl font-bold text-slate-800">10€</span>
+                    <span className="text-sm text-muted-foreground"> / {t('pricing.socaas.perUserMonth')}</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.pack5')}</div>
+                  <div className="mt-4 space-y-2 text-left text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f1')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f2')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f3')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.full.f4')}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Enterprise */}
+                <div className="text-center p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <div className="font-bold text-slate-800 text-lg">Enterprise</div>
+                  <div className="text-xs text-muted-foreground mt-1">{t('pricing.socaas.enterprise.target')}</div>
+                  <div className="mt-3">
+                    <span className="text-2xl font-bold text-slate-800">{t('pricing.onRequest')}</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">&nbsp;</div>
+                  <div className="mt-4 space-y-2 text-left text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f1')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f2')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f3')}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-slate-700 flex-shrink-0 mt-0.5" />
+                      <span>{t('pricing.socaas.enterprise.f4')}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* SOCaaS Analogy */}
+              <div className="bg-cyan-50 rounded-xl p-4 text-center">
+                <p className="text-sm text-cyan-800 font-medium">
+                  🔍 {t('pricing.socaas.analogy')}
+                </p>
               </div>
             </div>
           </div>
