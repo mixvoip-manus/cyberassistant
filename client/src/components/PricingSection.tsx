@@ -243,8 +243,8 @@ export default function PricingSection() {
                     </div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-100">
-                    <div className="flex items-center gap-1.5 text-blue-600">
-                      <Info className="h-3 w-3" />
+                    <div className="flex items-center gap-1.5 text-emerald-600">
+                      <CheckCircle2 className="h-3 w-3" />
                       <span className="text-xs font-medium">{t('pricing.assistance.essentiel.recommendation')}</span>
                     </div>
                   </div>
@@ -303,8 +303,8 @@ export default function PricingSection() {
                     </div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-100">
-                    <div className="flex items-center gap-1.5 text-blue-600">
-                      <Info className="h-3 w-3" />
+                    <div className="flex items-center gap-1.5 text-emerald-600">
+                      <CheckCircle2 className="h-3 w-3" />
                       <span className="text-xs font-medium">{t('pricing.assistance.advanced.recommendation')}</span>
                     </div>
                   </div>
@@ -359,10 +359,10 @@ export default function PricingSection() {
                     </div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-100">
-                    <div className="flex items-center gap-1.5 text-blue-600">
+                    <a href="#cyberassurance" className="flex items-center gap-1.5 text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">
                       <Info className="h-3 w-3" />
-                      <span className="text-xs font-medium">{t('pricing.assistance.pro.recommendation')}</span>
-                    </div>
+                      <span className="text-xs font-medium underline">{t('pricing.assistance.pro.recommendation')}</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -475,7 +475,7 @@ export default function PricingSection() {
         {/* ============================================ */}
         {/* 3. Le Foyer Cyber Pro (formerly CyberAssurance) */}
         {/* ============================================ */}
-        <div className="mb-8">
+        <div id="cyberassurance" className="mb-8">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
             {/* Header */}
             <div className="bg-[#2563EB] text-white p-6 text-center">
