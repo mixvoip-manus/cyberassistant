@@ -20,12 +20,7 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="py-16 md:py-24 bg-slate-50">
       <div className="container">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t('pricing.title')}
-          </h2>
-        </div>
+        {/* Section Header — hidden per user request */}
 
         {/* ============================================ */}
         {/* 1. Cyber Assistance (Mixvoip)                */}
