@@ -32,62 +32,36 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container">
-        <div className="flex items-center justify-between h-20 md:h-24">
-          {/* Left: Mixvoip Logo + Cyber Suite branding */}
-          <div className="flex items-center gap-3 md:gap-4">
-            <a href="https://www.mixvoip.com" className="flex items-center gap-2 flex-shrink-0">
-              <img
-                src={getAssetUrl('images/mixvoip-logo.svg')}
-                alt="Mixvoip"
-                className="h-8 md:h-10 w-auto"
-              />
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <a href="https://www.mixvoip.com" className="flex items-center gap-2">
+            <img
+              src={getAssetUrl('images/mixvoip-logo.svg')}
+              alt="Mixvoip"
+              className="h-8 md:h-10 w-auto"
+            />
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t('nav.pricing')}
+            </button>
+            <a
+              href="https://voxbi.me/mixvoip"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t('nav.contact')}
             </a>
-            <div className="border-l border-slate-300 pl-3 md:pl-4">
-              <div className="text-base md:text-xl font-bold text-slate-800 leading-tight">Cyber Suite</div>
-              <div className="text-[10px] md:text-xs text-slate-500 font-medium">by Mixvoip</div>
-            </div>
-          </div>
+          </nav>
 
-          {/* Center: Partner Logos (desktop only) */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <img
-              src={getAssetUrl('images/logo_le_foyer.svg')}
-              alt="Le Foyer"
-              className="h-12 xl:h-14 object-contain"
-            />
-            <div className="w-px h-8 bg-slate-200" />
-            <img
-              src={getAssetUrl('images/luxgaplogo.svg')}
-              alt="Luxgap"
-              className="h-7 xl:h-8 object-contain"
-            />
-            <div className="w-px h-8 bg-slate-200" />
-            <img
-              src={getAssetUrl('images/Rsecure.svg')}
-              alt="RSecure"
-              className="h-7 xl:h-8 object-contain"
-            />
-          </div>
-
-          {/* Right: Nav + Language + CTA */}
-          <div className="flex items-center gap-3 md:gap-4">
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6">
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {t('nav.pricing')}
-              </button>
-              <a
-                href="https://voxbi.me/mixvoip"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {t('nav.contact')}
-              </a>
-            </nav>
+          {/* Right side: Language + CTA */}
+          <div className="flex items-center gap-3">
             {/* Language Switcher */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -134,24 +108,6 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border">
-            {/* Partner logos in mobile menu */}
-            <div className="flex items-center justify-center gap-4 pb-4 mb-4 border-b border-border">
-              <img
-                src={getAssetUrl('images/logo_le_foyer.svg')}
-                alt="Le Foyer"
-                className="h-10 object-contain"
-              />
-              <img
-                src={getAssetUrl('images/luxgaplogo.svg')}
-                alt="Luxgap"
-                className="h-6 object-contain"
-              />
-              <img
-                src={getAssetUrl('images/Rsecure.svg')}
-                alt="RSecure"
-                className="h-6 object-contain"
-              />
-            </div>
             <nav className="flex flex-col gap-2">
               <button
                 onClick={() => scrollToSection('pricing')}

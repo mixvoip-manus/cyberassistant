@@ -78,7 +78,40 @@ export default function CyberSuite() {
   const radius = 160; // radius of the circle
 
   return (
-    <section ref={sectionRef} className="pt-28 md:pt-32 pb-16 md:pb-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <>
+      {/* Branding bar: Cyber Suite + Partner Logos — light background */}
+      <div className="pt-20 md:pt-24 bg-white border-b border-slate-100">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 md:py-8">
+            {/* Left: Cyber Suite branding */}
+            <div className="flex-shrink-0">
+              <div className="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Cyber Suite</div>
+              <div className="text-xs md:text-sm text-slate-500 font-medium">by Mixvoip</div>
+            </div>
+
+            {/* Right: Partner logos */}
+            <div className="flex items-center gap-5 md:gap-8">
+              <img
+                src={getAssetUrl('images/logo_le_foyer.svg')}
+                alt="Le Foyer"
+                className="h-10 md:h-12 object-contain"
+              />
+              <img
+                src={getAssetUrl('images/luxgaplogo.svg')}
+                alt="Luxgap"
+                className="h-6 md:h-8 object-contain"
+              />
+              <img
+                src={getAssetUrl('images/Rsecure.svg')}
+                alt="RSecure"
+                className="h-6 md:h-8 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
       <div className="container">
         <div className="max-w-6xl mx-auto">
           {/* Title */}
@@ -316,5 +349,6 @@ export default function CyberSuite() {
         }
       `}</style>
     </section>
+    </>
   );
 }
