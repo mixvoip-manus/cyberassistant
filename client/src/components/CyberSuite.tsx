@@ -220,21 +220,6 @@ export default function CyberSuite() {
 
             {/* Detail Panel */}
             <div className={`flex-1 min-w-0 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
-              {/* Partner Logos - permanent display */}
-              <div className="mb-8">
-                <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-6 text-center lg:text-left">{t('cycle.partners') || 'Our Partners'}</p>
-                <div className="flex flex-col items-center lg:items-start gap-8">
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 w-full flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
-                    <img src={getAssetUrl('images/logo_le_foyer.svg')} alt="Le Foyer" className="h-20 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 w-full flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
-                    <img src={getAssetUrl('images/luxgaplogo.svg')} alt="Luxgap" className="h-20 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 w-full flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
-                    <img src={getAssetUrl('images/Rsecure.svg')} alt="RSecure" className="h-20 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                </div>
-              </div>
 
               {activeIndex !== null ? (
                 <div className="space-y-6">
@@ -308,6 +293,22 @@ export default function CyberSuite() {
                   <p className="text-slate-400 text-lg">{t('cycle.clickToExplore')}</p>
                 </div>
               )}
+            </div>
+          </div>
+
+          {/* Partner Logos - below the circle */}
+          <div className={`mt-14 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-6 text-center">{t('cycle.partners')}</p>
+            <div className="flex flex-wrap items-center justify-center gap-10">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-10 py-8 flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
+                <img src={getAssetUrl('images/logo_le_foyer.svg')} alt="Le Foyer" className="h-28 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-8 py-6 flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
+                <img src={getAssetUrl('images/luxgaplogo.svg')} alt="Luxgap" className="h-16 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-8 py-6 flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
+                <img src={getAssetUrl('images/Rsecure.svg')} alt="RSecure" className="h-16 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
+              </div>
             </div>
           </div>
         </div>
