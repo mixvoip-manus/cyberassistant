@@ -41,7 +41,7 @@ export default function CyberSuite() {
       glowColor: 'shadow-sky-400/50',
       logo: '/images/Rsecure.svg',
       logoAlt: 'RSecure',
-      angle: -90, // top
+      angle: 180, // west (left)
     },
     {
       key: 'assistance',
@@ -51,7 +51,7 @@ export default function CyberSuite() {
       glowColor: 'shadow-green-400/50',
       logo: '/images/mixvoip-logo.svg',
       logoAlt: 'Mixvoip',
-      angle: 0, // right
+      angle: -90, // north (top)
     },
     {
       key: 'assurance',
@@ -61,7 +61,7 @@ export default function CyberSuite() {
       glowColor: 'shadow-blue-400/50',
       logo: '/images/LeFoyer.svg',
       logoAlt: 'Le Foyer',
-      angle: 90, // bottom
+      angle: 0, // east (right)
     },
     {
       key: 'advisory',
@@ -71,7 +71,7 @@ export default function CyberSuite() {
       glowColor: 'shadow-purple-400/50',
       logo: '/images/luxgaplogo.svg',
       logoAlt: 'Luxgap',
-      angle: 180, // left
+      angle: 90, // south (bottom)
     },
   ];
 
@@ -181,7 +181,7 @@ export default function CyberSuite() {
                       <polygon points="0 0, 8 3, 0 6" fill="#475569" />
                     </marker>
                   </defs>
-                  {/* Curved path arrows */}
+                  {/* Curved path arrows: Respond(N) → Insure(E) → Advise(S) → Monitor(W) → Respond(N) */}
                   <path
                     d="M 250 55 A 170 170 0 0 1 365 170"
                     fill="none"
