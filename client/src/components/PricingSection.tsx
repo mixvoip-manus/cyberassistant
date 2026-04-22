@@ -139,14 +139,21 @@ export default function PricingSection() {
         {/* 2. Cyber Assistance (Mixvoip)                */}
         {/* ============================================ */}
         <div className="mb-16">
-          {/* Cyber Assistance Header Bar */}
-          <div className="bg-[#00B050] text-white p-4 text-center rounded-t-2xl max-w-7xl mx-auto">
-            <div className="flex items-center justify-center gap-3">
-              <Shield className="h-8 w-8" />
-              <h3 className="text-2xl font-bold">Mixvoip CyberAssistance</h3>
+          {/* Cyber Assistance Header Bar - Split Layout */}
+          <div className="flex rounded-t-2xl max-w-7xl mx-auto overflow-hidden">
+            {/* Left: Green with Mixvoip CyberAssistance */}
+            <div className="bg-[#00B050] text-white p-6 flex-1 flex flex-col items-center justify-center">
+              <div className="flex items-center justify-center gap-3">
+                <Shield className="h-8 w-8" />
+                <h3 className="text-2xl font-bold">Mixvoip CyberAssistance</h3>
+              </div>
+              <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
+              <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
             </div>
-            <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
-            <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
+            {/* Right: White with Le Foyer Logo */}
+            <div className="bg-white flex items-center justify-center p-6 w-[280px] border-t border-r border-slate-200">
+              <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-20 object-contain" />
+            </div>
           </div>
           
           {/* Minimum Requirement Notice */}
