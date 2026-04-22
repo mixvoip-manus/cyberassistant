@@ -359,28 +359,7 @@ export default function PricingSection() {
                     </div>
                   </div>
                   
-                  {/* False Alarm Policy */}
-                  <div className="mt-6 pt-6 border-t border-slate-200">
-                    <h4 className="font-bold text-slate-800 mb-4">{t('pricing.falseAlarm.title')}</h4>
-                    <div className="grid md:grid-cols-4 gap-4 text-sm">
-                      <div className="bg-slate-50 p-3 rounded-lg">
-                        <div className="font-medium text-[#4A90D9]">Office</div>
-                        <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.office')}</div>
-                      </div>
-                      <div className="bg-slate-50 p-3 rounded-lg">
-                        <div className="font-medium text-[#E63946]">Business</div>
-                        <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.business')}</div>
-                      </div>
-                      <div className="bg-slate-50 p-3 rounded-lg">
-                        <div className="font-medium text-[#FF8C00]">Advanced</div>
-                        <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.advanced')}</div>
-                      </div>
-                      <div className="bg-slate-50 p-3 rounded-lg">
-                        <div className="font-medium text-slate-800">Pro</div>
-                        <div className="text-muted-foreground mt-1">{t('pricing.falseAlarm.pro')}</div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* False Alarm Policy - hidden */}
                 </div>
               </div>
             </div>
@@ -466,7 +445,7 @@ export default function PricingSection() {
             onClick={() => toggleSection('advisory')}
             className="w-full block"
           >
-            <div className="bg-[#7C3AED] text-white p-4 text-center rounded-t-2xl">
+            <div className="bg-[#7C3AED] text-white p-4 text-center rounded-t-2xl min-h-[180px] flex flex-col justify-center">
               <div className="flex items-center justify-center gap-3">
                 <Gavel className="h-6 w-6" />
                 <h3 className="text-xl font-bold">Mixvoip CyberAdvisory</h3>
@@ -620,7 +599,7 @@ export default function PricingSection() {
             onClick={() => toggleSection('soc')}
             className="w-full block"
           >
-            <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl">
+            <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl min-h-[180px] flex flex-col justify-center">
               <div className="flex items-center justify-center gap-3">
                 <Eye className="h-7 w-7" />
                 <h3 className="text-2xl font-bold">Mixvoip SOC as a Service</h3>
