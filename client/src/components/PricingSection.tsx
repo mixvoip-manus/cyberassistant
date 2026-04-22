@@ -404,6 +404,7 @@ export default function PricingSection() {
                 <h3 className="text-2xl font-bold">{t('pricing.assurance.productName')}</h3>
                 <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.foyer ? 'rotate-180' : ''}`} />
               </div>
+              <p className="text-sm text-emerald-100 font-medium mt-1 italic">{t('pricing.assurance.exclusiveAdvantage')}</p>
               <div className="flex items-center justify-center gap-2 mt-2">
                 <span className="text-blue-100 text-sm">{t('cycle.poweredBy')}</span>
                 <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-5 brightness-0 invert" />
@@ -429,7 +430,7 @@ export default function PricingSection() {
                 <div className="bg-blue-50 rounded-xl p-6 mb-6">
                   <h4 className="font-bold text-slate-800 mb-4 text-sm">{t('pricing.assurance.coverageTitle')}</h4>
                   <div className="grid md:grid-cols-2 gap-3">
-                    {['cov1','cov2','cov3','cov4','cov5','cov6','cov7','cov8','cov9'].map(key => (
+                    {['cov1','cov2','cov3','cov4','cov5','cov6','cov7','cov8','cov9','cov10'].map(key => (
                       <div key={key} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-slate-700">{t(`pricing.assurance.${key}`)}</span>
@@ -455,13 +456,15 @@ export default function PricingSection() {
         </div>
 
         {/* ============================================ */}
-        {/* 3. CyberAdvisory powered by Luxgap           */}
+        {/* 3. CyberAdvisory & 4. SOC side by side       */}
         {/* ============================================ */}
-        <div className="mb-8">
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        {/* CyberAdvisory powered by Luxgap */}
+        <div>
           {/* Clickable Header */}
           <button
             onClick={() => toggleSection('advisory')}
-            className="w-full max-w-7xl mx-auto block"
+            className="w-full block"
           >
             <div className="bg-[#7C3AED] text-white p-4 text-center rounded-t-2xl">
               <div className="flex items-center justify-center gap-3">
@@ -481,7 +484,7 @@ export default function PricingSection() {
 
           {/* Collapsible Content */}
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${openSections.advisory ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${openSections.advisory ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
             <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden">
               <div className="p-6">
@@ -610,14 +613,12 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* ============================================ */}
-        {/* 4. SOCaaS powered by RSecure                 */}
-        {/* ============================================ */}
-        <div className="mb-8">
+        {/* SOCaaS powered by RSecure */}
+        <div>
           {/* Clickable Header */}
           <button
             onClick={() => toggleSection('soc')}
-            className="w-full max-w-5xl mx-auto block"
+            className="w-full block"
           >
             <div className="bg-[#0891B2] text-white p-4 text-center rounded-t-2xl">
               <div className="flex items-center justify-center gap-3">
@@ -636,7 +637,7 @@ export default function PricingSection() {
 
           {/* Collapsible Content */}
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out max-w-5xl mx-auto ${openSections.soc ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${openSections.soc ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
             <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden">
               <div className="p-6">
@@ -738,6 +739,7 @@ export default function PricingSection() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
