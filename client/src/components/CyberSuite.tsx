@@ -6,7 +6,7 @@ export default function CyberSuite() {
   const { t, getAssetUrl } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(true);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [autoRotate, setAutoRotate] = useState(true);
 
   // Intersection observer for scroll-triggered animation
@@ -271,11 +271,7 @@ export default function CyberSuite() {
                       ))}
                     </div>
                   </div>
-                ) : (
-                  <div className="text-center lg:text-left">
-                    <p className="text-slate-400 text-lg">{t('cycle.clickToExplore')}</p>
-                  </div>
-                )}
+                ) : null}
               </div>
 
               {/* Luxgap + RSecure stacked on the right */}
