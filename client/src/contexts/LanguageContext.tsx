@@ -422,7 +422,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.button': 'Start Assessment',
     // SOCaaS
     'pricing.socaas.tagline': 'The Fire Alarm System – 24/7 Monitoring from Luxembourg',
-    'pricing.monthlyBilling': 'Monthly billing, cancel anytime',
+    'pricing.monthlyBilling': 'Monthly billing',
     'pricing.annualContract': 'Annual contract',
     'pricing.socaas.perAssetMonth': 'per asset / month',
     'pricing.socaas.perUserMonth': 'per user / month',
@@ -1026,7 +1026,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.button': 'Démarrer l’évaluation',
     // SOCaaS
     'pricing.socaas.tagline': 'Le Système d\'Alarme Incendie – Surveillance 24/7 depuis le Luxembourg',
-    'pricing.monthlyBilling': 'Facturation mensuelle, résiliable à tout moment',
+    'pricing.monthlyBilling': 'Facturation mensuelle',
     'pricing.annualContract': 'Contrat annuel',
     'pricing.socaas.perAssetMonth': 'par asset / mois',
     'pricing.socaas.perUserMonth': 'par utilisateur / mois',
@@ -1628,7 +1628,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta.button': 'Assessment starten',
     // SOCaaS
     'pricing.socaas.tagline': 'Die Brandmeldeanlage – 24/7 Überwachung aus Luxemburg',
-    'pricing.monthlyBilling': 'Monatliche Abrechnung, jederzeit kündbar',
+    'pricing.monthlyBilling': 'Monatliche Abrechnung',
     'pricing.annualContract': 'Jahresvertrag',
     'pricing.socaas.perAssetMonth': 'pro Asset / Monat',
     'pricing.socaas.perUserMonth': 'pro Benutzer / Monat',
