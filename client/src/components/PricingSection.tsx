@@ -4,7 +4,7 @@ import { Shield, Scale, Users, CheckCircle2, Info, Clock, Zap, Building2, Star, 
 
 export default function PricingSection() {
   const { t, getAssetUrl } = useLanguage();
-  
+
   // Accordion state: CyberAssistance & Le Foyer open by default, Advisory & SOC closed
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     assistance: true,
@@ -16,6 +16,8 @@ export default function PricingSection() {
   const toggleSection = (key: string) => {
     setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
   };
+
+
 
   return (
     <section id="pricing" className="py-16 md:py-24 bg-slate-50">
@@ -229,15 +231,14 @@ export default function PricingSection() {
         {/* ============================================ */}
         {/* 3. CyberAdvisory & 4. SOC side by side       */}
         {/* ============================================ */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-7xl mx-auto">
-        {/* CyberAdvisory powered by Luxgap */}
-        <div>
-          {/* Clickable Header */}
+        <div className="grid md:grid-cols-2 gap-x-6 mb-8 max-w-7xl mx-auto" style={{ gridTemplateRows: 'auto auto' }}>
+        {/* CyberAdvisory Header - Row 1, Col 1 */}
           <button
             onClick={() => toggleSection('advisory')}
-            className="w-full block"
+            className="w-full block self-stretch"
+            style={{ gridColumn: 1, gridRow: 1 }}
           >
-            <div className={`bg-[#7C3AED] text-white p-4 text-center min-h-[180px] flex flex-col justify-center transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.advisory ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
+            <div className={`bg-[#7C3AED] text-white p-4 text-center flex flex-col justify-center h-full transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.advisory ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
               <div className="flex items-center justify-center gap-3">
                 <Gavel className="h-6 w-6" />
                 <h3 className="text-xl font-bold">Mixvoip CyberAdvisory</h3>
@@ -258,9 +259,36 @@ export default function PricingSection() {
             </div>
           </button>
 
-          {/* Collapsible Content */}
+          {/* SOC Header - Row 1, Col 2 */}
+          <button
+            onClick={() => toggleSection('soc')}
+            className="w-full block self-stretch"
+            style={{ gridColumn: 2, gridRow: 1 }}
+          >
+            <div className={`bg-[#0891B2] text-white p-4 text-center flex flex-col justify-center h-full transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.soc ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
+              <div className="flex items-center justify-center gap-3">
+                <Eye className="h-7 w-7" />
+                <h3 className="text-2xl font-bold">Mixvoip SOC as a Service</h3>
+                <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.soc ? 'rotate-180' : ''}`} />
+              </div>
+              <div className="flex items-center justify-center gap-2 mt-1">
+                <span className="text-cyan-100 text-sm">{t('cycle.poweredBy')}</span>
+                <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
+              </div>
+              <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
+              {!openSections.soc && (
+                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
+                  <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
+                  <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
+                </div>
+              )}
+            </div>
+          </button>
+
+          {/* Advisory Collapsible Content - Row 2, Col 1 */}
           <div
             className={`overflow-hidden transition-all duration-500 ease-in-out ${openSections.advisory ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}
+            style={{ gridColumn: 1, gridRow: 2 }}
           >
             <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden">
               <div className="p-6">
@@ -387,38 +415,11 @@ export default function PricingSection() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* SOCaaS powered by RSecure */}
-        <div>
-          {/* Clickable Header */}
-          <button
-            onClick={() => toggleSection('soc')}
-            className="w-full block"
-          >
-            <div className={`bg-[#0891B2] text-white p-4 text-center min-h-[180px] flex flex-col justify-center transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.soc ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
-              <div className="flex items-center justify-center gap-3">
-                <Eye className="h-7 w-7" />
-                <h3 className="text-2xl font-bold">Mixvoip SOC as a Service</h3>
-                <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.soc ? 'rotate-180' : ''}`} />
-              </div>
-              <div className="flex items-center justify-center gap-2 mt-1">
-                <span className="text-cyan-100 text-sm">{t('cycle.poweredBy')}</span>
-                <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
-              </div>
-              <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
-              {!openSections.soc && (
-                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
-                  <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
-                  <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
-                </div>
-              )}
-            </div>
-          </button>
-
-          {/* Collapsible Content */}
+          {/* SOC Collapsible Content - Row 2, Col 2 */}
           <div
             className={`overflow-hidden transition-all duration-500 ease-in-out ${openSections.soc ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
+            style={{ gridColumn: 2, gridRow: 2 }}
           >
             <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden">
               <div className="p-6">
@@ -514,7 +515,6 @@ export default function PricingSection() {
               </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
