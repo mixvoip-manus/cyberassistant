@@ -453,7 +453,6 @@ export default function PricingSection() {
               </div>
               <p className="text-purple-100 text-sm mt-1">{t('pricing.advisory.tagline')}</p>
               <p className="text-purple-200 text-xs mt-1 max-w-2xl mx-auto">{t('pricing.advisory.subtitle')}</p>
-              <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
             </div>
           </button>
 
@@ -606,7 +605,6 @@ export default function PricingSection() {
                 <img src={getAssetUrl('/images/Rsecure.svg')} alt="RSecure" className="h-5 brightness-0 invert" />
               </div>
               <p className="text-cyan-100 text-sm mt-1">{t('pricing.socaas.tagline')}</p>
-              <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
             </div>
           </button>
 
