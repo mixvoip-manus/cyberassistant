@@ -279,7 +279,7 @@ export default function CyberSuite() {
               </div>
 
               {/* Luxgap + RSecure stacked on the right */}
-              <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+              <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 mt-32 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
                 <div className="bg-white rounded-xl shadow-md w-[180px] h-[70px] flex items-center justify-center px-4">
                   <img
                     src={getAssetUrl('images/luxgap-full.webp')}
