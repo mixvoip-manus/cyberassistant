@@ -31,20 +31,21 @@ export default function PricingSection() {
             onClick={() => toggleSection('assistance')}
             className="w-full max-w-7xl mx-auto block"
           >
-            <div className="flex rounded-t-2xl overflow-hidden">
-              {/* Left: White with Le Foyer Logo */}
-              <div className="bg-white flex items-center justify-center p-6 w-[200px] md:w-[240px] border-t border-l border-slate-200">
-                <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-24 md:h-28 object-contain" />
-              </div>
-              {/* Right: Green with Mixvoip CyberAssistance */}
-              <div className="bg-[#00B050] text-white p-6 flex-1 flex flex-col items-center justify-center">
-                <div className="flex items-center justify-center gap-3">
-                  <Shield className="h-8 w-8" />
-                  <h3 className="text-2xl font-bold">Mixvoip CyberAssistance</h3>
-                  <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.assistance ? 'rotate-180' : ''}`} />
+            <div className="bg-[#00B050] rounded-t-2xl overflow-hidden p-6">
+              <div className="flex items-center justify-center gap-6">
+                {/* Le Foyer Logo embedded on green */}
+                <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-16 md:h-20 object-contain brightness-0 invert" />
+                <div className="h-12 w-px bg-white/40"></div>
+                {/* Mixvoip CyberAssistance */}
+                <div className="text-white flex flex-col items-center">
+                  <div className="flex items-center gap-3">
+                    <Shield className="h-8 w-8" />
+                    <h3 className="text-2xl font-bold">Mixvoip CyberAssistance</h3>
+                    <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.assistance ? 'rotate-180' : ''}`} />
+                  </div>
+                  <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
+                  <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
                 </div>
-                <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
-                <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
               </div>
             </div>
           </button>
