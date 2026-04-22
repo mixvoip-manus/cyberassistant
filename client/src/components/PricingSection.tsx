@@ -307,57 +307,7 @@ export default function PricingSection() {
               </div>
             </div>
 
-            {/* Self-Qualification & False Alarm Policy Section */}
-            <div className="mt-8 max-w-7xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="bg-amber-500 text-white p-4 text-center">
-                  <h3 className="text-xl font-bold">{t('pricing.selfQualification.title')}</h3>
-                  <p className="text-amber-100 text-sm mt-1">{t('pricing.selfQualification.subtitle')}</p>
-                </div>
-                <div className="p-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Not a Cyber Emergency */}
-                    <div className="bg-slate-50 rounded-xl p-4">
-                      <h4 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
-                        <span className="text-red-500">✗</span>
-                        {t('pricing.selfQualification.notCyber.title')}
-                      </h4>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>• {t('pricing.selfQualification.notCyber.item1')}</li>
-                        <li>• {t('pricing.selfQualification.notCyber.item2')}</li>
-                        <li>• {t('pricing.selfQualification.notCyber.item3')}</li>
-                        <li>• {t('pricing.selfQualification.notCyber.item4')}</li>
-                        <li>• {t('pricing.selfQualification.notCyber.item5')}</li>
-                      </ul>
-                      <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-                        <p className="text-sm font-medium text-slate-700 mb-2">{t('pricing.selfQualification.notCyber.action')}</p>
-                        <a href="tel:+35220333399" className="text-blue-600 font-bold">+352 20 33 33 99</a>
-                      </div>
-                    </div>
-                    
-                    {/* IS a Cyber Emergency */}
-                    <div className="bg-red-50 rounded-xl p-4 border-2 border-red-200">
-                      <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2">
-                        <span className="text-green-500">✓</span>
-                        {t('pricing.selfQualification.isCyber.title')}
-                      </h4>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>• {t('pricing.selfQualification.isCyber.item1')}</li>
-                        <li>• {t('pricing.selfQualification.isCyber.item2')}</li>
-                        <li>• {t('pricing.selfQualification.isCyber.item3')}</li>
-                        <li>• {t('pricing.selfQualification.isCyber.item4')}</li>
-                        <li>• {t('pricing.selfQualification.isCyber.item5')}</li>
-                      </ul>
-                      <div className="mt-4">
-                        <p className="text-sm font-bold text-red-700">{t('pricing.selfQualification.isCyber.action')}</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* False Alarm Policy - hidden */}
-                </div>
-              </div>
-            </div>
+            {/* Self-Qualification moved to FAQ section */}
 
             {/* Firefighter analogy hidden */}
           </div>

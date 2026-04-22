@@ -178,87 +178,74 @@ export default function CoverageFAQ() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('faq.title')}</h2>
             
-            {/* Cyber Emergency Card */}
-            <div className="mb-6 rounded-xl overflow-hidden border border-amber-200 shadow-sm">
-              <div className="bg-amber-500 text-white px-4 py-3">
-                <h3 className="font-bold text-base flex items-center gap-2">
-                  <Shield className="h-5 w-5" />
-                  {t('pricing.selfQualification.title')}
-                </h3>
-                <p className="text-amber-100 text-xs mt-0.5">{t('pricing.selfQualification.subtitle')}</p>
-              </div>
-              <div className="grid grid-cols-2 divide-x divide-border">
-                {/* NOT a Cyber Emergency */}
-                <div className="p-4 bg-blue-50/50">
-                  <h4 className="font-bold text-sm text-slate-800 flex items-center gap-1.5 mb-3">
-                    <X className="h-4 w-4 text-red-500" />
-                    {t('pricing.selfQualification.notCyber.title')}
-                  </h4>
-                  <ul className="space-y-1.5 text-xs text-slate-600">
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.notCyber.item1')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.notCyber.item2')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.notCyber.item3')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.notCyber.item4')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.notCyber.item5')}</span>
-                    </li>
-                  </ul>
-                  <div className="mt-3 bg-white rounded-lg p-2.5 border border-slate-200">
-                    <p className="text-xs text-slate-500">{t('pricing.selfQualification.notCyber.action')}</p>
-                    <a href="tel:+352203333" className="text-sm font-bold text-blue-600">+352 20 33 33 99</a>
-                  </div>
-                </div>
-                {/* IS a Cyber Emergency */}
-                <div className="p-4 bg-red-50/50">
-                  <h4 className="font-bold text-sm text-slate-800 flex items-center gap-1.5 mb-3">
-                    <CheckCircle2 className="h-4 w-4 text-green-600" />
-                    {t('pricing.selfQualification.isCyber.title')}
-                  </h4>
-                  <ul className="space-y-1.5 text-xs text-slate-600">
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.isCyber.item1')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.isCyber.item2')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.isCyber.item3')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.isCyber.item4')}</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <span className="text-slate-400 mt-0.5">•</span>
-                      <span>{t('pricing.selfQualification.isCyber.item5')}</span>
-                    </li>
-                  </ul>
-                  <div className="mt-3 flex items-center gap-2 text-red-600 font-bold text-xs">
-                    <Phone className="h-4 w-4" />
-                    <span>{t('pricing.selfQualification.isCyber.action')}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* FAQ Accordions */}
+            {/* FAQ Accordions - Cyber Emergency is the first item */}
             <div className="space-y-3">
+              {/* Cyber Emergency FAQ Item */}
+              <div className="bg-white rounded-xl border border-border overflow-hidden">
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === -1 ? null : -1)}
+                  className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-medium text-sm pr-4 flex items-center gap-2">
+                    <Shield className="h-4 w-4 text-amber-500" />
+                    {t('pricing.selfQualification.title')}
+                  </span>
+                  <ChevronDown
+                    className={cn(
+                      'h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-200',
+                      openFaqIndex === -1 && 'rotate-180'
+                    )}
+                  />
+                </button>
+                <div
+                  className={cn(
+                    'overflow-hidden transition-all duration-300',
+                    openFaqIndex === -1 ? 'max-h-[800px]' : 'max-h-0'
+                  )}
+                >
+                  <div className="px-4 pb-4 border-t border-border">
+                    <p className="text-xs text-muted-foreground mt-3 mb-3">{t('pricing.selfQualification.subtitle')}</p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-blue-50/50 rounded-lg p-3">
+                        <h4 className="font-bold text-sm text-slate-800 flex items-center gap-1.5 mb-2">
+                          <X className="h-4 w-4 text-red-500" />
+                          {t('pricing.selfQualification.notCyber.title')}
+                        </h4>
+                        <ul className="space-y-1 text-xs text-slate-600">
+                          <li>• {t('pricing.selfQualification.notCyber.item1')}</li>
+                          <li>• {t('pricing.selfQualification.notCyber.item2')}</li>
+                          <li>• {t('pricing.selfQualification.notCyber.item3')}</li>
+                          <li>• {t('pricing.selfQualification.notCyber.item4')}</li>
+                          <li>• {t('pricing.selfQualification.notCyber.item5')}</li>
+                        </ul>
+                        <div className="mt-2 bg-white rounded p-2 border border-slate-200">
+                          <p className="text-xs text-slate-500">{t('pricing.selfQualification.notCyber.action')}</p>
+                          <a href="tel:+35220333399" className="text-sm font-bold text-blue-600">+352 20 33 33 99</a>
+                        </div>
+                      </div>
+                      <div className="bg-red-50/50 rounded-lg p-3">
+                        <h4 className="font-bold text-sm text-slate-800 flex items-center gap-1.5 mb-2">
+                          <CheckCircle2 className="h-4 w-4 text-green-600" />
+                          {t('pricing.selfQualification.isCyber.title')}
+                        </h4>
+                        <ul className="space-y-1 text-xs text-slate-600">
+                          <li>• {t('pricing.selfQualification.isCyber.item1')}</li>
+                          <li>• {t('pricing.selfQualification.isCyber.item2')}</li>
+                          <li>• {t('pricing.selfQualification.isCyber.item3')}</li>
+                          <li>• {t('pricing.selfQualification.isCyber.item4')}</li>
+                          <li>• {t('pricing.selfQualification.isCyber.item5')}</li>
+                        </ul>
+                        <div className="mt-2 flex items-center gap-1.5 text-red-600 font-bold text-xs">
+                          <Phone className="h-3.5 w-3.5" />
+                          <span>{t('pricing.selfQualification.isCyber.action')}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Regular FAQ Items */}
               {faqKeys.map((faq, index) => (
                 <div
                   key={index}
