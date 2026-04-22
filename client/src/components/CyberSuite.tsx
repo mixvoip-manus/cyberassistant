@@ -81,17 +81,33 @@ export default function CyberSuite() {
     <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
       <div className="container">
         <div className="max-w-6xl mx-auto">
-          {/* Title */}
-          <div className={`text-center mb-14 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
-              <span className="text-xs font-semibold text-sky-300 uppercase tracking-widest">{t('cycle.badge')}</span>
+          {/* Title with Partner Logos */}
+          <div className={`mb-14 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-6">
+              {/* Le Foyer Logo - left */}
+              <div className="flex-shrink-0 flex items-center justify-center">
+                <img src={getAssetUrl('images/logo_le_foyer.svg')} alt="Le Foyer" className="h-24 md:h-32 object-contain brightness-0 invert opacity-80" />
+              </div>
+
+              {/* Title text - center */}
+              <div className="flex-1 text-center">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
+                  <span className="text-xs font-semibold text-sky-300 uppercase tracking-widest">{t('cycle.badge')}</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+                  {t('cycle.title')}
+                </h2>
+                <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                  {t('cycle.subtitle')}
+                </p>
+              </div>
+
+              {/* Luxgap + RSecure - right, stacked */}
+              <div className="flex-shrink-0 flex flex-col items-center gap-5">
+                <img src={getAssetUrl('images/luxgaplogo.svg')} alt="Luxgap" className="h-14 md:h-16 object-contain brightness-0 invert opacity-80" />
+                <img src={getAssetUrl('images/Rsecure.svg')} alt="RSecure" className="h-14 md:h-16 object-contain brightness-0 invert opacity-80" />
+              </div>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
-              {t('cycle.title')}
-            </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              {t('cycle.subtitle')}
-            </p>
           </div>
 
           {/* Main Layout: Circle + Details + Partner Logos */}
@@ -296,21 +312,7 @@ export default function CyberSuite() {
             </div>
           </div>
 
-          {/* Partner Logos - below the circle */}
-          <div className={`mt-14 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-6 text-center">{t('cycle.partners')}</p>
-            <div className="flex flex-wrap items-center justify-center gap-10">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-10 py-8 flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
-                <img src={getAssetUrl('images/logo_le_foyer.svg')} alt="Le Foyer" className="h-28 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-8 py-6 flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
-                <img src={getAssetUrl('images/luxgaplogo.svg')} alt="Luxgap" className="h-16 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-8 py-6 flex items-center justify-center border border-slate-700/50 hover:border-slate-600 transition-all duration-300">
-                <img src={getAssetUrl('images/Rsecure.svg')} alt="RSecure" className="h-16 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
 
