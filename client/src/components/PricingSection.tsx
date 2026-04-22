@@ -396,18 +396,7 @@ export default function PricingSection() {
             </div>
           </div>
 
-          {/* CyberAssurance Cost Notice */}
-          <div className="max-w-7xl mx-auto mt-3">
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
-              <Shield className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <div className="font-bold text-blue-800 text-sm flex items-center gap-2">
-                  {t('pricing.assurance.costNote')}
-                  <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-4" />
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         {/* Self-Qualification & False Alarm Policy Section */}
@@ -484,97 +473,55 @@ export default function PricingSection() {
         </div>
 
         {/* ============================================ */}
-        {/* 3. CyberAssurance powered by Le Foyer        */}
+        {/* 3. Le Foyer Cyber Pro (formerly CyberAssurance) */}
         {/* ============================================ */}
         <div className="mb-8">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-5xl mx-auto">
-            <div className="bg-[#2563EB] text-white p-4 text-center">
+            {/* Header */}
+            <div className="bg-[#2563EB] text-white p-6 text-center">
               <div className="flex items-center justify-center gap-3">
-                <Scale className="h-6 w-6" />
-                <h3 className="text-xl font-bold">Mixvoip CyberAssurance</h3>
+                <Scale className="h-7 w-7" />
+                <h3 className="text-2xl font-bold">{t('pricing.assurance.productName')}</h3>
               </div>
-              <div className="flex items-center justify-center gap-2 mt-1">
+              <div className="flex items-center justify-center gap-2 mt-2">
                 <span className="text-blue-100 text-sm">{t('cycle.poweredBy')}</span>
                 <img src={getAssetUrl('/images/LeFoyer.svg')} alt="Le Foyer" className="h-5 brightness-0 invert" />
               </div>
               <p className="text-blue-100 text-sm mt-1">{t('pricing.assurance.tagline')}</p>
-              <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.annualContract')}</span>
             </div>
-            <div className="p-6">
-              {/* CyberAssurance info */}
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4 flex items-start gap-2">
-                <Info className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-amber-800">{t('pricing.assurance.costNote')}</p>
+
+            {/* Content */}
+            <div className="p-8">
+              {/* On Request + Contract Info */}
+              <div className="text-center mb-8">
+                <div className="text-3xl font-bold text-[#2563EB] mb-3">{t('pricing.assurance.onRequest')}</div>
+                <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-2">{t('pricing.assurance.consultInfo')}</p>
+                <p className="text-sm font-medium text-slate-700 max-w-lg mx-auto">{t('pricing.assurance.contractInfo')}</p>
               </div>
-              
-              <div className="grid grid-cols-3 gap-3 mb-6">
-                <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <div className="font-bold text-blue-700 text-lg">{t('pricing.assurance.essentiel.title')}</div>
-                  <div className="mt-2">
-                    <span className="text-2xl font-bold text-blue-700">{t('pricing.assurance.essentiel.price')}€</span>
-                    <span className="text-sm text-muted-foreground"> / {t('pricing.assurance.essentiel.priceNote')}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-2">{t('pricing.assurance.essentiel.desc')}</div>
-                </div>
-                <div className="text-center p-4 bg-blue-100 rounded-lg border-2 border-blue-400">
-                  <div className="font-bold text-blue-800 text-lg">{t('pricing.assurance.advanced.title')}</div>
-                  <div className="mt-2">
-                    <span className="text-2xl font-bold text-blue-800">{t('pricing.assurance.advanced.price')}€</span>
-                    <span className="text-sm text-muted-foreground"> / {t('pricing.assurance.advanced.priceNote')}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-2">{t('pricing.assurance.advanced.desc')}</div>
-                </div>
-                <div className="text-center p-4 bg-slate-50 rounded-lg border border-slate-200">
-                  <div className="font-bold text-slate-700 text-lg">{t('pricing.assurance.pro.title')}</div>
-                  <div className="mt-2">
-                    <span className="text-xl font-bold text-slate-700">{t('pricing.onRequest')}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-2">{t('pricing.assurance.pro.desc')}</div>
+
+              {/* Coverage List */}
+              <div className="bg-blue-50 rounded-xl p-6 mb-6">
+                <h4 className="font-bold text-slate-800 mb-4 text-sm">{t('pricing.assurance.coverageTitle')}</h4>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {['cov1','cov2','cov3','cov4','cov5','cov6','cov7','cov8','cov9'].map(key => (
+                    <div key={key} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-slate-700">{t(`pricing.assurance.${key}`)}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              
-              {/* Assurance Services Grid */}
-              <div className="grid md:grid-cols-2 gap-4 mb-4">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">{t('pricing.assurance.feature1')}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">{t('pricing.assurance.feature2')}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">{t('pricing.assurance.feature4')}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">{t('pricing.assurance.feature5')}</span>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">{t('pricing.assurance.feature6')}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">{t('pricing.assurance.feature8')}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">{t('pricing.assurance.feature3New')}</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-sm text-muted-foreground">{t('pricing.yearlyContract')}</div>
-              <div className="mt-4 pt-4 border-t border-slate-200">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Info className="h-4 w-4" />
-                  <span>{t('pricing.assurance.disclaimer')}</span>
-                </div>
+
+              {/* Book a Meeting CTA */}
+              <div className="text-center">
+                <a
+                  href="https://voxbi.me/mixvoip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg transition-colors"
+                >
+                  {t('pricing.assurance.bookMeeting')} →
+                </a>
               </div>
             </div>
           </div>

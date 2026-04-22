@@ -25,8 +25,9 @@ export default function Home() {
         <Statistics />
         <PricingSection />
         <BookMeetingCTA />
-        <CyberCalculator />
-        <BookMeetingCTA />
+        {/* Calculator hidden - pricing model changing */}
+        {/* <CyberCalculator /> */}
+        {/* <BookMeetingCTA /> */}
         <Fit4CyberAssessment />
         <FAQ />
       </main>
