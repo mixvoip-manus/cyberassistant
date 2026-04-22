@@ -31,20 +31,19 @@ export default function PricingSection() {
             onClick={() => toggleSection('assistance')}
             className="w-full max-w-7xl mx-auto block"
           >
-            <div className="bg-[#00B050] rounded-t-2xl overflow-hidden px-8 md:px-12 py-8">
-              <div className="flex items-center gap-8 md:gap-12">
+            <div className="bg-[#00B050] rounded-t-2xl overflow-hidden px-6 md:px-10 py-5">
+              <div className="flex items-center">
                 {/* Le Foyer Logo embedded on green — large & left-aligned */}
                 <img src={getAssetUrl('/images/logo_le_foyer.svg')} alt="Le Foyer" className="h-20 md:h-28 object-contain brightness-0 invert flex-shrink-0" />
-                <div className="h-16 md:h-20 w-px bg-white/40 flex-shrink-0"></div>
-                {/* Mixvoip CyberAssistance */}
-                <div className="text-white flex flex-col items-center">
+                {/* Mixvoip CyberAssistance — centered in remaining space */}
+                <div className="text-white flex flex-col items-center flex-1">
                   <div className="flex items-center gap-3">
-                    <Shield className="h-8 w-8 md:h-10 md:w-10" />
-                    <h3 className="text-2xl md:text-3xl font-bold">Mixvoip CyberAssistance</h3>
-                    <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.assistance ? 'rotate-180' : ''}`} />
+                    <Shield className="h-7 w-7 md:h-8 md:w-8" />
+                    <h3 className="text-xl md:text-2xl font-bold">Mixvoip CyberAssistance</h3>
+                    <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${openSections.assistance ? 'rotate-180' : ''}`} />
                   </div>
-                  <p className="text-green-100 text-sm md:text-base mt-1">{t('pricing.assistance.tagline')}</p>
-                  <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs md:text-sm font-medium text-white">{t('pricing.monthlyBilling')}</span>
+                  <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
+                  <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
                 </div>
               </div>
             </div>
