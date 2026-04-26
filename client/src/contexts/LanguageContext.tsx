@@ -249,6 +249,10 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2026 Mixvoip SA. All rights reserved.',
     'footer.offices': 'Office Locations',
     'footer.downloadBrochure': 'Download Brochure',
+
+    // Cross Navigation
+    'crossnav.title': 'Explore the Cyber Suite',
+    'crossnav.explore': 'Learn more',
     
     // Pricing Section
     'pricing.title': 'Pricing',
@@ -857,6 +861,10 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2026 Mixvoip SA. Tous droits réservés.',
     'footer.offices': 'Nos bureaux',
     'footer.downloadBrochure': 'Télécharger la brochure',
+
+    // Cross Navigation
+    'crossnav.title': 'Explorez la Cyber Suite',
+    'crossnav.explore': 'En savoir plus',
     
     // Pricing Section
     'pricing.title': 'Tarifs',
@@ -1463,6 +1471,10 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2026 Mixvoip SA. Alle Rechte vorbehalten.',
     'footer.offices': 'Standorte',
     'footer.downloadBrochure': 'Broschüre herunterladen',
+
+    // Cross Navigation
+    'crossnav.title': 'Entdecken Sie die Cyber Suite',
+    'crossnav.explore': 'Mehr erfahren',
     
     // Pricing Section
     'pricing.title': 'Preise',
@@ -1867,9 +1879,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       if (typeof window !== 'undefined') {
         localStorage.setItem('language', lang);
         document.documentElement.lang = lang;
-        // Navigate to new language URL, preserving hash
+        // Navigate to new language URL, preserving subpath and hash
+        const currentPath = window.location.pathname;
         const hash = window.location.hash;
-        const newPath = `/${lang}/${hash}`;
+        // Extract subpath after /{lang}/ (e.g., "advisor", "socaas")
+        const subpathMatch = currentPath.match(/^\/(de|en|fr)\/(.+)$/);
+        const subpath = subpathMatch ? subpathMatch[2] : '';
+        const newPath = subpath ? `/${lang}/${subpath}${hash}` : `/${lang}/${hash}`;
         setLocation(newPath);
       }
     }

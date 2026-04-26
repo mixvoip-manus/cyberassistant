@@ -11,6 +11,7 @@ import Fit4CyberAssessment from '@/components/Fit4CyberAssessment';
 import BookMeetingCTA from '@/components/BookMeetingCTA';
 import FAQ from '@/components/FAQ';
 import CoverageFAQ from '@/components/CoverageFAQ';
+import CrossNavigation from '@/components/CrossNavigation';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
         {/* <FAQ /> */}
         {/* <CoverageAccordion /> */}
         <CoverageFAQ />
+        <CrossNavigation currentPage="assistance" />
         {/* AnimatedPresentation hidden - moved to end for later use */}
         {/* <AnimatedPresentation /> */}
       </main>

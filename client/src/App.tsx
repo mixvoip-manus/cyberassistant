@@ -4,6 +4,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Home from "@/pages/Home";
+import AdvisorPage from "@/pages/AdvisorPage";
+import SocaasPage from "@/pages/SocaasPage";
 import NotFound from "@/pages/NotFound";
 import { useEffect } from "react";
 
@@ -24,8 +26,8 @@ export function getLanguageFromPath(path: string): SupportedLanguage {
 }
 
 // Build full path with language
-export function buildPath(lang: SupportedLanguage, hash?: string): string {
-  return hash ? `/${lang}/#${hash}` : `/${lang}/`;
+export function buildPath(lang: SupportedLanguage, subpath?: string): string {
+  return subpath ? `/${lang}/${subpath}` : `/${lang}/`;
 }
 
 // Get asset path with current language
@@ -46,13 +48,23 @@ function LanguageRouter() {
 
   return (
     <Switch>
-      {/* Language-specific routes */}
+      {/* Language-specific home routes */}
       <Route path="/de" component={Home} />
       <Route path="/de/" component={Home} />
       <Route path="/en" component={Home} />
       <Route path="/en/" component={Home} />
       <Route path="/fr" component={Home} />
       <Route path="/fr/" component={Home} />
+
+      {/* CyberAdvisory page */}
+      <Route path="/de/advisor" component={AdvisorPage} />
+      <Route path="/en/advisor" component={AdvisorPage} />
+      <Route path="/fr/advisor" component={AdvisorPage} />
+
+      {/* SOC as a Service page */}
+      <Route path="/de/socaas" component={SocaasPage} />
+      <Route path="/en/socaas" component={SocaasPage} />
+      <Route path="/fr/socaas" component={SocaasPage} />
       
       {/* Redirect unsupported languages to English */}
       <Route path="/:lang">
@@ -60,6 +72,14 @@ function LanguageRouter() {
       </Route>
       <Route path="/:lang/">
         {() => <Redirect to="/en/" />}
+      </Route>
+      <Route path="/:lang/:rest*">
+        {(params: { lang: string }) => {
+          if (!SUPPORTED_LANGUAGES.includes(params.lang as SupportedLanguage)) {
+            return <Redirect to="/en/" />;
+          }
+          return <NotFound />;
+        }}
       </Route>
       
       {/* Root redirect */}

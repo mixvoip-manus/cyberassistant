@@ -1,13 +1,33 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Eye, Scale, BookOpen } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'wouter';
 
-export default function CyberSuite() {
-  const { t, getAssetUrl } = useLanguage();
+interface CyberSuiteProps {
+  /** Which partner to highlight: 'advisory' = Luxgap big, 'socaas' = RSecure big, undefined = default (Foyer big) */
+  highlightPartner?: 'advisory' | 'socaas';
+}
+
+export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
+  const { t, language, getAssetUrl } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(true);
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [autoRotate, setAutoRotate] = useState(true);
+
+  // Set initial active index based on which page we're on
+  useEffect(() => {
+    if (highlightPartner === 'advisory') {
+      setActiveIndex(3); // advisory pillar
+      setAutoRotate(false);
+    } else if (highlightPartner === 'socaas') {
+      setActiveIndex(0); // socaas pillar
+      setAutoRotate(false);
+    } else {
+      setActiveIndex(0);
+      setAutoRotate(true);
+    }
+  }, [highlightPartner]);
 
   // Intersection observer for scroll-triggered animation
   useEffect(() => {
@@ -42,6 +62,7 @@ export default function CyberSuite() {
       logo: '/images/Rsecure.svg',
       logoAlt: 'RSecure',
       angle: 180,
+      linkTo: `/${language}/socaas`,
     },
     {
       key: 'assistance',
@@ -52,6 +73,7 @@ export default function CyberSuite() {
       logo: '/images/mixvoip-logo.svg',
       logoAlt: 'Mixvoip',
       angle: -90,
+      linkTo: `/${language}/`,
     },
     {
       key: 'assurance',
@@ -62,6 +84,7 @@ export default function CyberSuite() {
       logo: '/images/LeFoyer.svg',
       logoAlt: 'Le Foyer',
       angle: 0,
+      linkTo: `/${language}/`, // Foyer is part of CyberAssistance
     },
     {
       key: 'advisory',
@@ -72,10 +95,43 @@ export default function CyberSuite() {
       logo: '/images/luxgaplogo.svg',
       logoAlt: 'Luxgap',
       angle: 90,
+      linkTo: `/${language}/advisor`,
     },
   ];
 
   const radius = 160;
+
+  // Determine which logos to show and their sizes based on highlightPartner
+  const getLogoConfig = () => {
+    if (highlightPartner === 'advisory') {
+      return {
+        bigLogo: { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-20 md:h-28' },
+        smallLogos: [
+          { src: 'images/logo_le_foyer.svg', alt: 'Le Foyer', height: 'h-8 md:h-10' },
+          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10' },
+        ],
+      };
+    }
+    if (highlightPartner === 'socaas') {
+      return {
+        bigLogo: { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-20 md:h-28' },
+        smallLogos: [
+          { src: 'images/logo_le_foyer.svg', alt: 'Le Foyer', height: 'h-8 md:h-10' },
+          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10' },
+        ],
+      };
+    }
+    // Default: Le Foyer big
+    return {
+      bigLogo: { src: 'images/logo_le_foyer.svg', alt: 'Le Foyer', height: 'h-20 md:h-28' },
+      smallLogos: [
+        { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-10' },
+        { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-10' },
+      ],
+    };
+  };
+
+  const logoConfig = getLogoConfig();
 
   return (
     <>
@@ -90,19 +146,19 @@ export default function CyberSuite() {
         </div>
       </div>
 
-      {/* Main dark section with Le Foyer left, title, circle, details, partner logos */}
+      {/* Main dark section with logo left, title, circle, details, partner logos */}
       <section ref={sectionRef} className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
         <div className="container">
           <div className="max-w-7xl mx-auto">
 
-            {/* Top area: Le Foyer left + Title right */}
+            {/* Top area: Big logo left + Title right */}
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 pt-10 md:pt-14 pb-8 md:pb-10">
-              {/* Le Foyer logo — large, dominant */}
+              {/* Big partner logo */}
               <div className="flex-shrink-0 bg-white rounded-2xl p-5 md:p-6 shadow-lg">
                 <img
-                  src={getAssetUrl('images/logo_le_foyer.svg')}
-                  alt="Le Foyer"
-                  className="h-20 md:h-28 w-auto object-contain"
+                  src={getAssetUrl(logoConfig.bigLogo.src)}
+                  alt={logoConfig.bigLogo.alt}
+                  className={`${logoConfig.bigLogo.height} w-auto object-contain`}
                 />
               </div>
 
@@ -170,27 +226,29 @@ export default function CyberSuite() {
                           }}
                         />
                         
-                        {/* Node */}
-                        <button
-                          onClick={() => { setActiveIndex(index); setAutoRotate(false); }}
-                          className={`w-[88px] h-[88px] rounded-full flex flex-col items-center justify-center transition-all duration-500 cursor-pointer border-2 ${
-                            isActive
-                              ? `bg-gradient-to-br ${pillar.gradient} border-white/30 shadow-lg ${pillar.glowColor} scale-110`
-                              : 'bg-slate-800 border-slate-600 hover:border-slate-500 hover:scale-105'
-                          }`}
-                        >
-                          <div className={`transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-400'}`}>
-                            {pillar.icon}
-                          </div>
-                          <span className={`text-[9px] font-bold mt-1 uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-500'}`}>
-                            {t(`cycle.${pillar.key}.short`)}
-                          </span>
-                        </button>
+                        {/* Node — clicking navigates to the page */}
+                        <Link href={pillar.linkTo}>
+                          <button
+                            onMouseEnter={() => { setActiveIndex(index); setAutoRotate(false); }}
+                            className={`w-[88px] h-[88px] rounded-full flex flex-col items-center justify-center transition-all duration-500 cursor-pointer border-2 ${
+                              isActive
+                                ? `bg-gradient-to-br ${pillar.gradient} border-white/30 shadow-lg ${pillar.glowColor} scale-110`
+                                : 'bg-slate-800 border-slate-600 hover:border-slate-500 hover:scale-105'
+                            }`}
+                          >
+                            <div className={`transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-400'}`}>
+                              {pillar.icon}
+                            </div>
+                            <span className={`text-[9px] font-bold mt-1 uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-500'}`}>
+                              {t(`cycle.${pillar.key}.short`)}
+                            </span>
+                          </button>
+                        </Link>
 
                         {/* Pulse ring when active */}
                         {isActive && (
                           <div
-                            className="absolute inset-0 rounded-full animate-ping-slow"
+                            className="absolute inset-0 rounded-full animate-ping-slow pointer-events-none"
                             style={{ border: `2px solid ${pillar.color}`, opacity: 0.3 }}
                           />
                         )}
@@ -250,12 +308,10 @@ export default function CyberSuite() {
                         <img
                           src={getAssetUrl(pillars[activeIndex].logo.slice(1))}
                           alt={pillars[activeIndex].logoAlt}
-                          className="h-5 object-contain brightness-0 invert opacity-60"
+                          className="h-5 brightness-0 invert opacity-80"
                         />
                       </div>
                     </div>
-
-                    {/* Analogy — hidden */}
 
                     {/* Navigation dots */}
                     <div className="flex gap-2 pt-2">
@@ -274,40 +330,30 @@ export default function CyberSuite() {
                 ) : null}
               </div>
 
-              {/* Luxgap + RSecure stacked on the right */}
+              {/* Small partner logos stacked on the right */}
               <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 mt-32 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-                <div className="bg-white rounded-xl shadow-md w-[180px] h-[70px] flex items-center justify-center px-4">
-                  <img
-                    src={getAssetUrl('images/luxgap-full.webp')}
-                    alt="Luxgap"
-                    className="h-10 w-auto object-contain"
-                  />
-                </div>
-                <div className="bg-white rounded-xl shadow-md w-[180px] h-[70px] flex items-center justify-center px-4">
-                  <img
-                    src={getAssetUrl('images/rsecure-full.png')}
-                    alt="RSecure"
-                    className="h-10 w-auto object-contain"
-                  />
-                </div>
+                {logoConfig.smallLogos.map((logo) => (
+                  <div key={logo.alt} className="bg-white rounded-xl shadow-md w-[140px] h-[56px] flex items-center justify-center px-3">
+                    <img
+                      src={getAssetUrl(logo.src)}
+                      alt={logo.alt}
+                      className={`${logo.height} w-auto object-contain`}
+                    />
+                  </div>
+                ))}
               </div>
 
-              {/* Mobile: Luxgap + RSecure row */}
+              {/* Mobile: Small partner logos row */}
               <div className="flex lg:hidden items-center justify-center gap-6">
-                <div className="bg-white rounded-xl shadow-md w-[150px] h-[56px] flex items-center justify-center px-3">
-                  <img
-                    src={getAssetUrl('images/luxgap-full.webp')}
-                    alt="Luxgap"
-                    className="h-8 w-auto object-contain"
-                  />
-                </div>
-                <div className="bg-white rounded-xl shadow-md w-[150px] h-[56px] flex items-center justify-center px-3">
-                  <img
-                    src={getAssetUrl('images/rsecure-full.png')}
-                    alt="RSecure"
-                    className="h-8 w-auto object-contain"
-                  />
-                </div>
+                {logoConfig.smallLogos.map((logo) => (
+                  <div key={logo.alt} className="bg-white rounded-xl shadow-md w-[120px] h-[48px] flex items-center justify-center px-3">
+                    <img
+                      src={getAssetUrl(logo.src)}
+                      alt={logo.alt}
+                      className="h-7 w-auto object-contain"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
