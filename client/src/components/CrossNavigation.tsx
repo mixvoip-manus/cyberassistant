@@ -1,6 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, BookOpen, Eye } from 'lucide-react';
-import { Link } from 'wouter';
 
 interface CrossNavigationProps {
   /** Which page we're currently on — hide that link */
@@ -13,7 +12,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
   const pages = [
     {
       key: 'assistance',
-      path: `/${language}/`,
+      path: `/${language}/#pricing`,
       icon: <Shield className="h-5 w-5" />,
       title: 'CyberAssistance',
       subtitle: t('pricing.assistance.tagline'),
@@ -22,7 +21,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
     },
     {
       key: 'advisor',
-      path: `/${language}/advisor`,
+      path: `/${language}/advisor#pricing`,
       icon: <BookOpen className="h-5 w-5" />,
       title: 'CyberAdvisory',
       subtitle: t('pricing.advisory.tagline'),
@@ -31,7 +30,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
     },
     {
       key: 'socaas',
-      path: `/${language}/socaas`,
+      path: `/${language}/socaas#pricing`,
       icon: <Eye className="h-5 w-5" />,
       title: 'SOC as a Service',
       subtitle: t('pricing.socaas.tagline'),
@@ -51,7 +50,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
           </h3>
           <div className="grid md:grid-cols-2 gap-4">
             {otherPages.map(page => (
-              <Link key={page.key} href={page.path}>
+              <a key={page.key} href={page.path} className="no-underline">
                 <div className={`${page.color} ${page.hoverColor} text-white rounded-xl p-5 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}>
                   <div className="flex items-center gap-3 mb-2">
                     {page.icon}
@@ -62,7 +61,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
                     {t('crossnav.explore')} →
                   </span>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

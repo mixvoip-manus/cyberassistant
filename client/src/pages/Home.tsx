@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import { useHashScroll } from '@/hooks/useHashScroll';
 import Hero from '@/components/Hero';
 import AnimatedPresentation from '@/components/AnimatedPresentation';
 import WhatIs from '@/components/WhatIs';
@@ -15,6 +16,7 @@ import CrossNavigation from '@/components/CrossNavigation';
 import Footer from '@/components/Footer';
 
 export default function Home() {
+  useHashScroll();
   return (
     <div className="min-h-screen bg-background">
       <Header />

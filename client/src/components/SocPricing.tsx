@@ -5,7 +5,7 @@ export default function SocPricing() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 md:py-24 bg-slate-50">
+    <section id="pricing" className="py-16 md:py-24 bg-slate-50">
       <div className="container">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
