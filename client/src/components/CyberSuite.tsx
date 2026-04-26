@@ -73,7 +73,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       logo: '/images/mixvoip-logo.svg',
       logoAlt: 'Mixvoip',
       angle: -90,
-      linkTo: `/${language}/`,
+      linkTo: `/${language}/assistance`,
     },
     {
       key: 'assurance',
@@ -84,7 +84,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       logo: '/images/LeFoyer.svg',
       logoAlt: 'Le Foyer',
       angle: 0,
-      linkTo: `/${language}/`, // Foyer is part of CyberAssistance
+      linkTo: `/${language}/assistance`, // Foyer is part of CyberAssistance
     },
     {
       key: 'advisory',

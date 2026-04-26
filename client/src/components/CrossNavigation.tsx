@@ -12,7 +12,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
   const pages = [
     {
       key: 'assistance',
-      path: `/${language}/#pricing`,
+      path: `/${language}/assistance#pricing`,
       icon: <Shield className="h-5 w-5" />,
       title: 'CyberAssistance',
       subtitle: t('pricing.assistance.tagline'),

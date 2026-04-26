@@ -1885,7 +1885,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         // Extract subpath after /{lang}/ (e.g., "advisor", "socaas")
         const subpathMatch = currentPath.match(/^\/(de|en|fr)\/(.+)$/);
         const subpath = subpathMatch ? subpathMatch[2] : '';
-        const newPath = subpath ? `/${lang}/${subpath}${hash}` : `/${lang}/${hash}`;
+        const newPath = subpath ? `/${lang}/${subpath}${hash}` : `/${lang}/assistance${hash}`;
         setLocation(newPath);
       }
     }

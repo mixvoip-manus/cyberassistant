@@ -27,7 +27,7 @@ export function getLanguageFromPath(path: string): SupportedLanguage {
 
 // Build full path with language
 export function buildPath(lang: SupportedLanguage, subpath?: string): string {
-  return subpath ? `/${lang}/${subpath}` : `/${lang}/`;
+  return subpath ? `/${lang}/${subpath}` : `/${lang}/assistance`;
 }
 
 // Get asset path with current language
@@ -39,22 +39,39 @@ export function getAssetPath(assetPath: string, lang: SupportedLanguage): string
 function LanguageRouter() {
   const [location, setLocation] = useLocation();
   
-  // Handle root redirect
+  // Handle root redirect and bare language redirects
   useEffect(() => {
     if (location === "/" || location === "") {
-      setLocation("/en/");
+      setLocation("/en/assistance");
     }
   }, [location, setLocation]);
 
   return (
     <Switch>
-      {/* Language-specific home routes */}
-      <Route path="/de" component={Home} />
-      <Route path="/de/" component={Home} />
-      <Route path="/en" component={Home} />
-      <Route path="/en/" component={Home} />
-      <Route path="/fr" component={Home} />
-      <Route path="/fr/" component={Home} />
+      {/* CyberAssistance page (primary) */}
+      <Route path="/de/assistance" component={Home} />
+      <Route path="/en/assistance" component={Home} />
+      <Route path="/fr/assistance" component={Home} />
+
+      {/* Redirect bare language paths to /assistance */}
+      <Route path="/de">
+        {() => <Redirect to="/de/assistance" />}
+      </Route>
+      <Route path="/de/">
+        {() => <Redirect to="/de/assistance" />}
+      </Route>
+      <Route path="/en">
+        {() => <Redirect to="/en/assistance" />}
+      </Route>
+      <Route path="/en/">
+        {() => <Redirect to="/en/assistance" />}
+      </Route>
+      <Route path="/fr">
+        {() => <Redirect to="/fr/assistance" />}
+      </Route>
+      <Route path="/fr/">
+        {() => <Redirect to="/fr/assistance" />}
+      </Route>
 
       {/* CyberAdvisory page */}
       <Route path="/de/advisor" component={AdvisorPage} />
@@ -68,15 +85,15 @@ function LanguageRouter() {
       
       {/* Redirect unsupported languages to English */}
       <Route path="/:lang">
-        {() => <Redirect to="/en/" />}
+        {() => <Redirect to="/en/assistance" />}
       </Route>
       <Route path="/:lang/">
-        {() => <Redirect to="/en/" />}
+        {() => <Redirect to="/en/assistance" />}
       </Route>
       <Route path="/:lang/:rest*">
         {(params: { lang: string }) => {
           if (!SUPPORTED_LANGUAGES.includes(params.lang as SupportedLanguage)) {
-            return <Redirect to="/en/" />;
+            return <Redirect to="/en/assistance" />;
           }
           return <NotFound />;
         }}
@@ -84,7 +101,7 @@ function LanguageRouter() {
       
       {/* Root redirect */}
       <Route path="/">
-        {() => <Redirect to="/en/" />}
+        {() => <Redirect to="/en/assistance" />}
       </Route>
       
       {/* 404 for everything else */}
