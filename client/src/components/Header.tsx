@@ -79,13 +79,6 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* CTA Button */}
-            <Button
-              onClick={() => scrollToSection('assessment')}
-              className="hidden sm:flex bg-[#00B050] hover:bg-[#00873D] text-white"
-            >
-              {t('nav.calculate')}
-            </Button>
 
             {/* Mobile Menu Button */}
             <Button
@@ -111,12 +104,7 @@ export default function Header() {
               >
                 {t('nav.contact')}
               </a>
-              <Button
-                onClick={() => scrollToSection('assessment')}
-                className="mt-2 bg-[#00B050] hover:bg-[#00873D] text-white"
-              >
-                {t('nav.calculate')}
-              </Button>
+
             </nav>
           </div>
         )}
