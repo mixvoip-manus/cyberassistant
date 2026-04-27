@@ -116,7 +116,7 @@ Output:
 ```bash
 pnpm start
 # or with custom port:
-PORT=4200 pnpm start
+PORT=3020 pnpm start
 ```
 
 Then visit `http://localhost:3000/go/cyber/en/assistance` (or your custom port).
@@ -129,14 +129,14 @@ The `deploy/` folder contains everything needed for production deployment:
 |------|---------|
 | `deploy/README.md` | Step-by-step deployment guide |
 | `deploy/nginx-cyber.conf` | Nginx location block for reverse proxy (+ static mode alternative) |
-| `deploy/cyber-assistance.service` | Systemd service file (runs as www-data, PORT=4200) |
+| `deploy/cyber-assistance.service` | Systemd service file (runs as www-data, PORT=3020, HOST=127.0.0.1) |
 
 ### Quick deploy
 
 ```bash
 # On the server:
-git clone https://github.com/mixvoip-manus/cyberassistant.git /opt/cyber-assistance
-cd /opt/cyber-assistance
+git clone https://github.com/mixvoip-manus/cyberassistant.git /var/www/html/go/cyberassistant
+cd /var/www/html/go/cyberassistant
 pnpm install
 pnpm build
 
@@ -156,6 +156,7 @@ sudo nginx -t && sudo systemctl reload nginx
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `PORT` | `3000` | Port the Node.js server listens on |
+| `HOST` | `127.0.0.1` | Address to bind to (use `127.0.0.1` for localhost-only, `0.0.0.0` for all interfaces) |
 | `NODE_ENV` | — | Set to `production` for production builds |
 
 ## Routing Architecture

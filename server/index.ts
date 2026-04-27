@@ -29,11 +29,12 @@ async function startServer() {
     res.redirect("/go/cyber/en/assistance");
   });
 
-  // Configurable port via environment variable
+  // Configurable port and host via environment variables
   const port = parseInt(process.env.PORT || "3000", 10);
+  const host = process.env.HOST || "127.0.0.1";
 
-  server.listen(port, () => {
-    console.log(`CyberAssistance server running on http://localhost:${port}/go/cyber/`);
+  server.listen(port, host, () => {
+    console.log(`CyberAssistance server running on http://${host}:${port}/go/cyber/`);
   });
 }
 

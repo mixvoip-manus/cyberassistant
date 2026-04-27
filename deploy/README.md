@@ -30,8 +30,8 @@ Root (`/go/cyber/`) redirects to `/go/cyber/en/assistance`.
 
 ```bash
 # Clone the repository
-git clone git@github.com:mixvoip-manus/cyberassistant.git /opt/cyber-assistance
-cd /opt/cyber-assistance
+git clone git@github.com:mixvoip-manus/cyberassistant.git /var/www/html/go/cyberassistant
+cd /var/www/html/go/cyberassistant
 
 # Install dependencies
 pnpm install
@@ -54,13 +54,13 @@ Set the `PORT` environment variable to configure which port the Node.js server l
 
 ```bash
 # Option 1: Inline
-PORT=4200 node dist/index.js
+PORT=3020 node dist/index.js
 
 # Option 2: In systemd service file (see deploy/cyber-assistance.service)
-Environment=PORT=4200
+Environment=PORT=3020
 
 # Option 3: Export before running
-export PORT=4200
+export PORT=3020
 node dist/index.js
 ```
 
@@ -125,7 +125,7 @@ See `deploy/nginx-cyber.conf` for both configurations (static mode is commented 
 ## Update Procedure
 
 ```bash
-cd /opt/cyber-assistance
+cd /var/www/html/go/cyberassistant
 git pull
 pnpm install
 pnpm build

@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=www-data
 Group=www-data
-WorkingDirectory=/opt/cyber-assistance
+WorkingDirectory=/var/www/html/go/cyberassistant
 ExecStart=/usr/bin/node dist/index.js
 Restart=on-failure
 RestartSec=5
@@ -15,13 +15,14 @@ StandardError=journal
 
 # Environment — set PORT here or via .env file
 Environment=NODE_ENV=production
-Environment=PORT=4200
+Environment=PORT=3020
+Environment=HOST=127.0.0.1
 
 # Security hardening
 NoNewPrivileges=true
 ProtectSystem=strict
 ProtectHome=true
-ReadWritePaths=/opt/cyber-assistance
+ReadWritePaths=/var/www/html/go/cyberassistant
 
 [Install]
 WantedBy=multi-user.target
