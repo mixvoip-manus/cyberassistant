@@ -239,7 +239,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.a8': 'CyberAssistance and SOC as a Service are billed monthly and can be cancelled monthly. CyberAdvisory is billed monthly. Le Foyer Cyber Pro: the contract is concluded directly between Le Foyer and the end customer — terms are defined individually.',
     
     // Footer
-    'footer.disclaimer': 'Insurance coverage is provided by a licensed Luxembourg insurance company. Mixvoip SA acts as an intermediary and is not the insurer. Terms and conditions apply.',
+    'footer.disclaimer': '',
     'footer.legal': 'Legal Notice',
     'footer.privacy': 'Privacy Policy',
     'footer.gdpr': 'GDPR',
@@ -851,7 +851,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.a8': 'CyberAssistance et SOC as a Service sont facturés mensuellement et résiliables chaque mois. CyberAdvisory est facturé mensuellement. Le Foyer Cyber Pro : le contrat est conclu directement entre Le Foyer et le client final — les conditions sont définies individuellement.',
     
     // Footer
-    'footer.disclaimer': 'La couverture d\'assurance est fournie par une compagnie d\'assurance luxembourgeoise agréée. Mixvoip SA agit en tant qu\'intermédiaire et n\'est pas l\'assureur. Des conditions générales s\'appliquent.',
+    'footer.disclaimer': '',
     'footer.legal': 'Mentions légales',
     'footer.privacy': 'Politique de confidentialité',
     'footer.gdpr': 'RGPD',
@@ -1461,7 +1461,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.a8': 'CyberAssistance und SOC as a Service werden monatlich abgerechnet und sind monatlich kündbar. CyberAdvisory wird monatlich abgerechnet. Le Foyer Cyber Pro: Der Vertrag wird direkt zwischen Le Foyer und dem Endkunden abgeschlossen — die Konditionen werden individuell festgelegt.',
     
     // Footer
-    'footer.disclaimer': 'Der Versicherungsschutz wird von einem lizenzierten luxemburgischen Versicherungsunternehmen bereitgestellt. Mixvoip SA handelt als Vermittler und ist nicht der Versicherer. Es gelten die Allgemeinen Geschäftsbedingungen.',
+    'footer.disclaimer': '',
     'footer.legal': 'Impressum',
     'footer.privacy': 'Datenschutz',
     'footer.gdpr': 'DSGVO',

@@ -49,9 +49,7 @@ export default function Footer() {
                 className="h-10 w-auto mb-4"
               />
             </a>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-md mb-6">
-              {t('footer.disclaimer')}
-            </p>
+
             {/* Download Brochure */}
             <a
               href="https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/Mixvoip_Cyber_Suite_Brochure_2026_ffe159a9.pdf"
