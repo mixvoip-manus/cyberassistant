@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Phone, Mail, MapPin, Download } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const { t, getAssetUrl } = useLanguage();
@@ -50,15 +50,6 @@ export default function Footer() {
               />
             </a>
 
-            {/* Download Brochure */}
-            <a
-              href="https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/Mixvoip_Cyber_Suite_Brochure_2026_ffe159a9.pdf"
-              download
-              className="inline-flex items-center gap-2 bg-[#00B050] hover:bg-[#00963f] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-            >
-              <Download className="h-4 w-4" />
-              {t('footer.downloadBrochure')}
-            </a>
           </div>
 
           {/* Contact */}
