@@ -8,8 +8,10 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
+const isProd = process.env.NODE_ENV === 'production';
+
 export default defineConfig({
-  base: '/go/cyber/',
+  base: isProd ? '/go/cyber/' : '/',
   plugins,
   resolve: {
     alias: {
