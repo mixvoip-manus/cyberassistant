@@ -2,19 +2,19 @@
 
 ## Overview
 
-The CyberAssistance web application is a React SPA served by a minimal Node.js/Express server. It runs under the path `/go/cyber/` and supports multi-language routing (EN/DE/FR).
+The CyberAssistance web application is a React SPA served by a minimal Node.js/Express server. It runs under the path `/cyber/` and supports multi-language routing (EN/DE/FR).
 
 ## URLs
 
 | Page | Path |
 |------|------|
-| CyberAssistance | `/go/cyber/{lang}/assistance` |
-| CyberAdvisory | `/go/cyber/{lang}/advisor` |
-| SOC as a Service | `/go/cyber/{lang}/socaas` |
+| CyberAssistance | `/cyber/{lang}/assistance` |
+| CyberAdvisory | `/cyber/{lang}/advisor` |
+| SOC as a Service | `/cyber/{lang}/socaas` |
 
 Where `{lang}` is one of: `en`, `de`, `fr`
 
-Root (`/go/cyber/`) redirects to `/go/cyber/en/assistance`.
+Root (`/cyber/`) redirects to `/cyber/en/assistance`.
 
 ---
 
@@ -30,13 +30,13 @@ Root (`/go/cyber/`) redirects to `/go/cyber/en/assistance`.
 
 ```bash
 # Clone the repository
-git clone git@github.com:mixvoip-manus/cyberassistant.git /var/www/html/go/cyberassistant
-cd /var/www/html/go/cyberassistant
+git clone git@github.com:mixvoip-manus/cyberassistant.git /var/www/html/cyberassistant
+cd /var/www/html/cyberassistant
 
 # Install dependencies
 pnpm install
 
-# Build for production (with /go/cyber/ base path)
+# Build for production (with /cyber/ base path)
 pnpm run build:prod
 ```
 
@@ -106,7 +106,7 @@ server {
 }
 ```
 
-Or copy the relevant `location /go/cyber/` block directly into your existing config.
+Or copy the relevant `location /cyber/` block directly into your existing config.
 
 Then reload:
 ```bash
@@ -125,7 +125,7 @@ See `deploy/nginx-cyber.conf` for both configurations (static mode is commented 
 ## Update Procedure
 
 ```bash
-cd /var/www/html/go/cyberassistant
+cd /var/www/html/cyberassistant
 git pull
 pnpm install
 pnpm run build:prod
@@ -138,7 +138,7 @@ sudo systemctl restart cyber-assistance
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
-| 404 on direct URL access | Nginx not forwarding to Node.js | Check `location /go/cyber/` block |
+| 404 on direct URL access | Nginx not forwarding to Node.js | Check `location /cyber/` block |
 | Blank page | Assets loading from wrong path | Ensure you used `pnpm run build:prod` (not `pnpm build`) |
 | Port conflict | Another service on same port | Change `PORT` env variable |
 | CSS/JS not loading | Cached old assets | Hard refresh (Ctrl+Shift+R) or clear browser cache |

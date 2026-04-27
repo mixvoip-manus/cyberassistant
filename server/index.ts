@@ -16,17 +16,17 @@ async function startServer() {
       ? path.resolve(__dirname, "public")
       : path.resolve(__dirname, "..", "dist", "public");
 
-  // Serve static assets (JS, CSS, images) under /go/cyber/
-  app.use("/go/cyber", express.static(staticPath));
+  // Serve static assets (JS, CSS, images) under /cyber/
+  app.use("/cyber", express.static(staticPath));
 
-  // Handle client-side routing - serve index.html for all /go/cyber/* routes
-  app.get("/go/cyber/*", (_req, res) => {
+  // Handle client-side routing - serve index.html for all /cyber/* routes
+  app.get("/cyber/*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
 
-  // Redirect root to /go/cyber/
+  // Redirect root to /cyber/
   app.get("/", (_req, res) => {
-    res.redirect("/go/cyber/en/assistance");
+    res.redirect("/cyber/en/assistance");
   });
 
   // Configurable port and host via environment variables
@@ -34,7 +34,7 @@ async function startServer() {
   const host = process.env.HOST || "127.0.0.1";
 
   server.listen(port, host, () => {
-    console.log(`CyberAssistance server running on http://${host}:${port}/go/cyber/`);
+    console.log(`CyberAssistance server running on http://${host}:${port}/cyber/`);
   });
 }
 

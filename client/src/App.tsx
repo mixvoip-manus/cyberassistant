@@ -10,7 +10,7 @@ import NotFound from "@/pages/NotFound";
 import { useEffect } from "react";
 
 // Base path for the application — derived from Vite's base config
-// In production: '/go/cyber', in dev: '' (empty)
+// In production: '/cyber', in dev: '' (empty)
 const viteBase = import.meta.env.BASE_URL || '/';
 export const BASE_PATH = viteBase.endsWith('/') ? viteBase.slice(0, -1) : viteBase;
 

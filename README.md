@@ -4,15 +4,15 @@ A multilingual (EN/DE/FR) React single-page application for Mixvoip's cybersecur
 
 ## Live URLs
 
-The application is deployed under `mixvoip.com/go/cyber/` with language-prefixed routes:
+The application is deployed under `mixvoip.com/cyber/` with language-prefixed routes:
 
 | Page | URL Pattern |
 |------|-------------|
-| CyberAssistance | `/go/cyber/{lang}/assistance` |
-| CyberAdvisory | `/go/cyber/{lang}/advisor` |
-| SOC as a Service | `/go/cyber/{lang}/socaas` |
+| CyberAssistance | `/cyber/{lang}/assistance` |
+| CyberAdvisory | `/cyber/{lang}/advisor` |
+| SOC as a Service | `/cyber/{lang}/socaas` |
 
-Where `{lang}` is `en`, `de`, or `fr`. Root `/go/cyber/` redirects to `/go/cyber/en/assistance`.
+Where `{lang}` is `en`, `de`, or `fr`. Root `/cyber/` redirects to `/cyber/en/assistance`.
 
 ## Tech Stack
 
@@ -67,7 +67,7 @@ cyber-assistance/
 │   ├── README.md            # Detailed deployment instructions
 │   ├── nginx-cyber.conf     # Nginx reverse proxy configuration
 │   └── cyber-assistance.service  # Systemd service file
-├── vite.config.ts           # Vite config (base: '/go/cyber/')
+├── vite.config.ts           # Vite config (base: '/cyber/')
 ├── tsconfig.json
 └── package.json
 ```
@@ -93,7 +93,7 @@ pnpm install
 pnpm dev
 ```
 
-The dev server starts at `http://localhost:3000`. Note: in development, the app runs at the root path; the `/go/cyber/` base path applies only to production builds.
+The dev server starts at `http://localhost:3000`. Note: in development, the app runs at the root path; the `/cyber/` base path applies only to production builds.
 
 ### Type checking
 
@@ -107,7 +107,7 @@ pnpm check
 # Standard build (base path = /, for Manus deployment or standalone)
 pnpm build
 
-# Production build for mixvoip.com/go/cyber/ (base path = /go/cyber/)
+# Production build for mixvoip.com/cyber/ (base path = /cyber/)
 pnpm run build:prod
 ```
 
@@ -123,7 +123,7 @@ pnpm start
 PORT=3020 pnpm start
 ```
 
-Then visit `http://localhost:3000/go/cyber/en/assistance` (or your custom port).
+Then visit `http://localhost:3000/cyber/en/assistance` (or your custom port).
 
 ## Deployment
 
@@ -139,8 +139,8 @@ The `deploy/` folder contains everything needed for production deployment:
 
 ```bash
 # On the server:
-git clone https://github.com/mixvoip-manus/cyberassistant.git /var/www/html/go/cyberassistant
-cd /var/www/html/go/cyberassistant
+git clone https://github.com/mixvoip-manus/cyberassistant.git /var/www/html/cyberassistant
+cd /var/www/html/cyberassistant
 pnpm install
 pnpm build
 
@@ -165,10 +165,10 @@ sudo nginx -t && sudo systemctl reload nginx
 
 ## Routing Architecture
 
-The app uses Wouter with a base path of `/go/cyber`. All internal navigation via `<Link>` components uses paths relative to the base (e.g., `/en/assistance`). Only `<a href>` tags (used in CrossNavigation for hash fragment support) include the full base path.
+The app uses Wouter with a base path of `/cyber`. All internal navigation via `<Link>` components uses paths relative to the base (e.g., `/en/assistance`). Only `<a href>` tags (used in CrossNavigation for hash fragment support) include the full base path.
 
 Language switching preserves the current page and hash fragment:
-- `/go/cyber/en/advisor#pricing` → switch to FR → `/go/cyber/fr/advisor#pricing`
+- `/cyber/en/advisor#pricing` → switch to FR → `/cyber/fr/advisor#pricing`
 
 ## Partners
 

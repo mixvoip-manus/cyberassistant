@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=www-data
 Group=www-data
-WorkingDirectory=/var/www/html/go/cyberassistant
+WorkingDirectory=/var/www/html/cyberassistant
 ExecStart=/usr/bin/node dist/index.js
 Restart=on-failure
 RestartSec=5
@@ -22,7 +22,7 @@ Environment=HOST=127.0.0.1
 NoNewPrivileges=true
 ProtectSystem=strict
 ProtectHome=true
-ReadWritePaths=/var/www/html/go/cyberassistant
+ReadWritePaths=/var/www/html/cyberassistant
 
 [Install]
 WantedBy=multi-user.target
