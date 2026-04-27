@@ -104,7 +104,11 @@ pnpm check
 ### Build for production
 
 ```bash
+# Standard build (base path = /, for Manus deployment or standalone)
 pnpm build
+
+# Production build for mixvoip.com/go/cyber/ (base path = /go/cyber/)
+pnpm run build:prod
 ```
 
 Output:

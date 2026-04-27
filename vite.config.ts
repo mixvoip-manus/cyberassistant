@@ -8,10 +8,12 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
-const isProd = process.env.NODE_ENV === 'production';
+// Base path: set VITE_BASE_PATH=/go/cyber/ when building for production server
+// Defaults to '/' for Manus deployment and local dev
+const basePath = process.env.VITE_BASE_PATH || '/';
 
 export default defineConfig({
-  base: isProd ? '/go/cyber/' : '/',
+  base: basePath,
   plugins,
   resolve: {
     alias: {

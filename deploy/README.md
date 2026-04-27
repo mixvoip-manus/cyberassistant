@@ -36,8 +36,8 @@ cd /var/www/html/go/cyberassistant
 # Install dependencies
 pnpm install
 
-# Build for production
-pnpm build
+# Build for production (with /go/cyber/ base path)
+pnpm run build:prod
 ```
 
 This produces:
@@ -128,7 +128,7 @@ See `deploy/nginx-cyber.conf` for both configurations (static mode is commented 
 cd /var/www/html/go/cyberassistant
 git pull
 pnpm install
-pnpm build
+pnpm run build:prod
 sudo systemctl restart cyber-assistance
 ```
 
@@ -139,6 +139,6 @@ sudo systemctl restart cyber-assistance
 | Symptom | Cause | Fix |
 |---------|-------|-----|
 | 404 on direct URL access | Nginx not forwarding to Node.js | Check `location /go/cyber/` block |
-| Blank page | Assets loading from wrong path | Verify `base: '/go/cyber/'` in vite.config.ts |
+| Blank page | Assets loading from wrong path | Ensure you used `pnpm run build:prod` (not `pnpm build`) |
 | Port conflict | Another service on same port | Change `PORT` env variable |
 | CSS/JS not loading | Cached old assets | Hard refresh (Ctrl+Shift+R) or clear browser cache |
