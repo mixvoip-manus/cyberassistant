@@ -82,7 +82,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       gradient: 'from-blue-600 to-blue-400',
       glowColor: 'shadow-blue-400/50',
       logo: '/images/LeFoyer.svg',
-      logoAlt: 'Le Foyer',
+      logoAlt: 'Foyer',
       angle: 0,
       linkTo: `/${language}/assistance`, // Foyer is part of CyberAssistance
     },
@@ -107,7 +107,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       return {
         bigLogo: { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-20 md:h-28' },
         smallLogos: [
-          { src: 'images/logo_le_foyer.svg', alt: 'Le Foyer', height: 'h-8 md:h-10' },
+          { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10' },
           { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10' },
         ],
       };
@@ -116,14 +116,14 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       return {
         bigLogo: { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-20 md:h-28' },
         smallLogos: [
-          { src: 'images/logo_le_foyer.svg', alt: 'Le Foyer', height: 'h-8 md:h-10' },
+          { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10' },
           { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10' },
         ],
       };
     }
-    // Default: Le Foyer big
+    // Default: Foyer big
     return {
-      bigLogo: { src: 'images/logo_le_foyer.svg', alt: 'Le Foyer', height: 'h-20 md:h-28' },
+      bigLogo: { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-20 md:h-28' },
       smallLogos: [
         { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-10' },
         { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-10' },
