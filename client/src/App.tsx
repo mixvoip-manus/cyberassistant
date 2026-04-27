@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation, Redirect } from "wouter";
+import { Switch, Route, useLocation, Redirect, Router } from "wouter";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,31 +9,33 @@ import SocaasPage from "@/pages/SocaasPage";
 import NotFound from "@/pages/NotFound";
 import { useEffect } from "react";
 
-// Base path for the application (empty = root level, nginx handles /mixcyber rewriting)
-export const BASE_PATH = "";
+// Base path for the application — matches nginx location and vite base
+export const BASE_PATH = "/go/cyber";
 
 // Supported languages
 export const SUPPORTED_LANGUAGES = ["de", "en", "fr"] as const;
 export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number];
 
-// Get language from URL path
+// Get language from URL path (after base path)
 export function getLanguageFromPath(path: string): SupportedLanguage {
-  const match = path.match(/^\/(de|en|fr)(\/|$)/);
+  // Strip base path prefix if present
+  const stripped = path.startsWith(BASE_PATH) ? path.slice(BASE_PATH.length) : path;
+  const match = stripped.match(/^\/(de|en|fr)(\/|$)/);
   if (match && SUPPORTED_LANGUAGES.includes(match[1] as SupportedLanguage)) {
     return match[1] as SupportedLanguage;
   }
   return "en"; // Default to English
 }
 
-// Build full path with language
+// Build full path with language (includes base path)
 export function buildPath(lang: SupportedLanguage, subpath?: string): string {
-  return subpath ? `/${lang}/${subpath}` : `/${lang}/assistance`;
+  return subpath ? `${BASE_PATH}/${lang}/${subpath}` : `${BASE_PATH}/${lang}/assistance`;
 }
 
 // Get asset path with current language
 export function getAssetPath(assetPath: string, lang: SupportedLanguage): string {
   const cleanPath = assetPath.startsWith("/") ? assetPath.slice(1) : assetPath;
-  return `/${lang}/${cleanPath}`;
+  return `${BASE_PATH}/${lang}/${cleanPath}`;
 }
 
 function LanguageRouter() {
@@ -113,12 +115,14 @@ function LanguageRouter() {
 function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="cyber-assistance-theme">
-      <LanguageProvider>
-        <TooltipProvider>
-          <LanguageRouter />
-          <Toaster />
-        </TooltipProvider>
-      </LanguageProvider>
+      <Router base={BASE_PATH}>
+        <LanguageProvider>
+          <TooltipProvider>
+            <LanguageRouter />
+            <Toaster />
+          </TooltipProvider>
+        </LanguageProvider>
+      </Router>
     </ThemeProvider>
   );
 }

@@ -1882,8 +1882,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         // Navigate to new language URL, preserving subpath and hash
         const currentPath = window.location.pathname;
         const hash = window.location.hash;
+        // Strip base path prefix (/go/cyber) if present
+        const basePath = '/go/cyber';
+        const pathWithoutBase = currentPath.startsWith(basePath) ? currentPath.slice(basePath.length) : currentPath;
         // Extract subpath after /{lang}/ (e.g., "advisor", "socaas")
-        const subpathMatch = currentPath.match(/^\/(de|en|fr)\/(.+)$/);
+        const subpathMatch = pathWithoutBase.match(/^\/(de|en|fr)\/(.+)$/);
         const subpath = subpathMatch ? subpathMatch[2] : '';
         const newPath = subpath ? `/${lang}/${subpath}${hash}` : `/${lang}/assistance${hash}`;
         setLocation(newPath);

@@ -1,0 +1,27 @@
+[Unit]
+Description=Mixvoip CyberAssistance Web Application
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/cyber-assistance
+ExecStart=/usr/bin/node dist/index.js
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Environment — set PORT here or via .env file
+Environment=NODE_ENV=production
+Environment=PORT=4200
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/cyber-assistance
+
+[Install]
+WantedBy=multi-user.target

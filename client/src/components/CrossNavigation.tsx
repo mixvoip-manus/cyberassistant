@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, BookOpen, Eye } from 'lucide-react';
+import { BASE_PATH } from '@/App';
 
 interface CrossNavigationProps {
   /** Which page we're currently on — hide that link */
@@ -12,7 +13,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
   const pages = [
     {
       key: 'assistance',
-      path: `/${language}/assistance#pricing`,
+      path: `${BASE_PATH}/${language}/assistance#pricing`,
       icon: <Shield className="h-5 w-5" />,
       title: 'CyberAssistance',
       subtitle: t('pricing.assistance.tagline'),
@@ -21,7 +22,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
     },
     {
       key: 'advisor',
-      path: `/${language}/advisor#pricing`,
+      path: `${BASE_PATH}/${language}/advisor#pricing`,
       icon: <BookOpen className="h-5 w-5" />,
       title: 'CyberAdvisory',
       subtitle: t('pricing.advisory.tagline'),
@@ -30,7 +31,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
     },
     {
       key: 'socaas',
-      path: `/${language}/socaas#pricing`,
+      path: `${BASE_PATH}/${language}/socaas#pricing`,
       icon: <Eye className="h-5 w-5" />,
       title: 'SOC as a Service',
       subtitle: t('pricing.socaas.tagline'),
