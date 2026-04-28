@@ -166,14 +166,14 @@ export default function PricingSection() {
                   </tr>
 
                   {/* Contract Info */}
-                  <tr className="border-b border-slate-100 bg-blue-50/20">
+                  <tr className="border-b border-blue-100 bg-blue-50">
                     <td colSpan={4} className="p-4 text-center">
                       <p className="text-sm text-slate-600 max-w-2xl mx-auto">{t('pricing.assurance.contractInfo')}</p>
                     </td>
                   </tr>
 
                   {/* Coverage List */}
-                  <tr className="bg-blue-50/20">
+                  <tr className="bg-blue-50">
                     <td colSpan={4} className="p-6">
                       <h4 className="font-bold text-slate-800 mb-4 text-sm text-center">{t('pricing.assurance.coverageTitle')}</h4>
                       <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto">
