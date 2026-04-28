@@ -66,7 +66,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 in 4 European SMEs fears a cyberattack could force them to close.',
     
     // Coverage Accordions
-    'coverage.title': 'What does the complete Cyber Suite cover in case of an attack?',
+    'coverage.title': 'What does Cyber Suite cover in case of attack?',
     'coverage.example.label': 'Example:',
     'coverage.viewDetails': 'View coverage details',
     'pricing.viewPlans': 'View plans',
@@ -677,7 +677,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 PME européenne sur 4 craint qu\'une cyberattaque puisse la contraindre à fermer.',
     
     // Coverage Accordions
-    'coverage.title': 'Que couvre la Cyber Suite complète en cas d\'attaque ?',
+    'coverage.title': 'Que couvre la Cyber Suite en cas d\'attaque ?',
     'coverage.example.label': 'Exemple :',
     'coverage.viewDetails': 'Voir les détails de couverture',
     'pricing.viewPlans': 'Voir les offres',
@@ -1286,7 +1286,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.bottomline': '1 von 4 europäischen KMU befürchtet, dass ein Cyberangriff sie zur Schließung zwingen könnte.',
     
     // Coverage Accordions
-    'coverage.title': 'Was deckt die komplette Cyber Suite im Angriffsfall ab?',
+    'coverage.title': 'Was deckt die Cyber Suite bei einem Angriff ab?',
     'coverage.example.label': 'Beispiel:',
     'coverage.viewDetails': 'Deckungsdetails anzeigen',
     'pricing.viewPlans': 'Angebote anzeigen',
