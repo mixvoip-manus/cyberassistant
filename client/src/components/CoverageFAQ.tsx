@@ -109,11 +109,11 @@ export default function CoverageFAQ() {
   return (
     <section id="coverage-faq" className="section-padding bg-slate-50">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
           
           {/* LEFT: Coverage Accordions */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('coverage.title')}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 min-h-[72px] flex items-end">{t('coverage.title')}</h2>
             <div className="space-y-3">
               {coverageData.map((coverage) => (
                 <div
@@ -122,7 +122,7 @@ export default function CoverageFAQ() {
                 >
                   <button
                     onClick={() => setOpenCoverageId(openCoverageId === coverage.id ? null : coverage.id)}
-                    className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                    className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors min-h-[52px]"
                   >
                     <div className="flex items-center gap-3">
                       <div className={cn('p-2 rounded-lg text-white', coverage.color)}>
@@ -174,7 +174,7 @@ export default function CoverageFAQ() {
 
           {/* RIGHT: FAQ + Cyber Emergency */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('faq.title')}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 min-h-[72px] flex items-end">{t('faq.title')}</h2>
             
             {/* FAQ Accordions - Cyber Emergency is the first item */}
             <div className="space-y-3">
@@ -182,7 +182,7 @@ export default function CoverageFAQ() {
               <div className="bg-white rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaqIndex(openFaqIndex === -1 ? null : -1)}
-                  className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                  className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors min-h-[52px]"
                 >
                   <span className="font-medium text-sm pr-4">
                     {t('pricing.selfQualification.title')}
@@ -250,7 +250,7 @@ export default function CoverageFAQ() {
                 >
                   <button
                     onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                    className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                    className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition-colors min-h-[52px]"
                   >
                     <span className="font-medium text-sm pr-4">{t(faq.q)}</span>
                     <ChevronDown
