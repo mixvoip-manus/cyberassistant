@@ -596,6 +596,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Cyber Suite by Mixvoip
     'cycle.badge': 'CyberAssistant powered by Foyer | Equidem',
+    'cycle.badgeAdvisory': 'CyberAdvisory powered by Luxgap',
+    'cycle.badgeSocaas': 'Mixvoip SOC as a Service powered by RSecure',
     'cycle.title': 'One Ecosystem. Complete Protection.',
     'cycle.subtitle': 'Each pillar strengthens the others – together they form an unbreakable chain of protection for your business.',
     'cycle.center': 'Mixvoip Cyber Suite',
@@ -1206,6 +1208,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Cyber Suite by Mixvoip
     'cycle.badge': 'CyberAssistant powered by Foyer | Equidem',
+    'cycle.badgeAdvisory': 'CyberAdvisory powered by Luxgap',
+    'cycle.badgeSocaas': 'Mixvoip SOC as a Service powered by RSecure',
     'cycle.title': 'Un Écosystème. Protection Complète.',
     'cycle.subtitle': 'Chaque pilier renforce les autres – ensemble, ils forment une chaîne de protection incassable pour votre entreprise.',
     'cycle.center': 'Mixvoip Cyber Suite',
@@ -1817,6 +1821,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Cyber Suite by Mixvoip
     'cycle.badge': 'CyberAssistant powered by Foyer | Equidem',
+    'cycle.badgeAdvisory': 'CyberAdvisory powered by Luxgap',
+    'cycle.badgeSocaas': 'Mixvoip SOC as a Service powered by RSecure',
     'cycle.title': 'Ein Ökosystem. Voller Schutz.',
     'cycle.subtitle': 'Jede Säule stärkt die anderen – zusammen bilden sie eine unzerbrechliche Schutzkette für Ihr Unternehmen.',
     'cycle.center': 'Mixvoip Cyber Suite',

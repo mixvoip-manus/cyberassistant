@@ -105,31 +105,29 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
   const getLogoConfig = () => {
     if (highlightPartner === 'advisory') {
       return {
-        bigLogos: [
-          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-16 md:h-20' },
-        ],
+        bigLogos: [] as { src: string; alt: string; height: string }[],
         smallLogos: [
-          { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10' },
-          { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10' },
-          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10' },
+          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-16 md:h-24', big: true, extraBig: true },
+          { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10', big: false },
+          { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10', big: false },
+          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10', big: false },
         ],
       };
     }
     if (highlightPartner === 'socaas') {
       return {
-        bigLogos: [
-          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-16 md:h-20' },
-        ],
+        bigLogos: [] as { src: string; alt: string; height: string }[],
         smallLogos: [
-          { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10' },
-          { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10' },
-          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10' },
+          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-16 md:h-24', big: true, extraBig: true },
+          { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10', big: false },
+          { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10', big: false },
+          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10', big: false },
         ],
       };
     }
     // Default: Foyer + Equidem on right (bigger), Luxgap + RSecure on right (smaller)
     return {
-      bigLogos: [],
+      bigLogos: [] as { src: string; alt: string; height: string }[],
       smallLogos: [
         { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-16 md:h-24', big: true, extraBig: true },
         { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-10 md:h-14', big: true, extraBig: false },
@@ -143,12 +141,16 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
 
   return (
     <>
-      {/* Green banner: Cyber Suite by Mixvoip */}
+      {/* Green banner: dynamic per page */}
       <div className="pt-16 md:pt-20">
         <div className="bg-[#00B050] py-3">
           <div className="container">
             <p className="text-white font-bold text-center text-lg md:text-xl tracking-wide">
-              {t('cycle.badge')}
+              {highlightPartner === 'advisory'
+                ? t('cycle.badgeAdvisory')
+                : highlightPartner === 'socaas'
+                  ? t('cycle.badgeSocaas')
+                  : t('cycle.badge')}
             </p>
           </div>
         </div>
