@@ -131,8 +131,8 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
     return {
       bigLogos: [],
       smallLogos: [
-        { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-12 md:h-16', big: true },
-        { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-10 md:h-14', big: true },
+        { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-16 md:h-24', big: true, extraBig: true },
+        { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-10 md:h-14', big: true, extraBig: false },
         { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10', big: false },
         { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10', big: false },
       ],
@@ -343,7 +343,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
               {/* Partner logos stacked on the right */}
               <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 mt-16 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
                 {logoConfig.smallLogos.map((logo: any) => (
-                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center px-3 ${logo.big ? 'w-[180px] h-[72px]' : 'w-[140px] h-[56px]'}`}>
+                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center px-3 ${logo.extraBig ? 'w-[220px] h-[100px]' : logo.big ? 'w-[180px] h-[72px]' : 'w-[140px] h-[56px]'}`}>
                     <img
                       src={getAssetUrl(logo.src)}
                       alt={logo.alt}
@@ -356,11 +356,11 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
               {/* Mobile: Partner logos row */}
               <div className="flex lg:hidden items-center justify-center gap-4 flex-wrap">
                 {logoConfig.smallLogos.map((logo: any) => (
-                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center px-3 ${logo.big ? 'w-[140px] h-[56px]' : 'w-[120px] h-[48px]'}`}>
+                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center px-3 ${logo.extraBig ? 'w-[160px] h-[72px]' : logo.big ? 'w-[140px] h-[56px]' : 'w-[120px] h-[48px]'}`}>
                     <img
                       src={getAssetUrl(logo.src)}
                       alt={logo.alt}
-                      className={`${logo.big ? 'h-9' : 'h-7'} w-auto object-contain`}
+                      className={`${logo.extraBig ? 'h-14' : logo.big ? 'h-9' : 'h-7'} w-auto object-contain`}
                     />
                   </div>
                 ))}
