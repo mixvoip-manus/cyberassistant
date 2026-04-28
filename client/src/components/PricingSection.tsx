@@ -117,16 +117,15 @@ export default function PricingSection() {
                   <tr className="border-b-2 border-blue-200">
                     <td colSpan={4} className="p-0">
                       <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
-                        <div className="flex items-center justify-center gap-4">
-                          <img src={getAssetUrl('/images/equidem-logo.png')} alt="Equidem" className="h-12 md:h-14 object-contain bg-white rounded-lg px-3 py-1" />
-                          <div className="text-center">
-                            <div className="flex items-center justify-center gap-2">
+                        <div className="flex items-center gap-6">
+                          <img src={getAssetUrl('/images/equidem-logo.png')} alt="Equidem" className="h-12 md:h-14 object-contain bg-white rounded-lg px-3 py-1 flex-shrink-0" />
+                          <div>
+                            <div className="flex items-center gap-2">
                               <Scale className="h-5 w-5 text-white" />
                               <span className="text-white font-bold text-lg">{t('pricing.assurance.productName')}</span>
                             </div>
                             <p className="text-blue-200 text-xs mt-1">{t('pricing.assurance.upgradeNote')}</p>
                           </div>
-                          <img src={getAssetUrl('/images/foyer-logo-new.jpg')} alt="Foyer" className="h-12 md:h-14 object-contain rounded-lg" />
                         </div>
                       </div>
                     </td>
