@@ -30,7 +30,7 @@ export default function PricingSection() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-slate-50">
+    <section id="pricing" className="pt-16 md:pt-24 pb-8 md:pb-12 bg-slate-50">
       <div className="container">
 
         {/* Single merged table: CyberAssistance + Foyer Cyber Pro */}

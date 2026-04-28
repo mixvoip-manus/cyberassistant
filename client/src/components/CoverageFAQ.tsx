@@ -107,7 +107,7 @@ export default function CoverageFAQ() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
-    <section id="coverage-faq" className="section-padding bg-slate-50">
+    <section id="coverage-faq" className="pt-8 md:pt-12 pb-16 md:pb-24 bg-slate-50">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           
