@@ -164,13 +164,6 @@ export default function PricingSection() {
                     </td>
                   </tr>
 
-                  {/* Contract Info */}
-                  <tr className="border-b border-blue-100 bg-blue-50">
-                    <td colSpan={4} className="p-4 text-center">
-                      <p className="text-sm text-slate-600 max-w-2xl mx-auto">{t('pricing.assurance.contractInfo')}</p>
-                    </td>
-                  </tr>
-
                   {/* Coverage List */}
                   <tr className="bg-blue-50">
                     <td colSpan={4} className="p-6">
@@ -205,6 +198,8 @@ export default function PricingSection() {
                           {t('pricing.assurance.bookMeeting')}
                         </a>
                       </div>
+                      {/* Contract Info - below action row */}
+                      <p className="text-xs text-slate-500 text-center mt-4">{t('pricing.assurance.contractInfo')}</p>
                     </td>
                   </tr>
 
