@@ -113,32 +113,23 @@ export default function PricingSection() {
                     <td className="p-4 text-center text-xs text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.cyberAssurance')}</td>
                   </tr>
 
-                  {/* ── Foyer Cyber Pro upgrade section ── */}
-                  <tr className="border-b-2 border-blue-200">
+                  {/* ── Foyer Cyber Pro upgrade — seamless premium tier ── */}
+                  <tr className="border-t-2 border-blue-200/50">
                     <td colSpan={4} className="p-0">
-                      <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
-                        <div className="flex items-center gap-6">
-                          <img src={getAssetUrl('/images/equidem-logo.png')} alt="Equidem" className="h-12 md:h-14 object-contain bg-white rounded-lg px-3 py-1 flex-shrink-0" />
-                          <div>
+                      <div className="bg-gradient-to-r from-blue-50/80 via-blue-100/60 to-blue-50/80 px-6 py-3">
+                        <div className="flex items-center gap-4">
+                          <img src={getAssetUrl('/images/equidem-logo.png')} alt="Equidem" className="h-8 md:h-10 object-contain flex-shrink-0" />
+                          <div className="flex-1">
                             <div className="flex items-center gap-2">
-                              <Scale className="h-5 w-5 text-white" />
-                              <span className="text-white font-bold text-lg">{t('pricing.assurance.productName')}</span>
+                              <Scale className="h-4 w-4 text-blue-600" />
+                              <span className="text-blue-800 font-semibold text-sm">{t('pricing.assurance.productName')}</span>
+                              <span className="text-[10px] font-medium bg-blue-600 text-white px-2 py-0.5 rounded-full uppercase tracking-wide">Premium Upgrade</span>
                             </div>
-                            <p className="text-blue-200 text-xs mt-1">{t('pricing.assurance.upgradeNote')}</p>
+                            <p className="text-blue-600/70 text-xs mt-0.5">{t('pricing.assurance.upgradeNote')}</p>
                           </div>
+                          <span className="text-blue-700 font-bold text-sm whitespace-nowrap">{t('pricing.assurance.onRequest')}</span>
                         </div>
                       </div>
-                    </td>
-                  </tr>
-
-                  {/* Foyer Cyber Pro — On Request row */}
-                  <tr className="border-b border-slate-100 bg-blue-50/30">
-                    <td className="p-4 font-medium text-slate-700 flex items-center gap-2">
-                      <Star className="h-4 w-4 text-blue-500" />
-                      <span>{t('pricing.assistance.foyerCyberProUpgrade')}</span>
-                    </td>
-                    <td colSpan={3} className="p-4 text-center">
-                      <span className="text-blue-600 font-bold text-lg">{t('pricing.assurance.onRequest')}</span>
                     </td>
                   </tr>
 
