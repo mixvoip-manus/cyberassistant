@@ -1,12 +1,28 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Scale, CheckCircle2, XCircle, ChevronDown, Zap, MapPin, Wifi, Gavel, FileText, Star, Download } from 'lucide-react';
+import { Shield, Scale, CheckCircle2, XCircle, ChevronDown, Zap, MapPin, Wifi, Gavel, FileText, Star, Download, Calendar } from 'lucide-react';
 
-const BROCHURE_URLS: Record<string, string> = {
-  en: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/pasted_file_kpZV6T_Brochurescyberpro_EN-Equidem_ab8081cc.pdf',
-  fr: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/pasted_file_z3z2xr_Depliantscyberpro_FR-Equidem_38660b1b.pdf',
-  de: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/brochure_DE_6234704c.pdf',
+const BROCHURE_URLS: Record<string, { url: string; filename: string }> = {
+  en: { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/pasted_file_kpZV6T_Brochurescyberpro_EN-Equidem_ab8081cc.pdf', filename: 'Foyer-CyberPro-Brochure-EN.pdf' },
+  fr: { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/pasted_file_z3z2xr_Depliantscyberpro_FR-Equidem_38660b1b.pdf', filename: 'Foyer-CyberPro-Brochure-FR.pdf' },
+  de: { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/brochure_DE_6234704c.pdf', filename: 'Foyer-CyberPro-Broschure-DE.pdf' },
 };
+
+function downloadBrochure(lang: string) {
+  const brochure = BROCHURE_URLS[lang] || BROCHURE_URLS.en;
+  fetch(brochure.url)
+    .then(res => res.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = brochure.filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+}
 
 export default function PricingSection() {
   const { t, language, getAssetUrl } = useLanguage();
@@ -143,18 +159,28 @@ export default function PricingSection() {
                             </div>
                             <p className="text-blue-600/70 text-xs mt-0.5">{t('pricing.assurance.upgradeNote')}</p>
                           </div>
-                          <div className="flex items-center gap-3 flex-shrink-0">
-                            <span className="text-blue-700 font-bold text-sm whitespace-nowrap">{t('pricing.assurance.onRequest')}</span>
-                            <a
-                              href={BROCHURE_URLS[language] || BROCHURE_URLS.en}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap"
-                            >
-                              <Download className="h-4 w-4" />
-                              {t('pricing.assurance.brochure')}
-                            </a>
-                          </div>
+                        </div>
+                        {/* Action row: On Request + Book a meeting + Brochure */}
+                        <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-blue-200/50">
+                          <span className="text-blue-800 font-bold text-lg">{t('pricing.assurance.onRequest')}</span>
+                          <span className="text-blue-300">|</span>
+                          <a
+                            href="https://voxbi.me/mixvoip/sales"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#00B050] hover:bg-[#009040] rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap"
+                          >
+                            <Calendar className="h-4 w-4" />
+                            {t('nav.bookMeeting')}
+                          </a>
+                          <span className="text-blue-300">|</span>
+                          <button
+                            onClick={() => downloadBrochure(language)}
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap cursor-pointer"
+                          >
+                            <Download className="h-4 w-4" />
+                            {t('pricing.assurance.brochure')}
+                          </button>
                         </div>
                       </div>
                     </td>
