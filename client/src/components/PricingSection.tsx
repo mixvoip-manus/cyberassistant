@@ -112,6 +112,16 @@ export default function PricingSection() {
                     <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.business.cyberAssurance')}</td>
                     <td className="p-4 text-center text-xs text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.cyberAssurance')}</td>
                   </tr>
+                  {/* Franchise row */}
+                  <tr className="border-b border-slate-100 hover:bg-slate-50/50 bg-emerald-50/30">
+                    <td className="p-4 font-medium text-slate-700">
+                      <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-emerald-500" />{t('pricing.assistance.franchise')}</div>
+                      <p className="text-[10px] text-emerald-600/70 mt-0.5 ml-6">{t('pricing.assistance.franchiseNote')}</p>
+                    </td>
+                    <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
+                    <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
+                    <td className="p-4 text-center bg-orange-50/50 border-x border-orange-100"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
+                  </tr>
 
                   {/* ── Foyer Cyber Pro upgrade — seamless premium tier ── */}
                   <tr className="border-t-2 border-blue-200/50">
