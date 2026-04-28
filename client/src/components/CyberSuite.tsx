@@ -127,15 +127,14 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
         ],
       };
     }
-    // Default: Foyer + Equidem big, Luxgap + RSecure small
+    // Default: Foyer + Equidem on right (bigger), Luxgap + RSecure on right (smaller)
     return {
-      bigLogos: [
-        { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-16 md:h-20' },
-        { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-12 md:h-16' },
-      ],
+      bigLogos: [],
       smallLogos: [
-        { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10' },
-        { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10' },
+        { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-12 md:h-16', big: true },
+        { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-10 md:h-14', big: true },
+        { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10', big: false },
+        { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10', big: false },
       ],
     };
   };
@@ -162,18 +161,20 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
 
             {/* Top area: Big logo(s) left + Title right */}
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 pt-10 md:pt-14 pb-8 md:pb-10">
-              {/* Big partner logos */}
-              <div className="flex items-center gap-4 flex-shrink-0">
-                {logoConfig.bigLogos.map((logo) => (
-                  <div key={logo.alt} className="bg-white rounded-2xl p-4 md:p-5 shadow-lg">
-                    <img
-                      src={getAssetUrl(logo.src)}
-                      alt={logo.alt}
-                      className={`${logo.height} w-auto object-contain`}
-                    />
-                  </div>
-                ))}
-              </div>
+              {/* Big partner logos (only if configured) */}
+              {logoConfig.bigLogos.length > 0 && (
+                <div className="flex items-center gap-4 flex-shrink-0">
+                  {logoConfig.bigLogos.map((logo) => (
+                    <div key={logo.alt} className="bg-white rounded-2xl p-4 md:p-5 shadow-lg">
+                      <img
+                        src={getAssetUrl(logo.src)}
+                        alt={logo.alt}
+                        className={`${logo.height} w-auto object-contain`}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Title + subtitle */}
               <div className={`text-center md:text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -339,10 +340,10 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
                 ) : null}
               </div>
 
-              {/* Small partner logos stacked on the right */}
-              <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 mt-32 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-                {logoConfig.smallLogos.map((logo) => (
-                  <div key={logo.alt} className="bg-white rounded-xl shadow-md w-[140px] h-[56px] flex items-center justify-center px-3">
+              {/* Partner logos stacked on the right */}
+              <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 mt-16 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+                {logoConfig.smallLogos.map((logo: any) => (
+                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center px-3 ${logo.big ? 'w-[180px] h-[72px]' : 'w-[140px] h-[56px]'}`}>
                     <img
                       src={getAssetUrl(logo.src)}
                       alt={logo.alt}
@@ -352,14 +353,14 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
                 ))}
               </div>
 
-              {/* Mobile: Small partner logos row */}
-              <div className="flex lg:hidden items-center justify-center gap-6">
-                {logoConfig.smallLogos.map((logo) => (
-                  <div key={logo.alt} className="bg-white rounded-xl shadow-md w-[120px] h-[48px] flex items-center justify-center px-3">
+              {/* Mobile: Partner logos row */}
+              <div className="flex lg:hidden items-center justify-center gap-4 flex-wrap">
+                {logoConfig.smallLogos.map((logo: any) => (
+                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center px-3 ${logo.big ? 'w-[140px] h-[56px]' : 'w-[120px] h-[48px]'}`}>
                     <img
                       src={getAssetUrl(logo.src)}
                       alt={logo.alt}
-                      className="h-7 w-auto object-contain"
+                      className={`${logo.big ? 'h-9' : 'h-7'} w-auto object-contain`}
                     />
                   </div>
                 ))}
