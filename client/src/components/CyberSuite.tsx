@@ -318,7 +318,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
                         <img
                           src={getAssetUrl(pillars[activeIndex].logo.slice(1))}
                           alt={pillars[activeIndex].logoAlt}
-                          className="h-5 brightness-0 invert opacity-80"
+                          className="h-6 object-contain rounded"
                         />
                       </div>
                     </div>
