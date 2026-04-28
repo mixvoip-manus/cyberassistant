@@ -160,28 +160,7 @@ export default function PricingSection() {
                             <p className="text-blue-600/70 text-xs mt-0.5">{t('pricing.assurance.upgradeNote')}</p>
                           </div>
                         </div>
-                        {/* Action row: On Request + Book a meeting + Brochure */}
-                        <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-blue-200/50">
-                          <span className="text-blue-800 font-bold text-lg">{t('pricing.assurance.onRequest')}</span>
-                          <span className="text-blue-300">|</span>
-                          <a
-                            href="https://voxbi.me/mixvoip/sales"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#00B050] hover:bg-[#009040] rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap"
-                          >
-                            <Calendar className="h-4 w-4" />
-                            {t('nav.bookMeeting')}
-                          </a>
-                          <span className="text-blue-300">|</span>
-                          <button
-                            onClick={() => downloadBrochure(language)}
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap cursor-pointer"
-                          >
-                            <Download className="h-4 w-4" />
-                            {t('pricing.assurance.brochure')}
-                          </button>
-                        </div>
+
                       </div>
                     </td>
                   </tr>
@@ -204,6 +183,28 @@ export default function PricingSection() {
                             <span className="text-sm text-slate-700">{t(`pricing.assurance.${key}`)}</span>
                           </div>
                         ))}
+                      </div>
+                      {/* Action row: Brochure | On Request | Book a meeting */}
+                      <div className="flex items-center justify-center gap-4 mt-6 pt-4 border-t border-blue-200/50">
+                        <button
+                          onClick={() => downloadBrochure(language)}
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap cursor-pointer"
+                        >
+                          <Download className="h-4 w-4" />
+                          {t('pricing.assurance.brochure')}
+                        </button>
+                        <span className="text-blue-300">|</span>
+                        <span className="text-blue-800 font-bold text-lg">{t('pricing.assurance.onRequest')}</span>
+                        <span className="text-blue-300">|</span>
+                        <a
+                          href="https://voxbi.me/mixvoip/sales"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#00B050] hover:bg-[#009040] rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap"
+                        >
+                          <Calendar className="h-4 w-4" />
+                          {t('pricing.assurance.bookMeeting')}
+                        </a>
                       </div>
                     </td>
                   </tr>
