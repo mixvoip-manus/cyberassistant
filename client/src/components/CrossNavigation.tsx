@@ -52,7 +52,7 @@ export default function CrossNavigation({ currentPage }: CrossNavigationProps) {
           <div className="grid md:grid-cols-2 gap-4">
             {otherPages.map(page => (
               <a key={page.key} href={page.path} className="no-underline">
-                <div className={`${page.color} ${page.hoverColor} text-white rounded-xl p-5 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}>
+                <div className={`${page.color} ${page.hoverColor} text-white rounded-xl p-5 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02] h-full`}>
                   <div className="flex items-center gap-3 mb-2">
                     {page.icon}
                     <span className="text-lg font-bold">{page.title}</span>

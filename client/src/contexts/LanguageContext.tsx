@@ -220,7 +220,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.success.message': 'Your emergency hotline is now active. Our team will contact you within 24 hours for onboarding.',
     
     // FAQ
-    'faq.title': 'Frequently Asked Questions',
+    'faq.title': 'CyberAssistance FAQ',
     'faq.q1': 'What advantages does Cyber Suite offer me?',
     'faq.a1': 'Complete protection: 24/7 SOC monitoring + emergency response + insurance coverage + compliance advisory + legal support – all from one provider. Exclusive advantage for Mixvoip CyberSuite customers: 0 € franchise for Incident Response.',
     'faq.q2': 'What should I do in case of a cyber incident?',
@@ -832,7 +832,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.success.message': 'Votre hotline d\'urgence est désormais active. Notre équipe vous contactera sous 24 heures pour l\'onboarding.',
     
     // FAQ
-    'faq.title': 'Questions Fréquentes',
+    'faq.title': 'Questions Fréquentes sur CyberAssistance',
     'faq.q1': 'Quels avantages Cyber Suite m\'offre-t-il ?',
     'faq.a1': 'Protection complète : surveillance SOC 24/7 + réponse d\'urgence + couverture d\'assurance + conseil en conformité + support juridique – le tout chez un seul fournisseur.',
     'faq.q2': 'Que dois-je faire en cas d\'incident cyber ?',
@@ -1442,7 +1442,7 @@ const translations: Record<Language, Record<string, string>> = {
     'form.success.message': 'Ihre Notfall-Hotline ist ab sofort aktiv. Unser Team meldet sich innerhalb von 24 Stunden für das Onboarding.',
     
     // FAQ
-    'faq.title': 'Häufig gestellte Fragen',
+    'faq.title': 'Häufig gestellte Fragen zu CyberAssistance',
     'faq.q1': 'Welche Vorteile bietet mir Cyber Suite?',
     'faq.a1': 'Vollständiger Schutz: 24/7 SOC-Überwachung + Notfall-Einsatz + Versicherungsschutz + Compliance-Beratung + rechtliche Unterstützung – alles aus einer Hand. Exklusiver Vorteil für Mixvoip CyberSuite-Kunden: Franchise 0 € für Incident Response.',
     'faq.q2': 'Was soll ich bei einem Cyber-Vorfall tun?',
