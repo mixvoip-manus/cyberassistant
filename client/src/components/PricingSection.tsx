@@ -68,81 +68,80 @@ export default function PricingSection() {
           <div
             className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${isOpen ? 'max-h-[8000px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
-            <div className="bg-white rounded-b-2xl shadow-lg overflow-x-auto">
+            <div className="bg-emerald-50/60 rounded-b-2xl shadow-lg overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b-2 border-slate-200">
-                    <th className="text-left p-4 bg-slate-50 font-semibold text-slate-600 w-[200px]"></th>
+                    <th className="text-left p-4 bg-emerald-50/80 font-semibold text-slate-600 w-[200px]"></th>
                     <th className="p-4 text-center min-w-[160px]">
-                      <div className="text-[#4A90D9] font-bold text-base">{t('pricing.assistance.office.title')}</div>
-                      <div className="mt-1"><span className="text-xl font-bold text-[#4A90D9]">{t('pricing.assistance.office.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.office.priceNote')}</span></div>
+                      <div className="text-emerald-600 font-bold text-base">{t('pricing.assistance.office.title')}</div>
+                      <div className="mt-1"><span className="text-xl font-bold text-emerald-600">{t('pricing.assistance.office.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.office.priceNote')}</span></div>
                       <div className="text-xs text-muted-foreground mt-0.5">{t('pricing.assistance.office.sla')}</div>
                     </th>
                     <th className="p-4 text-center min-w-[160px]">
-                      <div className="text-[#E63946] font-bold text-base">{t('pricing.assistance.business.title')}</div>
-                      <div className="mt-1"><span className="text-xl font-bold text-[#E63946]">{t('pricing.assistance.business.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.business.priceNote')}</span></div>
+                      <div className="text-emerald-700 font-bold text-base">{t('pricing.assistance.business.title')}</div>
+                      <div className="mt-1"><span className="text-xl font-bold text-emerald-700">{t('pricing.assistance.business.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.business.priceNote')}</span></div>
                       <div className="text-xs text-muted-foreground mt-0.5">{t('pricing.assistance.business.sla')}</div>
                     </th>
-                    <th className="p-4 text-center min-w-[160px] bg-orange-50 border-x-2 border-t-2 border-[#FF8C00] relative">
-                      <div className="absolute -top-0 left-0 right-0 bg-[#FF8C00] text-white text-[10px] py-0.5 font-medium rounded-t">{t('pricing.assistance.advanced.badge')}</div>
-                      <div className="text-[#FF8C00] font-bold text-base mt-2">{t('pricing.assistance.advanced.title')}</div>
-                      <div className="mt-1"><span className="text-xl font-bold text-[#FF8C00]">{t('pricing.assistance.advanced.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.advanced.priceNote')}</span></div>
+                    <th className="p-4 text-center min-w-[160px]">
+                      <div className="text-emerald-800 font-bold text-base">{t('pricing.assistance.advanced.title')}</div>
+                      <div className="mt-1"><span className="text-xl font-bold text-emerald-800">{t('pricing.assistance.advanced.price')}€</span><span className="text-xs text-muted-foreground"> / {t('pricing.assistance.advanced.priceNote')}</span></div>
                       <div className="text-xs text-muted-foreground mt-0.5">{t('pricing.assistance.advanced.sla')}</div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {/* Response Time Cyber */}
-                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Zap className="h-4 w-4 text-slate-400" />{t('pricing.assistance.responseCyber')}</td>
                     <td className="p-4 text-center text-slate-600">{t('pricing.assistance.office.responseCyber')}</td>
-                    <td className="p-4 text-center font-bold text-[#E63946]">{t('pricing.assistance.business.responseCyber')}</td>
-                    <td className="p-4 text-center font-bold text-[#FF8C00] bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.responseCyber')}</td>
+                    <td className="p-4 text-center font-bold text-emerald-700">{t('pricing.assistance.business.responseCyber')}</td>
+                    <td className="p-4 text-center font-bold text-emerald-800">{t('pricing.assistance.advanced.responseCyber')}</td>
                   </tr>
                   {/* Intervention Onsite */}
-                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><MapPin className="h-4 w-4 text-slate-400" />{t('pricing.assistance.interventionOnsite')}</td>
-                    <td className="p-4 text-center"><XCircle className="h-4 w-4 text-red-400 mx-auto" /></td>
+                    <td className="p-4 text-center"><XCircle className="h-4 w-4 text-slate-300 mx-auto" /></td>
                     <td className="p-4 text-center text-slate-600">{t('pricing.assistance.business.interventionOnsite')}</td>
-                    <td className="p-4 text-center text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.interventionOnsite')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.advanced.interventionOnsite')}</td>
                   </tr>
                   {/* Intervention Remote */}
-                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Wifi className="h-4 w-4 text-slate-400" />{t('pricing.assistance.interventionRemote')}</td>
                     <td className="p-4 text-center text-slate-600">{t('pricing.assistance.office.interventionRemote')}</td>
                     <td className="p-4 text-center text-slate-600">{t('pricing.assistance.business.interventionRemote')}</td>
-                    <td className="p-4 text-center text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.interventionRemote')}</td>
+                    <td className="p-4 text-center text-slate-600">{t('pricing.assistance.advanced.interventionRemote')}</td>
                   </tr>
                   {/* CNPD */}
-                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Gavel className="h-4 w-4 text-slate-400" />{t('pricing.assistance.cnpd')}</td>
                     <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
                     <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
-                    <td className="p-4 text-center bg-orange-50/50 border-x border-orange-100"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                    <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
                   </tr>
                   {/* Incident Report */}
-                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><FileText className="h-4 w-4 text-slate-400" />{t('pricing.assistance.incidentReport')}</td>
-                    <td className="p-4 text-center"><XCircle className="h-4 w-4 text-red-400 mx-auto" /></td>
+                    <td className="p-4 text-center"><XCircle className="h-4 w-4 text-slate-300 mx-auto" /></td>
                     <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
-                    <td className="p-4 text-center bg-orange-50/50 border-x border-orange-100"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
+                    <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
                   </tr>
                   {/* CyberAssistance by Foyer */}
-                  <tr className="border-b border-slate-100 hover:bg-slate-50/50">
+                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Shield className="h-4 w-4 text-emerald-500" />{t('pricing.assistance.cyberAssurance')}</td>
                     <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.office.cyberAssurance')}</td>
                     <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.business.cyberAssurance')}</td>
-                    <td className="p-4 text-center text-xs text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.cyberAssurance')}</td>
+                    <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.advanced.cyberAssurance')}</td>
                   </tr>
                   {/* Franchise row */}
-                  <tr className="border-b border-slate-100 hover:bg-slate-50/50 bg-emerald-50/30">
+                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50 bg-emerald-50/30">
                     <td className="p-4 font-medium text-slate-700">
                       <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-emerald-500" />{t('pricing.assistance.franchise')}</div>
                       <p className="text-[10px] text-emerald-600/70 mt-0.5 ml-6">{t('pricing.assistance.franchiseNote')}</p>
                     </td>
                     <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
                     <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
-                    <td className="p-4 text-center bg-orange-50/50 border-x border-orange-100"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
+                    <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
                   </tr>
 
                   {/* ── Foyer Cyber Pro upgrade — seamless premium tier ── */}
