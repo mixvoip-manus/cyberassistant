@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Scale, CheckCircle2, XCircle, ChevronDown, Zap, MapPin, Wifi, Gavel, FileText, Star } from 'lucide-react';
+import { Shield, Scale, CheckCircle2, XCircle, ChevronDown, Zap, MapPin, Wifi, Gavel, FileText, Star, Download } from 'lucide-react';
+
+const BROCHURE_URLS: Record<string, string> = {
+  en: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/pasted_file_kpZV6T_Brochurescyberpro_EN-Equidem_ab8081cc.pdf',
+  fr: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/pasted_file_z3z2xr_Depliantscyberpro_FR-Equidem_38660b1b.pdf',
+  de: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663071388273/nmC9YwcVcbHMjzuKkyoCJd/brochure_DE_6234704c.pdf',
+};
 
 export default function PricingSection() {
-  const { t, getAssetUrl } = useLanguage();
+  const { t, language, getAssetUrl } = useLanguage();
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -137,7 +143,18 @@ export default function PricingSection() {
                             </div>
                             <p className="text-blue-600/70 text-xs mt-0.5">{t('pricing.assurance.upgradeNote')}</p>
                           </div>
-                          <span className="text-blue-700 font-bold text-sm whitespace-nowrap">{t('pricing.assurance.onRequest')}</span>
+                          <div className="flex items-center gap-3 flex-shrink-0">
+                            <span className="text-blue-700 font-bold text-sm whitespace-nowrap">{t('pricing.assurance.onRequest')}</span>
+                            <a
+                              href={BROCHURE_URLS[language] || BROCHURE_URLS.en}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-5 py-2.5 shadow-md hover:shadow-lg transition-all whitespace-nowrap"
+                            >
+                              <Download className="h-4 w-4" />
+                              {t('pricing.assurance.brochure')}
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </td>
