@@ -81,7 +81,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       color: '#2563EB',
       gradient: 'from-blue-600 to-blue-400',
       glowColor: 'shadow-blue-400/50',
-      logo: '/images/LeFoyer.svg',
+      logo: '/images/foyer-logo-new.jpg',
       logoAlt: 'Foyer',
       angle: 0,
       linkTo: `/${language}/assistance`, // Foyer is part of CyberAssistance
@@ -105,28 +105,37 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
   const getLogoConfig = () => {
     if (highlightPartner === 'advisory') {
       return {
-        bigLogo: { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-20 md:h-28' },
+        bigLogos: [
+          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-16 md:h-20' },
+        ],
         smallLogos: [
           { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10' },
+          { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10' },
           { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10' },
         ],
       };
     }
     if (highlightPartner === 'socaas') {
       return {
-        bigLogo: { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-20 md:h-28' },
+        bigLogos: [
+          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-16 md:h-20' },
+        ],
         smallLogos: [
           { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10' },
+          { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10' },
           { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10' },
         ],
       };
     }
-    // Default: Foyer big
+    // Default: Foyer + Equidem big, Luxgap + RSecure small
     return {
-      bigLogo: { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-20 md:h-28' },
+      bigLogos: [
+        { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-16 md:h-20' },
+        { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-12 md:h-16' },
+      ],
       smallLogos: [
-        { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-10' },
-        { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-10' },
+        { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10' },
+        { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10' },
       ],
     };
   };
@@ -140,7 +149,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
         <div className="bg-[#00B050] py-3">
           <div className="container">
             <p className="text-white font-bold text-center text-lg md:text-xl tracking-wide">
-              Cyber Suite by Mixvoip
+              {t('cycle.badge')}
             </p>
           </div>
         </div>
@@ -151,15 +160,19 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
         <div className="container">
           <div className="max-w-7xl mx-auto">
 
-            {/* Top area: Big logo left + Title right */}
+            {/* Top area: Big logo(s) left + Title right */}
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 pt-10 md:pt-14 pb-8 md:pb-10">
-              {/* Big partner logo */}
-              <div className="flex-shrink-0 bg-white rounded-2xl p-5 md:p-6 shadow-lg">
-                <img
-                  src={getAssetUrl(logoConfig.bigLogo.src)}
-                  alt={logoConfig.bigLogo.alt}
-                  className={`${logoConfig.bigLogo.height} w-auto object-contain`}
-                />
+              {/* Big partner logos */}
+              <div className="flex items-center gap-4 flex-shrink-0">
+                {logoConfig.bigLogos.map((logo) => (
+                  <div key={logo.alt} className="bg-white rounded-2xl p-4 md:p-5 shadow-lg">
+                    <img
+                      src={getAssetUrl(logo.src)}
+                      alt={logo.alt}
+                      className={`${logo.height} w-auto object-contain`}
+                    />
+                  </div>
+                ))}
               </div>
 
               {/* Title + subtitle */}
@@ -186,14 +199,10 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
                   {/* Static inner glow ring */}
                   <div className="absolute inset-6 rounded-full border border-slate-700 bg-slate-800/50 backdrop-blur-sm" />
                   
-                  {/* Center logo */}
+                  {/* Center text */}
                   <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div className={`w-24 h-24 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-slate-600 flex items-center justify-center shadow-2xl transition-all duration-500 ${activeIndex !== null ? 'scale-110' : ''}`}>
-                      <img
-                        src={getAssetUrl('images/mixvoip-logo.svg')}
-                        alt="Mixvoip"
-                        className="h-8 w-auto brightness-0 invert"
-                      />
+                    <div className={`w-28 h-28 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border-2 border-slate-600 flex items-center justify-center shadow-2xl transition-all duration-500 ${activeIndex !== null ? 'scale-110' : ''}`}>
+                      <span className="text-white font-bold text-[11px] text-center leading-tight px-2">{t('cycle.center')}</span>
                     </div>
                   </div>
 

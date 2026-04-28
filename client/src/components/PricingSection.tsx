@@ -1,50 +1,39 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Scale, Users, CheckCircle2, Info, Clock, Zap, Building2, Star, Eye, Gavel, MapPin, Wifi, FileText, AlertTriangle, XCircle, ChevronDown } from 'lucide-react';
+import { Shield, Scale, CheckCircle2, AlertTriangle, XCircle, ChevronDown, Zap, MapPin, Wifi, Gavel, FileText, Star } from 'lucide-react';
 
 export default function PricingSection() {
   const { t, getAssetUrl } = useLanguage();
 
-  // Accordion state: CyberAssistance & Foyer only (Advisory & SOC moved to dedicated pages)
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-    assistance: true,
-    foyer: false,
-  });
-
-  const toggleSection = (key: string) => {
-    setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
-  };
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <section id="pricing" className="py-16 md:py-24 bg-slate-50">
       <div className="container">
-        {/* Section Header — hidden per user request */}
 
-        {/* ============================================ */}
-        {/* 1. Cyber Assistance (Mixvoip)                */}
-        {/* ============================================ */}
+        {/* Single merged table: CyberAssistance + Foyer Cyber Pro */}
         <div className="mb-8">
           {/* Clickable Header */}
           <button
-            onClick={() => toggleSection('assistance')}
+            onClick={() => setIsOpen(!isOpen)}
             className="w-full max-w-7xl mx-auto block"
           >
-            <div className={`bg-[#00B050] overflow-hidden px-6 md:px-10 py-5 transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.assistance ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
+            <div className={`bg-[#00B050] overflow-hidden px-6 md:px-10 py-5 transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${isOpen ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
               <div className="flex items-center">
-                {/* Foyer Logo embedded on green — large & left-aligned */}
+                {/* Foyer Logo — large & left-aligned */}
                 <img src={getAssetUrl('/images/foyer-logo-new.jpg')} alt="Foyer" className="h-20 md:h-28 object-contain flex-shrink-0 rounded-lg" />
-                {/* Mixvoip CyberAssistance — centered in remaining space */}
+                {/* Title — centered */}
                 <div className="text-white flex flex-col items-center flex-1">
                   <div className="flex items-center gap-3">
                     <Shield className="h-7 w-7 md:h-8 md:w-8" />
                     <h3 className="text-xl md:text-2xl font-bold">Mixvoip CyberAssistance</h3>
-                    <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${openSections.assistance ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                   </div>
                   <p className="text-green-100 text-sm mt-1">{t('pricing.assistance.tagline')}</p>
                   <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.monthlyBilling')}</span>
                 </div>
               </div>
-              {!openSections.assistance && (
+              {!isOpen && (
                 <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
                   <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
                   <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
@@ -55,7 +44,7 @@ export default function PricingSection() {
           
           {/* Collapsible Content */}
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${openSections.assistance ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${isOpen ? 'max-h-[8000px] opacity-100' : 'max-h-0 opacity-0'}`}
           >
             <div className="bg-white rounded-b-2xl shadow-lg overflow-x-auto">
               <table className="w-full text-sm">
@@ -116,22 +105,76 @@ export default function PricingSection() {
                     <td className="p-4 text-center"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
                     <td className="p-4 text-center bg-orange-50/50 border-x border-orange-100"><CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" /></td>
                   </tr>
-                  {/* CyberAssurance by Foyer */}
+                  {/* CyberAssistance by Foyer */}
                   <tr className="border-b border-slate-100 hover:bg-slate-50/50">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2"><Shield className="h-4 w-4 text-emerald-500" />{t('pricing.assistance.cyberAssurance')}</td>
                     <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.office.cyberAssurance')}</td>
                     <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.business.cyberAssurance')}</td>
                     <td className="p-4 text-center text-xs text-slate-600 bg-orange-50/50 border-x border-orange-100">{t('pricing.assistance.advanced.cyberAssurance')}</td>
                   </tr>
-                  {/* Foyer Cyber Pro upgrade — additional option */}
-                  <tr className="hover:bg-slate-50/50 bg-blue-50/30">
+
+                  {/* ── Foyer Cyber Pro upgrade section ── */}
+                  <tr className="border-b-2 border-blue-200">
+                    <td colSpan={4} className="p-0">
+                      <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
+                        <div className="flex items-center justify-center gap-4">
+                          <img src={getAssetUrl('/images/equidem-logo.png')} alt="Equidem" className="h-12 md:h-14 object-contain bg-white rounded-lg px-3 py-1" />
+                          <div className="text-center">
+                            <div className="flex items-center justify-center gap-2">
+                              <Scale className="h-5 w-5 text-white" />
+                              <span className="text-white font-bold text-lg">{t('pricing.assurance.productName')}</span>
+                            </div>
+                            <p className="text-blue-200 text-xs mt-1">{t('pricing.assurance.upgradeNote')}</p>
+                          </div>
+                          <img src={getAssetUrl('/images/foyer-logo-new.jpg')} alt="Foyer" className="h-12 md:h-14 object-contain rounded-lg" />
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  {/* Foyer Cyber Pro — On Request row */}
+                  <tr className="border-b border-slate-100 bg-blue-50/30">
                     <td className="p-4 font-medium text-slate-700 flex items-center gap-2">
                       <Star className="h-4 w-4 text-blue-500" />
                       <span>{t('pricing.assistance.foyerCyberProUpgrade')}</span>
                     </td>
                     <td colSpan={3} className="p-4 text-center">
-                      <a href="#cyberassurance" className="text-blue-600 hover:text-blue-800 underline cursor-pointer text-sm font-medium" onClick={(e) => { e.preventDefault(); document.getElementById('cyberassurance')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                        {t('pricing.onRequest')}
+                      <span className="text-blue-600 font-bold text-lg">{t('pricing.assurance.onRequest')}</span>
+                    </td>
+                  </tr>
+
+                  {/* Contract Info */}
+                  <tr className="border-b border-slate-100 bg-blue-50/20">
+                    <td colSpan={4} className="p-4 text-center">
+                      <p className="text-sm text-slate-600 max-w-2xl mx-auto">{t('pricing.assurance.contractInfo')}</p>
+                    </td>
+                  </tr>
+
+                  {/* Coverage List */}
+                  <tr className="bg-blue-50/20">
+                    <td colSpan={4} className="p-6">
+                      <h4 className="font-bold text-slate-800 mb-4 text-sm text-center">{t('pricing.assurance.coverageTitle')}</h4>
+                      <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto">
+                        {['cov1','cov2','cov3','cov4','cov5','cov6','cov7','cov8','cov9','cov10'].map(key => (
+                          <div key={key} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                            <span className="text-sm text-slate-700">{t(`pricing.assurance.${key}`)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </td>
+                  </tr>
+
+                  {/* Book a Meeting CTA */}
+                  <tr className="bg-blue-50/20">
+                    <td colSpan={4} className="px-6 pb-6 text-center">
+                      <a
+                        href="https://voxbi.me/mixvoip/sales"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg transition-colors"
+                      >
+                        {t('pricing.assurance.bookMeeting')} →
                       </a>
                     </td>
                   </tr>
@@ -144,78 +187,6 @@ export default function PricingSection() {
               <div className="flex items-start gap-2">
                 <AlertTriangle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
                 <span className="text-xs font-medium text-amber-800">{t('pricing.assistance.minRequirement')}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ============================================ */}
-        {/* 2. Foyer Cyber Pro                           */}
-        {/* ============================================ */}
-        <div id="cyberassurance" className="mb-8">
-          {/* Clickable Header */}
-          <button
-            onClick={() => toggleSection('foyer')}
-            className="w-full max-w-7xl mx-auto block"
-          >
-            <div className={`bg-[#2563EB] text-white p-6 text-center transition-all duration-300 hover:shadow-xl hover:brightness-110 cursor-pointer ${openSections.foyer ? 'rounded-t-2xl' : 'rounded-2xl'}`}>
-              <div className="flex items-center justify-center gap-3">
-                <Scale className="h-7 w-7" />
-                <h3 className="text-2xl font-bold">{t('pricing.assurance.productName')}</h3>
-                <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${openSections.foyer ? 'rotate-180' : ''}`} />
-              </div>
-              <p className="text-sm text-blue-200 font-medium mt-1">{t('pricing.assurance.upgradeNote')}</p>
-              <div className="flex items-center justify-center gap-2 mt-2">
-                <span className="text-blue-100 text-sm">{t('cycle.poweredBy')}</span>
-                <img src={getAssetUrl('/images/foyer-equidem-logo.png')} alt="Foyer | Equidem" className="h-8 object-contain bg-white rounded px-2 py-1" />
-              </div>
-              <span className="inline-block mt-2 px-4 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{t('pricing.assurance.upgradeBadge')}</span>
-              {!openSections.foyer && (
-                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/20">
-                  <span className="text-white/90 text-sm font-medium">{t('pricing.viewPlans')}</span>
-                  <ChevronDown className="h-4 w-4 text-white/90 animate-bounce" />
-                </div>
-              )}
-            </div>
-          </button>
-
-          {/* Collapsible Content */}
-          <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out max-w-7xl mx-auto ${openSections.foyer ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
-          >
-            <div className="bg-white rounded-b-2xl shadow-lg overflow-hidden">
-              <div className="p-8">
-                {/* On Request + Contract Info */}
-                <div className="text-center mb-8">
-                  <div className="text-3xl font-bold text-[#2563EB] mb-3">{t('pricing.assurance.onRequest')}</div>
-                  <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-2">{t('pricing.assurance.consultInfo')}</p>
-                  <p className="text-sm font-medium text-slate-700 max-w-lg mx-auto">{t('pricing.assurance.contractInfo')}</p>
-                </div>
-
-                {/* Coverage List */}
-                <div className="bg-blue-50 rounded-xl p-6 mb-6">
-                  <h4 className="font-bold text-slate-800 mb-4 text-sm">{t('pricing.assurance.coverageTitle')}</h4>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {['cov1','cov2','cov3','cov4','cov5','cov6','cov7','cov8','cov9','cov10'].map(key => (
-                      <div key={key} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-slate-700">{t(`pricing.assurance.${key}`)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Book a Meeting CTA */}
-                <div className="text-center">
-                  <a
-                    href="https://voxbi.me/mixvoip/sales"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg transition-colors"
-                  >
-                    {t('pricing.assurance.bookMeeting')} →
-                  </a>
-                </div>
               </div>
             </div>
           </div>
