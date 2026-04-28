@@ -222,7 +222,7 @@ const translations: Record<Language, Record<string, string>> = {
     // FAQ
     'faq.title': 'Frequently Asked Questions',
     'faq.q1': 'What advantages does Cyber Suite offer me?',
-    'faq.a1': 'Complete protection: 24/7 SOC monitoring + emergency response + insurance coverage + compliance advisory + legal support – all from one provider. Exclusive advantage for Mixvoip CyberSuite customers: 0 € deductible (franchise) in case of a cyber incident.',
+    'faq.a1': 'Complete protection: 24/7 SOC monitoring + emergency response + insurance coverage + compliance advisory + legal support – all from one provider. Exclusive advantage for Mixvoip CyberSuite customers: 0 € franchise for Incident Response.',
     'faq.q2': 'What should I do in case of a cyber incident?',
     'faq.a2': 'Call our 24/7 emergency hotline immediately. Our team will guide you through the entire process. Important: do not pay any ransom without consulting our experts first.',
     'faq.q3': 'Where can I call for questions or support?',
@@ -1442,7 +1442,7 @@ const translations: Record<Language, Record<string, string>> = {
     // FAQ
     'faq.title': 'Häufig gestellte Fragen',
     'faq.q1': 'Welche Vorteile bietet mir Cyber Suite?',
-    'faq.a1': 'Vollständiger Schutz: 24/7 SOC-Überwachung + Notfall-Einsatz + Versicherungsschutz + Compliance-Beratung + rechtliche Unterstützung – alles aus einer Hand. Exklusiver Vorteil für Mixvoip CyberSuite-Kunden: Franchise 0 € bei einem Cyber-Vorfall.',
+    'faq.a1': 'Vollständiger Schutz: 24/7 SOC-Überwachung + Notfall-Einsatz + Versicherungsschutz + Compliance-Beratung + rechtliche Unterstützung – alles aus einer Hand. Exklusiver Vorteil für Mixvoip CyberSuite-Kunden: Franchise 0 € für Incident Response.',
     'faq.q2': 'Was soll ich bei einem Cyber-Vorfall tun?',
     'faq.a2': 'Rufen Sie sofort unsere 24/7-Notfall-Hotline an. Unser Team führt Sie durch den gesamten Prozess. Wichtig: Zahlen Sie kein Lösegeld, ohne vorher unsere Experten zu konsultieren.',
     'faq.q3': 'Wo kann ich bei Fragen oder für Support anrufen?',
@@ -1557,7 +1557,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.assurance.cov7': 'Kosten für den Wiederaufbau der Reputation',
     'pricing.assurance.cov8': 'Außervertragliche Zivilhaftung',
     'pricing.assurance.cov9': 'Zivilhaftung im Zusammenhang mit Website-Inhalten',
-    'pricing.assurance.cov10': 'Exklusiver Vorteil für Mixvoip CyberSuite-Kunden: Franchise 0 €',
+    'pricing.assurance.cov10': 'Exklusiver Vorteil für Mixvoip CyberSuite-Kunden: Franchise 0 € für Incident Response',
     'pricing.assurance.bookMeeting': 'Termin vereinbaren',
     'pricing.analogy.title': 'Denken Sie an eine Feuerwehr...',
     'pricing.analogy.office': 'Lokale Feuerwehr - Reaktion innerhalb von Stunden',
