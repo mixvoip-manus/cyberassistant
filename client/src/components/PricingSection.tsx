@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Scale, CheckCircle2, AlertTriangle, XCircle, ChevronDown, Zap, MapPin, Wifi, Gavel, FileText, Star } from 'lucide-react';
+import { Shield, Scale, CheckCircle2, XCircle, ChevronDown, Zap, MapPin, Wifi, Gavel, FileText, Star } from 'lucide-react';
 
 export default function PricingSection() {
   const { t, getAssetUrl } = useLanguage();
@@ -182,13 +182,6 @@ export default function PricingSection() {
               </table>
             </div>
 
-            {/* Minimum Requirement Notice */}
-            <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 mt-4 max-w-7xl mx-auto">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                <span className="text-xs font-medium text-amber-800">{t('pricing.assistance.minRequirement')}</span>
-              </div>
-            </div>
           </div>
         </div>
 
