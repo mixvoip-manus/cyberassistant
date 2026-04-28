@@ -165,19 +165,6 @@ export default function PricingSection() {
                     </td>
                   </tr>
 
-                  {/* Book a Meeting CTA */}
-                  <tr className="bg-blue-50/20">
-                    <td colSpan={4} className="px-6 pb-6 text-center">
-                      <a
-                        href="https://voxbi.me/mixvoip/sales"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg transition-colors"
-                      >
-                        {t('pricing.assurance.bookMeeting')} →
-                      </a>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
