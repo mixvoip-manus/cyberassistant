@@ -211,6 +211,7 @@ export default function PricingSection() {
         </div>
 
         {/* Advisory & SOC pricing moved to /{lang}/advisor and /{lang}/socaas */}
+        <p className="text-xs text-muted-foreground text-right mt-2">* {t('pricing.vatNote')}</p>
       </div>
     </section>
   );

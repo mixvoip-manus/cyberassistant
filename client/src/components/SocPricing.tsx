@@ -72,6 +72,7 @@ export default function SocPricing() {
               </div>
             </div>
           </div>
+          <p className="text-xs text-muted-foreground text-right mt-2">* {t('pricing.vatNote')}</p>
         </div>
       </div>
     </section>
