@@ -345,11 +345,11 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
               {/* Partner logos stacked on the right */}
               <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 mt-16 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
                 {logoConfig.smallLogos.map((logo: any) => (
-                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center px-3 ${logo.extraBig ? 'w-[220px] h-[100px]' : logo.big ? 'w-[180px] h-[72px]' : 'w-[140px] h-[56px]'}`}>
+                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center ${logo.extraBig ? 'w-[180px] h-[180px] p-0 overflow-hidden' : logo.big ? 'w-[180px] h-[72px] px-3' : 'w-[140px] h-[56px] px-3'}`}>
                     <img
                       src={getAssetUrl(logo.src)}
                       alt={logo.alt}
-                      className={`${logo.height} w-auto object-contain`}
+                      className={`${logo.extraBig ? 'w-full h-full object-cover rounded-xl' : `${logo.height} w-auto object-contain`}`}
                     />
                   </div>
                 ))}

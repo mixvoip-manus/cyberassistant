@@ -133,23 +133,14 @@ export default function PricingSection() {
                     <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.business.cyberAssurance')}</td>
                     <td className="p-4 text-center text-xs text-slate-600">{t('pricing.assistance.advanced.cyberAssurance')}</td>
                   </tr>
-                  {/* Franchise row */}
-                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50 bg-emerald-50/30">
-                    <td className="p-4 font-medium text-slate-700">
-                      <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-emerald-500" />{t('pricing.assistance.franchise')}</div>
-                      <p className="text-[10px] text-emerald-600/70 mt-0.5 ml-6">{t('pricing.assistance.franchiseNote')}</p>
-                    </td>
-                    <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
-                    <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
-                    <td className="p-4 text-center"><span className="text-emerald-600 font-bold text-sm">0 €</span></td>
-                  </tr>
+
 
                   {/* ── Foyer Cyber Pro upgrade — seamless premium tier ── */}
                   <tr className="border-t-2 border-blue-200/50">
                     <td colSpan={4} className="p-0">
                       <div className="bg-gradient-to-r from-blue-50/80 via-blue-100/60 to-blue-50/80 px-6 py-3">
                         <div className="flex items-center gap-4">
-                          <img src={getAssetUrl('/images/equidem-logo.png')} alt="Equidem" className="h-8 md:h-10 object-contain flex-shrink-0" />
+                          <img src={getAssetUrl('/images/equidem-foyer-logo-big.jpg')} alt="Foyer | Equidem" className="h-10 md:h-12 object-contain flex-shrink-0" />
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
                               <Scale className="h-4 w-4 text-blue-600" />
@@ -157,6 +148,9 @@ export default function PricingSection() {
                               <span className="text-[10px] font-medium bg-blue-600 text-white px-2 py-0.5 rounded-full uppercase tracking-wide">Premium Upgrade</span>
                             </div>
                             <p className="text-blue-600/70 text-xs mt-0.5">{t('pricing.assurance.upgradeNote')}</p>
+                          </div>
+                          <div className="flex-shrink-0 text-right">
+                            <span className="text-blue-800 font-bold text-sm">{t('pricing.assurance.startingPrice')}</span>
                           </div>
                         </div>
 
