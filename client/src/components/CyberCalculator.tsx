@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Calculator, Shield, Eye, Scale, BookOpen, ChevronDown, ChevronUp, AlertTriangle, CheckCircle2, Info, XCircle, ShieldAlert, ShieldCheck } from 'lucide-react';
 
-type SOCChoice = 'none' | 'tranquility' | 'rsoc';
+type SOCChoice = 'none' | 'rsoc';
 type AssistanceChoice = 'basic' | 'essentiel' | 'advanced' | 'pro';
 type AssuranceChoice = 'none' | 'essentiel' | 'advanced' | 'pro';
 type AdvisoryChoice = 'none' | 'starter' | 'business' | 'expert';
@@ -31,9 +31,6 @@ const translations = {
     incidentFlow: 'What Happens During a Cyberattack?',
     // SOC options
     socNone: 'No monitoring',
-    socTranquility: 'R-SOC Tranquility',
-    socTranquilityDesc: 'Ideal for SMEs without IT team',
-    socTranquilityPrice: '7.20€ / user / month',
     socRsoc: 'R-SOC',
     socRsocDesc: 'For businesses with IT infrastructure',
     socRsocPrice: '10€ / user / month (packs of 5)',
@@ -150,9 +147,6 @@ const translations = {
     yourSelection: 'Vos services sélectionnés',
     incidentFlow: 'Que se passe-t-il lors d\'une cyberattaque ?',
     socNone: 'Pas de surveillance',
-    socTranquility: 'R-SOC Tranquility',
-    socTranquilityDesc: 'Idéal pour PME sans équipe IT',
-    socTranquilityPrice: '7,20€ / utilisateur / mois',
     socRsoc: 'R-SOC',
     socRsocDesc: 'Pour entreprises avec infrastructure IT',
     socRsocPrice: '10€ / utilisateur / mois (packs de 5)',
@@ -263,9 +257,6 @@ const translations = {
     yourSelection: 'Ihre gewählten Leistungen',
     incidentFlow: 'Was passiert bei einem Cyberangriff?',
     socNone: 'Keine Überwachung',
-    socTranquility: 'R-SOC Tranquility',
-    socTranquilityDesc: 'Ideal für KMU ohne IT-Team',
-    socTranquilityPrice: '7,20€ / Benutzer / Monat',
     socRsoc: 'R-SOC',
     socRsocDesc: 'Für Unternehmen mit IT-Infrastruktur',
     socRsocPrice: '10€ / Benutzer / Monat (5er-Pakete)',
@@ -425,9 +416,7 @@ export default function CyberCalculator() {
     let advisCost = 0;
 
     // SOC: per user per year (monthly price × 12)
-    if (soc === 'tranquility') {
-      socCost = users * 7.20 * 12;
-    } else if (soc === 'rsoc') {
+    if (soc === 'rsoc') {
       const packs = Math.ceil(users / 5) * 5;
       socCost = packs * 10 * 12;
     }
@@ -578,7 +567,7 @@ export default function CyberCalculator() {
                 </div>
               </div>
               <div className="space-y-2">
-                {([['none', t.socNone, ''], ['tranquility', t.socTranquility, t.socTranquilityPrice], ['rsoc', t.socRsoc, t.socRsocPrice]] as const).map(([val, label, price]) => (
+                {([['none', t.socNone, ''], ['rsoc', t.socRsoc, t.socRsocPrice]] as const).map(([val, label, price]) => (
                   <label key={val} className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${soc === val ? 'bg-orange-50 border-2 border-orange-300' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'}`}>
                     <input type="radio" name="soc" value={val} checked={soc === val} onChange={() => setSoc(val)} className="accent-[#FF8C00]" />
                     <div className="flex-1">
