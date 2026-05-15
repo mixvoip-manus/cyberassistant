@@ -107,7 +107,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       return {
         bigLogos: [] as { src: string; alt: string; height: string }[],
         smallLogos: [
-          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-16 md:h-24', big: true, extraBig: true },
+          { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-16 md:h-24', big: true, extraBig: true, squareLogo: false },
           { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10', big: false },
           { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10', big: false },
           { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10', big: false },
@@ -118,7 +118,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
       return {
         bigLogos: [] as { src: string; alt: string; height: string }[],
         smallLogos: [
-          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-16 md:h-24', big: true, extraBig: true },
+          { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-16 md:h-24', big: true, extraBig: true, squareLogo: false },
           { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-8 md:h-10', big: false },
           { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-8 md:h-10', big: false },
           { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10', big: false },
@@ -129,7 +129,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
     return {
       bigLogos: [] as { src: string; alt: string; height: string }[],
       smallLogos: [
-        { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-16 md:h-24', big: true, extraBig: true },
+        { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-16 md:h-24', big: true, extraBig: true, squareLogo: true },
         { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-10 md:h-14', big: true, extraBig: false },
         { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10', big: false },
         { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10', big: false },
@@ -345,11 +345,11 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
               {/* Partner logos stacked on the right */}
               <div className={`hidden lg:flex flex-col items-center gap-4 flex-shrink-0 mt-16 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
                 {logoConfig.smallLogos.map((logo: any) => (
-                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center ${logo.extraBig ? 'w-[180px] h-[180px] p-0 overflow-hidden' : logo.big ? 'w-[180px] h-[72px] px-3' : 'w-[140px] h-[56px] px-3'}`}>
+                  <div key={logo.alt} className={`bg-white rounded-xl shadow-md flex items-center justify-center ${logo.extraBig ? 'w-[180px] h-[180px]' : logo.big ? 'w-[180px] h-[72px] px-3' : 'w-[140px] h-[56px] px-3'} ${logo.extraBig && !logo.squareLogo ? 'p-4' : logo.extraBig ? 'p-0 overflow-hidden' : ''}`}>
                     <img
                       src={getAssetUrl(logo.src)}
                       alt={logo.alt}
-                      className={`${logo.extraBig ? 'w-full h-full object-cover rounded-xl' : `${logo.height} w-auto object-contain`}`}
+                      className={`${logo.extraBig && logo.squareLogo ? 'w-full h-full object-cover rounded-xl' : logo.extraBig ? 'w-full h-full object-contain' : `${logo.height} w-auto object-contain`}`}
                     />
                   </div>
                 ))}
