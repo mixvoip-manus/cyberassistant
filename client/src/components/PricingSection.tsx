@@ -140,7 +140,7 @@ export default function PricingSection() {
                     <td colSpan={4} className="p-0">
                       <div className="bg-gradient-to-r from-blue-50/80 via-blue-100/60 to-blue-50/80 px-6 py-3">
                         <div className="flex items-center gap-4">
-                          <img src={getAssetUrl('/images/equidem-foyer-logo-big.jpg')} alt="Foyer | Equidem" className="h-10 md:h-12 object-contain flex-shrink-0" />
+                          <img src={getAssetUrl('/images/equidem-foyer-logo-big.png')} alt="Foyer | Equidem" className="h-10 md:h-12 object-contain flex-shrink-0" />
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
                               <Scale className="h-4 w-4 text-blue-600" />
@@ -205,7 +205,6 @@ export default function PricingSection() {
         </div>
 
         {/* Advisory & SOC pricing moved to /{lang}/advisor and /{lang}/socaas */}
-        <p className="text-xs text-muted-foreground text-right mt-2">* {t('pricing.vatNote')}</p>
       </div>
     </section>
   );
