@@ -111,6 +111,7 @@ export default function Footer() {
         { label: 'Co-managed LAN', href: 'https://www.mixvoip.com/co-managed-lan/' },
         { label: 'IT services', href: 'https://www.mixvoip.com/it-services/' },
         { label: 'Cybersecurity', href: 'https://www.mixvoip.com/cybersecurity/' },
+        { label: 'CyberAssistance', href: 'https://www.mixvoip.com/cyber/assistance' },
         { label: 'IPTV', href: 'https://www.mixvoip.com/iptv/' },
       ],
     },
