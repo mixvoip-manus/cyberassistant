@@ -14,6 +14,11 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
+    // Header
+    'header.scheduleAMeeting': 'Schedule a meeting',
+    'header.clientArea': 'Client area',
+    'header.contactUs': 'Contact us',
+
     // Navigation
     'nav.home': 'Home',
     'nav.coverage': 'What we cover',
@@ -626,6 +631,11 @@ const translations: Record<Language, Record<string, string>> = {
     'cycle.analogy.title': 'The House Analogy',
   },
   fr: {
+    // Header
+    'header.scheduleAMeeting': 'Planifier une réunion',
+    'header.clientArea': 'Espace client',
+    'header.contactUs': 'Contactez-nous',
+
     // Navigation
     'nav.home': 'Accueil',
     'nav.coverage': 'Ce que nous couvrons',
@@ -1236,6 +1246,11 @@ const translations: Record<Language, Record<string, string>> = {
     'cycle.analogy.title': 'L\'Analogie de la Maison',
   },
   de: {
+    // Header
+    'header.scheduleAMeeting': 'Termin vereinbaren',
+    'header.clientArea': 'Kundenbereich',
+    'header.contactUs': 'Kontakt',
+
     // Navigation
     'nav.home': 'Startseite',
     'nav.coverage': 'Was wir abdecken',

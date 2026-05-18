@@ -125,14 +125,12 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
         ],
       };
     }
-    // Default: Foyer + Equidem on right (bigger), Luxgap + RSecure on right (smaller)
+    // Default: Foyer + Equidem on right (bigger) — Luxgap & RSecure hidden for press release
     return {
       bigLogos: [] as { src: string; alt: string; height: string }[],
       smallLogos: [
         { src: 'images/foyer-logo-new.jpg', alt: 'Foyer', height: 'h-16 md:h-24', big: true, extraBig: true, squareLogo: true },
         { src: 'images/equidem-logo.png', alt: 'Equidem', height: 'h-10 md:h-14', big: true, extraBig: false },
-        { src: 'images/luxgap-full.webp', alt: 'Luxgap', height: 'h-8 md:h-10', big: false },
-        { src: 'images/rsecure-full.png', alt: 'RSecure', height: 'h-8 md:h-10', big: false },
       ],
     };
   };
