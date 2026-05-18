@@ -140,7 +140,7 @@ export default function CyberSuite({ highlightPartner }: CyberSuiteProps) {
   return (
     <>
       {/* Green banner: dynamic per page */}
-      <div className="pt-16 md:pt-20">
+      <div className="pt-28 md:pt-32">
         <div className="bg-[#00B050] py-3">
           <div className="container">
             <p className="text-white font-bold text-center text-lg md:text-xl tracking-wide">

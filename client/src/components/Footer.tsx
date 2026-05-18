@@ -4,6 +4,10 @@ import { Linkedin, Facebook, Youtube, Instagram } from 'lucide-react';
 export default function Footer() {
   const { t, getAssetUrl } = useLanguage();
 
+  // Columns ordered exactly as on mixvoip.com:
+  // Row 1: TELEPHONY, CLOUD PBX, CONNECTIVITY, MIXVOIP
+  // Row 2: MOBILE, HARDWARE (tall), INSIGHTS, RESOURCES
+  // Row 3: NETWORK AND IT (below MOBILE)
   const footerColumns = [
     {
       title: 'TELEPHONY',
@@ -12,25 +16,6 @@ export default function Footer() {
         { label: 'Call rates', href: 'https://www.mixvoip.com/call-rates/' },
         { label: 'Phone numbers', href: 'https://www.mixvoip.com/phone-numbers/' },
         { label: 'FMC SIP Trunk', href: 'https://www.mixvoip.com/fmc-sip-trunk/' },
-      ],
-    },
-    {
-      title: 'MOBILE',
-      links: [
-        { label: 'Luxembourg mobile', href: 'https://www.mixvoip.com/mobile/luxembourg/' },
-        { label: 'Belgium mobile', href: 'https://www.mixvoip.com/mobile/belgium/' },
-        { label: 'France mobile', href: 'https://www.mixvoip.com/mobile/france/' },
-        { label: 'IoT and data mobile', href: 'https://www.mixvoip.com/iot/' },
-        { label: 'Mobile Device Management', href: 'https://www.mixvoip.com/mdm/' },
-      ],
-    },
-    {
-      title: 'NETWORK AND IT',
-      links: [
-        { label: 'Co-managed LAN', href: 'https://www.mixvoip.com/co-managed-lan/' },
-        { label: 'IT services', href: 'https://www.mixvoip.com/it-services/' },
-        { label: 'Cybersecurity', href: 'https://www.mixvoip.com/cybersecurity/' },
-        { label: 'IPTV', href: 'https://www.mixvoip.com/iptv/' },
       ],
     },
     {
@@ -48,19 +33,6 @@ export default function Footer() {
       ],
     },
     {
-      title: 'HARDWARE',
-      links: [
-        { label: 'Desk phones', href: 'https://www.mixvoip.com/hardware/desk-phones/' },
-        { label: 'Headsets', href: 'https://www.mixvoip.com/hardware/headsets/' },
-        { label: 'Wireless phones', href: 'https://www.mixvoip.com/hardware/wireless-phones/' },
-        { label: 'Conference systems', href: 'https://www.mixvoip.com/hardware/conference-systems/' },
-        { label: 'Switches and Wi-Fi', href: 'https://www.mixvoip.com/hardware/switches-wifi/' },
-        { label: 'Routers & Firewalls', href: 'https://www.mixvoip.com/hardware/routers-firewalls/' },
-        { label: 'Doorbells & Intercoms', href: 'https://www.mixvoip.com/hardware/doorbells-intercoms/' },
-        { label: 'All products', href: 'https://www.mixvoip.com/hardware/' },
-      ],
-    },
-    {
       title: 'CONNECTIVITY',
       links: [
         { label: 'Internet in Luxembourg', href: 'https://www.mixvoip.com/internet/luxembourg/' },
@@ -70,18 +42,6 @@ export default function Footer() {
         { label: 'Internet add-ons', href: 'https://www.mixvoip.com/internet-add-ons/' },
         { label: 'Mobile connectivity', href: 'https://www.mixvoip.com/mobile-connectivity/' },
         { label: 'Service Level Agreements', href: 'https://www.mixvoip.com/sla/' },
-      ],
-    },
-    {
-      title: 'INSIGHTS',
-      links: [
-        { label: '3CX', href: 'https://www.mixvoip.com/insights/3cx/' },
-        { label: 'Innovaphone', href: 'https://www.mixvoip.com/insights/innovaphone/' },
-        { label: 'Wildix', href: 'https://www.mixvoip.com/insights/wildix/' },
-        { label: 'Emios', href: 'https://www.mixvoip.com/insights/emios/' },
-        { label: 'Yeastar', href: 'https://www.mixvoip.com/insights/yeastar/' },
-        { label: 'RingCentral', href: 'https://www.mixvoip.com/insights/ringcentral/' },
-        { label: 'All Insights', href: 'https://www.mixvoip.com/insights/' },
       ],
     },
     {
@@ -97,6 +57,41 @@ export default function Footer() {
       ],
     },
     {
+      title: 'MOBILE',
+      links: [
+        { label: 'Luxembourg mobile', href: 'https://www.mixvoip.com/mobile/luxembourg/' },
+        { label: 'Belgium mobile', href: 'https://www.mixvoip.com/mobile/belgium/' },
+        { label: 'France mobile', href: 'https://www.mixvoip.com/mobile/france/' },
+        { label: 'IoT and data mobile', href: 'https://www.mixvoip.com/iot/' },
+        { label: 'Mobile Device Management', href: 'https://www.mixvoip.com/mdm/' },
+      ],
+    },
+    {
+      title: 'HARDWARE',
+      links: [
+        { label: 'Desk phones', href: 'https://www.mixvoip.com/hardware/desk-phones/' },
+        { label: 'Headsets', href: 'https://www.mixvoip.com/hardware/headsets/' },
+        { label: 'Wireless phones', href: 'https://www.mixvoip.com/hardware/wireless-phones/' },
+        { label: 'Conference systems', href: 'https://www.mixvoip.com/hardware/conference-systems/' },
+        { label: 'Switches and Wi-Fi', href: 'https://www.mixvoip.com/hardware/switches-wifi/' },
+        { label: 'Routers & Firewalls', href: 'https://www.mixvoip.com/hardware/routers-firewalls/' },
+        { label: 'Doorbells & Intercoms', href: 'https://www.mixvoip.com/hardware/doorbells-intercoms/' },
+        { label: 'All products', href: 'https://www.mixvoip.com/hardware/' },
+      ],
+    },
+    {
+      title: 'INSIGHTS',
+      links: [
+        { label: '3CX', href: 'https://www.mixvoip.com/insights/3cx/' },
+        { label: 'Innovaphone', href: 'https://www.mixvoip.com/insights/innovaphone/' },
+        { label: 'Wildix', href: 'https://www.mixvoip.com/insights/wildix/' },
+        { label: 'Emios', href: 'https://www.mixvoip.com/insights/emios/' },
+        { label: 'Yeastar', href: 'https://www.mixvoip.com/insights/yeastar/' },
+        { label: 'RingCentral', href: 'https://www.mixvoip.com/insights/ringcentral/' },
+        { label: 'All Insights', href: 'https://www.mixvoip.com/insights/' },
+      ],
+    },
+    {
       title: 'RESOURCES',
       links: [
         { label: 'Blog', href: 'https://www.mixvoip.com/blog/' },
@@ -108,6 +103,15 @@ export default function Footer() {
         { label: 'Legal', href: 'https://www.mixvoip.com/legal/' },
         { label: 'GDPR', href: 'https://www.mixvoip.com/legal/gdpr/' },
         { label: 'Cookies', href: 'https://www.mixvoip.com/cookies/' },
+      ],
+    },
+    {
+      title: 'NETWORK AND IT',
+      links: [
+        { label: 'Co-managed LAN', href: 'https://www.mixvoip.com/co-managed-lan/' },
+        { label: 'IT services', href: 'https://www.mixvoip.com/it-services/' },
+        { label: 'Cybersecurity', href: 'https://www.mixvoip.com/cybersecurity/' },
+        { label: 'IPTV', href: 'https://www.mixvoip.com/iptv/' },
       ],
     },
   ];
@@ -156,8 +160,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Link Columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {/* Link Columns - 4 columns layout matching mixvoip.com */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8">
             {footerColumns.map((column) => (
               <div key={column.title}>
                 <h4 className="font-bold text-[#4D4D4D] text-xs uppercase tracking-wider mb-3">
