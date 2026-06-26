@@ -785,8 +785,8 @@ config = {
     "federatedRoots": None,
     "crt": "/etc/step-ca/intermediate_ca.crt",
     "key": "/etc/step-ca/intermediate_ca.key",
-    "address": ":8080",
-    "insecureAddress": "",
+    "address": ":8443",
+    "insecureAddress": ":8080",
     "dnsNames": [server_ip],
     "logger": {"format": "text"},
     "db": {
