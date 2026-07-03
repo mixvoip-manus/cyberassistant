@@ -1,5 +1,4 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
-import { useLocation } from 'wouter';
 import { useState } from 'react';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 
@@ -27,7 +26,7 @@ interface NavItem {
 
 export default function Header() {
   const { language, setLanguage, t, getAssetUrl } = useLanguage();
-  const [, setLocation] = useLocation();
+
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -122,15 +121,6 @@ export default function Header() {
   ];
 
   const handleLanguageChange = (lang: Language) => {
-    const currentPath = window.location.pathname;
-    const pathParts = currentPath.split('/').filter(Boolean);
-    
-    if (['en', 'de', 'fr'].includes(pathParts[0])) {
-      pathParts.shift();
-    }
-    
-    const newPath = `/${lang}${pathParts.length > 0 ? '/' + pathParts.join('/') : ''}`;
-    setLocation(newPath);
     setLanguage(lang);
   };
 
