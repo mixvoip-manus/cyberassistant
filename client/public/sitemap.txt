@@ -1,0 +1,3 @@
+/cyber/en/assistance
+/cyber/en/advisor
+/cyber/en/socaas
